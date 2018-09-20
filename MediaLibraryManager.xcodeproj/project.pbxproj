@@ -134,6 +134,7 @@
 		81AD632A21535DE70071147D /* MediaLibraryManagerGUI */ = {
 			isa = PBXGroup;
 			children = (
+				ED1083172153658F00F9E19D /* MainWindowScripts */,
 				81AD632B21535DE80071147D /* AppDelegate.swift */,
 				81AD632D21535DE80071147D /* ViewController.swift */,
 				81AD632F21535DE80071147D /* Assets.xcassets */,
@@ -207,6 +208,13 @@
 				D3F75322214240CE005C7C67 /* IndexerTests.swift */,
 			);
 			path = MediaLibraryManagerTests;
+			sourceTree = "<group>";
+		};
+		ED1083172153658F00F9E19D /* MainWindowScripts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainWindowScripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
