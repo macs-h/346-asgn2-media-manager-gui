@@ -52,10 +52,18 @@ extension ViewController: NSTableViewDataSource, NSTableViewDelegate{
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         print("making cell \(row)")
-        let file = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
+        let file = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView //FileCell
+        
         file.textField!.stringValue = files[row]
+        //file.file = collection[row]
         print("file text \(file.textField!.stringValue)")
         return file
     }
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        print("row selected \(row)")
+        return true
+    }
+    
+    
 }
 
