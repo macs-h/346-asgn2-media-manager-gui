@@ -12,13 +12,12 @@ class PreviewViewController: NSViewController {
     //var file = File()
 
     @IBOutlet weak var PreviewImage: NSImageView!
-    
+
     @IBOutlet weak var fileNameLabel: NSTextField!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
     }
-    
+
 }

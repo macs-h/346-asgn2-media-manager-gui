@@ -12,10 +12,10 @@ class PreviewView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        
+
         NSColor.white.setFill()
         dirtyRect.fill()
         // Drawing code here.
     }
-    
+
 }

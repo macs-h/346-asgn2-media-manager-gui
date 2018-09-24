@@ -16,5 +16,4 @@ class FileCell: NSTableCellView {
 
         // Drawing code here.
     }
-    
 }
