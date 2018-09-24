@@ -13,6 +13,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var fileTable: NSTableView!
     
     var files  = ["image 1", "image 2", "image 3", "image 4"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fileTable.dataSource = self
