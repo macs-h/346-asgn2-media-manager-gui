@@ -8,7 +8,7 @@
 //  Copyright © 2018 Paul Crane. All rights reserved.
 //
 
-// swiftlint:disable colon opening_brace vertical_whitespace trailing_whitespace
+// swiftlint:disable all
 
 import Foundation
 

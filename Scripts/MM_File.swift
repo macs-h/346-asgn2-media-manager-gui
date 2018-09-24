@@ -6,8 +6,6 @@
 //  Copyright © 2018 SMAX. All rights reserved.
 //
 
-// swiftlint:disable type_name identifier_name
-
 import Foundation
 
 /**

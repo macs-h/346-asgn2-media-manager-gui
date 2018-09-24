@@ -6,7 +6,7 @@
 //  Copyright © 2018 SMAX. All rights reserved.
 //
 
-// swiftlint:disable opening_brace type_name vertical_whitespace trailing_whitespace
+// swiftlint:disable all
 
 import Foundation
 

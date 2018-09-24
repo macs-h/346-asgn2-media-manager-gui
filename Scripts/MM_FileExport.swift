@@ -6,10 +6,6 @@
 //  Copyright © 2018 SMAX. All rights reserved.
 //
 
-// swiftlint:disable colon type_name identifier_name vertical_whitespace trailing_whitespace
-// swiftlint:disable nesting 
-
-
 import Foundation
 
 /**
