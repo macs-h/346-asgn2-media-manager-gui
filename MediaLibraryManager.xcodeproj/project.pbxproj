@@ -41,6 +41,7 @@
 		D3F753202140F23D005C7C67 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7531F2140F23D005C7C67 /* Index.swift */; };
 		D3F753212140F267005C7C67 /* Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F7531F2140F23D005C7C67 /* Index.swift */; };
 		D3F75323214240CE005C7C67 /* IndexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F75322214240CE005C7C67 /* IndexerTests.swift */; };
+		E15D5F282158798900045C47 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D5F272158798900045C47 /* PreviewView.swift */; };
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFDD4302154F06E008786A5 /* Placeholder.png */; };
 		EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
@@ -101,6 +102,7 @@
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		D3F7531F2140F23D005C7C67 /* Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Index.swift; sourceTree = "<group>"; };
 		D3F75322214240CE005C7C67 /* IndexerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexerTests.swift; sourceTree = "<group>"; };
+		E15D5F272158798900045C47 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		EDFDD4302154F06E008786A5 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				81AD632D21535DE80071147D /* ViewController.swift */,
 				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
+				E15D5F272158798900045C47 /* PreviewView.swift */,
 			);
 			path = MainWindowScripts;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E15D5F282158798900045C47 /* PreviewView.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* ViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,

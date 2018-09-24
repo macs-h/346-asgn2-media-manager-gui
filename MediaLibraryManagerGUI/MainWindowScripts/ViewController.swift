@@ -18,6 +18,8 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         fileTable.dataSource = self
         fileTable.delegate = self
+        fileTable.doubleAction = #selector(doubleClickOnRow)
+        fileTable.action = #selector(clickOnRow)
         // Do any additional setup after loading the view.
     }
 
@@ -42,6 +44,16 @@ class ViewController: NSViewController {
             print("other button pressed")
         }
     }
+    @objc func doubleClickOnRow(){
+        print("doubleClickOnRow \(fileTable.clickedRow)")
+        //send file to preview
+    }
+    
+    @objc func clickOnRow(){
+        print("clickOnRow \(fileTable.clickedRow)")
+        //open file
+    }
+    //listen for clicks and remove preview if no files were clicked
     
 }
 
@@ -60,10 +72,10 @@ extension ViewController: NSTableViewDataSource, NSTableViewDelegate{
         print("file text \(file.textField!.stringValue)")
         return file
     }
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        print("row selected \(row)")
-        return true
-    }
+//    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+//        print("row selected \(row)")
+//        return true
+//    }
     
     
 }
