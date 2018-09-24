@@ -10,6 +10,18 @@
 		60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 		60897EBF2158E8B4008CB337 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D5F272158798900045C47 /* PreviewView.swift */; };
+		816B04622159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */; };
+		816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */; };
+		816B04652159A60E0057DEA5 /* MediaWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04642159A60E0057DEA5 /* MediaWindowView.swift */; };
+		816B04662159A60E0057DEA5 /* MediaWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04642159A60E0057DEA5 /* MediaWindowView.swift */; };
+		816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241E52133AE390061C4F3 /* MM_File.swift */; };
+		816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241F92133B1630061C4F3 /* MM_Collection.swift */; };
+		816B04692159A8180057DEA5 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
+		816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A242112133C0960061C4F3 /* MM_FileExport.swift */; };
+		816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
+		816B046C2159A8180057DEA5 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2C20D749BD00EC97E8 /* protocols.swift */; };
+		816B046D2159A8180057DEA5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2320D748F800EC97E8 /* main.swift */; };
+		816B046E2159A8180057DEA5 /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		818DA0D4215867EE000C22C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* ViewController.swift */; };
 		81AD632C21535DE80071147D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632B21535DE80071147D /* AppDelegate.swift */; };
 		81AD632E21535DE80071147D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* ViewController.swift */; };
@@ -69,6 +81,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowViewController.swift; sourceTree = "<group>"; };
+		816B04642159A60E0057DEA5 /* MediaWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowView.swift; sourceTree = "<group>"; };
 		81AD632921535DE70071147D /* MediaLibraryManagerGUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaLibraryManagerGUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AD632B21535DE80071147D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81AD632D21535DE80071147D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,9 +163,19 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		816B04602159A5A90057DEA5 /* MediaWindowScripts */ = {
+			isa = PBXGroup;
+			children = (
+				816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */,
+				816B04642159A60E0057DEA5 /* MediaWindowView.swift */,
+			);
+			path = MediaWindowScripts;
+			sourceTree = "<group>";
+		};
 		81AD632A21535DE70071147D /* MediaLibraryManagerGUI */ = {
 			isa = PBXGroup;
 			children = (
+				816B04602159A5A90057DEA5 /* MediaWindowScripts */,
 				EDFDD42F2154F06E008786A5 /* Images */,
 				ED1083172153658F00F9E19D /* MainWindowScripts */,
 				81AD632B21535DE80071147D /* AppDelegate.swift */,
@@ -397,11 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -414,11 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
-			);
-			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
@@ -433,11 +449,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */,
+				816B04692159A8180057DEA5 /* MM_FileImport.swift in Sources */,
+				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
+				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
+				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
+				816B046D2159A8180057DEA5 /* main.swift in Sources */,
+				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
+				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				E15D5F282158798900045C47 /* PreviewView.swift in Sources */,
+				816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* ViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
+				816B04662159A60E0057DEA5 /* MediaWindowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,10 +487,12 @@
 				60897EBF2158E8B4008CB337 /* PreviewView.swift in Sources */,
 				818DA0D4215867EE000C22C0 /* ViewController.swift in Sources */,
 				D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */,
+				816B04622159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				D3161D2420D748F800EC97E8 /* main.swift in Sources */,
 				D3A241FA2133B1630061C4F3 /* MM_Collection.swift in Sources */,
 				D3161D2D20D749BD00EC97E8 /* protocols.swift in Sources */,
 				D3A241E62133AE390061C4F3 /* MM_File.swift in Sources */,
+				816B04652159A60E0057DEA5 /* MediaWindowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
