@@ -72,11 +72,11 @@ class MM_FileImport : MMFileImport {
         
         // check for duplicates.
         for file in importedFiles {
-            if library.search(term: file.fullpath).isEmpty {
-                filesToAdd.append(file)
-            } else {
-                print("\(file.filename) already in collection")
-            }
+//            if library.search(term: file.fullpath).isEmpty {
+//                filesToAdd.append(file)
+//            } else {
+//                print("\(file.filename) already in collection")
+//            }
         }
         
         return filesToAdd

@@ -20,7 +20,6 @@
 		816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A242112133C0960061C4F3 /* MM_FileExport.swift */; };
 		816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		816B046C2159A8180057DEA5 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2C20D749BD00EC97E8 /* protocols.swift */; };
-		816B046D2159A8180057DEA5 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2320D748F800EC97E8 /* main.swift */; };
 		816B046E2159A8180057DEA5 /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		818DA0D4215867EE000C22C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* ViewController.swift */; };
 		81AD632C21535DE80071147D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632B21535DE80071147D /* AppDelegate.swift */; };
@@ -454,7 +453,6 @@
 				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
-				816B046D2159A8180057DEA5 /* main.swift in Sources */,
 				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				E15D5F282158798900045C47 /* PreviewView.swift in Sources */,
