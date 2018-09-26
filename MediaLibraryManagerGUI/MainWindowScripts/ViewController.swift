@@ -62,21 +62,18 @@ class ViewController: NSViewController {
 extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
+        print("num of rows called")
         return files.count
     }
 
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
-        let file = tableView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView //FileCell
-
+        let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
+        
         file.textField!.stringValue = files[row]
         //file.file = collection[row]
         print("file text \(file.textField!.stringValue)")
         return file
     }
-//    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-//        print("row selected \(row)")
-//        return true
-//    }
 
 }
