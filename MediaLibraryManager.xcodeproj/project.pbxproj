@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
-		60897EBF2158E8B4008CB337 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D5F272158798900045C47 /* PreviewView.swift */; };
 		816B04622159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */; };
 		816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */; };
 		816B04652159A60E0057DEA5 /* MediaWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04642159A60E0057DEA5 /* MediaWindowView.swift */; };
@@ -21,9 +20,9 @@
 		816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		816B046C2159A8180057DEA5 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2C20D749BD00EC97E8 /* protocols.swift */; };
 		816B046E2159A8180057DEA5 /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
-		818DA0D4215867EE000C22C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* ViewController.swift */; };
+		818DA0D4215867EE000C22C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* MainViewController.swift */; };
 		81AD632C21535DE80071147D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632B21535DE80071147D /* AppDelegate.swift */; };
-		81AD632E21535DE80071147D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* ViewController.swift */; };
+		81AD632E21535DE80071147D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD632D21535DE80071147D /* MainViewController.swift */; };
 		81AD633021535DE80071147D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81AD632F21535DE80071147D /* Assets.xcassets */; };
 		81AD633321535DE80071147D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AD633121535DE80071147D /* Main.storyboard */; };
 		81AD633F21535DE80071147D /* MediaLibraryManagerGUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AD633E21535DE80071147D /* MediaLibraryManagerGUITests.swift */; };
@@ -51,7 +50,7 @@
 		D3A242292135405D0061C4F3 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		D3F75323214240CE005C7C67 /* IndexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F75322214240CE005C7C67 /* IndexerTests.swift */; };
-		E15D5F282158798900045C47 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15D5F272158798900045C47 /* PreviewView.swift */; };
+		E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFDD4302154F06E008786A5 /* Placeholder.png */; };
 		EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
@@ -84,7 +83,7 @@
 		816B04642159A60E0057DEA5 /* MediaWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowView.swift; sourceTree = "<group>"; };
 		81AD632921535DE70071147D /* MediaLibraryManagerGUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaLibraryManagerGUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AD632B21535DE80071147D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		81AD632D21535DE80071147D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		81AD632D21535DE80071147D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		81AD632F21535DE80071147D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81AD633221535DE80071147D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81AD633421535DE80071147D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,7 +111,7 @@
 		D3A24227213502A30061C4F3 /* MM_Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MM_Metadata.swift; sourceTree = "<group>"; };
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		D3F75322214240CE005C7C67 /* IndexerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexerTests.swift; sourceTree = "<group>"; };
-		E15D5F272158798900045C47 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		E1667A39215CD96700B37644 /* MainTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopViewController.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		EDFDD4302154F06E008786A5 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -248,10 +247,10 @@
 		ED1083172153658F00F9E19D /* MainWindowScripts */ = {
 			isa = PBXGroup;
 			children = (
-				81AD632D21535DE80071147D /* ViewController.swift */,
+				81AD632D21535DE80071147D /* MainViewController.swift */,
 				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
-				E15D5F272158798900045C47 /* PreviewView.swift */,
+				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
 			);
 			path = MainWindowScripts;
 			sourceTree = "<group>";
@@ -274,7 +273,6 @@
 				81AD632521535DE70071147D /* Sources */,
 				81AD632621535DE70071147D /* Frameworks */,
 				81AD632721535DE70071147D /* Resources */,
-				60897EC02158E8E7008CB337 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -310,7 +308,6 @@
 				D3161D1C20D748F800EC97E8 /* Sources */,
 				D3161D1D20D748F800EC97E8 /* Frameworks */,
 				D3161D1E20D748F800EC97E8 /* CopyFiles */,
-				60CE819721599F010008E7DC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -414,35 +411,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		60897EC02158E8E7008CB337 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		60CE819721599F010008E7DC /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		81AD632521535DE70071147D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -451,14 +419,14 @@
 				816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */,
 				816B04692159A8180057DEA5 /* MM_FileImport.swift in Sources */,
 				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
+				E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
 				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
-				E15D5F282158798900045C47 /* PreviewView.swift in Sources */,
 				816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
-				81AD632E21535DE80071147D /* ViewController.swift in Sources */,
+				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
 				816B04662159A60E0057DEA5 /* MediaWindowView.swift in Sources */,
@@ -482,8 +450,7 @@
 				D3A241FC2133B2070061C4F3 /* MM_FileImport.swift in Sources */,
 				60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */,
 				60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */,
-				60897EBF2158E8B4008CB337 /* PreviewView.swift in Sources */,
-				818DA0D4215867EE000C22C0 /* ViewController.swift in Sources */,
+				818DA0D4215867EE000C22C0 /* MainViewController.swift in Sources */,
 				D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */,
 				816B04622159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				D3161D2420D748F800EC97E8 /* main.swift in Sources */,

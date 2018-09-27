@@ -10,11 +10,13 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class MainViewController: NSViewController {
 
     @IBOutlet weak var fileTable: NSTableView!
 
     var files  = ["image 1", "image 2", "image 3", "image 4"]
+    var collection = [MM_File()]
+    var fileIsSelected = false // indicates if a file is selected -----(needs an observer so we know when to remove the preview)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,18 +50,32 @@ class ViewController: NSViewController {
     }
     @objc func doubleClickOnRow() {
         print("doubleClickOnRow \(fileTable.clickedRow)")
-        //send file to preview
+       
+        if fileTable.clickedRow == -1 {
+            //not clicked on a file
+            fileIsSelected = false
+        } else {
+            //open file
+            fileIsSelected = true //might need to set to false so preview is nolonger open when pressing back
+        }
     }
 
     @objc func clickOnRow() {
         print("clickOnRow \(fileTable.clickedRow)")
-        //open file
+        
+        if fileTable.clickedRow == -1 {
+            //not clicked on a file
+            fileIsSelected = false
+        } else {
+             //send file to preview
+            fileIsSelected = true
+        }
     }
     //listen for clicks and remove preview if no files were clicked
 
 }
 
-extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
+extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
         print("num of rows called")
