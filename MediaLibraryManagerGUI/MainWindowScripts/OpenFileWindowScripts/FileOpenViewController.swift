@@ -67,9 +67,8 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     
     @IBAction func playButtonAction(_ sender: Any) {
         //tell the model to play the media
-        NSLog("Play button pressed")
-        let myWindowController = self.storyboard!.instantiateController(withIdentifier: "mainWindow") as! NSWindowController
-        myWindowController.showWindow(self)
+        Model.instance.openFile()
+        
     }
     
     

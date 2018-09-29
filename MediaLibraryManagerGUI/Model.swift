@@ -53,7 +53,7 @@ class Model{
         
     }
     
-    func openFile(file: MMFile){
+    func openFile(){
         //check the type of file and open it accordingly
         openFileDelegate?.openMedia(file: currentFile)
     }
