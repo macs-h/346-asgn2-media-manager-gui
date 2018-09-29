@@ -8,13 +8,81 @@
 
 import Foundation
 
+
+protocol openFileModelDegate {
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
+    func openMedia(file: MMFile)
+}
+protocol mainViewModelDegate {
+    func updateOutets(CurrentFile: MMFile, files: [MMFile], fileType: String)
+}
+
+
 class Model{
+    static var instance = Model()
     var libary = MM_Collection()//holds all the files
-    var collection = MM_Collection() //holds the files that are show on screen (using categories)
+    var subLibary = MM_Collection() //holds the files that are show on screen (using categories)
+    var currentFile = MM_File(){
+        didSet{
+            setup()
+        }
+    }
+    var bookmarks: [String]  = []
+    var notes: String = ""
+    var openFileDelegate: openFileModelDegate?{
+        didSet{
+            updateOpenFileVC()
+        }
+    }
+    var mainViewDegate: mainViewModelDegate?{
+        didSet{
+            updateMainVC()
+        }
+    }
     
+    func setup(){
+        let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+        if bookmarkMetadataIndex != -1 {
+            let bookmarkString = currentFile.metadata[bookmarkMetadataIndex].value
+            bookmarks = bookmarkString.components(separatedBy: " ")
+        }
+        let notesMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+        if notesMetadataIndex != -1 {
+            notes = currentFile.metadata[notesMetadataIndex].value
+        }
+        
+    }
     
     func openFile(file: MMFile){
         //check the type of file and open it accordingly
-        
+        openFileDelegate?.openMedia(file: currentFile)
+    }
+    
+    func addBookmark(){
+        //get current time from the player
+        let time = "1.1" //temp
+        //add the metadata to the file
+        bookmarks.append(time)
+        saveData()
+        updateOpenFileVC()
+    }
+    
+    func addNotes(notes: String){
+        self.notes = notes
+        saveData()
+        updateOpenFileVC()
+    }
+    
+    func saveData(){
+        //save bookmarks
+        //save notes
+    }
+    
+    private func updateOpenFileVC(){
+        openFileDelegate?.updateOutets(currentFile: currentFile, notes: notes, bookmarks: bookmarks)
+    }
+    
+    private func updateMainVC(){
+        mainViewDegate?.updateOutets(CurrentFile: currentFile , files: subLibary.collection, fileType: currentFile.fileType)
     }
 }

@@ -8,10 +8,13 @@
 
 import Cocoa
 
-class FileOpenViewController: NSViewController {
+class FileOpenViewController: NSViewController, openFileModelDegate {
+
     var file: MMFile!
-    var bookmarks: [float_t] = [0.0, 0.1, 0.2] //----unsure about type (depends on what media player takes)
+    var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
+    
+    @IBOutlet weak var notesLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,8 @@ class FileOpenViewController: NSViewController {
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
         bookmarkTable.action = #selector(clickOnRow)
+        
+        Model.instance.openFileDelegate = self
     }
     
     /**
@@ -39,11 +44,21 @@ class FileOpenViewController: NSViewController {
             //show other
         }
     }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "MainViewSegue" {
+            print("trying to segue")
+            //let destinationVC = segue.destinationController as! MainViewController
+        }
+    }
+    
     /**
-        Called when the user presses enter on text box
+        Called when the user presses enter on notes text box
     */
     @IBAction func NotesAction(_ sender: NSTextFieldCell) {
         print(sender.stringValue)
+        Model.instance.addNotes(notes: sender.stringValue)
         //save value by sending metadata to model with key: Notes
     }
     @IBAction func previousButtonAction(_ sender: NSButton) {
@@ -62,13 +77,29 @@ class FileOpenViewController: NSViewController {
         //tell the model to change to file to the new file
     }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "MainViewSegue" {
-            print("trying to segue")
-            //let destinationVC = segue.destinationController as! MainViewController
-        }
+    @IBAction func addBookmarksAction(_ sender: NSButton) {
+       //tell the model to create a bookmark
+        Model.instance.addBookmark()
     }
+    
+    
+    
+    //--- degate functions
+    /**
+     Called by the model to update ui elements
+     */
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String]) {
+        self.notesLabel.stringValue = notes
+        self.bookmarks = bookmarks
+        bookmarkTable.reloadData()
+        self.file = currentFile
+        print("delgate works")
+    }
+    
+    func openMedia(file: MMFile) {
+        performSegue(withIdentifier: "ShowMediaContentSegue", sender: self)
+    }
+
 }
 
 extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{

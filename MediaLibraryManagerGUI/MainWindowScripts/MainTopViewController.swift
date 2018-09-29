@@ -10,10 +10,13 @@ import Cocoa
 
 class MainTopViewController: NSViewController {
     var splitView: NSViewController = NSViewController()
+    //var mainVC: NSViewController = NSViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         splitView = self.parent!
+       // mainVC = splitView.children[1]
     }
     @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
     
@@ -39,6 +42,7 @@ class MainTopViewController: NSViewController {
             //forwardButton pressed
             for child in splitView.children{
                 print("list of children \(child.title)")
+                
             }
             //opens a file if selected, otherwise disabled
         }
