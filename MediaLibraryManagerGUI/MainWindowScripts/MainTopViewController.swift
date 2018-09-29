@@ -39,6 +39,7 @@ class MainTopViewController: NSViewController {
             //forwardButton pressed
             for child in splitView.children{
                 print("list of children \(child.title)")
+                
             }
             //opens a file if selected, otherwise disabled
         }

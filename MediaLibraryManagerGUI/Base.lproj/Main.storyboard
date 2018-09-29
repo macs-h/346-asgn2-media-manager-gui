@@ -1007,6 +1007,14 @@
                                     <constraint firstAttribute="bottom" secondItem="tzf-Ds-QEO" secondAttribute="bottom" constant="20" id="zHl-8R-57I"/>
                                 </constraints>
                             </customView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b68-mi-ogR">
+                                <rect key="frame" x="775" y="13" width="71" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" title="Bookmark" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mAa-3K-OxD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="dR2-9J-MVw" secondAttribute="trailing" constant="527" id="0Uz-qU-N1u"/>
