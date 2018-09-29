@@ -16,10 +16,16 @@ class MainViewController: NSViewController {
     @IBOutlet weak var fileTable: NSTableView!
 
     var files  = ["image 1", "image 2", "image 3", "image 4"]
-    var collection = [MM_File()]
+    //var collection = [MM_File()]
     var fileIsSelected = false // indicates if a file is selected -----(needs an observer so we know when to remove the preview)
-    var fileSelected: MMFile?
+    var selectedFile: MMFile?{
+        didSet{
+            mainTopVC.currentFile = selectedFile
+            Model.instance.currentFile = selectedFile
+        }
+    }
     var fileTypeSelected = ""
+    var mainTopVC = MainTopViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +33,8 @@ class MainViewController: NSViewController {
         fileTable.delegate = self
         fileTable.doubleAction = #selector(doubleClickOnRow)
         fileTable.action = #selector(clickOnRow)
+        mainTopVC = (self.parent?.children[0]) as! MainTopViewController
+        selectedFile = Model.instance.currentFile
         // Do any additional setup after loading the view.
     }
 
@@ -84,7 +92,7 @@ class MainViewController: NSViewController {
         if segue.identifier == "FileOpenSegue" {
             print("trying to segue")
             let destinationVC = segue.destinationController as! FileOpenViewController
-            destinationVC.setUp(file: fileSelected!, type: fileTypeSelected)
+            destinationVC.setUp(file: selectedFile!, type: fileTypeSelected)
         }
     }
 
@@ -94,10 +102,14 @@ class MainViewController: NSViewController {
         if fileTable.clickedRow == -1 {
             //not clicked on a file
             fileIsSelected = false
+            selectedFile = nil
         } else {
              //send file to preview
             fileIsSelected = true
-            fileSelected = MM_File()
+            let tempFile = MM_File()
+            tempFile.filename = String(fileTable.clickedRow)
+            selectedFile = tempFile
+            //            fileSelected = Model.instance.subLibary.collection[fileTable.clickedRow]
         }
     }
     //listen for clicks and remove preview if no files were clicked

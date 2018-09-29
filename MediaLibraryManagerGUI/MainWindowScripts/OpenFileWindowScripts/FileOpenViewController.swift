@@ -48,8 +48,9 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "MainViewSegue" {
-            print("trying to segue")
-            //let destinationVC = segue.destinationController as! MainViewController
+            print("trying to segue to \(segue.identifier)")
+//            let destinationVC = segue.destinationController as! MainViewController
+//            destinationVC.fileSelected = file
         }
     }
     
@@ -86,7 +87,7 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
      Called by the model to update ui elements
      */
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String]) {
-        self.notesLabel.stringValue = notes
+        self.notesLabel.stringValue = currentFile.filename//notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()
         self.file = currentFile
