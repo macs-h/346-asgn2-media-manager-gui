@@ -700,10 +700,10 @@
             </objects>
             <point key="canvasLocation" x="-258" y="-404"/>
         </scene>
-        <!--Main View Controller-->
+        <!--MainVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainVC" id="XfG-lQ-9wD" customClass="MainViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="646"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -833,10 +833,10 @@
             </objects>
             <point key="canvasLocation" x="1071" y="499"/>
         </scene>
-        <!--File Open View Controller-->
+        <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
             <objects>
-                <viewController storyboardIdentifier="OpenFileVC" showSeguePresentationStyle="single" id="EPY-3s-paR" customClass="FileOpenViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FileOpenVC" storyboardIdentifier="OpenFileVC" showSeguePresentationStyle="single" id="EPY-3s-paR" customClass="FileOpenViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Qpd-yv-ZCM">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="646"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -977,10 +977,10 @@
             </objects>
             <point key="canvasLocation" x="69" y="488"/>
         </scene>
-        <!--Main Top View Controller-->
+        <!--MainTopVC-->
         <scene sceneID="OsU-xk-6fQ">
             <objects>
-                <viewController id="GPT-n4-WSd" customClass="MainTopViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainTopVC" storyboardIdentifier="MainTopVC" id="GPT-n4-WSd" customClass="MainTopViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="B8L-mj-kSV">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="74"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -9,10 +9,11 @@
 import Cocoa
 
 class MainTopViewController: NSViewController {
-
+    var splitView: NSViewController = NSViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        splitView = self.parent!
     }
     @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
     
@@ -30,25 +31,18 @@ class MainTopViewController: NSViewController {
             //back button pressed
             
             //exits a file but keeps it selected (can press forward)
-            let splitView = self.parent
-            let openFileVC = splitView?.children[1]
-            performSegue(withIdentifier: "MainViewSegue", sender: openFileVC)
-            print("trying to go back in button")
+            
+            let openFileVC = splitView.children[1]
+            print("child 1: \(openFileVC.identifier)")
+            openFileVC.performSegue(withIdentifier: "MainViewSegue", sender: self)
         }else{
             //forwardButton pressed
-            
+            for child in splitView.children{
+                print("list of children \(child.title)")
+            }
             //opens a file if selected, otherwise disabled
         }
     }
     
-    //opens a new window (kinda) rather that opening in same one
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "MainViewSegue" {
-            print("trying to segue")
-            let destinationVC = segue.destinationController as! MainViewController
-            print("trying to go back")
-        }
-    }
     
 }
