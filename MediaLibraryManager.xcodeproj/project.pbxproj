@@ -51,7 +51,11 @@
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		D3F75323214240CE005C7C67 /* IndexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F75322214240CE005C7C67 /* IndexerTests.swift */; };
 		E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
+		ED024803215F0F2500F9EB93 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED024802215F0F2500F9EB93 /* Model.swift */; };
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
+		EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */; };
+		EDC5CBDA215F048F00F3C0D4 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
+		EDF9313A215EDCCA00831EE5 /* FileOpenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */; };
 		EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFDD4302154F06E008786A5 /* Placeholder.png */; };
 		EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
@@ -112,7 +116,10 @@
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		D3F75322214240CE005C7C67 /* IndexerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexerTests.swift; sourceTree = "<group>"; };
 		E1667A39215CD96700B37644 /* MainTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopViewController.swift; sourceTree = "<group>"; };
+		ED024802215F0F2500F9EB93 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
+		EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStoryboardSegue.swift; sourceTree = "<group>"; };
+		EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenViewController.swift; sourceTree = "<group>"; };
 		EDFDD4302154F06E008786A5 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +188,7 @@
 				81AD633121535DE80071147D /* Main.storyboard */,
 				81AD633421535DE80071147D /* Info.plist */,
 				81AD633521535DE80071147D /* MediaLibraryManagerGUI.entitlements */,
+				ED024802215F0F2500F9EB93 /* Model.swift */,
 			);
 			path = MediaLibraryManagerGUI;
 			sourceTree = "<group>";
@@ -247,12 +255,22 @@
 		ED1083172153658F00F9E19D /* MainWindowScripts */ = {
 			isa = PBXGroup;
 			children = (
+				EDF93133215EDC2E00831EE5 /* OpenFileWindowScripts */,
 				81AD632D21535DE80071147D /* MainViewController.swift */,
 				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
 				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
 			);
 			path = MainWindowScripts;
+			sourceTree = "<group>";
+		};
+		EDF93133215EDC2E00831EE5 /* OpenFileWindowScripts */ = {
+			isa = PBXGroup;
+			children = (
+				EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */,
+				EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */,
+			);
+			path = OpenFileWindowScripts;
 			sourceTree = "<group>";
 		};
 		EDFDD42F2154F06E008786A5 /* Images */ = {
@@ -421,15 +439,18 @@
 				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
 				E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
+				EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
 				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
+				ED024803215F0F2500F9EB93 /* Model.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
 				816B04662159A60E0057DEA5 /* MediaWindowView.swift in Sources */,
+				EDF9313A215EDCCA00831EE5 /* FileOpenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +473,7 @@
 				60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */,
 				818DA0D4215867EE000C22C0 /* MainViewController.swift in Sources */,
 				D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */,
+				EDC5CBDA215F048F00F3C0D4 /* MainTopViewController.swift in Sources */,
 				816B04622159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				D3161D2420D748F800EC97E8 /* main.swift in Sources */,
 				D3A241FA2133B1630061C4F3 /* MM_Collection.swift in Sources */,

@@ -9,6 +9,7 @@
 // swiftlint:disable force_cast
 
 import Cocoa
+import AppKit
 
 class MainViewController: NSViewController {
 
@@ -17,6 +18,8 @@ class MainViewController: NSViewController {
     var files  = ["image 1", "image 2", "image 3", "image 4"]
     var collection = [MM_File()]
     var fileIsSelected = false // indicates if a file is selected -----(needs an observer so we know when to remove the preview)
+    var fileSelected: MMFile?
+    var fileTypeSelected = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,15 +40,19 @@ class MainViewController: NSViewController {
         if sender.tag == 0 {
             //image button
             print("image button pressed")
+            fileTypeSelected = "Image"
         } else if sender.tag == 1 {
             //video button
             print("video button pressed")
+            fileTypeSelected = "Video"
         } else if sender.tag == 2 {
             //music button
             print("music button pressed")
+            fileTypeSelected = "Music"
         } else {
             //other button
             print("other button pressed")
+            fileTypeSelected = "Other"
         }
     }
     @objc func doubleClickOnRow() {
@@ -57,6 +64,28 @@ class MainViewController: NSViewController {
         } else {
             //open file
             fileIsSelected = true //might need to set to false so preview is nolonger open when pressing back
+//            openFileVC()
+            performSegue(withIdentifier: "FileOpenSegue", sender: self)
+            print("trying to segue no")
+        }
+    }
+    
+//    func openFileVC(){
+//        let openFileVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "OpenFileVC") as! FileOpenViewController
+//        self.insertChild(openFileVC, at: 0)
+//        self.view.addSubview(openFileVC.view)
+//        self.view.replaceSubview(self.view, with: openFileVC.view)
+//        self.view.frame = openFileVC.view.frame
+//        print("controller opened")    }
+    
+    
+    //opens a new window (kinda) rather that opening in same one
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "FileOpenSegue" {
+            print("trying to segue")
+            let destinationVC = segue.destinationController as! FileOpenViewController
+            destinationVC.setUp(file: fileSelected!, type: fileTypeSelected)
         }
     }
 
@@ -69,6 +98,7 @@ class MainViewController: NSViewController {
         } else {
              //send file to preview
             fileIsSelected = true
+            fileSelected = MM_File()
         }
     }
     //listen for clicks and remove preview if no files were clicked
