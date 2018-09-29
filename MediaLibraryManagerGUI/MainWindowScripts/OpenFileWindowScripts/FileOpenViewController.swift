@@ -77,6 +77,7 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         //tell the model to change to file to the new file
     }
     
+
     @IBAction func addBookmarksAction(_ sender: NSButton) {
        //tell the model to create a bookmark
         Model.instance.addBookmark()

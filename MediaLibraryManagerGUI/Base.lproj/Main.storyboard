@@ -867,7 +867,6 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="playButtonAction:" target="EPY-3s-paR" id="qNZ-tf-Fus"/>
-                                    <segue destination="F3p-fK-OAM" kind="show" id="nzw-fi-AeR"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-9J-MVw" userLabel="Previous Button">
@@ -1043,6 +1042,7 @@
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
+                        <segue destination="F3p-fK-OAM" kind="show" identifier="ShowMediaContentSegue" id="YkK-fJ-Hk5"/>
                     </connections>
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
