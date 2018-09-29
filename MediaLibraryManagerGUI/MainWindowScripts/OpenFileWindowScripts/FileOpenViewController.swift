@@ -10,12 +10,17 @@ import Cocoa
 
 class FileOpenViewController: NSViewController {
     var file: MMFile!
-    @IBOutlet weak var label: NSTextField!
+    var bookmarks: [float_t] = [0.0, 0.1, 0.2] //----unsure about type (depends on what media player takes)
+    @IBOutlet weak var bookmarkTable: NSTableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         print("fileOpenVC called")
-        
+        bookmarkTable.delegate = self
+        bookmarkTable.dataSource = self
+        bookmarkTable.doubleAction = #selector(doubleClickOnRow)
+        bookmarkTable.action = #selector(clickOnRow)
     }
     
     /**
@@ -58,7 +63,32 @@ class FileOpenViewController: NSViewController {
         
         if segue.identifier == "MainViewSegue" {
             print("trying to segue")
-            let destinationVC = segue.destinationController as! MainViewController
+            //let destinationVC = segue.destinationController as! MainViewController
         }
     }
+}
+
+extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return bookmarks.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        print("making cell \(row)")
+        let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkID"), owner: nil) as! NSTableCellView
+        
+        file.textField!.stringValue = String(bookmarks[row])
+        print("file text \(file.textField!.stringValue)")
+        return file
+    }
+    
+    @objc func doubleClickOnRow(){
+        print("double click on bookmark table \(bookmarkTable.clickedRow)")
+    }
+    
+    @objc func clickOnRow(){
+        print("single click on bookmark table \(bookmarkTable.clickedRow)")
+    }
+    
 }
