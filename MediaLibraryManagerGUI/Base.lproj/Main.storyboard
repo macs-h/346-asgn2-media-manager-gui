@@ -1113,9 +1113,6 @@
                                         <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="evV-tQ-88J">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="20"/>
-                                            <connections>
-                                                <binding destination="GPT-n4-WSd" name="enabled" keyPath="self.mainVC.fileIsSelected" id="JTf-UN-n7A"/>
-                                            </connections>
                                         </buttonCell>
                                         <connections>
                                             <action selector="forward_BackPressed:" target="GPT-n4-WSd" id="cif-oY-fmv"/>
@@ -1354,7 +1351,6 @@
         <image name="Placeholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>
