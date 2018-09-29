@@ -963,11 +963,11 @@
                                             <constraint firstAttribute="width" constant="149" id="Dv7-e8-HV1"/>
                                             <constraint firstAttribute="height" constant="509" id="TMw-sM-XmU"/>
                                         </constraints>
-                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="P8Q-8c-4Eo">
+                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="P8Q-8c-4Eo">
                                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="awa-7C-phe">
+                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="awa-7C-phe">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -1113,6 +1113,9 @@
                                         <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="evV-tQ-88J">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="20"/>
+                                            <connections>
+                                                <binding destination="GPT-n4-WSd" name="enabled" keyPath="self.mainVC.fileIsSelected" id="JTf-UN-n7A"/>
+                                            </connections>
                                         </buttonCell>
                                         <connections>
                                             <action selector="forward_BackPressed:" target="GPT-n4-WSd" id="cif-oY-fmv"/>
@@ -1165,6 +1168,7 @@
                     </connections>
                 </viewController>
                 <customObject id="YT6-Og-Yue" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="s6B-dE-mO5"/>
             </objects>
             <point key="canvasLocation" x="1071" y="85"/>
         </scene>
@@ -1350,6 +1354,7 @@
         <image name="Placeholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>
