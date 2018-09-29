@@ -11,7 +11,7 @@ import Cocoa
 class FileOpenViewController: NSViewController, openFileModelDegate {
 
     var file: MMFile!
-    var bookmarks: [float_t] = [0.0, 0.1, 0.2] //----unsure about type (depends on what media player takes)
+    var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
     
     @IBOutlet weak var notesLabel: NSTextField!
@@ -58,6 +58,7 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     */
     @IBAction func NotesAction(_ sender: NSTextFieldCell) {
         print(sender.stringValue)
+        Model.instance.addNotes(notes: sender.stringValue)
         //save value by sending metadata to model with key: Notes
     }
     @IBAction func previousButtonAction(_ sender: NSButton) {
@@ -84,7 +85,7 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     /**
      Called by the model to update ui elements
      */
-    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [float_t]) {
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String]) {
         self.notesLabel.stringValue = notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()

@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol openFileModelDegate {
-    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [float_t])
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
     func openMedia(file: MMFile)
 }
 protocol mainViewModelDegate {
@@ -22,7 +22,13 @@ class Model{
     static var instance = Model()
     var libary = MM_Collection()//holds all the files
     var subLibary = MM_Collection() //holds the files that are show on screen (using categories)
-    var currentFile = MM_File()
+    var currentFile = MM_File(){
+        didSet{
+            setup()
+        }
+    }
+    var bookmarks: [String]  = []
+    var notes: String = ""
     var openFileDelegate: openFileModelDegate?{
         didSet{
             updateOpenFileVC()
@@ -34,6 +40,19 @@ class Model{
         }
     }
     
+    func setup(){
+        let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+        if bookmarkMetadataIndex != -1 {
+            let bookmarkString = currentFile.metadata[bookmarkMetadataIndex].value
+            bookmarks = bookmarkString.components(separatedBy: " ")
+        }
+        let notesMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+        if notesMetadataIndex != -1 {
+            notes = currentFile.metadata[notesMetadataIndex].value
+        }
+        
+    }
+    
     func openFile(file: MMFile){
         //check the type of file and open it accordingly
         openFileDelegate?.openMedia(file: currentFile)
@@ -41,13 +60,26 @@ class Model{
     
     func addBookmark(){
         //get current time from the player
-        var time = 1.1 //temp
+        let time = "1.1" //temp
         //add the metadata to the file
+        bookmarks.append(time)
+        saveData()
         updateOpenFileVC()
     }
     
+    func addNotes(notes: String){
+        self.notes = notes
+        saveData()
+        updateOpenFileVC()
+    }
+    
+    func saveData(){
+        //save bookmarks
+        //save notes
+    }
+    
     private func updateOpenFileVC(){
-        openFileDelegate?.updateOutets(currentFile: currentFile, notes: "this is the notes", bookmarks: [0.0, 0.1, 0.2])
+        openFileDelegate?.updateOutets(currentFile: currentFile, notes: notes, bookmarks: bookmarks)
     }
     
     private func updateMainVC(){
