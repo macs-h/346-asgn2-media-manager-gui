@@ -67,8 +67,7 @@ class Model{
         }else {
             importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
         }
-        listFiles(with: ["image"], listAll: false)
-        print("sublib \(subLibrary.all())")
+        changeCategory(catIndex: currentCategoryIndex)
         updateMainVC()
     }
     
@@ -79,16 +78,16 @@ class Model{
             cat = "image"
             break
         case 1:
-            cat = "video"
+            cat = "music"
             break
         case 2:
-            cat = "music"
+            cat = "video"
             break
         case 3:
             cat = "document"
             break
         default:
-            cat = "image"
+            cat = "other"
         }
         currentCategoryIndex = catIndex
         listFiles(with: [cat], listAll: false)
