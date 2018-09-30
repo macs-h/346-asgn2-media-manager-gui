@@ -20,8 +20,8 @@ protocol mainViewModelDegate {
 
 class Model{
     static var instance = Model()
-    var libary = MM_Collection()//holds all the files
-    var subLibary = MM_Collection() //holds the files that are show on screen (using categories)
+    var library = MM_Collection()//holds all the files
+    var subLibrary = MM_Collection() //holds the files that are show on screen (using categories)
     var currentFile = MM_File(){
         didSet{
             setup()
@@ -78,11 +78,30 @@ class Model{
         //save notes
     }
     
+    
+    //----------------------------------------------------------------------------------90
+    // Previous media library functionality
+    //----------------------------------------------------------------------------------90
+    
+    func importFileFromJson(from filepath: String) {
+        do {
+            try LoadCommand(library, [filepath]).execute()
+        } catch {
+            print("Load error:", error)
+        }
+    }
+    
+    
+    
+    //----------------------------------------------------------------------------------90
+    // Private functions
+    //----------------------------------------------------------------------------------90
+    
     private func updateOpenFileVC(){
         openFileDelegate?.updateOutets(currentFile: currentFile, notes: notes, bookmarks: bookmarks)
     }
     
     private func updateMainVC(){
-        mainViewDegate?.updateOutets(CurrentFile: currentFile , files: subLibary.collection, fileType: currentFile.fileType)
+        mainViewDegate?.updateOutets(CurrentFile: currentFile , files: subLibrary.collection, fileType: currentFile.fileType)
     }
 }

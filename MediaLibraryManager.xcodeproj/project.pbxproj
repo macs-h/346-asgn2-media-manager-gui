@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60219540216058DA00E32E85 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
+		60219541216058F100E32E85 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
 		60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 		60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */; };
@@ -16,7 +18,6 @@
 		816B04662159A60E0057DEA5 /* MediaWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816B04642159A60E0057DEA5 /* MediaWindowView.swift */; };
 		816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241E52133AE390061C4F3 /* MM_File.swift */; };
 		816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241F92133B1630061C4F3 /* MM_Collection.swift */; };
-		816B04692159A8180057DEA5 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
 		816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A242112133C0960061C4F3 /* MM_FileExport.swift */; };
 		816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		816B046C2159A8180057DEA5 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2C20D749BD00EC97E8 /* protocols.swift */; };
@@ -31,7 +32,6 @@
 		D3161D2D20D749BD00EC97E8 /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3161D2C20D749BD00EC97E8 /* protocols.swift */; };
 		D3A241E62133AE390061C4F3 /* MM_File.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241E52133AE390061C4F3 /* MM_File.swift */; };
 		D3A241FA2133B1630061C4F3 /* MM_Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241F92133B1630061C4F3 /* MM_Collection.swift */; };
-		D3A241FC2133B2070061C4F3 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
 		D3A242122133C0960061C4F3 /* MM_FileExport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A242112133C0960061C4F3 /* MM_FileExport.swift */; };
 		D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
@@ -301,6 +301,11 @@
 					81AD632821535DE70071147D = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					81AD633921535DE80071147D = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -359,7 +364,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */,
-				816B04692159A8180057DEA5 /* MM_FileImport.swift in Sources */,
 				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
 				E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
@@ -369,6 +373,7 @@
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */,
+				60219541216058F100E32E85 /* MM_FileImport.swift in Sources */,
 				ED024803215F0F2500F9EB93 /* Model.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
@@ -391,9 +396,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60219540216058DA00E32E85 /* MM_FileImport.swift in Sources */,
 				D3A242122133C0960061C4F3 /* MM_FileExport.swift in Sources */,
 				D3CB3A9D20DB264200AF519E /* cli.swift in Sources */,
-				D3A241FC2133B2070061C4F3 /* MM_FileImport.swift in Sources */,
 				60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */,
 				60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */,
 				818DA0D4215867EE000C22C0 /* MainViewController.swift in Sources */,
@@ -434,7 +439,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MediaLibraryManagerGUI/MediaLibraryManagerGUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MediaLibraryManagerGUI/Info.plist;
@@ -452,7 +456,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = MediaLibraryManagerGUI/MediaLibraryManagerGUI.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MediaLibraryManagerGUI/Info.plist;

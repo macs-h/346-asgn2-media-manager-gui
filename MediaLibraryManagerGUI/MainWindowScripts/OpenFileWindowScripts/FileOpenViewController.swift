@@ -68,7 +68,6 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     @IBAction func playButtonAction(_ sender: Any) {
         //tell the model to play the media
         Model.instance.openFile()
-        
     }
     
     

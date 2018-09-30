@@ -431,7 +431,8 @@ class LoadCommand: CommandParent, MMCommand {
         
         do {
             for filename in self.parts {
-                let files = try self.fileImport.read(filename: filename.lowercased())
+                print(filename)
+                let files = try self.fileImport.read(filename: filename)
                 for file in files {
                     self.library.add(file: file)
                 }
