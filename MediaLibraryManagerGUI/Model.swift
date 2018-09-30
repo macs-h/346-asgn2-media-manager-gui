@@ -120,7 +120,7 @@ class Model{
 
     func openFile(){
         //check the type of file and open it accordingly
-//        openFileDelegate?.openMedia(file: currentFile)
+        openFileDelegate?.openMedia(file: currentFile!)
     }
     
     func addBookmark(){
