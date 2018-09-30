@@ -56,7 +56,7 @@ class MainViewController: NSViewController {
     }
     
     @objc func doubleClickOnRow() {
-        print("doubleClickOnRow \(fileTable.clickedRow)")
+        //print("doubleClickOnRow \(fileTable.clickedRow)")
         if fileTable.clickedRow == -1 {
             //not clicked on a file
         } else {
@@ -66,7 +66,7 @@ class MainViewController: NSViewController {
     }
 
     @objc func clickOnRow() {
-        print("clickOnRow \(fileTable.clickedRow)")
+        //print("clickOnRow \(fileTable.clickedRow)")
 
         if fileTable.clickedRow == -1 {
             //not clicked on a file
