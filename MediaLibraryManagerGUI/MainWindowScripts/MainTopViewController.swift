@@ -40,12 +40,7 @@ class MainTopViewController: NSViewController {
     @IBOutlet weak var forwardButton: NSButton!
     
     @IBAction func addFiles(_ sender: Any) {
-        let sam = true
-        if sam{
-            Model.instance.importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
-        }else {
-            Model.instance.importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
-        }
+       Model.instance.addFile()
     }
     
     

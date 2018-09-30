@@ -57,6 +57,58 @@ class Model{
         
     }
     
+    func addFile(){
+        //get file path
+        let sam = true
+        if sam{
+            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
+        }else {
+            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
+        }
+        listFiles(with: ["image"], listAll: false)
+        print("sublib \(subLibrary.all())")
+        updateMainVC()
+    }
+    
+    func changeCategory(catIndex: Int){
+        var cat = ""
+        switch catIndex {
+        case 0:
+            cat = "image"
+            break
+        case 1:
+            cat = "video"
+            break
+        case 2:
+            cat = "music"
+            break
+        case 3:
+            cat = "document"
+            break
+        default:
+            cat = "image"
+        }
+        listFiles(with: [cat], listAll: false)
+        updateMainVC()
+//        if catIndex == 0 {
+//            //image button
+//            print("image button pressed")
+//            //fileTypeSelected = "Image"
+//        } else if catIndex == 1 {
+//            //video button
+//            print("video button pressed")
+//            //fileTypeSelected = "Video"
+//        } else if sender.tag == 2 {
+//            //music button
+//            print("music button pressed")
+//            //fileTypeSelected = "Music"
+//        } else {
+//            //other button
+//            print("other button pressed")
+//            //fileTypeSelected = "Other"
+//        }
+    }
+    
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
         if fileIndex > -1 {
             
@@ -148,13 +200,13 @@ class Model{
     // Previous media library functionality
     //----------------------------------------------------------------------------------90
     
-    func importJsonFile(from filepath: String) {
+    private func importJsonFile(from filepath: String) {
         do {
             try LoadCommand(library, [filepath]).execute()
         } catch {
             print("Load error:", error)
         }
-        updateMainVC()
+        
     }
     
     func exportLibraryAsJson(to filepath: String) {
@@ -167,7 +219,10 @@ class Model{
     
     private func listFiles(with terms: [String] = [], listAll: Bool = false) {
         do {
-            try SearchCommand(library, terms, listAll).execute()
+            var search = SearchCommand(library, terms, listAll)
+            try search.execute()
+            subLibrary = search.results! //need to test if this will ever be nil
+            
         } catch {
             print("List error:", error)
         }

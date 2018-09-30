@@ -15,7 +15,7 @@ class MainViewController: NSViewController, mainViewModelDegate {
     
     @IBOutlet weak var fileTable: NSTableView!
 
-    var files  = ["image 1", "image 2", "image 3", "image 4"]
+    var files: [MMFile] = []
     var previewVC: PreviewViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,28 +35,12 @@ class MainViewController: NSViewController, mainViewModelDegate {
     }
     
     func updateOutets(files: [MMFile]) {
+        self.files = files
         fileTable.reloadData()
-        print("update main")
     }
 
     @IBAction func changeCategoryAction(_ sender: NSButton) {
-        if sender.tag == 0 {
-            //image button
-            print("image button pressed")
-            //fileTypeSelected = "Image"
-        } else if sender.tag == 1 {
-            //video button
-            print("video button pressed")
-            //fileTypeSelected = "Video"
-        } else if sender.tag == 2 {
-            //music button
-            print("music button pressed")
-            //fileTypeSelected = "Music"
-        } else {
-            //other button
-            print("other button pressed")
-            //fileTypeSelected = "Other"
-        }
+       Model.instance.changeCategory(catIndex: sender.tag)
     }
     
     @objc func doubleClickOnRow() {
@@ -97,14 +81,14 @@ class MainViewController: NSViewController, mainViewModelDegate {
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return Model.instance.library.collection.count //subLibrary.all().count
+        return files.count//Model.instance.library.collection.count //subLibrary.all().count
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
         let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
         
-        file.textField!.stringValue = Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
+        file.textField!.stringValue = files[row].filename//Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
         //file.file = collection[row]
         print("file text \(file.textField!.stringValue)")
         return file
