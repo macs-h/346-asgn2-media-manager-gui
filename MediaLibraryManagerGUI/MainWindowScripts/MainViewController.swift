@@ -49,6 +49,7 @@ class MainViewController: NSViewController, mainViewModelDegate {
             //not clicked on a file
         } else {
             //open file
+            //cancel preview showing
             Model.instance.switchVC(sourceController: self, segueName: "FileOpenSegue", fileIndex: fileTable.clickedRow)
         }
     }

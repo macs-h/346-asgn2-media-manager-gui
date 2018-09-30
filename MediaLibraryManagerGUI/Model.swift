@@ -90,31 +90,15 @@ class Model{
         }
         listFiles(with: [cat], listAll: false)
         updateMainVC()
-//        if catIndex == 0 {
-//            //image button
-//            print("image button pressed")
-//            //fileTypeSelected = "Image"
-//        } else if catIndex == 1 {
-//            //video button
-//            print("video button pressed")
-//            //fileTypeSelected = "Video"
-//        } else if sender.tag == 2 {
-//            //music button
-//            print("music button pressed")
-//            //fileTypeSelected = "Music"
-//        } else {
-//            //other button
-//            print("other button pressed")
-//            //fileTypeSelected = "Other"
-//        }
     }
     
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
         if fileIndex > -1 {
-            
-            let tempFile = MM_File()
-            tempFile.filename = String(fileIndex)
-            currentFile = tempFile
+            do{
+                currentFile = try subLibrary.get(index: fileIndex)
+            }catch{
+                print("file not found")
+            }
         }
         
         sourceController.performSegue(withIdentifier: segueName, sender: self)
@@ -140,12 +124,8 @@ class Model{
             previewVC.view.layer?.add(animation, forKey: "linearMovement")
             previewVCResult = previewVC
         }
-        //----temp
-        let tempFile = MM_File()
-        tempFile.filename = String(fileIndex)
-        currentFile = tempFile
-        //temp---
-        previewVCResult?.setup(file: tempFile)
+        
+        previewVCResult?.setup(file: subLibrary.all()[fileIndex])
         
         return previewVCResult!
     }
