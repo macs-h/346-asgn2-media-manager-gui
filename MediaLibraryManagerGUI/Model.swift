@@ -28,6 +28,8 @@ class Model{
             setup()
         }
     }
+    var currentFileIndex:[Int]?
+    var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
     var openFileDelegate: openFileModelDegate?{
@@ -88,6 +90,7 @@ class Model{
         default:
             cat = "image"
         }
+        currentCategoryIndex = catIndex
         listFiles(with: [cat], listAll: false)
         updateMainVC()
     }
@@ -101,6 +104,7 @@ class Model{
         if fileIndex > -1 {
             do{
                 currentFile = try subLibrary.get(index: fileIndex)
+                currentFileIndex = [fileIndex, currentCategoryIndex]
             }catch{
                 print("file not found")
             }

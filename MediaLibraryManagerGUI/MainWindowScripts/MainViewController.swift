@@ -26,6 +26,7 @@ class MainViewController: NSViewController, mainViewModelDegate {
         let mainTopVC = (self.parent?.children[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.mainViewDegate = self
+       
     }
 
     override var representedObject: Any? {
@@ -37,10 +38,23 @@ class MainViewController: NSViewController, mainViewModelDegate {
     func updateOutets(files: [MMFile]) {
         self.files = files
         fileTable.reloadData()
+        if let currentIndex = Model.instance.currentFileIndex{
+            if Model.instance.currentCategoryIndex == currentIndex[1]{
+                let indexPath = IndexSet(arrayLiteral: currentIndex[0])
+                fileTable.selectRowIndexes(indexPath, byExtendingSelection: false)
+                print("show selected row")
+            }
+        }
+        
     }
 
     @IBAction func changeCategoryAction(_ sender: NSButton) {
        Model.instance.changeCategory(catIndex: sender.tag)
+        
+        if previewVC != nil{
+            Model.instance.removePreview(sender: self, previewVC: previewVC!) //if we want to remove the preview if another category is selected
+            previewVC = nil
+        }
     }
     
     @objc func doubleClickOnRow() {

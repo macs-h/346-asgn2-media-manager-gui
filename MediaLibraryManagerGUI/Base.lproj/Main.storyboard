@@ -1435,6 +1435,7 @@
         <image name="Placeholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>
