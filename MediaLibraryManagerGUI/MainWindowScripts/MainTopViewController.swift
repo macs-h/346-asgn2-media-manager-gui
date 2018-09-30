@@ -10,12 +10,18 @@ import Cocoa
 
 class MainTopViewController: NSViewController {
     var splitView: NSViewController = NSViewController()
-    var currentFile: MMFile?{
+    var openVC = NSViewController(){ //the open vc (either main or open file) will assign itself to this
         didSet{
-            if currentFile == nil{
-                forwardButton.isEnabled = false
+            if openVC.title == "MainVC"{
+                //main VC is open
+                backButton.isEnabled = false
+                if Model.instance.currentFile != nil{
+                    forwardButton.isEnabled = true
+                }
             }else{
-                forwardButton.isEnabled = true
+                //openfileVC is open
+                backButton.isEnabled = true
+                forwardButton.isEnabled = false
             }
         }
     }
@@ -25,6 +31,8 @@ class MainTopViewController: NSViewController {
         // Do view setup here.
         splitView = self.parent!
     }
+    
+    
     @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
     
     @IBOutlet weak var backButton: NSButton!
@@ -39,17 +47,10 @@ class MainTopViewController: NSViewController {
         
         if sender.tag == 0{
             //back button pressed
-            
-            //exits a file but keeps it selected (can press forward)
-            
-            let openFileVC = splitView.children[1]
-            openFileVC.performSegue(withIdentifier: "MainViewSegue", sender: self)
+             Model.instance.switchVC(sourceController: openVC, segueName: "MainViewSegue", fileIndex: -1)
         }else{
             //forwardButton pressed
-            let mainFileVC = splitView.children[1]
-            print("child 1: \(mainFileVC.identifier)")
-            mainFileVC.performSegue(withIdentifier: "FileOpenSegue", sender: self)
-            //opens a file if selected, otherwise disabled
+            Model.instance.switchVC(sourceController: openVC, segueName: "FileOpenSegue", fileIndex: -1)
         }
     }
     

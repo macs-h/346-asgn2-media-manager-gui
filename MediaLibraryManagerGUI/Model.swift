@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 
 protocol openFileModelDegate {
@@ -54,6 +55,19 @@ class Model{
             }
         }
         
+    }
+    
+    func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int){
+        if fileIndex > -1{
+            //currentFile = //subLibary.collection[fileIndex]
+            
+            //----temp
+            let tempFile = MM_File()
+            tempFile.filename = String(fileIndex)
+            currentFile = tempFile
+            //temp---
+        }
+        sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
     
     func openFile(file: MMFile){
