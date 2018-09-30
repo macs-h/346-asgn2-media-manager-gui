@@ -1,7 +1,30 @@
-[{
-	"fullpath": "/path/to/foobar.ext",
-	"type": "document",
-	"metadata": {
-		"creator" : "Paul"
-	}
-}]
+[
+    {
+        "fullpath": "/path/to/foo.txt",
+        "type": "document",
+        "metadata": {
+            "creator" : "Paul"
+        }
+    },
+    {
+        "fullpath": "/path/to/bar.png",
+        "type": "image",
+        "metadata": {
+            "creator" : "Sam"
+        }
+    },
+    {
+        "fullpath": "/path/to/baz.mp4",
+        "type": "video",
+        "metadata": {
+            "creator" : "Max"
+        }
+    },
+    {
+        "fullpath": "/path/to/qux.mp3",
+        "type": "audio",
+        "metadata": {
+            "creator" : "Shaz"
+        }
+    }
+]
