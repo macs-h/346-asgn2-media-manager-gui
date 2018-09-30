@@ -92,6 +92,11 @@ class Model{
         updateMainVC()
     }
     
+    
+    func searchStrings(searchTerms: [String]){
+        listFiles(with: searchTerms, listAll: false)
+        updateMainVC()
+    }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
         if fileIndex > -1 {
             do{
@@ -103,6 +108,7 @@ class Model{
         
         sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
+    
     
     func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController{
         var previewVCResult = preview_VC
@@ -129,7 +135,7 @@ class Model{
         
         return previewVCResult!
     }
-    
+   
     func removePreview(sender: NSViewController ,previewVC: PreviewViewController){
         previewVC.view.layer?.removeAllAnimations()
         let x = sender.view.frame.width - 250

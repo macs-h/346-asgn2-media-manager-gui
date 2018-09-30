@@ -56,4 +56,8 @@ class MainTopViewController: NSViewController {
     }
     
     
+    @IBAction func searchAcion(_ sender: NSSearchField) {
+        let searchTerms = sender.stringValue.components(separatedBy: " ")
+        Model.instance.searchStrings(searchTerms: searchTerms)
+    }
 }
