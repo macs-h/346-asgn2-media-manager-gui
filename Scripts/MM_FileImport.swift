@@ -22,22 +22,29 @@ class MM_FileImport : MMFileImport {
      - returns:  A list of all the files in the file.
      */
     func read(filename: String) throws -> [MMFile] {
+        
+//        try print(IO.normalisePath(filename: filename))
+        
         if filename.split(separator: ".").map({String($0)}).last != "json" {
             throw MMCliError.invalidJSONExtension
         }
         
+        
+        
         var importedFiles = [MM_File]()
         var filesToAdd = [MM_File]()
-        var json_filepath: String = ""
+//        var json_filepath: String = ""
+//
+//        if filename.contains("~") {
+//            json_filepath = NSString(string: filename).expandingTildeInPath
+//        } else if filename.contains("/") {
+//            json_filepath = filename
+//        } else {
+//            json_filepath = FileManager.default.currentDirectoryPath + "/" + filename
+//        }
+//        let url = URL(fileURLWithPath: json_filepath)
         
-        if filename.contains("~") {
-            json_filepath = NSString(string: filename).expandingTildeInPath
-        } else if filename.contains("/") {
-            json_filepath = filename
-        } else {
-            json_filepath = FileManager.default.currentDirectoryPath + "/" + filename
-        }
-        let url = URL(fileURLWithPath: json_filepath)
+        let url = try IO.normalisePath(filename: filename)
         
         let encodedJsonData = try Data(contentsOf: url)
         
@@ -72,14 +79,39 @@ class MM_FileImport : MMFileImport {
         
         // check for duplicates.
         for file in importedFiles {
-//            if library.search(term: file.fullpath).isEmpty {
-//                filesToAdd.append(file)
-//            } else {
-//                print("\(file.filename) already in collection")
-//            }
+            if Model.instance.library.search(term: file.fullpath).isEmpty {
+                filesToAdd.append(file)
+            } else {
+                print("\(file.filename) already in collection")
+            }
         }
-        
+        print(filesToAdd)
         return filesToAdd
     }
     
+}
+
+
+fileprivate class IO {
+    class func normalisePath(filename: String) throws -> URL {
+        let start = filename.index(after: filename.startIndex)
+        let end = filename.endIndex
+        
+        var result: URL
+        switch filename.prefix(1) {
+        case "/":
+            result = URL(fileURLWithPath: filename)
+        case "~":
+            result = FileManager.default.homeDirectoryForCurrentUser
+            result.appendPathComponent(String(filename[start..<end]))
+        case ".":
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(String(filename[start..<end]))
+        default:
+            // treat it as if it were in the current working directory
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(filename)
+        }
+        return result
+    }
 }
