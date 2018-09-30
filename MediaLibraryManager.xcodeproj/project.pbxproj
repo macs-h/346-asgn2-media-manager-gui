@@ -37,6 +37,7 @@
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
 		ED024803215F0F2500F9EB93 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED024802215F0F2500F9EB93 /* Model.swift */; };
+		ED76A44221606BA900DD75F9 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76A44121606BA900DD75F9 /* PreviewView.swift */; };
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */; };
 		EDC5CBDA215F048F00F3C0D4 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
@@ -93,6 +94,7 @@
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		E1667A39215CD96700B37644 /* MainTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopViewController.swift; sourceTree = "<group>"; };
 		ED024802215F0F2500F9EB93 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		ED76A44121606BA900DD75F9 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStoryboardSegue.swift; sourceTree = "<group>"; };
 		EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
 				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
+				ED76A44121606BA900DD75F9 /* PreviewView.swift */,
 			);
 			path = MainWindowScripts;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
 				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
+				ED76A44221606BA900DD75F9 /* PreviewView.swift in Sources */,
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				816B04632159A5F70057DEA5 /* MediaWindowViewController.swift in Sources */,
 				60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */,

@@ -741,14 +741,25 @@
                                     <action selector="changeCategoryAction:" target="XfG-lQ-9wD" id="Mwk-LA-6SK"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="MAI-aR-caO">
+                                <rect key="frame" x="20" y="332" width="54" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" title="Other" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="56u-j9-ukN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="changeCategoryAction:" target="XfG-lQ-9wD" id="uDa-QR-5zS"/>
+                                </connections>
+                            </button>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
-                                <rect key="frame" x="73" y="72" width="1207" height="574"/>
+                                <rect key="frame" x="73" y="0.0" width="1207" height="646"/>
                                 <clipView key="contentView" id="nSC-Oo-s2F">
-                                    <rect key="frame" x="1" y="0.0" width="1205" height="573"/>
+                                    <rect key="frame" x="1" y="0.0" width="1205" height="645"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="nui-Q2-6gm" viewBased="YES" id="JIz-OS-IBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="1205" height="550"/>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="DPl-sQ-XVA" viewBased="YES" id="JIz-OS-IBP">
+                                            <rect key="frame" x="0.0" y="0.0" width="1205" height="622"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -799,33 +810,22 @@
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="nui-Q2-6gm">
+                                <tableHeaderView key="headerView" id="DPl-sQ-XVA">
                                     <rect key="frame" x="0.0" y="0.0" width="1205" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="MAI-aR-caO">
-                                <rect key="frame" x="20" y="332" width="54" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" title="Other" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="56u-j9-ukN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="changeCategoryAction:" target="XfG-lQ-9wD" id="uDa-QR-5zS"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mTe-EI-ncy" secondAttribute="trailing" id="MPc-Bd-2nK"/>
                             <constraint firstItem="mTe-EI-ncy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZQ8-ce-rer"/>
                             <constraint firstItem="mTe-EI-ncy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="73" id="ivR-Ha-RyQ"/>
-                            <constraint firstAttribute="bottom" secondItem="mTe-EI-ncy" secondAttribute="bottom" constant="72" id="lv8-yb-pih"/>
+                            <constraint firstAttribute="bottom" secondItem="mTe-EI-ncy" secondAttribute="bottom" id="lv8-yb-pih"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="fileTable" destination="JIz-OS-IBP" id="EYF-IB-7tS"/>
-                        <segue destination="Vqa-bd-vc9" kind="popover" identifier="PreviewSegue" popoverBehavior="t" preferredEdge="maxY" id="Ojw-tm-Mv4"/>
+                        <segue destination="Vqa-bd-vc9" kind="show" identifier="PreviewSegue" id="Ojw-tm-Mv4"/>
                         <segue destination="EPY-3s-paR" kind="custom" identifier="FileOpenSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="RWx-oS-FBb"/>
                     </connections>
                 </viewController>
@@ -911,12 +911,12 @@
                                     </textField>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-T6-HRE">
                                         <rect key="frame" x="0.0" y="20" width="149" height="509"/>
-                                        <clipView key="contentView" id="4Nf-hx-snZ">
-                                            <rect key="frame" x="1" y="0.0" width="147" height="508"/>
+                                        <clipView key="contentView" drawsBackground="NO" id="4Nf-hx-snZ">
+                                            <rect key="frame" x="1" y="1" width="147" height="507"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Sj0-yz-QA2" viewBased="YES" id="ROo-lp-5Nr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="485"/>
+                                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="ROo-lp-5Nr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="507"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -958,6 +958,7 @@
                                                     </tableColumns>
                                                 </tableView>
                                             </subviews>
+                                            <nil key="backgroundColor"/>
                                         </clipView>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="149" id="Dv7-e8-HV1"/>
@@ -971,10 +972,6 @@
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <tableHeaderView key="headerView" hidden="YES" id="Sj0-yz-QA2">
-                                            <rect key="frame" x="0.0" y="0.0" width="147" height="23"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableHeaderView>
                                     </scrollView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9ky-Rd-az7">
                                         <rect key="frame" x="0.0" y="528" width="149" height="26"/>
@@ -1179,6 +1176,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-Mt-ULn" customClass="PreviewView" customModule="MediaLibraryManagerGUI" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </customView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-fx-qpg">
                                 <rect key="frame" x="25" y="426" width="200" height="200"/>
                                 <constraints>

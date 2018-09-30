@@ -16,7 +16,7 @@ class MainViewController: NSViewController {
     @IBOutlet weak var fileTable: NSTableView!
 
     var files  = ["image 1", "image 2", "image 3", "image 4"]
-
+    var previewVC: PreviewViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         fileTable.dataSource = self
@@ -70,9 +70,20 @@ class MainViewController: NSViewController {
 
         if fileTable.clickedRow == -1 {
             //not clicked on a file
-            
+            //previewVC?.view.removeFromSuperview()
+            if previewVC != nil{
+                Model.instance.removePreview(sender: self, previewVC: previewVC!)
+                previewVC = nil
+            }
         } else {
              //send file to preview
+            if previewVC == nil{
+                //not active
+                previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: fileTable.clickedRow)
+            }else{
+                //update data
+                previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: fileTable.clickedRow)
+            }
         }
     }
     //listen for clicks and remove preview if no files were clicked
@@ -82,7 +93,6 @@ class MainViewController: NSViewController {
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
-        print("num of rows called")
         return files.count
     }
 

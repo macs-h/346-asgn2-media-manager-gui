@@ -22,7 +22,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        fileNameLabel.stringValue = file.filename
+        
         //asign pic if it has one
         //assign notes if it has any
         
@@ -30,8 +30,13 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
         metadataTable.delegate = self
     }
     
+    func setup(file: MMFile){
+        self.file = file as! MM_File
+        fileNameLabel.stringValue = file.filename
+        //notesLabel.stringValue = file.notes
+    }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
-        print("num of rows called")
         return file.metadata.count
     }
     
