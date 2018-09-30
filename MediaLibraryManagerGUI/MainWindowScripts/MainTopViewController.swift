@@ -10,14 +10,29 @@ import Cocoa
 
 class MainTopViewController: NSViewController {
     var splitView: NSViewController = NSViewController()
-    //var mainVC: NSViewController = NSViewController()
+    var openVC = NSViewController(){ //the open vc (either main or open file) will assign itself to this
+        didSet{
+            if openVC.title == "MainVC"{
+                //main VC is open
+                backButton.isEnabled = false
+                if Model.instance.currentFile != nil{
+                    forwardButton.isEnabled = true
+                }
+            }else{
+                //openfileVC is open
+                backButton.isEnabled = true
+                forwardButton.isEnabled = false
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         splitView = self.parent!
-       // mainVC = splitView.children[1]
     }
+    
+    
     @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
     
     @IBOutlet weak var backButton: NSButton!
@@ -33,19 +48,10 @@ class MainTopViewController: NSViewController {
         
         if sender.tag == 0{
             //back button pressed
-            
-            //exits a file but keeps it selected (can press forward)
-            
-            let openFileVC = splitView.children[1]
-            print("child 1: \(openFileVC.identifier)")
-            openFileVC.performSegue(withIdentifier: "MainViewSegue", sender: self)
+             Model.instance.switchVC(sourceController: openVC, segueName: "MainViewSegue", fileIndex: -1)
         }else{
             //forwardButton pressed
-            for child in splitView.children{
-                print("list of children \(child.title)")
-                
-            }
-            //opens a file if selected, otherwise disabled
+            Model.instance.switchVC(sourceController: openVC, segueName: "FileOpenSegue", fileIndex: -1)
         }
     }
     

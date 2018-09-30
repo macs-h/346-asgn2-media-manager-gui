@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Cocoa
 
 
 protocol openFileModelDegate {
@@ -22,7 +23,7 @@ class Model{
     static var instance = Model()
     var library = MM_Collection()//holds all the files
     var subLibrary = MM_Collection() //holds the files that are show on screen (using categories)
-    var currentFile = MM_File(){
+    var currentFile = MMFile? {
         didSet{
             setup()
         }
@@ -41,21 +42,24 @@ class Model{
     }
     
     func setup(){
-        let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
-        if bookmarkMetadataIndex != -1 {
-            let bookmarkString = currentFile.metadata[bookmarkMetadataIndex].value
-            bookmarks = bookmarkString.components(separatedBy: " ")
-        }
-        let notesMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
-        if notesMetadataIndex != -1 {
-            notes = currentFile.metadata[notesMetadataIndex].value
+        if let currentFile = currentFile{
+            //currentFile exists
+            let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+            if bookmarkMetadataIndex != -1 {
+                let bookmarkString = currentFile.metadata[bookmarkMetadataIndex].value
+                bookmarks = bookmarkString.components(separatedBy: " ")
+            }
+            let notesMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+            if notesMetadataIndex != -1 {
+                notes = currentFile.metadata[notesMetadataIndex].value
+            }
         }
         
     }
     
     func openFile(){
         //check the type of file and open it accordingly
-        openFileDelegate?.openMedia(file: currentFile)
+//        openFileDelegate?.openMedia(file: currentFile)
     }
     
     func addBookmark(){
@@ -98,10 +102,10 @@ class Model{
     //----------------------------------------------------------------------------------90
     
     private func updateOpenFileVC(){
-        openFileDelegate?.updateOutets(currentFile: currentFile, notes: notes, bookmarks: bookmarks)
+        openFileDelegate?.updateOutets(currentFile: currentFile!, notes: notes, bookmarks: bookmarks)
     }
     
     private func updateMainVC(){
-        mainViewDegate?.updateOutets(CurrentFile: currentFile , files: subLibrary.collection, fileType: currentFile.fileType)
+        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibary.collection, fileType: currentFile!.fileType)
     }
 }

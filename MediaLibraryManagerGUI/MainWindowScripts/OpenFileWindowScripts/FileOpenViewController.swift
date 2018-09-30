@@ -10,11 +10,13 @@ import Cocoa
 
 class FileOpenViewController: NSViewController, openFileModelDegate {
 
-    var file: MMFile!
+    //var file: MMFile!
     var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
     
     @IBOutlet weak var notesLabel: NSTextField!
+    var mainTopVC = MainTopViewController()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,34 +26,36 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
         bookmarkTable.action = #selector(clickOnRow)
-        
+        mainTopVC = (self.parent?.children[0]) as! MainTopViewController
+        mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
     }
     
-    /**
-     ----This could go the model???
-    */
-    func setUp(file: MMFile, type: String){
-        self.file = file
-        if type == "Video" {
-            //play the video
-        }else if type == "Image" {
-            //show the image
-            //disable play button
-        }else if type == "Music" {
-            //play the music
-        }else{
-            //show other
-        }
-    }
+//    /**
+//     ----This could go the model???
+//    */
+//    func setUp(file: MMFile, type: String){
+//        self.file = file
+//        if type == "Video" {
+//            //play the video
+//        }else if type == "Image" {
+//            //show the image
+//            //disable play button
+//        }else if type == "Music" {
+//            //play the music
+//        }else{
+//            //show other
+//        }
+//    }
     
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "MainViewSegue" {
-            print("trying to segue")
-            //let destinationVC = segue.destinationController as! MainViewController
-        }
-    }
+//    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "MainViewSegue" {
+//            print("trying to segue to \(segue.identifier)")
+////            let destinationVC = segue.destinationController as! MainViewController
+////            destinationVC.fileSelected = file
+//        }
+//    }
     
     /**
         Called when the user presses enter on notes text box
@@ -88,11 +92,11 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
      Called by the model to update ui elements
      */
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String]) {
-        self.notesLabel.stringValue = notes
+        self.notesLabel.stringValue = currentFile.filename//notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()
-        self.file = currentFile
-        print("delgate works")
+        //self.file = currentFile
+        //("delgate works")
     }
     
     func openMedia(file: MMFile) {
