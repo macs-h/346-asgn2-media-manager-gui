@@ -106,6 +106,14 @@ class Model{
         }
     }
     
+    func exportLibraryAsJson(to filepath: String) {
+        do {
+            try SaveCommand(library, [filepath]).execute()
+        } catch {
+            print("Save library error:", error)
+        }
+    }
+    
     private func listFiles(with terms: [String] = [], listAll: Bool = false) {
         do {
             try SearchCommand(library, terms, listAll).execute()
@@ -149,14 +157,6 @@ class Model{
             try DeleteCommand(library, parts, subLibrary).execute()
         } catch {
             print("Del error:", error)
-        }
-    }
-    
-    private func saveLibrary() {
-        do {
-            try SaveCommand(library, []).execute()
-        } catch {
-            print("Save library error:", error)
         }
     }
     
