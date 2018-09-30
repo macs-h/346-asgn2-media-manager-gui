@@ -22,7 +22,7 @@ protocol mainViewModelDegate {
 class Model{
     static var instance = Model()
     var library = MM_Collection()//holds all the files
-    var subLibrary = MM_Collection() //holds the files that are show on screen (using categories)
+    var subLibrary = MMResultSet() //holds the files that are show on screen (using categories)
     var currentFile: MMFile? {
         didSet{
             setup()
@@ -156,6 +156,68 @@ class Model{
         }
     }
     
+    func exportLibraryAsJson(to filepath: String) {
+        do {
+            try SaveCommand(library, [filepath]).execute()
+        } catch {
+            print("Save library error:", error)
+        }
+    }
+    
+    private func listFiles(with terms: [String] = [], listAll: Bool = false) {
+        do {
+            try SearchCommand(library, terms, listAll).execute()
+        } catch {
+            print("List error:", error)
+        }
+    }
+    
+    private func addFile(with terms: [String], at index: Int) {
+        let parts: [String] = {
+            var tmp = terms
+            tmp.insert(String(index), at: index)
+            return tmp
+        }()
+        
+        do {
+            try AddCommand(library, parts, subLibrary).execute()
+        } catch {
+            print("Add error:", error)
+        }
+    }
+    
+    private func setFile(with term: String, at index: Int, to newTerm: String) {
+        let parts: [String] = [String(index), term, newTerm]
+        
+        do {
+            try SetCommand(library, parts, subLibrary).execute()
+        } catch {
+            print("Set error:", error)
+        }
+    }
+    
+    private func deleteFile(with metadata: [String], at index: Int) {
+        let parts: [String] = {
+            var tmp = metadata
+            tmp.insert(String(index), at: index)
+            return tmp
+        }()
+        
+        do {
+            try DeleteCommand(library, parts, subLibrary).execute()
+        } catch {
+            print("Del error:", error)
+        }
+    }
+    
+    private func fileDetail(at index: Int) {
+        do {
+            try DetailCommand(library, [String(index)], subLibrary).execute()
+        } catch {
+            print("File detail error:", error)
+        }
+    }
+    
     
     
     //----------------------------------------------------------------------------------90
@@ -167,6 +229,6 @@ class Model{
     }
     
     private func updateMainVC(){
-        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibrary.collection, fileType: currentFile!.fileType)
+        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibrary.all(), fileType: currentFile!.fileType)
     }
 }

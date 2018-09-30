@@ -25,16 +25,7 @@ class MM_FileExport : MMFileExport {
             throw MMCliError.invalidJSONExtension
         }
         
-        var json_filepath: String = ""
-        
-        if filename.contains("~") {
-            json_filepath = NSString(string: filename).expandingTildeInPath
-        } else if filename.contains("/") {
-            json_filepath = filename
-        } else {
-            json_filepath = FileManager.default.currentDirectoryPath + "/" + filename
-        }
-        let url = URL(fileURLWithPath: json_filepath)
+        let url = try IO.normalisePath(filename: filename)
         
         // the struct mirrors the JSON data
         struct JSON: Codable {
@@ -68,5 +59,29 @@ class MM_FileExport : MMFileExport {
         }
     }
     
-    
+}
+
+
+fileprivate class IO {
+    class func normalisePath(filename: String) throws -> URL {
+        let start = filename.index(after: filename.startIndex)
+        let end = filename.endIndex
+        
+        var result: URL
+        switch filename.prefix(1) {
+        case "/":
+            result = URL(fileURLWithPath: filename)
+        case "~":
+            result = FileManager.default.homeDirectoryForCurrentUser
+            result.appendPathComponent(String(filename[start..<end]))
+        case ".":
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(String(filename[start..<end]))
+        default:
+            // treat it as if it were in the current working directory
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(filename)
+        }
+        return result
+    }
 }

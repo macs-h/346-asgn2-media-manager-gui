@@ -54,10 +54,10 @@ while let line = prompt("> "){
         
         switch(commandString){
         case "list":
-            command = SearchCommand(library, parts)
+            command = SearchCommand(library, parts, listAll: true)
             break
         case "search":
-            command = SearchCommand(library, parts, search: true)
+            command = SearchCommand(library, parts)
             break
         case "add":
             command = AddCommand(library, parts, last)
