@@ -9,12 +9,11 @@
 import Cocoa
 
 class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
-    var file = MM_File()
+    var file = MM_File() //assigned by mainVC before this is opened
 
     @IBOutlet weak var PreviewImage: NSImageView!
 
     @IBOutlet weak var fileNameLabel: NSTextField!
-
 
     @IBOutlet weak var metadataTable: NSTableView!
     
@@ -39,9 +38,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
         let fileCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
-        
         fileCell.textField!.stringValue = file.metadata[row].value //might need to show key in another coloumn aswell
-        //file.file = collection[row]
         print("file text \(fileCell.textField!.stringValue)")
         return fileCell
     }
