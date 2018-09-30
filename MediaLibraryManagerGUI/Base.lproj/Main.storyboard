@@ -821,11 +821,11 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Waz-Me-KuC">
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Waz-Me-KuC">
                                     <rect key="frame" x="1" y="630" width="148" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="dkQ-10-Dqh">
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="dkQ-10-Dqh">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1057,7 +1057,9 @@
                     </view>
                     <connections>
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
+                        <outlet property="forwardButton" destination="dR2-9J-MVw" id="SpC-L9-NKh"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
+                        <outlet property="previousButton" destination="3bW-9c-7LJ" id="O9D-36-9s1"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
                         <segue destination="F3p-fK-OAM" kind="show" identifier="ShowMediaContentSegue" id="YkK-fJ-Hk5"/>
                     </connections>

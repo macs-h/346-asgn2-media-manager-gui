@@ -100,16 +100,21 @@ class Model{
         updateMainVC()
     }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
-        if fileIndex > -1 {
-            do{
+        selectFile(fileIndex: fileIndex)
+        sourceController.performSegue(withIdentifier: segueName, sender: self)
+    }
+    
+    func selectFile(fileIndex: Int){
+        do{
+            //try doesnt do anything so need to check numbers manually
+            if fileIndex > -1 {
                 currentFile = try subLibrary.get(index: fileIndex)
                 currentFileIndex = [fileIndex, currentCategoryIndex]
-            }catch{
-                print("file not found")
+                updateOpenFileVC()
             }
+        }catch{
+            print("file out of range")
         }
-        
-        sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
     
     
