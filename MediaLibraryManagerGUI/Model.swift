@@ -23,7 +23,7 @@ class Model{
     static var instance = Model()
     var library = MM_Collection()//holds all the files
     var subLibrary = MM_Collection() //holds the files that are show on screen (using categories)
-    var currentFile = MMFile? {
+    var currentFile: MMFile? {
         didSet{
             setup()
         }
@@ -55,6 +55,17 @@ class Model{
             }
         }
         
+    }
+    
+    func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
+        if fileIndex > -1 {
+            
+            let tempFile = MM_File()
+            tempFile.filename = String(fileIndex)
+            currentFile = tempFile
+        }
+        
+        sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
     
     func openFile(){
@@ -106,6 +117,6 @@ class Model{
     }
     
     private func updateMainVC(){
-        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibary.collection, fileType: currentFile!.fileType)
+        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibrary.collection, fileType: currentFile!.fileType)
     }
 }
