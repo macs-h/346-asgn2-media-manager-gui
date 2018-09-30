@@ -1,7 +1,121 @@
-[{
-	"fullpath": "/path/to/foobar.ext",
-	"type": "document",
-	"metadata": {
-		"creator" : "Paul"
-	}
-}]
+[
+    {
+        "fullpath": "/path/to/foo.txt",
+        "type": "document",
+        "metadata": {
+            "creator" : "Paul"
+        }
+    },
+    {
+        "fullpath": "/path/to/tmp.txt",
+        "type": "document",
+        "metadata": {
+            "creator" : "Peter"
+        }
+    },
+    {
+        "fullpath": "/path/to/hello.txt",
+        "type": "document",
+        "metadata": {
+            "creator" : "Paula"
+        }
+    },
+    {
+        "fullpath": "/path/to/helloWorld.txt",
+        "type": "document",
+        "metadata": {
+            "creator" : "Pig"
+        }
+    },
+    
+    
+    {
+        "fullpath": "/path/to/bar.png",
+        "type": "image",
+        "metadata": {
+            "creator" : "Sam"
+        }
+    },
+    {
+        "fullpath": "/path/to/phooo.png",
+        "type": "image",
+        "metadata": {
+            "creator" : "Sheryl"
+        }
+    },
+    {
+        "fullpath": "/path/to/imag.png",
+        "type": "image",
+        "metadata": {
+            "creator" : "Sid"
+        }
+    },
+    {
+        "fullpath": "/path/to/godzilla.png",
+        "type": "image",
+        "metadata": {
+            "creator" : "Sampson"
+        }
+    },
+    
+    
+    {
+        "fullpath": "/path/to/baz.mp4",
+        "type": "video",
+        "metadata": {
+            "creator" : "Max"
+        }
+    },
+    {
+        "fullpath": "/path/to/empty.mp4",
+        "type": "video",
+        "metadata": {
+            "creator" : "Mimi"
+        }
+    },
+    {
+        "fullpath": "/path/to/vid.mp4",
+        "type": "video",
+        "metadata": {
+            "creator" : "Mark"
+        }
+    },
+    {
+        "fullpath": "/path/to/testing123.mp4",
+        "type": "video",
+        "metadata": {
+            "creator" : "Molly"
+        }
+    },
+    
+    
+    {
+        "fullpath": "/path/to/qux.mp3",
+        "type": "audio",
+        "metadata": {
+            "creator" : "Shaz"
+        }
+    },
+    {
+        "fullpath": "/path/to/aud.mp3",
+        "type": "audio",
+        "metadata": {
+            "creator" : "Paul"
+        }
+    },
+    {
+        "fullpath": "/path/to/files.mp3",
+        "type": "audio",
+        "metadata": {
+            "creator" : "Paul"
+        }
+    },
+    {
+        "fullpath": "/path/to/yay.mp3",
+        "type": "audio",
+        "metadata": {
+            "creator" : "Paul"
+        }
+    },
+    
+]
