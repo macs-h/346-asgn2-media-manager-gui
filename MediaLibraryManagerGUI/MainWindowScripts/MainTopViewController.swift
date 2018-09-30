@@ -25,7 +25,7 @@ class MainTopViewController: NSViewController {
     @IBOutlet weak var forwardButton: NSButton!
     
     @IBAction func addFiles(_ sender: Any) {
-        Model.instance.importFileFromJson(from: "~/346/asgn2/MediaLibraryManager/test.json")
+        Model.instance.importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
     }
     
     

@@ -83,7 +83,7 @@ class Model{
     // Previous media library functionality
     //----------------------------------------------------------------------------------90
     
-    func importFileFromJson(from filepath: String) {
+    func importJsonFile(from filepath: String) {
         do {
             try LoadCommand(library, [filepath]).execute()
         } catch {
