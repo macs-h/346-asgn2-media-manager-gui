@@ -183,20 +183,26 @@ class CommandParent {
  */
 class SearchCommand: CommandParent, MMCommand {
     var results: MMResultSet?
-    var search: Bool
+    var listAll: Bool
     
-    init(_ library: MMCollection, _ parts: [String], search: Bool = false) {
-        self.search = search
+    init(_ library: MMCollection, _ parts: [String], _ listAll: Bool = false) {
+        self.listAll = listAll
         super.init(library, parts)
     }
     
     func execute() throws {
-        if self.parts.isEmpty && search {
-            throw MMCliError.invalidParameters
-        } else if self.parts.isEmpty {
+        if listAll {
             // List everything in the collection.
             self.results = MMResultSet(self.library.all())
         } else {
+
+//        if self.parts.isEmpty && search {
+//            throw MMCliError.invalidParameters
+//        } else if self.parts.isEmpty {
+//            // List everything in the collection.
+//            self.results = MMResultSet(self.library.all())
+//        } else {
+            
             // Search collection based on keyword(s).
             var searchResults = [MMFile]()
             var usedKeywords = [String]()
