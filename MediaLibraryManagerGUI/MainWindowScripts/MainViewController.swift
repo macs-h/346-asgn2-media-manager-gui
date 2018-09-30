@@ -11,8 +11,8 @@
 import Cocoa
 import AppKit
 
-class MainViewController: NSViewController {
-
+class MainViewController: NSViewController, mainViewModelDegate {
+    
     @IBOutlet weak var fileTable: NSTableView!
 
     var files  = ["image 1", "image 2", "image 3", "image 4"]
@@ -25,14 +25,18 @@ class MainViewController: NSViewController {
         fileTable.action = #selector(clickOnRow)
         let mainTopVC = (self.parent?.children[0]) as! MainTopViewController
         mainTopVC.openVC = self
-        //selectedFile = Model.instance.currentFile
-        // Do any additional setup after loading the view.
+        Model.instance.mainViewDegate = self
     }
 
     override var representedObject: Any? {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    func updateOutets(files: [MMFile]) {
+        fileTable.reloadData()
+        print("update main")
     }
 
     @IBAction func changeCategoryAction(_ sender: NSButton) {
@@ -93,14 +97,14 @@ class MainViewController: NSViewController {
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return files.count
+        return Model.instance.library.collection.count //subLibrary.all().count
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
         let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
         
-        file.textField!.stringValue = files[row]
+        file.textField!.stringValue = Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
         //file.file = collection[row]
         print("file text \(file.textField!.stringValue)")
         return file

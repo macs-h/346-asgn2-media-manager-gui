@@ -15,7 +15,7 @@ protocol openFileModelDegate {
     func openMedia(file: MMFile)
 }
 protocol mainViewModelDegate {
-    func updateOutets(CurrentFile: MMFile, files: [MMFile], fileType: String)
+    func updateOutets(files: [MMFile])
 }
 
 
@@ -154,6 +154,7 @@ class Model{
         } catch {
             print("Load error:", error)
         }
+        updateMainVC()
     }
     
     func exportLibraryAsJson(to filepath: String) {
@@ -229,6 +230,6 @@ class Model{
     }
     
     private func updateMainVC(){
-        mainViewDegate?.updateOutets(CurrentFile: currentFile! , files: subLibrary.all(), fileType: currentFile!.fileType)
+        mainViewDegate?.updateOutets(files: subLibrary.all())
     }
 }
