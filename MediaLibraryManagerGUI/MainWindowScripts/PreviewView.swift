@@ -12,7 +12,7 @@ class PreviewView: NSView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        NSColor.gray.setFill()
+        NSColor.gridColor.setFill()
         //NSRectFill(dirtyRect)
         NSBezierPath.fill(self.bounds)
     }

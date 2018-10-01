@@ -14,18 +14,30 @@ import AppKit
 class MainViewController: NSViewController, mainViewModelDegate {
     
     @IBOutlet weak var fileTable: NSTableView!
-
+    @IBOutlet weak var categoryTable: NSTableView!
+    
     var files: [MMFile] = []
     var previewVC: PreviewViewController?
+    let categories = ["Images","Music","Video", "Documents", "Other"]
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fileTable.dataSource = self
         fileTable.delegate = self
         fileTable.doubleAction = #selector(doubleClickOnRow)
         fileTable.action = #selector(clickOnRow)
+        
+        categoryTable.dataSource = self
+        categoryTable.delegate = self
+        categoryTable.action = #selector(clickOnCategory)
+        
         let mainTopVC = (self.parent?.children[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.mainViewDegate = self
+        let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
+        categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
     }
 
     override var representedObject: Any? {
@@ -37,10 +49,23 @@ class MainViewController: NSViewController, mainViewModelDegate {
     func updateOutets(files: [MMFile]) {
         self.files = files
         fileTable.reloadData()
+        if let currentIndex = Model.instance.currentFileIndex{
+            if Model.instance.currentCategoryIndex == currentIndex[1]{
+                let indexPath = IndexSet(arrayLiteral: currentIndex[0])
+                fileTable.selectRowIndexes(indexPath, byExtendingSelection: false)
+                print("show selected row")
+            }
+        }
+        
     }
 
-    @IBAction func changeCategoryAction(_ sender: NSButton) {
-       Model.instance.changeCategory(catIndex: sender.tag)
+    @objc func clickOnCategory(_ sender: NSButton) {
+       Model.instance.changeCategory(catIndex: categoryTable.clickedRow)
+        
+        if previewVC != nil{
+            Model.instance.removePreview(sender: self, previewVC: previewVC!) //if we want to remove the preview if another category is selected
+            previewVC = nil
+        }
     }
     
     @objc func doubleClickOnRow() {
@@ -82,17 +107,28 @@ class MainViewController: NSViewController, mainViewModelDegate {
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return files.count//Model.instance.library.collection.count //subLibrary.all().count
+        if tableView == fileTable{
+            return files.count//Model.instance.library.collection.count //subLibrary.all().count
+        }else{
+            return categories.count
+        }
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        print("making cell \(row)")
-        let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
-        
-        file.textField!.stringValue = files[row].filename//Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
-        //file.file = collection[row]
-        print("file text \(file.textField!.stringValue)")
-        return file
+        if tableView == fileTable{
+            //print("making cell \(row)")
+            let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
+            
+            file.textField!.stringValue = files[row].filename//Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
+            //file.file = collection[row]
+            print("file text \(file.textField!.stringValue)")
+            return file
+        }else{
+            //CategoryTableView
+            let cat = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CategoryID"), owner: nil) as! NSTableCellView
+            cat.textField!.stringValue = categories[row]
+            return cat
+        }
     }
 
 }

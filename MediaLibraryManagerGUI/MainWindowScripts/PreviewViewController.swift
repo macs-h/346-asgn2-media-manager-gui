@@ -34,6 +34,8 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
         self.file = file as! MM_File
         fileNameLabel.stringValue = file.filename
         //notesLabel.stringValue = file.notes
+        print("metadata \(file.metadata)")
+        metadataTable.reloadData()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -41,10 +43,21 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        print("making cell \(row)")
-        let fileCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
-        fileCell.textField!.stringValue = file.metadata[row].value //might need to show key in another coloumn aswell
-        print("file text \(fileCell.textField!.stringValue)")
-        return fileCell
+        if tableColumn?.title == "Key" {
+            //key column
+            //print("making cell \(row)")
+            let keyCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MetadataKeyCol"), owner: nil) as! NSTableCellView //FileCell
+            keyCell.textField!.stringValue = file.metadata[row].keyword //might need to show key in another coloumn aswell
+            keyCell.textField?.textColor = NSColor.gray
+            keyCell.textField?.alignment = NSTextAlignment.right
+            
+            return keyCell
+        }else{
+            //value column
+            //print("making cell \(row)")
+            let valueCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MetadataValueCol"), owner: nil) as! NSTableCellView //FileCell
+            valueCell.textField!.stringValue = file.metadata[row].value //might need to show key in another coloumn aswell
+            return valueCell
+        }
     }
 }

@@ -28,6 +28,8 @@ class Model{
             setup()
         }
     }
+    var currentFileIndex:[Int]?
+    var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
     var openFileDelegate: openFileModelDegate?{
@@ -65,8 +67,7 @@ class Model{
         }else {
             importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
         }
-        listFiles(with: ["image"], listAll: false)
-        print("sublib \(subLibrary.all())")
+        changeCategory(catIndex: currentCategoryIndex)
         updateMainVC()
     }
     
@@ -77,32 +78,45 @@ class Model{
             cat = "image"
             break
         case 1:
-            cat = "video"
+            cat = "music"
             break
         case 2:
-            cat = "music"
+            cat = "video"
             break
         case 3:
             cat = "document"
             break
         default:
-            cat = "image"
+            cat = "other"
         }
+        currentCategoryIndex = catIndex
         listFiles(with: [cat], listAll: false)
         updateMainVC()
     }
     
+    
+    func searchStrings(searchTerms: [String]){
+        listFiles(with: searchTerms, listAll: false)
+        updateMainVC()
+    }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
-        if fileIndex > -1 {
-            do{
-                currentFile = try subLibrary.get(index: fileIndex)
-            }catch{
-                print("file not found")
-            }
-        }
-        
+        selectFile(fileIndex: fileIndex)
         sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
+    
+    func selectFile(fileIndex: Int){
+        do{
+            //try doesnt do anything so need to check numbers manually
+            if fileIndex > -1 {
+                currentFile = try subLibrary.get(index: fileIndex)
+                currentFileIndex = [fileIndex, currentCategoryIndex]
+                updateOpenFileVC()
+            }
+        }catch{
+            print("file out of range")
+        }
+    }
+    
     
     func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController{
         var previewVCResult = preview_VC
@@ -129,7 +143,7 @@ class Model{
         
         return previewVCResult!
     }
-    
+   
     func removePreview(sender: NSViewController ,previewVC: PreviewViewController){
         previewVC.view.layer?.removeAllAnimations()
         let x = sender.view.frame.width - 250

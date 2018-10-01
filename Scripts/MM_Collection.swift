@@ -147,6 +147,30 @@ class MM_Collection: MMCollection {
         }
     }
     
+//    /**
+//     Finds all the files associated with the keyword.
+//
+//     - parameter term:   The keyword to search for.
+//
+//     - returns:  A list of all the metadata associated with the keyword,
+//     possibly an empty list.
+//     */
+//    func search(term: String) -> [MMFile] {
+//        if collection.count > 0{
+//            var results: [MMFile] = []
+//            for file in collection{
+//                //search each feild
+//                if(file.getAttributes().contains(term)){
+//                    results.append(file)
+//                }
+//            }
+//            return results
+//        }else{
+//            return []
+//        }
+//
+//    }
+    
     /**
      Finds all the files associated with the keyword.
      
@@ -160,8 +184,12 @@ class MM_Collection: MMCollection {
             var results: [MMFile] = []
             for file in collection{
                 //search each feild
-                if(file.getAttributes().contains(term)){
-                    results.append(file)
+                let attributes = file.getAttributes()
+                for at in attributes{
+                    if(at.contains(term)){
+                        results.append(file)
+                        break
+                    }
                 }
             }
             return results
