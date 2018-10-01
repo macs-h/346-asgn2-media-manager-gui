@@ -1039,7 +1039,7 @@
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
-                        <segue destination="F3p-fK-OAM" kind="show" identifier="ShowMediaContentSegue" id="YkK-fJ-Hk5"/>
+                        <segue destination="BRa-QR-MSl" kind="show" identifier="ShowMediaContentSegue" id="9Mm-0K-YT7"/>
                     </connections>
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1348,91 +1348,19 @@
             </objects>
             <point key="canvasLocation" x="1910" y="499"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="BFK-PO-Cqi">
+        <!--MediaWindow-->
+        <scene sceneID="pV6-re-crT">
             <objects>
-                <windowController storyboardIdentifier="mediaWindow" showSeguePresentationStyle="single" id="F3p-fK-OAM" sceneMemberID="viewController">
-                    <window key="window" title="Media Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jba-vJ-NXd">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="516" y="564" width="800" height="450"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
-                        <connections>
-                            <outlet property="delegate" destination="F3p-fK-OAM" id="iFZ-pk-rUo"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="VCh-3U-5Ih" kind="relationship" relationship="window.shadowedContentViewController" id="fKv-mz-QhP"/>
-                    </connections>
-                </windowController>
-                <customObject id="EdI-Vc-Jtm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="MediaWindow" id="BRa-QR-MSl" sceneMemberID="viewController"/>
+                <customObject id="MdU-1B-Myp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="2113"/>
-        </scene>
-        <!--MediaWindowVideoVC-->
-        <scene sceneID="no0-3o-OP8">
-            <objects>
-                <viewController title="MediaWindowVideoVC" storyboardIdentifier="MediaWindowVideoVC" showSeguePresentationStyle="single" id="GHS-W4-cke" sceneMemberID="viewController">
-                    <view key="view" id="UnB-XA-rnP">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="KNs-Yx-eug" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="97" y="3338"/>
-        </scene>
-        <!--MediaWindowImageVC-->
-        <scene sceneID="N9H-9V-8t3">
-            <objects>
-                <viewController title="MediaWindowImageVC" storyboardIdentifier="MediaWindowImageVC" showSeguePresentationStyle="single" id="VCh-3U-5Ih" sceneMemberID="viewController">
-                    <view key="view" id="F3K-PV-bbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                    <connections>
-                        <segue destination="GHS-W4-cke" kind="show" id="OfD-HR-saL"/>
-                        <segue destination="fK8-zv-5JU" kind="show" id="MFL-Rs-LmY"/>
-                        <segue destination="Web-JT-ce3" kind="show" id="mKu-75-K53"/>
-                    </connections>
-                </viewController>
-                <customObject id="Syb-uS-gc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="958" y="2701"/>
-        </scene>
-        <!--MediaWindowDocumentVC-->
-        <scene sceneID="v8O-HO-iyo">
-            <objects>
-                <viewController title="MediaWindowDocumentVC" storyboardIdentifier="MediaWindowDocumentVC" showSeguePresentationStyle="single" id="fK8-zv-5JU" sceneMemberID="viewController">
-                    <view key="view" id="oEC-Vo-c2a">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="Lc2-ZE-1Me" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="958" y="3338"/>
-        </scene>
-        <!--MediaWindowAudioVC-->
-        <scene sceneID="PxP-kA-GYC">
-            <objects>
-                <viewController title="MediaWindowAudioVC" storyboardIdentifier="MediaWindowAudioVC" showSeguePresentationStyle="single" id="Web-JT-ce3" sceneMemberID="viewController">
-                    <view key="view" id="lSA-qk-b8s">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="V5G-6L-A4A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1814" y="3338"/>
+            <point key="canvasLocation" x="1061" y="1958"/>
         </scene>
     </scenes>
     <resources>
         <image name="Placeholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>

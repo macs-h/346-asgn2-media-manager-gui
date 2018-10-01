@@ -59,7 +59,7 @@ class Model{
     
     func addFile(){
         //get file path
-        let sam = true
+        let sam = false
         if sam{
             importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
         }else {
@@ -199,7 +199,7 @@ class Model{
     
     private func listFiles(with terms: [String] = [], listAll: Bool = false) {
         do {
-            var search = SearchCommand(library, terms, listAll)
+            let search = SearchCommand(library, terms, listAll)
             try search.execute()
             subLibrary = search.results! //need to test if this will ever be nil
             

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		60219540216058DA00E32E85 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
 		60219541216058F100E32E85 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
+		602195452160AB0100E32E85 /* MediaWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602195432160AB0100E32E85 /* MediaWindow.storyboard */; };
+		602195472160AFEA00E32E85 /* MediaWindowImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */; };
 		60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 		60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */; };
@@ -69,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		602195442160AB0100E32E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MediaWindow.storyboard; sourceTree = "<group>"; };
+		602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowImageVC.swift; sourceTree = "<group>"; };
 		60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowWC.swift; sourceTree = "<group>"; };
 		816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowViewController.swift; sourceTree = "<group>"; };
 		816B04642159A60E0057DEA5 /* MediaWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowView.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				816B04612159A5F70057DEA5 /* MediaWindowViewController.swift */,
 				816B04642159A60E0057DEA5 /* MediaWindowView.swift */,
 				60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */,
+				602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */,
 			);
 			path = MediaWindowScripts;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 				81AD632B21535DE80071147D /* AppDelegate.swift */,
 				81AD632F21535DE80071147D /* Assets.xcassets */,
 				81AD633121535DE80071147D /* Main.storyboard */,
+				602195432160AB0100E32E85 /* MediaWindow.storyboard */,
 				81AD633421535DE80071147D /* Info.plist */,
 				81AD633521535DE80071147D /* MediaLibraryManagerGUI.entitlements */,
 				ED024802215F0F2500F9EB93 /* Model.swift */,
@@ -347,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AD633021535DE80071147D /* Assets.xcassets in Resources */,
+				602195452160AB0100E32E85 /* MediaWindow.storyboard in Resources */,
 				EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */,
 				81AD633321535DE80071147D /* Main.storyboard in Resources */,
 			);
@@ -369,6 +376,7 @@
 				816B04682159A8180057DEA5 /* MM_Collection.swift in Sources */,
 				816B046A2159A8180057DEA5 /* MM_FileExport.swift in Sources */,
 				E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */,
+				602195472160AFEA00E32E85 /* MediaWindowImageVC.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
 				EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
@@ -428,6 +436,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		602195432160AB0100E32E85 /* MediaWindow.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				602195442160AB0100E32E85 /* Base */,
+			);
+			name = MediaWindow.storyboard;
+			sourceTree = "<group>";
+		};
 		81AD633121535DE80071147D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
