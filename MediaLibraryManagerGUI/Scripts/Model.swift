@@ -69,16 +69,45 @@ class Model{
         
     }
     
-    func addFile(){
+    func addFile(sender: NSViewController){
         //get file path
-        let sam = true
-        if sam{
-            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
-        }else {
-            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
-        }
-        changeCategory(catIndex: currentCategoryIndex)
-        updateMainVC()
+//        let sam = true
+//        if sam{
+//            importJsonFile(from: "///Users/sampaterson/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
+////            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
+//        }else {
+//            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
+//        }
+        
+        let panel = NSOpenPanel()
+        panel.allowedFileTypes = ["json"]
+        panel.beginSheetModal(for: sender.view.window!, completionHandler: { (returnCode)-> Void in
+            if returnCode == NSApplication.ModalResponse.OK{
+                var stringArray: [String] = []
+                for url in panel.urls{
+//                    stringArray.append(String(url.absoluteString)[4...])
+                    let str = String(url.absoluteString)
+                    let start = str.index(str.startIndex, offsetBy: str._bridgeToObjectiveC().range(of: ":").location+1)
+                    let end = str.endIndex
+                    let newStr = String(str[start..<end])
+                    stringArray.append(newStr)
+                }
+                
+                
+//                let start = path_reversed.startIndex
+//                let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+//
+//                f.filename = String( String( path_reversed[start..<end].reversed()) )
+                
+                
+                self.importJsonFile(from: stringArray.joined(separator: " "))
+//                self.importJsonFile(from: (panel.url?.absoluteString)!)
+                self.changeCategory(catIndex: self.currentCategoryIndex)
+                self.updateMainVC()
+            }
+
+        })
+       
     }
     
     func changeCategory(catIndex: Int){
@@ -227,6 +256,7 @@ class Model{
     //----------------------------------------------------------------------------------90
     
     private func importJsonFile(from filepath: String) {
+        print("---- \(filepath)")
         do {
             try LoadCommand(library, [filepath]).execute()
         } catch {

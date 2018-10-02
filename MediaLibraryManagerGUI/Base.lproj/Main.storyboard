@@ -926,6 +926,17 @@
                                     <action selector="play_pauseAction:" target="EQx-uk-cdA" id="6Zy-KU-4IV"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obp-Rl-64H">
+                                <rect key="frame" x="884" y="32" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g6p-MW-eaT">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="test:" target="EQx-uk-cdA" id="C7f-bb-yQq"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -1427,7 +1438,7 @@
                 </viewController>
                 <customObject id="Syb-uS-gc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="2701"/>
+            <point key="canvasLocation" x="977" y="2804"/>
         </scene>
         <!--MediaWindowDocumentVC-->
         <scene sceneID="v8O-HO-iyo">

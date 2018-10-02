@@ -19,6 +19,7 @@ class BottomBarViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        print(">>> bar is load")
     }
     
     @IBAction func PreviousAction(_ sender: NSButton) {
@@ -41,6 +42,11 @@ class BottomBarViewController: NSViewController {
     @IBAction func bookmarkAction(_ sender: NSButton) {
         //tell the model to create a bookmark
         Model.instance.addBookmark()
+    }
+    
+    
+    @IBAction func test(_ sender: Any) {
+        print("---test")
     }
     
     func updateOutlets(){

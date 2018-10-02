@@ -72,7 +72,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         //tell model to change the file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]-1)
     }
-
+    
     @IBAction func playButtonAction(_ sender: Any) {
         //tell the model to play the media
         Model.instance.openFile()

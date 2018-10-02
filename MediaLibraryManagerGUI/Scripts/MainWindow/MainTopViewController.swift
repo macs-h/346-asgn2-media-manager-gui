@@ -40,7 +40,7 @@ class MainTopViewController: NSViewController {
     @IBOutlet weak var forwardButton: NSButton!
     
     @IBAction func addFiles(_ sender: Any) {
-       Model.instance.addFile()
+       Model.instance.addFile(sender: self)
     }
     
     
