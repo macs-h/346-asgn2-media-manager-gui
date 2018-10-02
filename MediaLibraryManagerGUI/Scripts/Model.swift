@@ -19,14 +19,12 @@ protocol MainViewModelDegate {
     func updateOutets(files: [MMFile])
 }
 
-protocol BottomBarDelegate{
-    func updateOutlets()
-}
+//protocol BottomBarDelegate{
+//    func updateOutlets()
+//}
 
 
 class Model{
-    
-     var bottomBarVC  = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
     static var instance = Model()
     var library = MM_Collection()//holds all the files
     var subLibrary = MMResultSet() //holds the files that are show on screen (using categories)
@@ -40,6 +38,16 @@ class Model{
     var bookmarks: [String]  = []
     var notes: String = ""
     var videoPlayer: AVPlayer?
+    var currentFileOpen: MMFile?{
+        didSet{
+            if oldValue != nil{
+                //open window closed
+                print("removing bar")
+                removeBottomBar()
+                
+            }
+        }
+    }
     var openFileDelegate: OpenFileModelDegate?{
         didSet{
             updateOpenFileVC()
@@ -51,7 +59,7 @@ class Model{
         }
     }
     
-    var bottomBarDelegate: BottomBarDelegate?{
+    var bottomBarVC: BottomBarViewController?{
         didSet{
             updateBottomBarVC()
         }
@@ -143,6 +151,10 @@ class Model{
         updateMainVC()
     }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
+        if currentFileOpen == nil && segueName == "MainViewSegue"{
+            //no file is open, remove media bottom bar
+            removeBottomBar()
+        }
         selectFile(fileIndex: fileIndex)
         sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
@@ -212,9 +224,9 @@ class Model{
     
     
     func showBottomBar(sender: NSViewController){
-        if bottomBarDelegate == nil{
+        if bottomBarVC == nil{
             //doesnt already exist
-             bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
+            let bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
             bottomBarVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(bottomBarVC.view)
             let x = sender.view.frame.width - 250
@@ -230,9 +242,36 @@ class Model{
             animation.duration = 0.3
             bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
         }
+        print("bottom: \(bottomBarVC)")
     }
+    
+    func removeBottomBar(){
+        if bottomBarVC != nil{
+            bottomBarVC!.view.layer?.removeAllAnimations()
+            //bottomBarVC!.view.frame = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            CATransaction.begin()
+            let animation = CABasicAnimation(keyPath: "position")
+            let startingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
+            let endingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            animation.fromValue = startingPoint
+            animation.toValue = endingPoint
+            animation.repeatCount = 1
+            animation.duration = 0.3
+
+            CATransaction.setCompletionBlock {
+                self.bottomBarVC!.view.removeFromSuperview()
+                self.bottomBarVC = nil
+            }
+            bottomBarVC!.view.layer?.add(animation, forKey: "linearMovement")
+            CATransaction.commit()
+        }
+        
+    }
+    
+    
     func openFile(){
         //check the type of file and open it accordingly
+        currentFileOpen = currentFile
         openFileDelegate?.openMedia(file: currentFile!)
     }
     
@@ -364,6 +403,6 @@ class Model{
     }
     
     private func updateBottomBarVC(){
-        bottomBarDelegate?.updateOutlets()
+        bottomBarVC?.updateOutlets()
     }
 }

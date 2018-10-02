@@ -8,10 +8,16 @@
 
 import Cocoa
 
-class MediaWindowWC: NSWindowController {
+class MediaWindowWC: NSWindowController, NSWindowDelegate {
 
     override func windowDidLoad() {
         super.windowDidLoad()
+        
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        //tell the model that the window is no longer open
+        Model.instance.currentFileOpen = nil
     }
 
 }

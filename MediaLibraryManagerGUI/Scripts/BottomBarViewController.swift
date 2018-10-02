@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class BottomBarViewController: NSViewController, BottomBarDelegate {
+class BottomBarViewController: NSViewController {
 
     @IBOutlet weak var previousButton: NSButton!
     @IBOutlet weak var play_pauseButton: NSButton!
@@ -19,7 +19,7 @@ class BottomBarViewController: NSViewController, BottomBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        Model.instance.bottomBarDelegate = self
+        Model.instance.bottomBarVC = self
     }
     
     @IBAction func PreviousAction(_ sender: NSButton) {
