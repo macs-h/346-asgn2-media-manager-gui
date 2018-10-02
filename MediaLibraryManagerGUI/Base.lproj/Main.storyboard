@@ -788,7 +788,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="28" height="15"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="gridColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <tableColumns>
                                                 <tableColumn width="190" minWidth="40" maxWidth="1000" id="bUY-vx-2qd">
@@ -865,6 +865,87 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1071" y="499"/>
+        </scene>
+        <!--Bottom Bar View Controller-->
+        <scene sceneID="3sH-ls-Te3">
+            <objects>
+                <viewController id="EQx-uk-cdA" customClass="BottomBarViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="JuZ-59-mTF">
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="100"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rPZ-8L-bHh" userLabel="Next Button">
+                                <rect key="frame" x="524" y="40" width="72" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="Zff-MJ-4zg"/>
+                                    <constraint firstAttribute="height" constant="46" id="pE9-Sa-FEG"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" title="Previous" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2pI-Mt-0uT">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="PreviousAction:" target="EQx-uk-cdA" id="dzT-uY-q7G"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
+                                <rect key="frame" x="601" y="40" width="72" height="46"/>
+                                <buttonCell key="cell" type="square" title="Play" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xut-GJ-zT1">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="play_pauseAction:" target="EQx-uk-cdA" id="6Zy-KU-4IV"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oC-IKd" userLabel="Previous Button">
+                                <rect key="frame" x="678" y="40" width="72" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="JJX-xh-9Rz"/>
+                                    <constraint firstAttribute="width" constant="72" id="pCb-Dr-vxW"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" title="Next" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wjm-6T-zhu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="nextAction:" target="EQx-uk-cdA" id="oUN-IQ-ldd"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
+                                <rect key="frame" x="772" y="40" width="71" height="50"/>
+                                <buttonCell key="cell" type="square" title="Bookmark" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sia-wY-6if">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="bookmarkAction:" target="EQx-uk-cdA" id="01m-vx-IO2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="lqq-Rp-9Yq" secondAttribute="baseline" id="BZj-so-1eI"/>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="firstBaseline" secondItem="chO-FU-7D0" secondAttribute="firstBaseline" id="Bec-Xm-MUo"/>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="bj7-oC-IKd" secondAttribute="baseline" id="BzC-lk-oxE"/>
+                            <constraint firstItem="chO-FU-7D0" firstAttribute="leading" secondItem="rPZ-8L-bHh" secondAttribute="trailing" constant="5" id="D5p-vJ-p9y"/>
+                            <constraint firstItem="lqq-Rp-9Yq" firstAttribute="leading" secondItem="bj7-oC-IKd" secondAttribute="trailing" constant="22" id="FhC-BN-v2z"/>
+                            <constraint firstAttribute="trailing" secondItem="bj7-oC-IKd" secondAttribute="trailing" constant="530" id="LF7-1m-BQT"/>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="chO-FU-7D0" secondAttribute="baseline" id="U9X-J6-7ZO"/>
+                            <constraint firstItem="bj7-oC-IKd" firstAttribute="leading" secondItem="chO-FU-7D0" secondAttribute="trailing" constant="5" id="h2o-Nd-dCd"/>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="leading" secondItem="JuZ-59-mTF" secondAttribute="leading" constant="524" id="hQ4-Hp-XMg"/>
+                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="top" secondItem="JuZ-59-mTF" secondAttribute="top" constant="14" id="lzv-C0-M7t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bookmarkButton" destination="lqq-Rp-9Yq" id="aGY-qB-Dpa"/>
+                        <outlet property="nextButton" destination="bj7-oC-IKd" id="XGj-5z-AEv"/>
+                        <outlet property="play_pauseButton" destination="chO-FU-7D0" id="Jxh-Bo-hJN"/>
+                        <outlet property="previousButton" destination="rPZ-8L-bHh" id="PZU-Zo-TUd"/>
+                    </connections>
+                </viewController>
+                <customObject id="Eta-nX-JOi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071" y="927"/>
         </scene>
         <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
@@ -1079,7 +1160,7 @@
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="1409"/>
+            <point key="canvasLocation" x="958" y="1511"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Xlc-rN-Ws9">
@@ -1466,7 +1547,6 @@
         <image name="preview background" width="203" height="597"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>

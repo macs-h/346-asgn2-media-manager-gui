@@ -11,7 +11,7 @@
 import Cocoa
 import AppKit
 
-class MainViewController: NSViewController, mainViewModelDegate {
+class MainViewController: NSViewController, MainViewModelDegate {
     
     @IBOutlet weak var fileTable: NSTableView!
     @IBOutlet weak var categoryTable: NSTableView!

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class FileOpenViewController: NSViewController, openFileModelDegate {
+class FileOpenViewController: NSViewController, OpenFileModelDegate {
 
     //var file: MMFile!
     var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
@@ -71,18 +71,18 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         //tell model to change the file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]-1)
     }
-    
+
     @IBAction func playButtonAction(_ sender: Any) {
         //tell the model to play the media
         Model.instance.openFile()
     }
-    
-    
+
+
     @IBAction func nextButtonAction(_ sender: NSButton) {
         //tell the model to change to file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]+1)
     }
-    
+
 
     @IBAction func addBookmarksAction(_ sender: NSButton) {
        //tell the model to create a bookmark

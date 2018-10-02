@@ -41,6 +41,7 @@
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */; };
 		EDC5CBDA215F048F00F3C0D4 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
+		EDEAB915216322D300C58016 /* BottomBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDEAB914216322D300C58016 /* BottomBarViewController.swift */; };
 		EDF9313A215EDCCA00831EE5 /* FileOpenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */; };
 		EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = EDFDD4302154F06E008786A5 /* Placeholder.png */; };
 		EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
@@ -97,6 +98,7 @@
 		ED76A44121606BA900DD75F9 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStoryboardSegue.swift; sourceTree = "<group>"; };
+		EDEAB914216322D300C58016 /* BottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewController.swift; sourceTree = "<group>"; };
 		EDF93138215EDCCA00831EE5 /* FileOpenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileOpenViewController.swift; sourceTree = "<group>"; };
 		EDFDD4302154F06E008786A5 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
 		EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
@@ -154,13 +156,12 @@
 			children = (
 				816B04602159A5A90057DEA5 /* MediaWindowScripts */,
 				EDFDD42F2154F06E008786A5 /* Images */,
-				ED1083172153658F00F9E19D /* MainWindowScripts */,
+				ED1083172153658F00F9E19D /* Scripts */,
 				81AD632B21535DE80071147D /* AppDelegate.swift */,
 				81AD632F21535DE80071147D /* Assets.xcassets */,
 				81AD633121535DE80071147D /* Main.storyboard */,
 				81AD633421535DE80071147D /* Info.plist */,
 				81AD633521535DE80071147D /* MediaLibraryManagerGUI.entitlements */,
-				ED024802215F0F2500F9EB93 /* Model.swift */,
 			);
 			path = MediaLibraryManagerGUI;
 			sourceTree = "<group>";
@@ -206,17 +207,27 @@
 			path = MediaLibraryManager;
 			sourceTree = "<group>";
 		};
-		ED1083172153658F00F9E19D /* MainWindowScripts */ = {
+		ED1083172153658F00F9E19D /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				ED024802215F0F2500F9EB93 /* Model.swift */,
+				EDEAB9132163228800C58016 /* MainWindow */,
 				EDF93133215EDC2E00831EE5 /* OpenFileWindowScripts */,
+				EDEAB914216322D300C58016 /* BottomBarViewController.swift */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		EDEAB9132163228800C58016 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
 				81AD632D21535DE80071147D /* MainViewController.swift */,
 				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
 				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
 				ED76A44121606BA900DD75F9 /* PreviewView.swift */,
 			);
-			path = MainWindowScripts;
+			path = MainWindow;
 			sourceTree = "<group>";
 		};
 		EDF93133215EDC2E00831EE5 /* OpenFileWindowScripts */ = {
@@ -379,6 +390,7 @@
 				60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */,
 				60219541216058F100E32E85 /* MM_FileImport.swift in Sources */,
 				ED024803215F0F2500F9EB93 /* Model.swift in Sources */,
+				EDEAB915216322D300C58016 /* BottomBarViewController.swift in Sources */,
 				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,

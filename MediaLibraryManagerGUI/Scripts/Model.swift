@@ -10,12 +10,16 @@ import Foundation
 import Cocoa
 
 
-protocol openFileModelDegate {
+protocol OpenFileModelDegate {
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
     func openMedia(file: MMFile)
 }
-protocol mainViewModelDegate {
+protocol MainViewModelDegate {
     func updateOutets(files: [MMFile])
+}
+
+protocol BottomBarDelegate{
+    func updateOutlets()
 }
 
 
@@ -32,14 +36,20 @@ class Model{
     var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
-    var openFileDelegate: openFileModelDegate?{
+    var openFileDelegate: OpenFileModelDegate?{
         didSet{
             updateOpenFileVC()
         }
     }
-    var mainViewDegate: mainViewModelDegate?{
+    var mainViewDegate: MainViewModelDegate?{
         didSet{
             updateMainVC()
+        }
+    }
+    
+    var bottomBarDelegate: BottomBarDelegate?{
+        didSet{
+            updateBottomBarVC()
         }
     }
     
@@ -164,7 +174,9 @@ class Model{
 //        CATransaction.commit()
          previewVC.view.removeFromSuperview()
     }
-
+    
+    
+    
     func openFile(){
         //check the type of file and open it accordingly
         openFileDelegate?.openMedia(file: currentFile!)
@@ -281,5 +293,9 @@ class Model{
     
     private func updateMainVC(){
         mainViewDegate?.updateOutets(files: subLibrary.all())
+    }
+    
+    private func updateBottomBarVC(){
+        bottomBarDelegate?.updateOutlets()
     }
 }
