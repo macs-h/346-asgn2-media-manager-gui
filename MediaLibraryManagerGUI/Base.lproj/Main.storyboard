@@ -869,13 +869,13 @@
         <!--Bottom Bar View Controller-->
         <scene sceneID="3sH-ls-Te3">
             <objects>
-                <viewController id="EQx-uk-cdA" customClass="BottomBarViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BottomBarVC" id="EQx-uk-cdA" customClass="BottomBarViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JuZ-59-mTF">
-                        <rect key="frame" x="0.0" y="0.0" width="1280" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1280" height="79"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rPZ-8L-bHh" userLabel="Next Button">
-                                <rect key="frame" x="524" y="40" width="72" height="46"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rPZ-8L-bHh" userLabel="Next Button">
+                                <rect key="frame" x="524" y="19" width="72" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="Zff-MJ-4zg"/>
                                     <constraint firstAttribute="height" constant="46" id="pE9-Sa-FEG"/>
@@ -888,8 +888,9 @@
                                     <action selector="PreviousAction:" target="EQx-uk-cdA" id="dzT-uY-q7G"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
-                                <rect key="frame" x="601" y="40" width="72" height="46"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
+                                <rect key="frame" x="601" y="20" width="72" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Play" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xut-GJ-zT1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -898,8 +899,8 @@
                                     <action selector="play_pauseAction:" target="EQx-uk-cdA" id="6Zy-KU-4IV"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oC-IKd" userLabel="Previous Button">
-                                <rect key="frame" x="678" y="40" width="72" height="46"/>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bj7-oC-IKd" userLabel="Previous Button">
+                                <rect key="frame" x="678" y="19" width="72" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="JJX-xh-9Rz"/>
                                     <constraint firstAttribute="width" constant="72" id="pCb-Dr-vxW"/>
@@ -912,8 +913,9 @@
                                     <action selector="nextAction:" target="EQx-uk-cdA" id="oUN-IQ-ldd"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
-                                <rect key="frame" x="772" y="40" width="71" height="50"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
+                                <rect key="frame" x="772" y="19" width="71" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Bookmark" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sia-wY-6if">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -923,18 +925,6 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="lqq-Rp-9Yq" secondAttribute="baseline" id="BZj-so-1eI"/>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="firstBaseline" secondItem="chO-FU-7D0" secondAttribute="firstBaseline" id="Bec-Xm-MUo"/>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="bj7-oC-IKd" secondAttribute="baseline" id="BzC-lk-oxE"/>
-                            <constraint firstItem="chO-FU-7D0" firstAttribute="leading" secondItem="rPZ-8L-bHh" secondAttribute="trailing" constant="5" id="D5p-vJ-p9y"/>
-                            <constraint firstItem="lqq-Rp-9Yq" firstAttribute="leading" secondItem="bj7-oC-IKd" secondAttribute="trailing" constant="22" id="FhC-BN-v2z"/>
-                            <constraint firstAttribute="trailing" secondItem="bj7-oC-IKd" secondAttribute="trailing" constant="530" id="LF7-1m-BQT"/>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="baseline" secondItem="chO-FU-7D0" secondAttribute="baseline" id="U9X-J6-7ZO"/>
-                            <constraint firstItem="bj7-oC-IKd" firstAttribute="leading" secondItem="chO-FU-7D0" secondAttribute="trailing" constant="5" id="h2o-Nd-dCd"/>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="leading" secondItem="JuZ-59-mTF" secondAttribute="leading" constant="524" id="hQ4-Hp-XMg"/>
-                            <constraint firstItem="rPZ-8L-bHh" firstAttribute="top" secondItem="JuZ-59-mTF" secondAttribute="top" constant="14" id="lzv-C0-M7t"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bookmarkButton" destination="lqq-Rp-9Yq" id="aGY-qB-Dpa"/>
@@ -945,7 +935,7 @@
                 </viewController>
                 <customObject id="Eta-nX-JOi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="927"/>
+            <point key="canvasLocation" x="1071" y="926.5"/>
         </scene>
         <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
@@ -955,7 +945,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="646"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3bW-9c-7LJ" userLabel="Next Button">
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3bW-9c-7LJ" userLabel="Next Button">
                                 <rect key="frame" x="527" y="13" width="72" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="GbH-lf-mJI"/>
@@ -969,7 +959,7 @@
                                     <action selector="previousButtonAction:" target="EPY-3s-paR" id="9pk-wb-RfL"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GoB-n0-oXi" userLabel="Play Button">
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GoB-n0-oXi" userLabel="Play Button">
                                 <rect key="frame" x="604" y="13" width="72" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="RNY-Tw-Qw1"/>
@@ -983,7 +973,7 @@
                                     <action selector="playButtonAction:" target="EPY-3s-paR" id="qNZ-tf-Fus"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-9J-MVw" userLabel="Previous Button">
+                            <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dR2-9J-MVw" userLabel="Previous Button">
                                 <rect key="frame" x="681" y="13" width="72" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="CQB-TJ-c3Q"/>
@@ -1118,7 +1108,7 @@
                                     <constraint firstAttribute="bottom" secondItem="tzf-Ds-QEO" secondAttribute="bottom" constant="20" id="zHl-8R-57I"/>
                                 </constraints>
                             </customView>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b68-mi-ogR">
+                            <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b68-mi-ogR">
                                 <rect key="frame" x="775" y="13" width="71" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" title="Bookmark" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mAa-3K-OxD">

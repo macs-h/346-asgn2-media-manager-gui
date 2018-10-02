@@ -31,6 +31,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         mainTopVC = (self.parent?.children[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
+        Model.instance.showBottomBar(sender: self)
     }
     
 //    /**

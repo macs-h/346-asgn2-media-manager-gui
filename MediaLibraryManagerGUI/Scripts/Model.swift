@@ -176,7 +176,26 @@ class Model{
     }
     
     
-    
+    func showBottomBar(sender: NSViewController){
+        if bottomBarDelegate == nil{
+            //doesnt already exist
+            var bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
+            bottomBarVC.view.layer?.removeAllAnimations()
+            sender.view.addSubview(bottomBarVC.view)
+            let x = sender.view.frame.width - 250
+            //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+            bottomBarVC.view.frame = CGRect(x: 0, y: 0, width: 250, height: 646)
+            bottomBarVC.view.wantsLayer = true
+            let animation = CABasicAnimation(keyPath: "position")
+            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            let endingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
+            animation.fromValue = startingPoint
+            animation.toValue = endingPoint
+            animation.repeatCount = 1
+            animation.duration = 0.1
+            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
+        }
+    }
     func openFile(){
         //check the type of file and open it accordingly
         openFileDelegate?.openMedia(file: currentFile!)
