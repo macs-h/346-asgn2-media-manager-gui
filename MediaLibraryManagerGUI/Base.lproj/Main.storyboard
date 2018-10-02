@@ -708,11 +708,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="664"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suH-vG-T8l">
-                                <rect key="frame" x="217" y="0.0" width="1063" height="664"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5XK-4n-ydu"/>
-                            </imageView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
                                 <rect key="frame" x="217" y="0.0" width="1063" height="664"/>
                                 <clipView key="contentView" drawsBackground="NO" id="nSC-Oo-s2F">
@@ -777,10 +772,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suH-vG-T8l">
+                                <rect key="frame" x="217" y="0.0" width="1063" height="664"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="MainBackground" id="5XK-4n-ydu"/>
+                            </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lk-lu-6F4" userLabel="Left side background">
                                 <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="left side background" id="ogR-oM-qIx"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="Left side background" id="ogR-oM-qIx"/>
                             </imageView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvS-Ma-JBX">
                                 <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
@@ -1462,8 +1462,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Left side background" width="238" height="646"/>
+        <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
-        <image name="left side background" width="471" height="1440"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uRm-XU-ZIS"/>
