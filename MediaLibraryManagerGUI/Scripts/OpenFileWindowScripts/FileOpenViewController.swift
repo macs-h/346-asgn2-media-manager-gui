@@ -8,14 +8,14 @@
 
 import Cocoa
 
-class FileOpenViewController: NSViewController, openFileModelDegate {
+class FileOpenViewController: NSViewController, OpenFileModelDegate {
 
     //var file: MMFile!
     var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
     
-    @IBOutlet weak var previousButton: NSButton!
-    @IBOutlet weak var forwardButton: NSButton!
+//    @IBOutlet weak var previousButton: NSButton!
+//    @IBOutlet weak var forwardButton: NSButton!
     @IBOutlet weak var notesLabel: NSTextField!
     var mainTopVC = MainTopViewController()
     
@@ -31,8 +31,12 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         mainTopVC = (self.parent?.children[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
+        Model.instance.showBottomBar(sender: self.parent!)
     }
     
+    override func viewDidDisappear() {
+        Model.instance.openFileDelegate = nil
+    }
 //    /**
 //     ----This could go the model???
 //    */
@@ -76,13 +80,13 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         //tell the model to play the media
         Model.instance.openFile()
     }
-    
-    
+
+
     @IBAction func nextButtonAction(_ sender: NSButton) {
         //tell the model to change to file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]+1)
     }
-    
+
 
     @IBAction func addBookmarksAction(_ sender: NSButton) {
        //tell the model to create a bookmark
@@ -99,18 +103,18 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
         self.notesLabel.stringValue = currentFile.filename//notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()
-        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
-            //hide forward button
-            forwardButton.isEnabled = false
-        }else{
-            forwardButton.isEnabled = true
-        }
-        if Model.instance.currentFileIndex![0]-1 < 0{
-            //hide backwards button
-            previousButton.isEnabled = false
-        }else{
-            previousButton.isEnabled = true
-        }
+//        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
+//            //hide forward button
+//            forwardButton.isEnabled = false
+//        }else{
+//            forwardButton.isEnabled = true
+//        }
+//        if Model.instance.currentFileIndex![0]-1 < 0{
+//            //hide backwards button
+//            previousButton.isEnabled = false
+//        }else{
+//            previousButton.isEnabled = true
+//        }
     }
     
     func openMedia(file: MMFile) {

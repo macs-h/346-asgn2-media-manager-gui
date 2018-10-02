@@ -11,13 +11,17 @@ import Cocoa
 import AVKit
 
 
-protocol openFileModelDegate {
+protocol OpenFileModelDegate {
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
     func openMedia(file: MMFile)
 }
-protocol mainViewModelDegate {
+protocol MainViewModelDegate {
     func updateOutets(files: [MMFile])
 }
+
+//protocol BottomBarDelegate{
+//    func updateOutlets()
+//}
 
 
 class Model{
@@ -35,14 +39,30 @@ class Model{
     var notes: String = ""
     var mediaPlayer: AVPlayer?
     var queue: [MMFile] = []
-    var openFileDelegate: openFileModelDegate?{
+    var currentFileOpen: MMFile?{
+        didSet{
+            if oldValue != nil && openFileDelegate == nil{
+                //open window closed
+                print("removing bar")
+                removeBottomBar()
+                
+            }
+        }
+    }
+    var openFileDelegate: OpenFileModelDegate?{
         didSet{
             updateOpenFileVC()
         }
     }
-    var mainViewDegate: mainViewModelDegate?{
+    var mainViewDegate: MainViewModelDegate?{
         didSet{
             updateMainVC()
+        }
+    }
+    
+    var bottomBarVC: BottomBarViewController?{
+        didSet{
+            updateBottomBarVC()
         }
     }
     
@@ -62,16 +82,45 @@ class Model{
         
     }
     
-    func addFile(){
+    func addFile(sender: NSViewController){
         //get file path
-        let sam = false
-        if sam{
-            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
-        }else {
-            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
-        }
-        changeCategory(catIndex: currentCategoryIndex)
-        updateMainVC()
+//        let sam = true
+//        if sam{
+//            importJsonFile(from: "///Users/sampaterson/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
+////            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
+//        }else {
+//            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
+//        }
+        
+        let panel = NSOpenPanel()
+        panel.allowedFileTypes = ["json"]
+        panel.beginSheetModal(for: sender.view.window!, completionHandler: { (returnCode)-> Void in
+            if returnCode == NSApplication.ModalResponse.OK{
+                var stringArray: [String] = []
+                for url in panel.urls{
+//                    stringArray.append(String(url.absoluteString)[4...])
+                    let str = String(url.absoluteString)
+                    let start = str.index(str.startIndex, offsetBy: str._bridgeToObjectiveC().range(of: ":").location+1)
+                    let end = str.endIndex
+                    let newStr = String(str[start..<end])
+                    stringArray.append(newStr)
+                }
+                
+                
+//                let start = path_reversed.startIndex
+//                let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+//
+//                f.filename = String( String( path_reversed[start..<end].reversed()) )
+                
+                
+                self.importJsonFile(from: stringArray.joined(separator: " "))
+//                self.importJsonFile(from: (panel.url?.absoluteString)!)
+                self.changeCategory(catIndex: self.currentCategoryIndex)
+                self.updateMainVC()
+            }
+
+        })
+       
     }
     
     func changeCategory(catIndex: Int){
@@ -103,6 +152,10 @@ class Model{
         updateMainVC()
     }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
+        if currentFileOpen == nil && segueName == "MainViewSegue"{
+            //no file is open, remove media bottom bar
+            removeBottomBar()
+        }
         selectFile(fileIndex: fileIndex)
         sourceController.performSegue(withIdentifier: segueName, sender: self)
     }
@@ -114,6 +167,7 @@ class Model{
                 currentFile = try subLibrary.get(index: fileIndex)
                 currentFileIndex = [fileIndex, currentCategoryIndex]
                 updateOpenFileVC()
+                updateBottomBarVC()
             }
         }catch{
             print("file out of range")
@@ -130,15 +184,15 @@ class Model{
             let x = sender.view.frame.width - 250
     //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
             previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
-            previewVC.view.wantsLayer = true
-            let animation = CABasicAnimation(keyPath: "position")
-            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-            let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-            animation.fromValue = startingPoint
-            animation.toValue = endingPoint
-            animation.repeatCount = 1
-            animation.duration = 0.1
-            previewVC.view.layer?.add(animation, forKey: "linearMovement")
+//            previewVC.view.wantsLayer = true
+//            let animation = CABasicAnimation(keyPath: "position")
+//            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+//            let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
+//            animation.fromValue = startingPoint
+//            animation.toValue = endingPoint
+//            animation.repeatCount = 1
+//            animation.duration = 0.1
+//            previewVC.view.layer?.add(animation, forKey: "linearMovement")
             previewVCResult = previewVC
         }
         
@@ -151,34 +205,74 @@ class Model{
         previewVC.view.layer?.removeAllAnimations()
         let x = sender.view.frame.width - 250
         previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
-        CATransaction.begin()
-        let animation = CABasicAnimation(keyPath: "position")
-        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-        let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-        animation.fromValue = endingPoint
-        animation.toValue = startingPoint
-        animation.repeatCount = 1
-        animation.duration = 0.1
+//        CATransaction.begin()
+//        let animation = CABasicAnimation(keyPath: "position")
+//        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+//        let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
+//        animation.fromValue = endingPoint
+//        animation.toValue = startingPoint
+//        animation.repeatCount = 1
+//        animation.duration = 0.1
         
-        CATransaction.setCompletionBlock {
-            previewVC.view.removeFromSuperview()
-        }
-        previewVC.view.layer?.add(animation, forKey: "linearMovement")
-        CATransaction.commit()
+//        CATransaction.setCompletionBlock {
+//            previewVC.view.removeFromSuperview()
+//        }
+//        previewVC.view.layer?.add(animation, forKey: "linearMovement")
+//        CATransaction.commit()
+         previewVC.view.removeFromSuperview()
     }
-//
-//    func showControls(sender: NSViewController) {
-//        let controlVC = NSStoryboard(name: "MediaWindow", bundle: nil).instantiateController(withIdentifier: "MediaWindowControls") as! NSViewController
-//
-//        sender.view.addSubview(controlVC.view)
-////        let x = sender.view.frame.width - 250
-////        //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-////        controlVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
-//
-//    }
+    
+    
+    
+    func showBottomBar(sender: NSViewController){
+        if bottomBarVC == nil{
+            //doesnt already exist
+            let bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
+            bottomBarVC.view.layer?.removeAllAnimations()
+            sender.view.addSubview(bottomBarVC.view)
+            let x = sender.view.frame.width - 250
+            //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+            bottomBarVC.view.frame = CGRect(x: 0, y: 0, width: 1280, height: 100)
+            bottomBarVC.view.wantsLayer = true
+            let animation = CABasicAnimation(keyPath: "position")
+            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            let endingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
+            animation.fromValue = startingPoint
+            animation.toValue = endingPoint
+            animation.repeatCount = 1
+            animation.duration = 0.3
+            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
+        }
+        print("bottom: \(bottomBarVC)")
+    }
+    
+    func removeBottomBar(){
+        if bottomBarVC != nil{
+            bottomBarVC!.view.layer?.removeAllAnimations()
+            //bottomBarVC!.view.frame = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            CATransaction.begin()
+            let animation = CABasicAnimation(keyPath: "position")
+            let startingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
+            let endingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
+            animation.fromValue = startingPoint
+            animation.toValue = endingPoint
+            animation.repeatCount = 1
+            animation.duration = 0.3
 
+            CATransaction.setCompletionBlock {
+                self.bottomBarVC!.view.removeFromSuperview()
+                self.bottomBarVC = nil
+            }
+            bottomBarVC!.view.layer?.add(animation, forKey: "linearMovement")
+            CATransaction.commit()
+        }
+        
+    }
+    
+    
     func openFile(){
         //check the type of file and open it accordingly
+        currentFileOpen = currentFile
         openFileDelegate?.openMedia(file: currentFile!)
     }
     
@@ -239,6 +333,7 @@ class Model{
     //----------------------------------------------------------------------------------90
     
     private func importJsonFile(from filepath: String) {
+        print("---- \(filepath)")
         do {
             try LoadCommand(library, [filepath]).execute()
         } catch {
@@ -324,5 +419,9 @@ class Model{
     
     private func updateMainVC(){
         mainViewDegate?.updateOutets(files: subLibrary.all())
+    }
+    
+    private func updateBottomBarVC(){
+        bottomBarVC?.updateOutlets()
     }
 }
