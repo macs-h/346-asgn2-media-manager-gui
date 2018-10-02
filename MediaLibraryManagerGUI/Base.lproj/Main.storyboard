@@ -713,14 +713,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="MainBackground" id="5XK-4n-ydu"/>
                             </imageView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
                                 <rect key="frame" x="217" y="0.0" width="1063" height="664"/>
                                 <clipView key="contentView" drawsBackground="NO" id="nSC-Oo-s2F">
-                                    <rect key="frame" x="1" y="1" width="1061" height="662"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1063" height="664"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="JIz-OS-IBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="1061" height="662"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1063" height="664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="5" height="27"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -778,14 +778,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="Left side background" id="ogR-oM-qIx"/>
                             </imageView>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvS-Ma-JBX">
+                            <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvS-Ma-JBX">
                                 <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="3XD-KM-lIM">
-                                    <rect key="frame" x="1" y="1" width="216" height="662"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="CategoryTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="KMg-nr-M9o">
-                                            <rect key="frame" x="0.0" y="0.0" width="216" height="662"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="218" height="664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="28" height="15"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -838,6 +838,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MwY-Ob-LCN" userLabel="Preview background">
+                                <rect key="frame" x="1030" y="0.0" width="250" height="664"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="preview background" id="SyE-w9-bjG"/>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fvS-Ma-JBX" secondAttribute="bottom" id="3dW-jM-CU3"/>
@@ -1205,7 +1210,7 @@
             <objects>
                 <customObject id="19x-6S-rS8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PreviewVC" id="Vqa-bd-vc9" customClass="PreviewViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="mTq-eH-hG0" customClass="PreviewView" customModule="MediaLibraryManagerGUI" customModuleProvider="target">
+                    <view key="view" id="mTq-eH-hG0">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -1218,24 +1223,24 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Placeholder" id="X57-Wu-vvl"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-zv-KnO">
-                                <rect key="frame" x="-2" y="367" width="254" height="22"/>
+                                <rect key="frame" x="-2" y="355" width="254" height="34"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="File name" id="1gA-0X-ZhR">
-                                    <font key="font" metaFont="systemBold" size="18"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" metaFont="systemBold" size="28"/>
+                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klt-iE-gKw">
-                                <rect key="frame" x="0.0" y="170" width="250" height="169"/>
-                                <clipView key="contentView" id="h0i-Ub-mJS">
-                                    <rect key="frame" x="1" y="1" width="248" height="167"/>
+                            <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klt-iE-gKw">
+                                <rect key="frame" x="0.0" y="177" width="250" height="150"/>
+                                <clipView key="contentView" drawsBackground="NO" id="h0i-Ub-mJS">
+                                    <rect key="frame" x="1" y="1" width="248" height="148"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="2wI-Vx-lFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="167"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="148"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="9" height="20"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25267551369863012" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn width="67" minWidth="40" maxWidth="1000" id="Waw-AI-QYC">
@@ -1260,7 +1265,7 @@
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Meta data Cell" id="bxi-8g-BN9">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="textColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -1293,8 +1298,8 @@
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Jiq-Q4-UYx">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" red="1" green="0.04677283753" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
@@ -1307,6 +1312,7 @@
                                             </tableColumns>
                                         </tableView>
                                     </subviews>
+                                    <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="KiY-DQ-m2T">
                                     <rect key="frame" x="1" y="153" width="248" height="15"/>
@@ -1323,10 +1329,10 @@
                                     <constraint firstAttribute="width" constant="250" id="3rr-5I-rhd"/>
                                     <constraint firstAttribute="height" constant="138" id="Sko-iC-Ecv"/>
                                 </constraints>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" drawsBackground="YES" id="W15-i5-lLU">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="W15-i5-lLU">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.090196078430000007" green="0.14117647059999999" blue="0.1647058824" alpha="0.22880993150684931" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6z6-bh-3h7">
@@ -1334,10 +1340,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Sbo-eY-BWY">
-                                <rect key="frame" x="-2" y="140" width="254" height="23"/>
+                                <rect key="frame" x="-2" y="140" width="254" height="30"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Notes" id="0ix-dY-ZGf">
-                                    <font key="font" metaFont="system" size="19"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <font key="font" metaFont="systemBold" size="25"/>
+                                    <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1457,6 +1463,7 @@
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
+        <image name="preview background" width="203" height="597"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uRm-XU-ZIS"/>

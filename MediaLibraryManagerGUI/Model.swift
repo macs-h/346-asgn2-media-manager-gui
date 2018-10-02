@@ -127,15 +127,15 @@ class Model{
             let x = sender.view.frame.width - 250
     //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
             previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
-            previewVC.view.wantsLayer = true
-            let animation = CABasicAnimation(keyPath: "position")
-            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-            let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-            animation.fromValue = startingPoint
-            animation.toValue = endingPoint
-            animation.repeatCount = 1
-            animation.duration = 0.1
-            previewVC.view.layer?.add(animation, forKey: "linearMovement")
+//            previewVC.view.wantsLayer = true
+//            let animation = CABasicAnimation(keyPath: "position")
+//            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+//            let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
+//            animation.fromValue = startingPoint
+//            animation.toValue = endingPoint
+//            animation.repeatCount = 1
+//            animation.duration = 0.1
+//            previewVC.view.layer?.add(animation, forKey: "linearMovement")
             previewVCResult = previewVC
         }
         
@@ -148,20 +148,21 @@ class Model{
         previewVC.view.layer?.removeAllAnimations()
         let x = sender.view.frame.width - 250
         previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
-        CATransaction.begin()
-        let animation = CABasicAnimation(keyPath: "position")
-        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-        let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-        animation.fromValue = endingPoint
-        animation.toValue = startingPoint
-        animation.repeatCount = 1
-        animation.duration = 0.1
+//        CATransaction.begin()
+//        let animation = CABasicAnimation(keyPath: "position")
+//        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+//        let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
+//        animation.fromValue = endingPoint
+//        animation.toValue = startingPoint
+//        animation.repeatCount = 1
+//        animation.duration = 0.1
         
-        CATransaction.setCompletionBlock {
-            previewVC.view.removeFromSuperview()
-        }
-        previewVC.view.layer?.add(animation, forKey: "linearMovement")
-        CATransaction.commit()
+//        CATransaction.setCompletionBlock {
+//            previewVC.view.removeFromSuperview()
+//        }
+//        previewVC.view.layer?.add(animation, forKey: "linearMovement")
+//        CATransaction.commit()
+         previewVC.view.removeFromSuperview()
     }
 
     func openFile(){
