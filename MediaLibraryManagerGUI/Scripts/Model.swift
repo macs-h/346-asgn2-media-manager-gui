@@ -278,7 +278,8 @@ class Model{
     
     func addBookmark(){
         //get current time from the player
-        let time = Utility.instance.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+//        let time = Utility.instance.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+        let time = "placeholder"
         //add the metadata to the file
         bookmarks.append(time)
         print(time)
