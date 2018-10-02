@@ -34,6 +34,9 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         Model.instance.showBottomBar(sender: self.parent!)
     }
     
+    override func viewDidDisappear() {
+        Model.instance.openFileDelegate = nil
+    }
 //    /**
 //     ----This could go the model???
 //    */

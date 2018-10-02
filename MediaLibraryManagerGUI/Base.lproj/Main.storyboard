@@ -904,17 +904,6 @@
                                     <action selector="nextAction:" target="EQx-uk-cdA" id="nl1-vB-Ixn"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
-                                <rect key="frame" x="772" y="40" width="71" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="Bookmark" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sia-wY-6if">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="bookmarkAction:" target="EQx-uk-cdA" id="Piu-lD-VnC"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
                                 <rect key="frame" x="602" y="28" width="76" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -926,15 +915,15 @@
                                     <action selector="play_pauseAction:" target="EQx-uk-cdA" id="6Zy-KU-4IV"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obp-Rl-64H">
-                                <rect key="frame" x="884" y="32" width="81" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
+                                <rect key="frame" x="782" y="30" width="34" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g6p-MW-eaT">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Bookmark button" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Sia-wY-6if">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="test:" target="EQx-uk-cdA" id="C7f-bb-yQq"/>
+                                    <action selector="bookmarkAction:" target="EQx-uk-cdA" id="Piu-lD-VnC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1432,8 +1421,6 @@
                     </view>
                     <connections>
                         <segue destination="GHS-W4-cke" kind="show" id="OfD-HR-saL"/>
-                        <segue destination="fK8-zv-5JU" kind="show" id="MFL-Rs-LmY"/>
-                        <segue destination="Web-JT-ce3" kind="show" id="mKu-75-K53"/>
                     </connections>
                 </viewController>
                 <customObject id="Syb-uS-gc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1450,6 +1437,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bookmark button" width="27" height="56"/>
         <image name="Bottom bar" width="1280" height="100"/>
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>

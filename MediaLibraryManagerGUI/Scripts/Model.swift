@@ -40,7 +40,7 @@ class Model{
     var videoPlayer: AVPlayer?
     var currentFileOpen: MMFile?{
         didSet{
-            if oldValue != nil{
+            if oldValue != nil && openFileDelegate == nil{
                 //open window closed
                 print("removing bar")
                 removeBottomBar()
