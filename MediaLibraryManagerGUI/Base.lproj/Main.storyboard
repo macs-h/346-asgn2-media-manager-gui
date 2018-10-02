@@ -901,7 +901,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="nextAction:" target="EQx-uk-cdA" id="oUN-IQ-ldd"/>
+                                    <action selector="nextAction:" target="EQx-uk-cdA" id="nl1-vB-Ixn"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lqq-Rp-9Yq">
@@ -912,7 +912,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="bookmarkAction:" target="EQx-uk-cdA" id="01m-vx-IO2"/>
+                                    <action selector="bookmarkAction:" target="EQx-uk-cdA" id="Piu-lD-VnC"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
