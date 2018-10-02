@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import AVKit
 
 
 protocol openFileModelDegate {
@@ -32,6 +33,7 @@ class Model{
     var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
+    var videoPlayer: AVPlayer?
     var openFileDelegate: openFileModelDegate?{
         didSet{
             updateOpenFileVC()
@@ -61,7 +63,7 @@ class Model{
     
     func addFile(){
         //get file path
-        let sam = true
+        let sam = false
         if sam{
             importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
         }else {
@@ -181,9 +183,10 @@ class Model{
     
     func addBookmark(){
         //get current time from the player
-        let time = "1.1" //temp
+        let time = Utility.instance.convertCMTimeToSeconds((self.videoPlayer?.currentTime())!)
         //add the metadata to the file
         bookmarks.append(time)
+        print(time)
         saveData()
         updateOpenFileVC()
     }
@@ -197,6 +200,18 @@ class Model{
     func saveData(){
         //save bookmarks
         //save notes
+    }
+    
+    
+    //----------------------------------------------------------------------------------90
+    // MediaWindow functionality
+    //----------------------------------------------------------------------------------90
+    
+    func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView) {
+        let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
+        
+        self.videoPlayer = AVPlayer(url: url)
+        playerView.player = self.videoPlayer
     }
     
     

@@ -8,7 +8,6 @@
 
 import Cocoa
 import AVKit
-import AVFoundation
 
 class MediaWindowVideoVC: NSViewController {
 
@@ -18,10 +17,16 @@ class MediaWindowVideoVC: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         
-        let url = URL(fileURLWithPath: (Model.instance.currentFile?.fullpath)!)
+        NSLog("MediaWindowVideoVC loaded")
         
-        let player = AVPlayer(url: url)
-        playerView.player = player
+        Model.instance.loadVideoPlayer(self, playerView: playerView)
+        
+//        let url = URL(fileURLWithPath: (Model.instance.currentFile?.fullpath)!)
+//
+//        let player = AVPlayer(url: url)
+//        playerView.player = player
+//
+//        print("---", player.currentTime())
         
 //        Model.instance.showControls(sender: self)
     }

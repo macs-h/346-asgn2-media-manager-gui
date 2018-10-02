@@ -7,6 +7,45 @@
 //
 
 import Cocoa
+import AVKit
+
+class Utility {
+    static var instance = Utility()
+    
+    func convertCMTimeToSeconds(_ cmTime: CMTime) -> String {
+        let seconds = CMTimeGetSeconds(cmTime)
+        return convertSecondsToHuman(Float(seconds))
+    }
+    
+    func convertSecondsToCMTime(_ seconds: Int) -> CMTime {
+        let cmTime = CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: Int32(NSEC_PER_SEC))
+        return cmTime
+    }
+    
+    fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
+        let hours = Int( floor(seconds / 3600) )
+        let mins = Int( floor( seconds.truncatingRemainder(dividingBy: 3600) / 60) )
+        let secs = Int( seconds.truncatingRemainder(dividingBy: 60) )
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let date = dateFormatter.date(from: "\(hours)-\(mins)-\(secs)")
+        let returnStr = dateFormatter.string(from: date!)
+        
+        return returnStr
+    }
+    
+    fileprivate func convertHumanToSeconds(_ humanTime: String) -> Int {
+        let time = humanTime.components(separatedBy: ":")
+        var seconds: Int = 0
+        
+        seconds += Int(time[0])! * 3600
+        seconds += Int(time[1])! * 60
+        seconds += Int(time[2])!
+    
+        return seconds
+    }
+}
 
 extension NSImage {
     

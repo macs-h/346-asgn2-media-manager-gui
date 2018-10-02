@@ -114,6 +114,7 @@ class FileOpenViewController: NSViewController, openFileModelDegate {
     }
     
     func openMedia(file: MMFile) {
+        
         performSegue(withIdentifier: "ShowMediaContentSegue", sender: self)
     }
 
