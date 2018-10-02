@@ -33,7 +33,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
         categoryTable.delegate = self
         categoryTable.action = #selector(clickOnCategory)
         
-        let mainTopVC = (self.parent?.children[0]) as! MainTopViewController
+        let mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.mainViewDegate = self
         let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
