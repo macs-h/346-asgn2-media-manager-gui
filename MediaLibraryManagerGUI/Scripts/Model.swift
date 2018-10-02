@@ -184,7 +184,7 @@ class Model{
             sender.view.addSubview(bottomBarVC.view)
             let x = sender.view.frame.width - 250
             //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-            bottomBarVC.view.frame = CGRect(x: 0, y: 0, width: 250, height: 646)
+            bottomBarVC.view.frame = CGRect(x: 0, y: 0, width: 1280, height: 100)
             bottomBarVC.view.wantsLayer = true
             let animation = CABasicAnimation(keyPath: "position")
             let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
@@ -192,7 +192,7 @@ class Model{
             animation.fromValue = startingPoint
             animation.toValue = endingPoint
             animation.repeatCount = 1
-            animation.duration = 0.1
+            animation.duration = 0.3
             bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
         }
     }

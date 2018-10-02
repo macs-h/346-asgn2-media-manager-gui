@@ -14,8 +14,8 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
     
-    @IBOutlet weak var previousButton: NSButton!
-    @IBOutlet weak var forwardButton: NSButton!
+//    @IBOutlet weak var previousButton: NSButton!
+//    @IBOutlet weak var forwardButton: NSButton!
     @IBOutlet weak var notesLabel: NSTextField!
     var mainTopVC = MainTopViewController()
     
@@ -100,18 +100,18 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         self.notesLabel.stringValue = currentFile.filename//notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()
-        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
-            //hide forward button
-            forwardButton.isEnabled = false
-        }else{
-            forwardButton.isEnabled = true
-        }
-        if Model.instance.currentFileIndex![0]-1 < 0{
-            //hide backwards button
-            previousButton.isEnabled = false
-        }else{
-            previousButton.isEnabled = true
-        }
+//        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
+//            //hide forward button
+//            forwardButton.isEnabled = false
+//        }else{
+//            forwardButton.isEnabled = true
+//        }
+//        if Model.instance.currentFileIndex![0]-1 < 0{
+//            //hide backwards button
+//            previousButton.isEnabled = false
+//        }else{
+//            previousButton.isEnabled = true
+//        }
     }
     
     func openMedia(file: MMFile) {
