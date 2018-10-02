@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class BottomBarViewController: NSViewController {
+class BottomBarViewController: NSViewController, BottomBarDelegate {
 
     @IBOutlet weak var previousButton: NSButton!
     @IBOutlet weak var play_pauseButton: NSButton!
@@ -19,7 +19,7 @@ class BottomBarViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        print(">>> bar is load")
+        Model.instance.bottomBarDelegate = self
     }
     
     @IBAction func PreviousAction(_ sender: NSButton) {
@@ -44,24 +44,20 @@ class BottomBarViewController: NSViewController {
         Model.instance.addBookmark()
     }
     
-    
-    @IBAction func test(_ sender: Any) {
-        print("---test")
-    }
-    
     func updateOutlets(){
-//        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
-//            //hide forward button
-//            nextButton.isEnabled = false
-//        }else{
-//            nextButton.isEnabled = true
-//        }
-//        if Model.instance.currentFileIndex![0]-1 < 0{
-//            //hide backwards button
-//            previousButton.isEnabled = false
-//        }else{
-//            previousButton.isEnabled = true
-//        }
+        print("current file index\(Model.instance.currentFileIndex![0]+1) all \(Model.instance.subLibrary.all().count)")
+        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
+            //hide forward button
+            nextButton.isEnabled = false
+        }else{
+            nextButton.isEnabled = true
+        }
+        if Model.instance.currentFileIndex![0]-1 < 0{
+            //hide backwards button
+            previousButton.isEnabled = false
+        }else{
+            previousButton.isEnabled = true
+        }
     }
     
 }

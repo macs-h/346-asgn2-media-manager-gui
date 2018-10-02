@@ -24,6 +24,8 @@ protocol BottomBarDelegate{
 
 
 class Model{
+    
+     var bottomBarVC  = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
     static var instance = Model()
     var library = MM_Collection()//holds all the files
     var subLibrary = MMResultSet() //holds the files that are show on screen (using categories)
@@ -150,6 +152,7 @@ class Model{
                 currentFile = try subLibrary.get(index: fileIndex)
                 currentFileIndex = [fileIndex, currentCategoryIndex]
                 updateOpenFileVC()
+                updateBottomBarVC()
             }
         }catch{
             print("file out of range")
@@ -205,10 +208,11 @@ class Model{
     }
     
     
+    
     func showBottomBar(sender: NSViewController){
         if bottomBarDelegate == nil{
             //doesnt already exist
-            var bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
+             bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
             bottomBarVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(bottomBarVC.view)
             let x = sender.view.frame.width - 250

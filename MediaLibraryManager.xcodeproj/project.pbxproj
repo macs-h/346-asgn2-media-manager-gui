@@ -134,9 +134,9 @@
 			children = (
 				D3A241E52133AE390061C4F3 /* MM_File.swift */,
 				D3A241F92133B1630061C4F3 /* MM_Collection.swift */,
-				D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */,
 				D3A242112133C0960061C4F3 /* MM_FileExport.swift */,
 				D3A24227213502A30061C4F3 /* MM_Metadata.swift */,
+				D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
