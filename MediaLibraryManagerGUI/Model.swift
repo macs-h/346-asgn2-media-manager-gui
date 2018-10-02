@@ -61,7 +61,7 @@ class Model{
     
     func addFile(){
         //get file path
-        let sam = false
+        let sam = true
         if sam{
             importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
         }else {

@@ -15,18 +15,38 @@ class MediaChangeVC: NSViewController {
         // Do view setup here.
         
         let mediaType = Model.instance.currentFile?.fileType
-        
-        if mediaType == "image" {
-            performSegue(withIdentifier: "SegueToImage", sender: self)
-        } else if mediaType == "document" {
-            performSegue(withIdentifier: "SegueToDocument", sender: self)
-        } else if mediaType == "audio" {
-            performSegue(withIdentifier: "SegueToAudio", sender: self)
-        } else if mediaType == "video" {
-            performSegue(withIdentifier: "SegueToVideo", sender: self)
-        } else {
-            NSLog("Media type \"\(String(describing: mediaType))\" does not exist")
+        var vc = ""
+        switch mediaType {
+        case "image":
+            vc = "MediaWindowImageVC"
+            break
+        case "video":
+            vc = "MediaWindowVideoVC"
+            break
+        case "audio":
+            vc = "MediaWindowAudioVC"
+            break
+        case "document":
+            vc = "MediaWindowDocumentVC"
+            break
+        default:
+            print("unknown type \(mediaType)")
         }
+        
+        var newVC = NSStoryboard(name: "MediaWindow", bundle: nil).instantiateController(withIdentifier: vc) as! NSViewController
+        self.view.addSubview(newVC.view)
+        newVC.view.frame = CGRect(x: 0, y: 0, width: 800, height: 450)
+//        if mediaType == "image" {
+//            performSegue(withIdentifier: "SegueToImage", sender: self)
+//        } else if mediaType == "document" {
+//            performSegue(withIdentifier: "SegueToDocument", sender: self)
+//        } else if mediaType == "audio" {
+//            performSegue(withIdentifier: "SegueToAudio", sender: self)
+//        } else if mediaType == "video" {
+//            performSegue(withIdentifier: "SegueToVideo", sender: self)
+//        } else {
+//            NSLog("Media type \"\(String(describing: mediaType))\" does not exist")
+//        }
         
     }
     
