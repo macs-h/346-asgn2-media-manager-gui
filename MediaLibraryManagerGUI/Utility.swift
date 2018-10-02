@@ -17,8 +17,9 @@ class Utility {
         return convertSecondsToHuman(Float(seconds))
     }
     
-    func convertSecondsToCMTime(_ seconds: Int) -> CMTime {
-        let cmTime = CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: Int32(NSEC_PER_SEC))
+    func convertSecondsToCMTime(_ seconds: Int, _ timeScale: Int32) -> CMTime {
+        let cmTime = CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: timeScale)
+        print(cmTime)
         return cmTime
     }
     

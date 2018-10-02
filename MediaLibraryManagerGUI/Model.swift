@@ -33,7 +33,8 @@ class Model{
     var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
-    var videoPlayer: AVPlayer?
+    var mediaPlayer: AVPlayer?
+    var queue: [MMFile] = []
     var openFileDelegate: openFileModelDegate?{
         didSet{
             updateOpenFileVC()
@@ -183,7 +184,7 @@ class Model{
     
     func addBookmark(){
         //get current time from the player
-        let time = Utility.instance.convertCMTimeToSeconds((self.videoPlayer?.currentTime())!)
+        let time = Utility.instance.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
         //add the metadata to the file
         bookmarks.append(time)
         print(time)
@@ -197,6 +198,12 @@ class Model{
         updateOpenFileVC()
     }
     
+    func addToQueue(){
+        queue.append(currentFile!) //add the current file open
+    }
+    
+    
+    
     func saveData(){
         //save bookmarks
         //save notes
@@ -207,11 +214,23 @@ class Model{
     // MediaWindow functionality
     //----------------------------------------------------------------------------------90
     
-    func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView) {
-        let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
-        
-        self.videoPlayer = AVPlayer(url: url)
-        playerView.player = self.videoPlayer
+    func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {
+        var url: URL
+        if !queued{
+            url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
+        }else{
+            url = URL(fileURLWithPath: queue.removeFirst().fullpath)
+            
+        }
+        self.mediaPlayer = AVPlayer(url: url)
+        playerView.player = self.mediaPlayer
+    }
+    
+    func mediaJumpToTime(_ sender: NSViewController, playerView: AVPlayerView, time: CMTime) {
+        self.mediaPlayer = playerView.player
+        print("--", time)
+        let seekTime = CMTime(value: 3, timescale: 1)
+        self.mediaPlayer?.seek(to: seekTime)
     }
     
     

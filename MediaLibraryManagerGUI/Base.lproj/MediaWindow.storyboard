@@ -709,7 +709,7 @@
                     <window key="window" title="Media Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jba-vJ-NXd">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="0.0" y="0.0" width="800" height="450"/>
+                        <rect key="contentRect" x="336" y="210" width="800" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
                         <value key="minSize" type="size" width="300" height="300"/>
                         <connections>

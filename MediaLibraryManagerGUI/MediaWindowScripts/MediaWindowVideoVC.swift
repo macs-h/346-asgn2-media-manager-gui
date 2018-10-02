@@ -21,14 +21,8 @@ class MediaWindowVideoVC: NSViewController {
         
         Model.instance.loadVideoPlayer(self, playerView: playerView)
         
-//        let url = URL(fileURLWithPath: (Model.instance.currentFile?.fullpath)!)
-//
-//        let player = AVPlayer(url: url)
-//        playerView.player = player
-//
-//        print("---", player.currentTime())
         
-//        Model.instance.showControls(sender: self)
+        Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.instance.convertSecondsToCMTime(8, 1))
     }
     
 }
