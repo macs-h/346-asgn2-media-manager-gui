@@ -1133,13 +1133,18 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="TopBar background" id="CVH-fP-Pa2"/>
                                     </imageView>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w0R-6z-Dzr">
+                                        <rect key="frame" x="1056" y="14" width="192" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="Search barckground" id="ZXN-os-rdg"/>
+                                    </imageView>
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSM-OS-wyy">
                                         <rect key="frame" x="1056" y="14" width="192" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="O7F-45-M3k">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                         <connections>
                                             <action selector="searchAcion:" target="GPT-n4-WSd" id="16W-f6-Mfu"/>
@@ -1155,9 +1160,9 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ooi-5d-3te">
-                                        <rect key="frame" x="222" y="9" width="47" height="31"/>
+                                        <rect key="frame" x="223" y="6" width="46" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="&lt;" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2VH-M3-XEX">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BackButton" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="2VH-M3-XEX">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="20"/>
                                         </buttonCell>
@@ -1166,9 +1171,9 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="WUa-Gt-atK">
-                                        <rect key="frame" x="279" y="9" width="47" height="31"/>
+                                        <rect key="frame" x="268" y="6" width="47" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="&gt;" bezelStyle="shadowlessSquare" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="evV-tQ-88J">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Forward button" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyDown" inset="2" id="evV-tQ-88J">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="20"/>
                                         </buttonCell>
@@ -1177,9 +1182,9 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tMG-qw-DEg">
-                                        <rect key="frame" x="143" y="8" width="45" height="32"/>
+                                        <rect key="frame" x="143" y="3" width="46" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" title="+" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DWL-wo-BBp">
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Add button" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="DWL-wo-BBp">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="20"/>
                                         </buttonCell>
@@ -1437,11 +1442,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add button" width="46" height="38"/>
+        <image name="BackButton" width="46" height="38"/>
         <image name="Bookmark button" width="27" height="56"/>
         <image name="Bottom bar" width="1280" height="100"/>
+        <image name="Forward button" width="46" height="38"/>
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
+        <image name="Search barckground" width="206" height="41"/>
         <image name="TopBar background" width="1279" height="50"/>
         <image name="next button" width="19" height="20"/>
         <image name="play Button" width="48" height="48"/>
