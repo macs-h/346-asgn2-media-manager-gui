@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="F3p-fK-OAM">
     <dependencies>
         <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="14313.18"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.pdfkit.ibplugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -709,7 +711,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="0.0" y="0.0" width="800" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="minSize" type="size" width="300" height="300"/>
                         <connections>
                             <outlet property="delegate" destination="F3p-fK-OAM" id="iFZ-pk-rUo"/>
                         </connections>
@@ -730,16 +732,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-Ux-fdf">
-                                <rect key="frame" x="539" y="359" width="81" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihu-Mj-8L8">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
+                            <avPlayerView controlsStyle="floating" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-j9-kdh">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rwz-j9-kdh" secondAttribute="height" multiplier="16:9" id="rEl-Uk-ZFT"/>
+                                </constraints>
+                            </avPlayerView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="rwz-j9-kdh" secondAttribute="bottom" id="Yig-Kl-hq3"/>
+                            <constraint firstItem="rwz-j9-kdh" firstAttribute="leading" secondItem="UnB-XA-rnP" secondAttribute="leading" id="d6G-DP-Ea4"/>
+                            <constraint firstItem="rwz-j9-kdh" firstAttribute="top" secondItem="UnB-XA-rnP" secondAttribute="top" id="u4u-Mq-2pC"/>
+                            <constraint firstAttribute="trailing" secondItem="rwz-j9-kdh" secondAttribute="trailing" id="yV8-1F-6kL"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerView" destination="rwz-j9-kdh" id="sg3-zv-ezI"/>
+                    </connections>
                 </viewController>
                 <customObject id="KNs-Yx-eug" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -755,7 +764,7 @@
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-c7-6iv" customClass="mediaImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Placeholder" id="z2R-4M-nUl"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Placeholder" id="z2R-4M-nUl"/>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -773,103 +782,6 @@
             </objects>
             <point key="canvasLocation" x="97" y="2701"/>
         </scene>
-        <!--MediaWindowControlVC-->
-        <scene sceneID="fnP-Ar-FhB">
-            <objects>
-                <viewController title="MediaWindowControlVC" storyboardIdentifier="MediaWindowControls" showSeguePresentationStyle="single" id="IIw-Gl-1gi" customClass="MediaWindowControlVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="nMb-Jy-2Ew">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="145"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="4JF-OR-OpI" userLabel="Play Button">
-                                <rect key="frame" x="376" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="SL4-FI-C7c"/>
-                                    <constraint firstAttribute="height" constant="48" id="x3E-hk-My5"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonPlay" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="yRx-6m-Pbn">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="opZ-ro-9AY" userLabel="Forward Button">
-                                <rect key="frame" x="434" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="c5D-ja-TTb"/>
-                                    <constraint firstAttribute="width" constant="48" id="k3G-nH-s6w"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonForward" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="wKI-Ty-zEN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="bpp-6L-uoz" userLabel="Rewind Button">
-                                <rect key="frame" x="318" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="ISE-fE-vit"/>
-                                    <constraint firstAttribute="height" constant="48" id="M3s-da-b1D"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonRewind" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nA1-su-UCX">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="s7p-x2-RsZ" userLabel="Stop Button">
-                                <rect key="frame" x="492" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="O5f-3d-d6o"/>
-                                    <constraint firstAttribute="width" constant="48" id="UOf-Py-Lkf"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonStop" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="7le-3l-7xl">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="gw8-hE-VV3" userLabel="Next Button">
-                                <rect key="frame" x="260" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="1Zo-8x-UJa"/>
-                                    <constraint firstAttribute="height" constant="48" id="wuf-FN-YRn"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonNext" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Bjy-SO-Fua">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="Nc6-Jo-q9I" userLabel="Previous Button">
-                                <rect key="frame" x="202" y="32" width="48" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="f5j-BZ-I7D"/>
-                                    <constraint firstAttribute="height" constant="48" id="hhD-2u-MFu"/>
-                                </constraints>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="buttonPrevious" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="opi-wq-1tk">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="opZ-ro-9AY" secondAttribute="bottom" constant="32" id="8xe-7q-SD3"/>
-                            <constraint firstAttribute="bottom" secondItem="bpp-6L-uoz" secondAttribute="bottom" constant="32" id="9Md-tU-FFK"/>
-                            <constraint firstItem="4JF-OR-OpI" firstAttribute="leading" secondItem="nMb-Jy-2Ew" secondAttribute="leading" constant="376" id="C3M-Of-Rp0"/>
-                            <constraint firstAttribute="trailing" secondItem="4JF-OR-OpI" secondAttribute="trailing" constant="376" id="EcN-cb-VAv"/>
-                            <constraint firstItem="4JF-OR-OpI" firstAttribute="leading" secondItem="gw8-hE-VV3" secondAttribute="trailing" constant="68" id="Eza-Y3-8w8"/>
-                            <constraint firstAttribute="bottom" secondItem="Nc6-Jo-q9I" secondAttribute="bottom" constant="32" id="K9r-Js-YBO"/>
-                            <constraint firstItem="opZ-ro-9AY" firstAttribute="leading" secondItem="4JF-OR-OpI" secondAttribute="trailing" constant="10" id="LIu-Bu-D4w"/>
-                            <constraint firstItem="s7p-x2-RsZ" firstAttribute="leading" secondItem="4JF-OR-OpI" secondAttribute="trailing" constant="68" id="Voy-fv-vuU"/>
-                            <constraint firstItem="4JF-OR-OpI" firstAttribute="leading" secondItem="bpp-6L-uoz" secondAttribute="trailing" constant="10" id="lFL-PE-cMC"/>
-                            <constraint firstAttribute="bottom" secondItem="s7p-x2-RsZ" secondAttribute="bottom" constant="32" id="mZx-nK-jyZ"/>
-                            <constraint firstAttribute="bottom" secondItem="4JF-OR-OpI" secondAttribute="bottom" constant="32" id="pEe-nm-Yzb"/>
-                            <constraint firstAttribute="bottom" secondItem="gw8-hE-VV3" secondAttribute="bottom" constant="32" id="pUp-Ha-hkC"/>
-                            <constraint firstItem="4JF-OR-OpI" firstAttribute="leading" secondItem="Nc6-Jo-q9I" secondAttribute="trailing" constant="126" id="rpu-cm-8R8"/>
-                            <constraint firstAttribute="bottom" secondItem="4JF-OR-OpI" secondAttribute="bottom" constant="32" id="t3m-wk-XEy"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <customObject id="OD4-vw-1Wr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1814" y="2853.5"/>
-        </scene>
         <!--MediaWindowDocumentVC-->
         <scene sceneID="v8O-HO-iyo">
             <objects>
@@ -877,6 +789,17 @@
                     <view key="view" id="oEC-Vo-c2a">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQb-ec-g0F">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                            </pdfView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JQb-ec-g0F" secondAttribute="bottom" id="M94-7j-6Ln"/>
+                            <constraint firstItem="JQb-ec-g0F" firstAttribute="leading" secondItem="oEC-Vo-c2a" secondAttribute="leading" id="c4G-TT-1FX"/>
+                            <constraint firstItem="JQb-ec-g0F" firstAttribute="top" secondItem="oEC-Vo-c2a" secondAttribute="top" id="ecF-SD-jIo"/>
+                            <constraint firstAttribute="trailing" secondItem="JQb-ec-g0F" secondAttribute="trailing" id="lNa-dg-DaH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="Lc2-ZE-1Me" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -890,6 +813,29 @@
                     <view key="view" id="lSA-qk-b8s">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <avPlayerView controlsStyle="floating" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-gg-Y9J">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                            </avPlayerView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-Oh-a61">
+                                <rect key="frame" x="275" y="170" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="5eP-7S-a4P"/>
+                                    <constraint firstAttribute="height" constant="250" id="HHJ-NY-lMm"/>
+                                    <constraint firstAttribute="width" secondItem="Lts-Oh-a61" secondAttribute="height" multiplier="1:1" id="p3w-Rk-nCq"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderMusic" id="D1p-1i-PL3"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9F1-gg-Y9J" firstAttribute="top" secondItem="lSA-qk-b8s" secondAttribute="top" id="2v8-OB-xa5"/>
+                            <constraint firstItem="Lts-Oh-a61" firstAttribute="leading" secondItem="lSA-qk-b8s" secondAttribute="leading" constant="275" id="43i-5I-Eci"/>
+                            <constraint firstItem="Lts-Oh-a61" firstAttribute="top" secondItem="lSA-qk-b8s" secondAttribute="top" constant="30" id="Kka-ss-8za"/>
+                            <constraint firstAttribute="bottom" secondItem="9F1-gg-Y9J" secondAttribute="bottom" id="iA1-FZ-gQh"/>
+                            <constraint firstAttribute="trailing" secondItem="9F1-gg-Y9J" secondAttribute="trailing" id="ohx-9X-Zcn"/>
+                            <constraint firstItem="9F1-gg-Y9J" firstAttribute="leading" secondItem="lSA-qk-b8s" secondAttribute="leading" id="qoi-E6-DQ7"/>
+                            <constraint firstAttribute="trailing" secondItem="Lts-Oh-a61" secondAttribute="trailing" constant="275" id="tC0-br-8J8"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="V5G-6L-A4A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -899,11 +845,6 @@
     </scenes>
     <resources>
         <image name="Placeholder" width="240" height="240"/>
-        <image name="buttonForward" width="76" height="70"/>
-        <image name="buttonNext" width="78" height="72"/>
-        <image name="buttonPlay" width="77" height="71"/>
-        <image name="buttonPrevious" width="77" height="72"/>
-        <image name="buttonRewind" width="78" height="69"/>
-        <image name="buttonStop" width="77" height="71"/>
+        <image name="PlaceholderMusic" width="450" height="450"/>
     </resources>
 </document>

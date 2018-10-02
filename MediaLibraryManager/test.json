@@ -60,7 +60,7 @@
     
     
     {
-        "fullpath": "/path/to/baz.mp4",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/PlaceholderVid.mp4",
         "type": "video",
         "metadata": {
             "creator" : "Max"

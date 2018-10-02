@@ -30,8 +30,4 @@ class MediaChangeVC: NSViewController {
         
     }
     
-    func closeWindow() {
-        self.view.window?.close()
-    }
-    
 }

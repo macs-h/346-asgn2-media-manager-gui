@@ -41,10 +41,10 @@ class MediaWindowImageVC: NSViewController, NSWindowDelegate {
 //        mediaImageView.frame = NSRect(x: 0, y: 0, width: 800, height: 450)
     }
     
-    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        mediaImageView.frame = NSRect(x: mediaImageView.frame.minX, y: mediaImageView.frame.minY, width: frameSize.width, height: frameSize.height)
-        return frameSize
-    }
+//    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
+//        mediaImageView.frame = NSRect(x: mediaImageView.frame.minX, y: mediaImageView.frame.minY, width: frameSize.width, height: frameSize.height)
+//        return frameSize
+//    }
     
     
     

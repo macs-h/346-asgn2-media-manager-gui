@@ -7,14 +7,23 @@
 //
 
 import Cocoa
+import AVKit
+import AVFoundation
 
 class MediaWindowVideoVC: NSViewController {
 
+    @IBOutlet weak var playerView: AVPlayerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         
-        Model.instance.showControls(sender: self)
+        let url = URL(fileURLWithPath: (Model.instance.currentFile?.fullpath)!)
+        
+        let player = AVPlayer(url: url)
+        playerView.player = player
+        
+//        Model.instance.showControls(sender: self)
     }
     
 }
