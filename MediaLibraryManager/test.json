@@ -30,21 +30,21 @@
     
     
     {
-        "fullpath": "/path/to/bar.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder.png",
         "type": "image",
         "metadata": {
             "creator" : "Sam"
         }
     },
     {
-        "fullpath": "/path/to/phooo.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder2.png",
         "type": "image",
         "metadata": {
             "creator" : "Sheryl"
         }
     },
     {
-        "fullpath": "/path/to/imag.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder3.png",
         "type": "image",
         "metadata": {
             "creator" : "Sid"

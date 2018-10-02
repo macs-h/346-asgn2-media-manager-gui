@@ -679,16 +679,35 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="922" y="1653"/>
+            <point key="canvasLocation" x="190" y="2195"/>
+        </scene>
+        <!--Media ChangeVC-->
+        <scene sceneID="eW9-8v-8Wy">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="lFb-1C-vSW" customClass="MediaChangeVC" customModule="MediaLibraryManagerGUI" sceneMemberID="viewController">
+                    <view key="view" id="qgK-Wt-5li">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                    <connections>
+                        <segue destination="VCh-3U-5Ih" kind="show" identifier="SegueToImage" id="mvo-es-emU"/>
+                        <segue destination="GHS-W4-cke" kind="show" identifier="SegueToVideo" id="Gle-SU-gqj"/>
+                        <segue destination="fK8-zv-5JU" kind="show" identifier="SegueToDocument" id="E9p-7S-QHs"/>
+                        <segue destination="Web-JT-ce3" kind="show" identifier="SegueToAudio" id="izt-Xp-7GX"/>
+                    </connections>
+                </viewController>
+                <customObject id="sdR-XD-eOq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="2701"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="BFK-PO-Cqi">
             <objects>
-                <windowController storyboardIdentifier="mediaWindow" showSeguePresentationStyle="single" id="F3p-fK-OAM" sceneMemberID="viewController">
+                <windowController storyboardIdentifier="mediaWindow" showSeguePresentationStyle="single" id="F3p-fK-OAM" customClass="MediaWindowWC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Media Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jba-vJ-NXd">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="516" y="564" width="800" height="450"/>
+                        <rect key="contentRect" x="0.0" y="0.0" width="800" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
                         <value key="minSize" type="size" width="480" height="270"/>
                         <connections>
@@ -696,20 +715,30 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="VCh-3U-5Ih" kind="relationship" relationship="window.shadowedContentViewController" id="fKv-mz-QhP"/>
+                        <segue destination="lFb-1C-vSW" kind="relationship" relationship="window.shadowedContentViewController" id="OcJ-NM-LE4"/>
                     </connections>
                 </windowController>
                 <customObject id="EdI-Vc-Jtm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="2113"/>
+            <point key="canvasLocation" x="958" y="2085"/>
         </scene>
         <!--MediaWindowVideoVC-->
         <scene sceneID="no0-3o-OP8">
             <objects>
-                <viewController title="MediaWindowVideoVC" storyboardIdentifier="MediaWindowVideoVC" showSeguePresentationStyle="single" id="GHS-W4-cke" sceneMemberID="viewController">
+                <viewController title="MediaWindowVideoVC" storyboardIdentifier="MediaWindowVideoVC" showSeguePresentationStyle="single" id="GHS-W4-cke" customClass="MediaWindowVideoVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="UnB-XA-rnP">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RVA-Ux-fdf">
+                                <rect key="frame" x="539" y="359" width="81" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihu-Mj-8L8">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
                     </view>
                 </viewController>
                 <customObject id="KNs-Yx-eug" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -719,32 +748,48 @@
         <!--MediaWindowImageVC-->
         <scene sceneID="N9H-9V-8t3">
             <objects>
-                <viewController title="MediaWindowImageVC" storyboardIdentifier="MediaWindowImageVC" showSeguePresentationStyle="single" id="VCh-3U-5Ih" sceneMemberID="viewController">
+                <viewController title="MediaWindowImageVC" storyboardIdentifier="MediaWindowImageVC" showSeguePresentationStyle="single" id="VCh-3U-5Ih" customClass="MediaWindowImageVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="F3K-PV-bbJ">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-c7-6iv">
-                                <rect key="frame" x="325" y="177" width="151" height="96"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-c7-6iv" customClass="mediaImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Placeholder" id="z2R-4M-nUl"/>
                             </imageView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Jmv-c7-6iv" firstAttribute="top" secondItem="F3K-PV-bbJ" secondAttribute="top" id="2Io-zA-FSr"/>
+                            <constraint firstItem="Jmv-c7-6iv" firstAttribute="leading" secondItem="F3K-PV-bbJ" secondAttribute="leading" id="PDU-rb-Vl0"/>
+                            <constraint firstAttribute="trailing" secondItem="Jmv-c7-6iv" secondAttribute="trailing" id="RDA-76-J4A"/>
+                            <constraint firstAttribute="bottom" secondItem="Jmv-c7-6iv" secondAttribute="bottom" id="T18-J7-PHU"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="GHS-W4-cke" kind="show" id="OfD-HR-saL"/>
-                        <segue destination="fK8-zv-5JU" kind="show" id="MFL-Rs-LmY"/>
-                        <segue destination="Web-JT-ce3" kind="show" id="mKu-75-K53"/>
+                        <outlet property="mediaImageView" destination="Jmv-c7-6iv" id="nZw-vb-QYa"/>
                     </connections>
                 </viewController>
                 <customObject id="Syb-uS-gc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="2701"/>
+            <point key="canvasLocation" x="97" y="2701"/>
+        </scene>
+        <!--MediaWindowControlVC-->
+        <scene sceneID="fnP-Ar-FhB">
+            <objects>
+                <viewController title="MediaWindowControlVC" storyboardIdentifier="MediaWindowControls" showSeguePresentationStyle="single" id="IIw-Gl-1gi" customClass="MediaWindowControlVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="nMb-Jy-2Ew">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="133"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="OD4-vw-1Wr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="2859.5"/>
         </scene>
         <!--MediaWindowDocumentVC-->
         <scene sceneID="v8O-HO-iyo">
             <objects>
-                <viewController title="MediaWindowDocumentVC" storyboardIdentifier="MediaWindowDocumentVC" showSeguePresentationStyle="single" id="fK8-zv-5JU" sceneMemberID="viewController">
+                <viewController title="MediaWindowDocumentVC" storyboardIdentifier="MediaWindowDocumentVC" showSeguePresentationStyle="single" id="fK8-zv-5JU" customClass="MediaWindowDocumentVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="oEC-Vo-c2a">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -757,7 +802,7 @@
         <!--MediaWindowAudioVC-->
         <scene sceneID="PxP-kA-GYC">
             <objects>
-                <viewController title="MediaWindowAudioVC" storyboardIdentifier="MediaWindowAudioVC" showSeguePresentationStyle="single" id="Web-JT-ce3" sceneMemberID="viewController">
+                <viewController title="MediaWindowAudioVC" storyboardIdentifier="MediaWindowAudioVC" showSeguePresentationStyle="single" id="Web-JT-ce3" customClass="MediaWindowAudioVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="lSA-qk-b8s">
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -163,6 +163,16 @@ class Model{
         previewVC.view.layer?.add(animation, forKey: "linearMovement")
         CATransaction.commit()
     }
+    
+    func showControls(sender: NSViewController) {
+        let controlVC = NSStoryboard(name: "MediaWindow", bundle: nil).instantiateController(withIdentifier: "MediaWindowControls") as! NSViewController
+
+        sender.view.addSubview(controlVC.view)
+//        let x = sender.view.frame.width - 250
+//        //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
+//        controlVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
+        
+    }
 
     func openFile(){
         //check the type of file and open it accordingly
