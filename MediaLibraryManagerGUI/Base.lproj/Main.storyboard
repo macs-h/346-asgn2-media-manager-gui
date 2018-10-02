@@ -709,13 +709,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
-                                <rect key="frame" x="149" y="0.0" width="1131" height="664"/>
+                                <rect key="frame" x="217" y="0.0" width="1063" height="664"/>
                                 <clipView key="contentView" id="nSC-Oo-s2F">
-                                    <rect key="frame" x="1" y="0.0" width="1129" height="663"/>
+                                    <rect key="frame" x="1" y="0.0" width="1061" height="663"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="DPl-sQ-XVA" viewBased="YES" id="JIz-OS-IBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="1129" height="640"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1061" height="640"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="5" height="27"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -767,7 +767,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="DPl-sQ-XVA">
-                                    <rect key="frame" x="0.0" y="0.0" width="1129" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1061" height="23"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -811,7 +811,7 @@
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="vc6-zP-mG2">
                                                                         <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
@@ -844,7 +844,7 @@
                             <constraint firstItem="fvS-Ma-JBX" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="PwS-67-RjJ"/>
                             <constraint firstAttribute="trailing" secondItem="fvS-Ma-JBX" secondAttribute="trailing" constant="1062" id="XZc-IO-1zb"/>
                             <constraint firstItem="mTe-EI-ncy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZQ8-ce-rer"/>
-                            <constraint firstItem="mTe-EI-ncy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="149" id="ivR-Ha-RyQ"/>
+                            <constraint firstItem="mTe-EI-ncy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="217" id="iQu-s0-QPy"/>
                             <constraint firstAttribute="bottom" secondItem="mTe-EI-ncy" secondAttribute="bottom" id="lv8-yb-pih"/>
                         </constraints>
                     </view>
