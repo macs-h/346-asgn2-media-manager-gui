@@ -157,7 +157,7 @@ class Model{
             removeBottomBar()
         }
         selectFile(fileIndex: fileIndex)
-        sourceController.performSegue(withIdentifier: segueName, sender: self)
+        sourceController.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: segueName), sender: self)
     }
     
     func selectFile(fileIndex: Int){
@@ -178,7 +178,7 @@ class Model{
     func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController{
         var previewVCResult = preview_VC
         if previewVCResult == nil{
-            var previewVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "PreviewVC") as! PreviewViewController
+            var previewVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreviewVC")) as! PreviewViewController
             previewVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(previewVC.view)
             let x = sender.view.frame.width - 250
@@ -227,7 +227,7 @@ class Model{
     func showBottomBar(sender: NSViewController){
         if bottomBarVC == nil{
             //doesnt already exist
-            let bottomBarVC = NSStoryboard(name: "Main", bundle: nil).instantiateController(withIdentifier: "BottomBarVC") as! BottomBarViewController
+            let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
             bottomBarVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(bottomBarVC.view)
             let x = sender.view.frame.width - 250

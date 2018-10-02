@@ -28,7 +28,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
         bookmarkTable.action = #selector(clickOnRow)
-        mainTopVC = (self.parent?.children[0]) as! MainTopViewController
+        mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
         Model.instance.showBottomBar(sender: self.parent!)
@@ -119,7 +119,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     
     func openMedia(file: MMFile) {
         
-        performSegue(withIdentifier: "ShowMediaContentSegue", sender: self)
+        performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
     }
 
 }

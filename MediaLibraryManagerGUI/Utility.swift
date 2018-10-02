@@ -18,7 +18,7 @@ class Utility {
     }
     
     func convertSecondsToCMTime(_ seconds: Int, _ timeScale: Int32) -> CMTime {
-        let cmTime = CMTimeMakeWithSeconds(Float64(seconds), preferredTimescale: timeScale)
+        let cmTime = CMTimeMakeWithSeconds(Float64(seconds), timeScale)
         print(cmTime)
         return cmTime
     }
