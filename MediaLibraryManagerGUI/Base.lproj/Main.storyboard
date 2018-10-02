@@ -1143,7 +1143,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="O7F-45-M3k">
                                             <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                         <connections>
