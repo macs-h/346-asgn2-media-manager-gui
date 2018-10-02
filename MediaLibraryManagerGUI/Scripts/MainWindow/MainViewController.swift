@@ -18,7 +18,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
     
     var files: [MMFile] = []
     var previewVC: PreviewViewController?
-    let categories = ["Images","Music","Video", "Documents", "Other"]
+    let categories = ["Images","Audio","Video", "Documents", "Other"]
     
     
     

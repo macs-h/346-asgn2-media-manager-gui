@@ -1095,7 +1095,7 @@
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
-                        <segue destination="F3p-fK-OAM" kind="show" identifier="ShowMediaContentSegue" id="YkK-fJ-Hk5"/>
+                        <segue destination="BRa-QR-MSl" kind="show" identifier="ShowMediaContentSegue" id="9Mm-0K-YT7"/>
                     </connections>
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1440,31 +1440,13 @@
             </objects>
             <point key="canvasLocation" x="977" y="2804"/>
         </scene>
-        <!--MediaWindowDocumentVC-->
-        <scene sceneID="v8O-HO-iyo">
+        <!--MediaWindow-->
+        <scene sceneID="pV6-re-crT">
             <objects>
-                <viewController title="MediaWindowDocumentVC" storyboardIdentifier="MediaWindowDocumentVC" showSeguePresentationStyle="single" id="fK8-zv-5JU" sceneMemberID="viewController">
-                    <view key="view" id="oEC-Vo-c2a">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="Lc2-ZE-1Me" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="MediaWindow" id="BRa-QR-MSl" sceneMemberID="viewController"/>
+                <customObject id="MdU-1B-Myp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="958" y="3338"/>
-        </scene>
-        <!--MediaWindowAudioVC-->
-        <scene sceneID="PxP-kA-GYC">
-            <objects>
-                <viewController title="MediaWindowAudioVC" storyboardIdentifier="MediaWindowAudioVC" showSeguePresentationStyle="single" id="Web-JT-ce3" sceneMemberID="viewController">
-                    <view key="view" id="lSA-qk-b8s">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="V5G-6L-A4A" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1814" y="3338"/>
+            <point key="canvasLocation" x="1061" y="1958"/>
         </scene>
     </scenes>
     <resources>

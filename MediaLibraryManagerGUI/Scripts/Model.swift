@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import AVKit
 
 
 protocol OpenFileModelDegate {
@@ -38,6 +39,7 @@ class Model{
     var currentCategoryIndex = 0
     var bookmarks: [String]  = []
     var notes: String = ""
+    var videoPlayer: AVPlayer?
     var openFileDelegate: OpenFileModelDegate?{
         didSet{
             updateOpenFileVC()
@@ -119,7 +121,7 @@ class Model{
             cat = "image"
             break
         case 1:
-            cat = "music"
+            cat = "audio"
             break
         case 2:
             cat = "video"
@@ -236,9 +238,10 @@ class Model{
     
     func addBookmark(){
         //get current time from the player
-        let time = "1.1" //temp
+        let time = Utility.instance.convertCMTimeToSeconds((self.videoPlayer?.currentTime())!)
         //add the metadata to the file
         bookmarks.append(time)
+        print(time)
         saveData()
         updateOpenFileVC()
     }
@@ -252,6 +255,18 @@ class Model{
     func saveData(){
         //save bookmarks
         //save notes
+    }
+    
+    
+    //----------------------------------------------------------------------------------90
+    // MediaWindow functionality
+    //----------------------------------------------------------------------------------90
+    
+    func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView) {
+        let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
+        
+        self.videoPlayer = AVPlayer(url: url)
+        playerView.player = self.videoPlayer
     }
     
     
@@ -279,7 +294,7 @@ class Model{
     
     private func listFiles(with terms: [String] = [], listAll: Bool = false) {
         do {
-            var search = SearchCommand(library, terms, listAll)
+            let search = SearchCommand(library, terms, listAll)
             try search.execute()
             subLibrary = search.results! //need to test if this will ever be nil
             
