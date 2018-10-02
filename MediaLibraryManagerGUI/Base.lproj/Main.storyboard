@@ -1209,10 +1209,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="amJ-Mt-ULn" customClass="PreviewView" customModule="MediaLibraryManagerGUI" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </customView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-fx-qpg">
                                 <rect key="frame" x="25" y="426" width="200" height="200"/>
                                 <constraints>
@@ -1463,7 +1459,6 @@
         <image name="Placeholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWx-oS-FBb"/>
         <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>
