@@ -98,6 +98,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     
     @objc func clickOnRow(){
         print("single click on bookmark table \(bookmarkTable.clickedRow)")
+        //allow users to delete bookmark
     }
     
 }
