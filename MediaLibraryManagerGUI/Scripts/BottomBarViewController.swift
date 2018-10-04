@@ -37,7 +37,7 @@ class BottomBarViewController: NSViewController {
     }
     @IBAction func play_pauseAction(_ sender: NSButton) {
         //tell the model to play the media
-        //Model.instance.openFile()  //-- move to disconect window function
+        Model.instance.openFile()  //-- move to disconect window function
         if mediaIsPlaying{
             //file playing
             delegte?.pause()
