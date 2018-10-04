@@ -31,7 +31,7 @@ class MM_FileImport : MMFileImport {
         var importedFiles = [MM_File]()
         var filesToAdd = [MM_File]()
         
-        let url = try Utility.instance.normalisePath(filename: filename)
+        let url = try Utility.normalisePath(filename: filename)
         let encodedJsonData = try Data(contentsOf: url)
         
         // the struct mirrors the JSON data

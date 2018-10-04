@@ -23,6 +23,11 @@ class BottomBarViewController: NSViewController {
     @IBOutlet weak var bookmarkButton: NSButton!
     var delegte: bottomBarDelegate?
     var mediaIsPlaying = false
+    //popOver variables
+    @IBOutlet var PopOverView: NSView!
+    @IBOutlet weak var bookmarkPopoverTimeLabel: NSTextField!
+    @IBOutlet weak var bookmarkPopoverTextField: NSTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +42,7 @@ class BottomBarViewController: NSViewController {
     }
     @IBAction func play_pauseAction(_ sender: NSButton) {
         //tell the model to play the media
-        Model.instance.openFile()  //-- move to disconect window function
+       // Model.instance.openFile()  //-- move to disconect window function
         if mediaIsPlaying{
             //file playing
             delegte?.pause()
@@ -64,9 +69,18 @@ class BottomBarViewController: NSViewController {
     }
     
     @IBAction func bookmarkAction(_ sender: NSButton) {
-        //tell the model to create a bookmark
-        Model.instance.addBookmark()
         //show popover
+        let openVC = Model.instance.openFileDelegate as! FileOpenViewController
+        openVC.view.addSubview(PopOverView)
+        PopOverView.frame = NSRect(x: sender.frame.minX-100, y: sender.frame.maxY+20, width: 220, height: 170)
+        if let time = Model.instance.mediaPlayer?.currentTime(){
+            bookmarkPopoverTimeLabel.stringValue = Utility.convertCMTimeToSeconds(time)
+        }else{
+            bookmarkPopoverTimeLabel.stringValue = "00:00:00"
+        }
+        
+        
+        
     }
     
     func updateOutlets(){
@@ -125,5 +139,17 @@ class BottomBarViewController: NSViewController {
         }
         
     }
+    @IBAction func BookmarkPopOverDone(_ sender: Any) {
+        //check if time is valid
+        //add bookmark with title as key and value as time
+        print("trying to add label",bookmarkPopoverTextField.stringValue)
+        Model.instance.addBookmark(label: bookmarkPopoverTextField.stringValue)
+        bookmarkPopoverTextField.stringValue = ""
+        PopOverView.removeFromSuperview()
+    }
     
+    @IBAction func closeBookmarkPopover(_ sender: Any) {
+        PopOverView.removeFromSuperview()
+        bookmarkPopoverTextField.stringValue = ""
+    }
 }

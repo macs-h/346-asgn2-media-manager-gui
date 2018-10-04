@@ -12,7 +12,7 @@ import AVKit
 import Quartz
 
 protocol OpenFileModelDegate {
-    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String : String])
     func openMedia(file: MMFile)
 }
 protocol MainViewModelDegate {
@@ -35,7 +35,7 @@ class Model{
     }
     var currentFileIndex:[Int]?
     var currentCategoryIndex = 0
-    var bookmarks: [String]  = []
+    var bookmarks: [String: String]  = [:]
     var notes: String = ""
     var mediaPlayer: AVPlayer?
     var queue: [MMFile] = []
@@ -69,12 +69,18 @@ class Model{
     func setup(){
         if let currentFile = currentFile{
             //currentFile exists
-            let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+            let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "bookmarks")
             if bookmarkMetadataIndex != -1 {
                 let bookmarkString = currentFile.metadata[bookmarkMetadataIndex].value
-                bookmarks = bookmarkString.components(separatedBy: " ")
+                var bookmarksArray = bookmarkString.components(separatedBy: ",") //contains both key and values
+                var i = 0
+                for _ in 0..<bookmarksArray.count/2{
+                    print(i)
+                   bookmarks[bookmarksArray[i]] = bookmarksArray[i+1]
+                    i += 2
+                }
             }
-            let notesMetadataIndex = currentFile.searchMetadata(keyword: "Bookmarks")
+            let notesMetadataIndex = currentFile.searchMetadata(keyword: "notes")
             if notesMetadataIndex != -1 {
                 notes = currentFile.metadata[notesMetadataIndex].value
             }
@@ -276,12 +282,16 @@ class Model{
         openFileDelegate?.openMedia(file: currentFile!)
     }
     
-    func addBookmark(){
+    func addBookmark(label: String){
         //get current time from the player
-//        let time = Utility.instance.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
-        let time = "placeholder"
+        var time = ""
+        if mediaPlayer != nil{
+            time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+        }else{
+            time = "00:00:00"
+        }
         //add the metadata to the file
-        bookmarks.append(time)
+        bookmarks[label] = time
         print(time)
         saveData()
         updateOpenFileVC()
@@ -301,6 +311,13 @@ class Model{
     
     func saveData(){
         //save bookmarks
+        var bookmarksResult = ""
+        for keyVal in bookmarks{
+            bookmarksResult.append("\(keyVal.key),")
+            bookmarksResult.append("\(keyVal.value),")
+        }
+        setFile(with: "bookmarks", at: currentFileIndex![0], to: bookmarksResult)
+        
         //save notes
     }
     
@@ -352,6 +369,7 @@ class Model{
     }
     
     
+    
     //------------------------------------------------------------------------80
     // Previous media library functionality
     //------------------------------------------------------------------------80
@@ -399,8 +417,8 @@ class Model{
         }
     }
     
-    private func setFile(with term: String, at index: Int, to newTerm: String) {
-        let parts: [String] = [String(index), term, newTerm]
+    private func setFile(with key: String, at index: Int, to newValue: String) {
+        let parts: [String] = [String(index), key, newValue]
         
         do {
             try SetCommand(library, parts, subLibrary).execute()

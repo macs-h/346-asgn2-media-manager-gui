@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
-        <capability name="cells containing NSDateComponentsFormatter" minSystemVersion="10.12"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -934,33 +933,98 @@ IA
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="PopOverView" destination="jJV-Ka-7Zo" id="uGx-hb-KNc"/>
                         <outlet property="bookmarkButton" destination="lqq-Rp-9Yq" id="aGY-qB-Dpa"/>
+                        <outlet property="bookmarkPopoverTextField" destination="5jW-nr-UAI" id="pqr-Pa-sIF"/>
+                        <outlet property="bookmarkPopoverTimeLabel" destination="ADG-Qi-TKN" id="gB4-dg-Wy3"/>
+                        <outlet property="boomarkPopoverTextField" destination="5jW-nr-UAI" id="c65-Pf-SdU"/>
                         <outlet property="nextButton" destination="bj7-oC-IKd" id="XGj-5z-AEv"/>
                         <outlet property="play_pauseButton" destination="chO-FU-7D0" id="Jxh-Bo-hJN"/>
                         <outlet property="previousButton" destination="rPZ-8L-bHh" id="PZU-Zo-TUd"/>
                     </connections>
                 </viewController>
                 <customObject id="Eta-nX-JOi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <customView id="jJV-Ka-7Zo">
-                    <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+                <customView id="jJV-Ka-7Zo" userLabel="Bookmark PopOver">
+                    <rect key="frame" x="0.0" y="0.0" width="220" height="170"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ww2-Yg-xsT">
-                            <rect key="frame" x="33" y="74" width="96" height="22"/>
+                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lh8-Ib-oTH" userLabel="Background image">
+                            <rect key="frame" x="0.0" y="1" width="223" height="169"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7qI-cd-Iee">
-                                <dateComponentsFormatter key="formatter" unitsStyle="abbreviated" id="VNV-iH-5L9">
-                                    <zeroFormattingBehavior key="zeroFormattingBehavior" none="YES"/>
-                                </dateComponentsFormatter>
+                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="Bookmark popover" id="1AP-Wl-Bms"/>
+                        </imageView>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSg-o8-FYz">
+                            <rect key="frame" x="62" y="147" width="97" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Bookmark" id="1e3-i9-OZC">
+                                <font key="font" metaFont="systemBold" size="19"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mSs-O5-0BG">
+                            <rect key="frame" x="25" y="71" width="54" height="22"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Label:" id="gON-fp-5mC">
+                                <font key="font" size="18" name="HelveticaNeue"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5jW-nr-UAI" userLabel="Title textfield">
+                            <rect key="frame" x="84" y="71" width="108" height="28"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="40U-mh-S6J">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                         </textField>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfL-5Z-4m6">
+                            <rect key="frame" x="76" y="29" width="72" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="At9-gz-qyH">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <action selector="BookmarkPopOverDone:" target="EQx-uk-cdA" id="eSQ-gD-sto"/>
+                            </connections>
+                        </button>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-rQ-nyQ">
+                            <rect key="frame" x="25" y="111" width="49" height="22"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <textFieldCell key="cell" lineBreakMode="truncatingTail" title="Time:" id="cDr-Xz-EHz">
+                                <font key="font" size="18" name="HelveticaNeue"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADG-Qi-TKN">
+                            <rect key="frame" x="98" y="110" width="84" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="00:00:00" id="1Ln-Zs-dzg">
+                                <font key="font" metaFont="system" size="19"/>
+                                <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-q6-KAI">
+                            <rect key="frame" x="0.0" y="147" width="36" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XDJ-OV-NpY">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="closeBookmarkPopover:" target="EQx-uk-cdA" id="wiy-IO-tRL"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </customView>
             </objects>
-            <point key="canvasLocation" x="928" y="2088"/>
+            <point key="canvasLocation" x="905" y="2116"/>
         </scene>
         <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
@@ -1526,6 +1590,7 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="Add button" width="46" height="38"/>
         <image name="BackButton" width="46" height="38"/>
         <image name="Bookmark button" width="27" height="56"/>
+        <image name="Bookmark popover" width="220" height="168"/>
         <image name="Bottom bar" width="1280" height="100"/>
         <image name="FBRD_logo" width="550" height="550"/>
         <image name="Forward button" width="46" height="38"/>

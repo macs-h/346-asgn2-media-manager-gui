@@ -25,7 +25,7 @@ class MM_FileExport : MMFileExport {
             throw MMCliError.invalidJSONExtension
         }
         
-        let url = try Utility.instance.normalisePath(filename: filename)
+        let url = try Utility.normalisePath(filename: filename)
         
         // the struct mirrors the JSON data
         struct JSON: Codable {

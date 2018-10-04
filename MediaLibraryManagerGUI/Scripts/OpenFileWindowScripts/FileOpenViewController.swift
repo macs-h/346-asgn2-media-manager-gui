@@ -9,8 +9,9 @@
 import Cocoa
 
 class FileOpenViewController: NSViewController, OpenFileModelDegate {
-
-    var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
+    
+    var bookmarkKeys: [String] = []
+    var bookmarkValues: [String] = []
     @IBOutlet weak var bookmarkTable: NSTableView!
     @IBOutlet weak var notesLabel: NSTextField!
     var mainTopVC = MainTopViewController()
@@ -45,27 +46,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         Model.instance.addNotes(notes: sender.stringValue)
         //save value by sending metadata to model with key: Notes
     }
-    @IBAction func previousButtonAction(_ sender: NSButton) {
-        //tell model to change the file to the new file
-        Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]-1)
-    }
-    
-    @IBAction func playButtonAction(_ sender: Any) {
-        //tell the model to play the media
-        Model.instance.openFile()
-    }
-
-
-    @IBAction func nextButtonAction(_ sender: NSButton) {
-        //tell the model to change to file to the new file
-        Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]+1)
-    }
-
-
-    @IBAction func addBookmarksAction(_ sender: NSButton) {
-       //tell the model to create a bookmark
-        Model.instance.addBookmark()
-    }
+ 
     
     
     
@@ -73,9 +54,10 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     /**
      Called by the model to update ui elements
      */
-    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String]) {
+    func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String:String]) {
         self.notesLabel.stringValue = currentFile.filename//notes
-        self.bookmarks = bookmarks
+        self.bookmarkKeys = Array(bookmarks.keys)
+        self.bookmarkValues = Array(bookmarks.values)
         bookmarkTable.reloadData()
     }
     
@@ -97,14 +79,15 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
 extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return bookmarks.count
+        return bookmarkKeys.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
+        
         let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkID"), owner: nil) as! NSTableCellView
         
-        file.textField!.stringValue = String(bookmarks[row])
+        file.textField!.stringValue = bookmarkKeys[row] + " : " + bookmarkValues[row]
         print("file text \(file.textField!.stringValue)")
         return file
     }
