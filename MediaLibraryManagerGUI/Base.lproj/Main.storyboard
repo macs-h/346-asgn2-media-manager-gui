@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.AVKitIBPlugin" version="14313.18"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.pdfkit.ibplugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1198,7 +1200,8 @@ IA
                         <outlet property="deleteBookmarkButton" destination="5vz-AS-ENu" id="pY2-xB-35h"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
-                        <segue destination="BRa-QR-MSl" kind="show" identifier="ShowMediaContentSegue" id="9Mm-0K-YT7"/>
+                        <segue destination="BRa-QR-MSl" kind="show" identifier="" id="9Mm-0K-YT7"/>
+                        <segue destination="KFg-mZ-9l5" kind="show" identifier="ShowMediaContentSegue" id="AEK-4g-ulj"/>
                     </connections>
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1495,64 +1498,13 @@ IA
             </objects>
             <point key="canvasLocation" x="2012" y="359"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="BFK-PO-Cqi">
-            <objects>
-                <windowController storyboardIdentifier="mediaWindow" showSeguePresentationStyle="single" id="F3p-fK-OAM" sceneMemberID="viewController">
-                    <window key="window" title="Media Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="jba-vJ-NXd">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="516" y="564" width="800" height="450"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="3008" height="1669"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
-                        <connections>
-                            <outlet property="delegate" destination="F3p-fK-OAM" id="iFZ-pk-rUo"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="VCh-3U-5Ih" kind="relationship" relationship="window.shadowedContentViewController" id="fKv-mz-QhP"/>
-                    </connections>
-                </windowController>
-                <customObject id="EdI-Vc-Jtm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="928" y="2720"/>
-        </scene>
-        <!--MediaWindowVideoVC-->
-        <scene sceneID="no0-3o-OP8">
-            <objects>
-                <viewController title="MediaWindowVideoVC" storyboardIdentifier="MediaWindowVideoVC" showSeguePresentationStyle="single" id="GHS-W4-cke" sceneMemberID="viewController">
-                    <view key="view" id="UnB-XA-rnP">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="KNs-Yx-eug" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="97" y="3338"/>
-        </scene>
-        <!--MediaWindowImageVC-->
-        <scene sceneID="N9H-9V-8t3">
-            <objects>
-                <viewController title="MediaWindowImageVC" storyboardIdentifier="MediaWindowImageVC" showSeguePresentationStyle="single" id="VCh-3U-5Ih" sceneMemberID="viewController">
-                    <view key="view" id="F3K-PV-bbJ">
-                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                    <connections>
-                        <segue destination="GHS-W4-cke" kind="show" id="OfD-HR-saL"/>
-                    </connections>
-                </viewController>
-                <customObject id="Syb-uS-gc6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="977" y="2804"/>
-        </scene>
         <!--MediaWindow-->
         <scene sceneID="pV6-re-crT">
             <objects>
                 <controllerPlaceholder storyboardName="MediaWindow" id="BRa-QR-MSl" sceneMemberID="viewController"/>
                 <customObject id="MdU-1B-Myp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="2343"/>
+            <point key="canvasLocation" x="1182" y="2329"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="uee-VD-JkJ">
@@ -1640,6 +1592,149 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
             </objects>
             <point key="canvasLocation" x="1518" y="-409"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="dCU-ak-AAn">
+            <objects>
+                <windowController storyboardIdentifier="mediaWindow" showSeguePresentationStyle="single" id="KFg-mZ-9l5" customClass="MediaWindowWC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Media Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="hMa-RV-EY8">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="1730" y="843" width="800" height="450"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <value key="minSize" type="size" width="300" height="300"/>
+                        <connections>
+                            <outlet property="delegate" destination="KFg-mZ-9l5" id="ynX-6D-nAl"/>
+                        </connections>
+                    </window>
+                </windowController>
+                <customObject id="XGr-dK-YcB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="2776"/>
+        </scene>
+        <!--MediaWindowVideoVC-->
+        <scene sceneID="3Gk-pO-8Pd">
+            <objects>
+                <viewController title="MediaWindowVideoVC" storyboardIdentifier="MediaWindowVideoVC" showSeguePresentationStyle="single" id="hYv-gi-0S9" customClass="MediaWindowVideoVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="AIi-Og-U0Y">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="xqI-un-meC">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xqI-un-meC" secondAttribute="height" multiplier="16:9" id="mEl-ik-p0g"/>
+                                </constraints>
+                            </avPlayerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="xqI-un-meC" firstAttribute="top" secondItem="AIi-Og-U0Y" secondAttribute="top" id="FAi-KM-SC1"/>
+                            <constraint firstAttribute="bottom" secondItem="xqI-un-meC" secondAttribute="bottom" id="Ooo-TK-Wip"/>
+                            <constraint firstAttribute="trailing" secondItem="xqI-un-meC" secondAttribute="trailing" id="eUw-bY-9uk"/>
+                            <constraint firstItem="xqI-un-meC" firstAttribute="leading" secondItem="AIi-Og-U0Y" secondAttribute="leading" id="z3j-Ae-8Op"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="xqI-un-meC" id="sYt-ef-td9"/>
+                    </connections>
+                </viewController>
+                <customObject id="JUq-kx-ikj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="3906"/>
+        </scene>
+        <!--MediaWindowImageVC-->
+        <scene sceneID="ooa-4c-57a">
+            <objects>
+                <viewController title="MediaWindowImageVC" storyboardIdentifier="MediaWindowImageVC" showSeguePresentationStyle="single" id="mbf-Xt-HeB" customClass="MediaWindowImageVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="teo-VK-lwd">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Aw5-Li-i1M">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="Placeholder" id="5mW-S4-rnx"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Aw5-Li-i1M" secondAttribute="bottom" id="ZKa-rT-UX1"/>
+                            <constraint firstAttribute="trailing" secondItem="Aw5-Li-i1M" secondAttribute="trailing" id="f0w-zt-1kc"/>
+                            <constraint firstItem="Aw5-Li-i1M" firstAttribute="top" secondItem="teo-VK-lwd" secondAttribute="top" id="hsd-E2-5J5"/>
+                            <constraint firstItem="Aw5-Li-i1M" firstAttribute="leading" secondItem="teo-VK-lwd" secondAttribute="leading" id="vkH-dQ-OXE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mediaImageView" destination="Aw5-Li-i1M" id="Nv6-EM-y6b"/>
+                    </connections>
+                </viewController>
+                <customObject id="z0q-Oi-xjH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="3372"/>
+        </scene>
+        <!--MediaWindowDocumentVC-->
+        <scene sceneID="DEp-E3-eph">
+            <objects>
+                <viewController title="MediaWindowDocumentVC" storyboardIdentifier="MediaWindowDocumentVC" showSeguePresentationStyle="single" id="Xxv-en-Ylb" customClass="MediaWindowDocumentVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Tng-9X-svL">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <pdfView autoresizesSubviews="NO" wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJJ-8y-58W">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                            </pdfView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="lJJ-8y-58W" firstAttribute="top" secondItem="Tng-9X-svL" secondAttribute="top" id="7on-ZO-ZUg"/>
+                            <constraint firstAttribute="trailing" secondItem="lJJ-8y-58W" secondAttribute="trailing" id="FTm-nV-aWY"/>
+                            <constraint firstItem="lJJ-8y-58W" firstAttribute="leading" secondItem="Tng-9X-svL" secondAttribute="leading" id="es5-Jf-P1w"/>
+                            <constraint firstAttribute="bottom" secondItem="lJJ-8y-58W" secondAttribute="bottom" id="rKF-QF-e8y"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="docView" destination="lJJ-8y-58W" id="N8m-R5-Qnj"/>
+                    </connections>
+                </viewController>
+                <customObject id="AY7-5Y-hMt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1397" y="3372"/>
+        </scene>
+        <!--MediaWindowAudioVC-->
+        <scene sceneID="h8h-F3-rft">
+            <objects>
+                <viewController title="MediaWindowAudioVC" storyboardIdentifier="MediaWindowAudioVC" showSeguePresentationStyle="single" id="VZI-Pz-gwr" customClass="MediaWindowAudioVC" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="FSc-Ow-9bN">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <avPlayerView controlsStyle="floating" translatesAutoresizingMaskIntoConstraints="NO" id="tkC-J9-B6B">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
+                            </avPlayerView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o47-Lg-Wip">
+                                <rect key="frame" x="275" y="170" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="o47-Lg-Wip" secondAttribute="height" multiplier="1:1" id="PSo-ys-xoX"/>
+                                    <constraint firstAttribute="width" constant="250" id="WRu-Yx-Jme"/>
+                                    <constraint firstAttribute="height" constant="250" id="mZX-2R-Aty"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderMusic" id="yeh-FI-Heg"/>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="o47-Lg-Wip" secondAttribute="trailing" constant="275" id="1tu-9g-ZFW"/>
+                            <constraint firstAttribute="trailing" secondItem="tkC-J9-B6B" secondAttribute="trailing" id="Dwt-6f-7pt"/>
+                            <constraint firstItem="o47-Lg-Wip" firstAttribute="leading" secondItem="FSc-Ow-9bN" secondAttribute="leading" constant="275" id="Lx6-ys-dpv"/>
+                            <constraint firstAttribute="bottom" secondItem="tkC-J9-B6B" secondAttribute="bottom" id="clo-yC-Fw9"/>
+                            <constraint firstItem="tkC-J9-B6B" firstAttribute="top" secondItem="FSc-Ow-9bN" secondAttribute="top" id="lqB-Yi-QFj"/>
+                            <constraint firstItem="o47-Lg-Wip" firstAttribute="top" secondItem="FSc-Ow-9bN" secondAttribute="top" constant="30" id="pfa-Uh-UwV"/>
+                            <constraint firstItem="tkC-J9-B6B" firstAttribute="leading" secondItem="FSc-Ow-9bN" secondAttribute="leading" id="ulB-Z3-QPg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playerView" destination="tkC-J9-B6B" id="hp4-aD-aOp"/>
+                    </connections>
+                </viewController>
+                <customObject id="ewf-OW-A98" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1397" y="3906"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add button" width="46" height="38"/>
@@ -1652,6 +1747,7 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
+        <image name="PlaceholderMusic" width="450" height="450"/>
         <image name="Play button" width="52" height="52"/>
         <image name="Search barckground" width="206" height="41"/>
         <image name="TopBar background" width="1279" height="50"/>
