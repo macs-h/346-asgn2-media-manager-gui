@@ -86,10 +86,16 @@ class BottomBarViewController: NSViewController {
             previousButton.isEnabled = true
         }
         //changes the bottom bar depending on type
-        updateButtonsBasedOnType(type: Model.instance.currentFile!.fileType)
+        updateButtonsBasedOnType(fileType: Model.instance.currentFile!.fileType)
     }
     
-    func updateButtonsBasedOnType(type: String){
+    func updateButtonsBasedOnType(fileType: String){
+        //might need to check open file type
+        var type = fileType
+        if let openType = Model.instance.currentFileOpen?.fileType{
+            //is set to the openFile type in case looking at other types of files
+            type = openType
+        }
         switch type {
         case "image":
             play_pauseButton.isHidden = true//hide play button

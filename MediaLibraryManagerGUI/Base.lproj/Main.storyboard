@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <capability name="cells containing NSDateComponentsFormatter" minSystemVersion="10.12"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -939,8 +940,26 @@ IA
                     </connections>
                 </viewController>
                 <customObject id="Eta-nX-JOi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customView id="jJV-Ka-7Zo">
+                    <rect key="frame" x="0.0" y="0.0" width="163" height="96"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <subviews>
+                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ww2-Yg-xsT">
+                            <rect key="frame" x="33" y="74" width="96" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="7qI-cd-Iee">
+                                <dateComponentsFormatter key="formatter" unitsStyle="abbreviated" id="VNV-iH-5L9">
+                                    <zeroFormattingBehavior key="zeroFormattingBehavior" none="YES"/>
+                                </dateComponentsFormatter>
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                </customView>
             </objects>
-            <point key="canvasLocation" x="1071" y="948"/>
+            <point key="canvasLocation" x="928" y="2088"/>
         </scene>
         <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
@@ -950,32 +969,28 @@ IA
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="670"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="FlD-uW-4di">
-                                <rect key="frame" x="0.0" y="-6" width="1280" height="676"/>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rY5-4A-U00">
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="670"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="MainBackground" id="cpm-AI-caL"/>
+                            </imageView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GHO-rn-NJZ" userLabel="Bookmarks view">
+                                <rect key="frame" x="0.0" y="98" width="250" height="572"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rY5-4A-U00">
-                                        <rect key="frame" x="0.0" y="6" width="1280" height="670"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ky-Rd-az7">
+                                        <rect key="frame" x="0.0" y="546" width="250" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="MainBackground" id="cpm-AI-caL"/>
-                                    </imageView>
-                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tzf-Ds-QEO">
-                                        <rect key="frame" x="1031" y="106" width="250" height="546"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="wck-2L-66z"/>
-                                            <constraint firstAttribute="height" constant="546" id="wtY-TH-z8h"/>
-                                        </constraints>
-                                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="border" drawsBackground="YES" id="z8u-c2-4cg">
-                                            <font key="font" metaFont="system"/>
-                                            <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="NotesAction:" target="EPY-3s-paR" id="ZTD-cK-lTv"/>
-                                            </connections>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Bookmarks" drawsBackground="YES" id="etj-ob-1Qn">
+                                            <font key="font" metaFont="system" size="20"/>
+                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-T6-HRE">
-                                        <rect key="frame" x="0.0" y="106" width="250" height="546"/>
-                                        <clipView key="contentView" id="4Nf-hx-snZ">
+                                    <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOI-T6-HRE">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="546"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <clipView key="contentView" ambiguous="YES" id="4Nf-hx-snZ">
                                             <rect key="frame" x="0.0" y="0.0" width="250" height="546"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -1024,10 +1039,6 @@ IA
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25267551370000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         </clipView>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="Dv7-e8-HV1"/>
-                                            <constraint firstAttribute="height" constant="546" id="TMw-sM-XmU"/>
-                                        </constraints>
                                         <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="P8Q-8c-4Eo">
                                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1037,54 +1048,34 @@ IA
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9ky-Rd-az7">
-                                        <rect key="frame" x="0.0" y="650" width="250" height="26"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Bookmarks" drawsBackground="YES" id="etj-ob-1Qn">
-                                            <font key="font" metaFont="system" size="20"/>
-                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
-                                        </textFieldCell>
-                                    </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4E4-Jo-6qY">
-                                        <rect key="frame" x="1031" y="650" width="250" height="26"/>
-                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Notes" drawsBackground="YES" id="TcR-MA-bFE">
-                                            <font key="font" metaFont="system" size="20"/>
-                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" red="0.8798381979695431" green="0.040899877343864126" blue="0.0079428955790039248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </textFieldCell>
-                                    </textField>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="9ky-Rd-az7" secondAttribute="bottom" constant="650" id="077-Nw-ouD"/>
-                                    <constraint firstItem="BOI-T6-HRE" firstAttribute="leading" secondItem="FlD-uW-4di" secondAttribute="leading" id="0rq-Xh-AH6"/>
-                                    <constraint firstItem="tzf-Ds-QEO" firstAttribute="top" secondItem="FlD-uW-4di" secondAttribute="top" constant="24" id="2XC-oL-hNL"/>
-                                    <constraint firstAttribute="trailing" secondItem="4E4-Jo-6qY" secondAttribute="trailing" constant="-1" id="5wZ-TX-QJ2"/>
-                                    <constraint firstAttribute="trailing" secondItem="4E4-Jo-6qY" secondAttribute="trailing" constant="-1" id="8pz-5v-rNV"/>
-                                    <constraint firstItem="tzf-Ds-QEO" firstAttribute="leading" secondItem="FlD-uW-4di" secondAttribute="leading" constant="1031" id="HJM-9r-9Rn"/>
-                                    <constraint firstAttribute="bottom" secondItem="4E4-Jo-6qY" secondAttribute="bottom" constant="650" id="HkF-Wi-hYO"/>
-                                    <constraint firstAttribute="bottom" secondItem="BOI-T6-HRE" secondAttribute="bottom" constant="106" id="MC3-HR-XD1"/>
-                                    <constraint firstItem="9ky-Rd-az7" firstAttribute="leading" secondItem="FlD-uW-4di" secondAttribute="leading" id="Pge-3y-W86"/>
-                                    <constraint firstItem="4E4-Jo-6qY" firstAttribute="top" secondItem="FlD-uW-4di" secondAttribute="top" id="TMR-HS-ofN"/>
-                                    <constraint firstItem="tzf-Ds-QEO" firstAttribute="leading" secondItem="BOI-T6-HRE" secondAttribute="trailing" constant="781" id="Ved-OJ-gmh"/>
-                                    <constraint firstAttribute="trailing" secondItem="tzf-Ds-QEO" secondAttribute="trailing" constant="-1" id="W1A-vE-Evo"/>
-                                    <constraint firstItem="4E4-Jo-6qY" firstAttribute="top" secondItem="FlD-uW-4di" secondAttribute="top" id="aHX-rD-jZC"/>
-                                    <constraint firstItem="4E4-Jo-6qY" firstAttribute="leading" secondItem="FlD-uW-4di" secondAttribute="leading" constant="1031" id="fvv-41-P44"/>
-                                    <constraint firstItem="9ky-Rd-az7" firstAttribute="top" secondItem="FlD-uW-4di" secondAttribute="top" id="gsM-fe-ava"/>
-                                    <constraint firstItem="BOI-T6-HRE" firstAttribute="top" secondItem="FlD-uW-4di" secondAttribute="top" constant="24" id="saT-gR-luU"/>
-                                    <constraint firstItem="4E4-Jo-6qY" firstAttribute="leading" secondItem="9ky-Rd-az7" secondAttribute="trailing" constant="781" id="tcx-ib-Kya"/>
-                                    <constraint firstAttribute="bottom" secondItem="4E4-Jo-6qY" secondAttribute="bottom" constant="650" id="xvj-Dm-2wA"/>
-                                    <constraint firstAttribute="bottom" secondItem="tzf-Ds-QEO" secondAttribute="bottom" constant="106" id="zHl-8R-57I"/>
-                                </constraints>
                             </customView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4E4-Jo-6qY">
+                                <rect key="frame" x="1030" y="644" width="250" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Notes" drawsBackground="YES" id="TcR-MA-bFE">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.8798381979695431" green="0.040899877343864126" blue="0.0079428955790039248" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzf-Ds-QEO">
+                                <rect key="frame" x="1030" y="98" width="250" height="546"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="border" drawsBackground="YES" id="z8u-c2-4cg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" red="0.14117647058823529" green="0.15294117647058825" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="NotesAction:" target="EPY-3s-paR" id="ZTD-cK-lTv"/>
+                                    </connections>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="FlD-uW-4di" secondAttribute="trailing" id="FdL-yG-qFC"/>
-                            <constraint firstItem="FlD-uW-4di" firstAttribute="top" secondItem="Qpd-yv-ZCM" secondAttribute="top" id="JXP-dK-8gX"/>
-                            <constraint firstItem="FlD-uW-4di" firstAttribute="leading" secondItem="Qpd-yv-ZCM" secondAttribute="leading" id="dbZ-VU-uDC"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
+                        <outlet property="bookmarksView" destination="GHO-rn-NJZ" id="Uqk-Zb-wsC"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
                         <segue destination="BRa-QR-MSl" kind="show" identifier="ShowMediaContentSegue" id="9Mm-0K-YT7"/>
@@ -1404,7 +1395,7 @@ IA
                 </windowController>
                 <customObject id="EdI-Vc-Jtm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="2366"/>
+            <point key="canvasLocation" x="928" y="2720"/>
         </scene>
         <!--MediaWindowVideoVC-->
         <scene sceneID="no0-3o-OP8">
@@ -1441,7 +1432,7 @@ IA
                 <controllerPlaceholder storyboardName="MediaWindow" id="BRa-QR-MSl" sceneMemberID="viewController"/>
                 <customObject id="MdU-1B-Myp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061" y="1958"/>
+            <point key="canvasLocation" x="978" y="2343"/>
         </scene>
     </scenes>
     <resources>
