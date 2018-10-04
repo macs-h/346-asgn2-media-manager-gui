@@ -35,7 +35,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <avPlayerView controlsStyle="none" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-j9-kdh">
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="rwz-j9-kdh">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rwz-j9-kdh" secondAttribute="height" multiplier="16:9" id="rEl-Uk-ZFT"/>

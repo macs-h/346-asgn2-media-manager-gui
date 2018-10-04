@@ -51,6 +51,10 @@ class Utility {
         return cmTime
     }
     
+    func convertHumanStringToSeconds(_ humanTime: String) -> Float64 {
+        return Float64( convertHumanToSeconds(humanTime) )
+    }
+    
     fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
         let hours = Int( floor(seconds / 3600) )
         let mins = Int( floor( seconds.truncatingRemainder(dividingBy: 3600) / 60) )
