@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 import AVKit
-
+import Quartz
 
 protocol OpenFileModelDegate {
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String])
@@ -320,7 +320,17 @@ class Model{
         imageView.image = image
     }
     
-    func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {
+    func loadDocument(_ sender: NSViewController, docView: PDFView) {
+//        docView.document = PDFDocument(url: URL(fileURLWithPath: (self.currentFile?.fullpath)!))
+        let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
+        print(url)
+        let doc = PDFDocument(url: url)
+        print(doc)
+        docView.document = doc
+        
+    }
+    
+    func loadMediaPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {
         var url: URL
         if !queued{
             url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)

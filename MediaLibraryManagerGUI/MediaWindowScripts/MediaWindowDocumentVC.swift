@@ -7,13 +7,18 @@
 //
 
 import Cocoa
+import Quartz
 
 class MediaWindowDocumentVC: NSViewController, bottomBarDelegate {
 
+    @IBOutlet weak var docView: PDFView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         print("LOADED")
+        
+        loadDoc()
         
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self
@@ -28,11 +33,17 @@ class MediaWindowDocumentVC: NSViewController, bottomBarDelegate {
     }
     
     func next() {
+        loadDoc()
         print("Next called")
     }
     
     func previous() {
+        loadDoc()
         print("Previous called")
+    }
+    
+    @objc fileprivate func loadDoc() {
+        Model.instance.loadDocument(self, docView: docView)
     }
     
 }

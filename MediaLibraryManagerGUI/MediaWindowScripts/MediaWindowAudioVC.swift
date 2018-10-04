@@ -7,12 +7,17 @@
 //
 
 import Cocoa
+import AVKit
 
 class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
+    
+    @IBOutlet weak var playerView: AVPlayerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        loadAudio()
         
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self
@@ -32,6 +37,19 @@ class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
     
     func previous() {
         print("Previous called")
+    }
+    
+    @objc fileprivate func loadAudio() {
+        Model.instance.loadMediaPlayer(self, playerView: playerView)
+    }
+    
+    @objc fileprivate func playPauseVideo() {
+        let player = playerView.player!
+        if (player.timeControlStatus == AVPlayerTimeControlStatus.paused) {
+            player.play()
+        } else {
+            player.pause()
+        }
     }
 
 }

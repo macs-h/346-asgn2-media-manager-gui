@@ -19,29 +19,45 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
         
         NSLog("MediaWindowVideoVC loaded")
         
-        Model.instance.loadVideoPlayer(self, playerView: playerView)
+        loadVideo()
         
-        
-        Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.instance.convertSecondsToCMTime(8, 1))
+//        Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.instance.convertSecondsToCMTime(8, 1))
         
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self
     }
     
     func play() {
+        playPauseVideo()
         print("Play called")
     }
     
     func pause() {
+        playPauseVideo()
         print("Pause called")
     }
     
     func next() {
+        loadVideo()
         print("Next called")
     }
     
     func previous() {
+        loadVideo()
         print("Previous called")
+    }
+    
+    @objc fileprivate func loadVideo() {
+        Model.instance.loadMediaPlayer(self, playerView: playerView)
+    }
+    
+    @objc fileprivate func playPauseVideo() {
+        let player = playerView.player!
+        if (player.timeControlStatus == AVPlayerTimeControlStatus.paused) {
+            player.play()
+        } else {
+            player.pause()
+        }
     }
     
 }

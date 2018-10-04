@@ -96,7 +96,7 @@ class BottomBarViewController: NSViewController {
         }
         switch type {
         case "image":
-            play_pauseButton.isHidden = true//hide play button
+//            play_pauseButton.isHidden = true//hide play button
             //hide volume button
             //hide scroll bar
             bookmarkButton.isHidden = true//hide bookmark button
@@ -114,7 +114,7 @@ class BottomBarViewController: NSViewController {
             //show add to queue
             break
         case "document":
-            play_pauseButton.isHidden = true//hide play button
+//            play_pauseButton.isHidden = true//hide play button
             //hide volume button
             //hide scroll bar
             bookmarkButton.isHidden = true//hide bookmark button
