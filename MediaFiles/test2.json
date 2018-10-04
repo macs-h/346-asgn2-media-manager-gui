@@ -63,7 +63,8 @@
         "fullpath": "MediaFiles/vid_PC1.mp4",
         "type": "video",
         "metadata": {
-            "creator" : "Max"
+            "creator" : "Max",
+            "bookmarks" : "3sec test,00:00:03, 5sec test,00:00:05"
         }
     },
     {

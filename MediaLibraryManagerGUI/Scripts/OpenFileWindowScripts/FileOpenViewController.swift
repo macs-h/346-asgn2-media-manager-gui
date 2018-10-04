@@ -84,16 +84,27 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         print("making cell \(row)")
-        
-        let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "BookmarkID"), owner: nil) as! NSTableCellView
-        
-        file.textField!.stringValue = bookmarkKeys[row] + " : " + bookmarkValues[row]
-        print("file text \(file.textField!.stringValue)")
-        return file
+        if tableColumn?.title == "KeyColumn"{
+            let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "KeyID"), owner: nil) as! NSTableCellView
+            
+            file.textField!.stringValue = bookmarkKeys[row]
+            //print("file text \(file.textField!.stringValue)")
+            return file
+        }else{
+            let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ValueID"), owner: nil) as! NSTableCellView
+            
+            file.textField!.stringValue = bookmarkValues[row]
+            //print("file text \(file.textField!.stringValue)")
+            return file
+        }
     }
     
     @objc func doubleClickOnRow(){
         print("double click on bookmark table \(bookmarkTable.clickedRow)")
+        if Model.instance.currentFileOpen == nil{
+            //no file currently playing so open one
+            Model.instance.openFile()
+        }
         var time = bookmarkValues[bookmarkTable.clickedRow]
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
