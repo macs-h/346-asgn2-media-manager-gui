@@ -907,9 +907,12 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="chO-FU-7D0" userLabel="Play Button">
                                 <rect key="frame" x="602" y="28" width="76" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="play Button" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Xut-GJ-zT1">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="Play button" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Xut-GJ-zT1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+IA
+</string>
                                 </buttonCell>
                                 <connections>
                                     <action selector="play_pauseAction:" target="EQx-uk-cdA" id="6Zy-KU-4IV"/>
@@ -1450,10 +1453,10 @@
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
+        <image name="Play button" width="52" height="52"/>
         <image name="Search barckground" width="206" height="41"/>
         <image name="TopBar background" width="1279" height="50"/>
         <image name="next button" width="19" height="20"/>
-        <image name="play Button" width="48" height="48"/>
         <image name="preview background" width="250" height="597"/>
         <image name="previous button" width="19" height="20"/>
     </resources>
