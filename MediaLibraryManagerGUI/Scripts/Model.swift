@@ -360,7 +360,7 @@ class Model{
     }
     
     func mediaJumpToTime(_ sender: NSViewController, playerView: AVPlayerView, jumpTo time: String) {
-        let seconds = Utility.instance.convertHumanStringToSeconds(time)
+        let seconds = Utility.convertHumanStringToSeconds(time)
         
         self.mediaPlayer = playerView.player
         let frameRate: Int32 = (self.mediaPlayer?.currentItem?.currentTime().timescale)!

@@ -10,9 +10,7 @@ import Cocoa
 import AVKit
 
 class Utility {
-    //static var instance = Utility()
-    
-    
+
     static func normalisePath(filename: String) throws -> URL {
         let start = filename.index(after: filename.startIndex)
         let end = filename.endIndex
@@ -51,11 +49,11 @@ class Utility {
         return cmTime
     }
     
-    func convertHumanStringToSeconds(_ humanTime: String) -> Float64 {
+    static func convertHumanStringToSeconds(_ humanTime: String) -> Float64 {
         return Float64( convertHumanToSeconds(humanTime) )
     }
     
-    fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
+    static fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
         let hours = Int( floor(seconds / 3600) )
         let mins = Int( floor( seconds.truncatingRemainder(dividingBy: 3600) / 60) )
         let secs = Int( seconds.truncatingRemainder(dividingBy: 60) )
