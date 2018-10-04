@@ -10,14 +10,11 @@ import Cocoa
 
 class FileOpenViewController: NSViewController, OpenFileModelDegate {
 
-    //var file: MMFile!
     var bookmarks: [String] = [] //----unsure about type (depends on what media player takes)
     @IBOutlet weak var bookmarkTable: NSTableView!
-    
-//    @IBOutlet weak var previousButton: NSButton!
-//    @IBOutlet weak var forwardButton: NSButton!
     @IBOutlet weak var notesLabel: NSTextField!
     var mainTopVC = MainTopViewController()
+    @IBOutlet weak var bookmarksView: NSView!
     
     
     override func viewDidLoad() {
@@ -32,36 +29,13 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
         Model.instance.showBottomBar(sender: self.parent!)
+        changeViewsBasedOnType(type: Model.instance.currentFile!.fileType)
     }
     
     override func viewDidDisappear() {
         Model.instance.openFileDelegate = nil
     }
-//    /**
-//     ----This could go the model???
-//    */
-//    func setUp(file: MMFile, type: String){
-//        self.file = file
-//        if type == "Video" {
-//            //play the video
-//        }else if type == "Image" {
-//            //show the image
-//            //disable play button
-//        }else if type == "Music" {
-//            //play the music
-//        }else{
-//            //show other
-//        }
-//    }
-    
-//    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
 //
-//        if segue.identifier == "MainViewSegue" {
-//            print("trying to segue to \(segue.identifier)")
-////            let destinationVC = segue.destinationController as! MainViewController
-////            destinationVC.fileSelected = file
-//        }
-//    }
     
     /**
         Called when the user presses enter on notes text box
@@ -103,23 +77,19 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         self.notesLabel.stringValue = currentFile.filename//notes
         self.bookmarks = bookmarks
         bookmarkTable.reloadData()
-//        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
-//            //hide forward button
-//            forwardButton.isEnabled = false
-//        }else{
-//            forwardButton.isEnabled = true
-//        }
-//        if Model.instance.currentFileIndex![0]-1 < 0{
-//            //hide backwards button
-//            previousButton.isEnabled = false
-//        }else{
-//            previousButton.isEnabled = true
-//        }
     }
     
     func openMedia(file: MMFile) {
         
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
+    }
+    
+    func changeViewsBasedOnType(type: String){
+        if type == "image" || type == "document"{
+            //remove bookmarks and adjust media vc
+            bookmarksView.isHidden = true //hides the view (might need to remove from superView
+            
+        }
     }
 
 }

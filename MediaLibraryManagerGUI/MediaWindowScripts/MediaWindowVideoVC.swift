@@ -9,7 +9,7 @@
 import Cocoa
 import AVKit
 
-class MediaWindowVideoVC: NSViewController {
+class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
 
     @IBOutlet weak var playerView: AVPlayerView!
     
@@ -23,6 +23,25 @@ class MediaWindowVideoVC: NSViewController {
         
         
         Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.instance.convertSecondsToCMTime(8, 1))
+        
+        //makes the below functions work
+        Model.instance.bottomBarVC?.delegte = self
+    }
+    
+    func play() {
+        print("Play called")
+    }
+    
+    func pause() {
+        print("Pause called")
+    }
+    
+    func next() {
+        print("Next called")
+    }
+    
+    func previous() {
+        print("Previous called")
     }
     
 }
