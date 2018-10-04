@@ -70,7 +70,8 @@
         "fullpath": "/path/to/empty.mp4",
         "type": "video",
         "metadata": {
-            "creator" : "Mimi"
+            "creator" : "Mimi",
+            "bookmarks" : "key1,00:00:00,key2,00:00:01,key3,00:10:10" 
         }
     },
     {

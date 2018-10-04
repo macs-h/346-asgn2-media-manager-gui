@@ -22,7 +22,7 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
         Model.instance.loadVideoPlayer(self, playerView: playerView)
         
         
-        Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.instance.convertSecondsToCMTime(8, 1))
+        Model.instance.mediaJumpToTime(self, playerView: playerView, time: Utility.convertSecondsToCMTime(8, 1))
         
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self

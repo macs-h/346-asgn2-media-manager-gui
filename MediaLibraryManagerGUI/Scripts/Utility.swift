@@ -10,10 +10,10 @@ import Cocoa
 import AVKit
 
 class Utility {
-    static var instance = Utility()
+    //static var instance = Utility()
     
     
-    func normalisePath(filename: String) throws -> URL {
+    static func normalisePath(filename: String) throws -> URL {
         let start = filename.index(after: filename.startIndex)
         let end = filename.endIndex
         
@@ -40,18 +40,18 @@ class Utility {
     // Time conversions. Seconds <-> CMTime
     //------------------------------------------------------------------------80
     
-    func convertCMTimeToSeconds(_ cmTime: CMTime) -> String {
+    static func convertCMTimeToSeconds(_ cmTime: CMTime) -> String {
         let seconds = CMTimeGetSeconds(cmTime)
         return convertSecondsToHuman(Float(seconds))
     }
     
-    func convertSecondsToCMTime(_ seconds: Int, _ timeScale: Int32) -> CMTime {
+    static func convertSecondsToCMTime(_ seconds: Int, _ timeScale: Int32) -> CMTime {
         let cmTime = CMTimeMakeWithSeconds(Float64(seconds), timeScale)
         print(cmTime)
         return cmTime
     }
     
-    fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
+    static fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
         let hours = Int( floor(seconds / 3600) )
         let mins = Int( floor( seconds.truncatingRemainder(dividingBy: 3600) / 60) )
         let secs = Int( seconds.truncatingRemainder(dividingBy: 60) )
@@ -64,7 +64,7 @@ class Utility {
         return returnStr
     }
     
-    fileprivate func convertHumanToSeconds(_ humanTime: String) -> Int {
+    static fileprivate func convertHumanToSeconds(_ humanTime: String) -> Int {
         let time = humanTime.components(separatedBy: ":")
         var seconds: Int = 0
         
