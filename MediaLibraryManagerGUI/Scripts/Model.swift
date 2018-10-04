@@ -359,11 +359,13 @@ class Model{
         playerView.player = self.mediaPlayer
     }
     
-    func mediaJumpToTime(_ sender: NSViewController, playerView: AVPlayerView, time: CMTime) {
+    func mediaJumpToTime(_ sender: NSViewController, playerView: AVPlayerView, jumpTo time: String) {
+        let seconds = Utility.convertHumanStringToSeconds(time)
+        
         self.mediaPlayer = playerView.player
-        print("--", time)
-        let seekTime = CMTime(value: 3, timescale: 1)
-        self.mediaPlayer?.seek(to: seekTime)
+        let frameRate: Int32 = (self.mediaPlayer?.currentItem?.currentTime().timescale)!
+        
+        self.mediaPlayer?.seek(to: CMTimeMakeWithSeconds(seconds, frameRate), toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
     }
     
     

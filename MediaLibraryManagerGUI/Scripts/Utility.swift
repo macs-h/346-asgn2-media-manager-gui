@@ -10,9 +10,7 @@ import Cocoa
 import AVKit
 
 class Utility {
-    //static var instance = Utility()
-    
-    
+
     static func normalisePath(filename: String) throws -> URL {
         let start = filename.index(after: filename.startIndex)
         let end = filename.endIndex
@@ -49,6 +47,10 @@ class Utility {
         let cmTime = CMTimeMakeWithSeconds(Float64(seconds), timeScale)
         print(cmTime)
         return cmTime
+    }
+    
+    static func convertHumanStringToSeconds(_ humanTime: String) -> Float64 {
+        return Float64( convertHumanToSeconds(humanTime) )
     }
     
     static fileprivate func convertSecondsToHuman(_ seconds: Float) -> String {
