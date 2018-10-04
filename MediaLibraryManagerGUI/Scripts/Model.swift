@@ -13,15 +13,14 @@ import Quartz
 
 protocol OpenFileModelDegate {
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String : String])
-    func openMedia(file: MMFile)
+    func DecoupleMedia()
+    func showMediaContent()
 }
 protocol MainViewModelDegate {
     func updateOutets(files: [MMFile])
 }
 
-//protocol BottomBarDelegate{
-//    func updateOutlets()
-//}
+
 
 
 class Model{
@@ -91,13 +90,6 @@ class Model{
     
     func addFile(sender: NSViewController){
         //get file path
-//        let sam = true
-//        if sam{
-//            importJsonFile(from: "///Users/sampaterson/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
-////            importJsonFile(from: "~/Documents/Uni/Cosc346/asgn2/MediaLibraryManager/test.json")
-//        }else {
-//            importJsonFile(from: "~/346/asgn2/MediaLibraryManager/test.json")
-//        }
         
         let panel = NSOpenPanel()
         panel.allowedFileTypes = ["json"]
@@ -114,14 +106,8 @@ class Model{
                 }
                 
                 
-//                let start = path_reversed.startIndex
-//                let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
-//
-//                f.filename = String( String( path_reversed[start..<end].reversed()) )
-                
-                
                 self.importJsonFile(from: stringArray.joined(separator: " "))
-//                self.importJsonFile(from: (panel.url?.absoluteString)!)
+                self.importJsonFile(from: (panel.url?.absoluteString)!)
                 self.changeCategory(catIndex: self.currentCategoryIndex)
                 self.updateMainVC()
             }
@@ -277,10 +263,23 @@ class Model{
     }
     
     
-    func openFile(){
+    func openFileInWindow(){
         //check the type of file and open it accordingly
         currentFileOpen = currentFile
-        openFileDelegate?.openMedia(file: currentFile!)
+        let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+        openFileDelegate?.DecoupleMedia()
+        
+        print("recouple time", time)
+        Model.instance.mediaJumpToTime(jumpTo: time)
+    }
+    
+    func returnFileToMainWindow(){
+        currentFileOpen = nil
+        let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+        openFileDelegate?.showMediaContent()
+        
+        print("recouple time", time)
+        Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
     func addBookmark(label: String){

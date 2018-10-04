@@ -22,7 +22,6 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        print("fileOpenVC called")
         bookmarkTable.delegate = self
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
@@ -32,12 +31,13 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         Model.instance.openFileDelegate = self
         Model.instance.showBottomBar(sender: self.parent!)
         changeViewsBasedOnType(type: Model.instance.currentFile!.fileType)
+        showMediaContent()
     }
     
     override func viewDidDisappear() {
         Model.instance.openFileDelegate = nil
     }
-//
+
     
     /**
         Called when the user presses enter on notes text box
@@ -62,9 +62,10 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         bookmarkTable.reloadData()
     }
     
-    func openMedia(file: MMFile) {
+    func DecoupleMedia() {
         
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
+        self.view.subviews[4].removeFromSuperview() //removes embeded player and shows image behind
     }
     
     func changeViewsBasedOnType(type: String){
@@ -104,15 +105,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
         }
     }
     
-    @objc func doubleClickOnRow(){
-        if Model.instance.currentFileOpen == nil{
-            //no file currently playing so open one
-            Model.instance.openFile()
-        }
-        let time = bookmarkValues[bookmarkTable.clickedRow]
-        Model.instance.mediaJumpToTime(jumpTo: time)
-    }
-    
+   
     @objc func clickOnRow(){
         //allow users to delete bookmark
         if bookmarkTable.clickedRow != -1{
@@ -121,6 +114,51 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
         }else{
             //cant delete a bookmark when none is selected
             deleteBookmarkButton.isHidden = true
+        }
+    }
+    
+    
+    @objc func doubleClickOnRow(){
+//        if Model.instance.currentFileOpen == nil{
+//            //no file currently playing so open one
+//            Model.instance.openFile()
+//        }
+        let time = bookmarkValues[bookmarkTable.clickedRow]
+        Model.instance.mediaJumpToTime(jumpTo: time)
+    }
+    
+    
+
+    func showMediaContent(){
+        //shows the media content in the current window
+        let mediaType = Model.instance.currentFile?.fileType
+        var vc = ""
+        switch mediaType {
+        case "image":
+            vc = "MediaWindowImageVC"
+            break
+        case "video":
+            vc = "MediaWindowVideoVC"
+            break
+        case "audio":
+            vc = "MediaWindowAudioVC"
+            break
+        case "document":
+            vc = "MediaWindowDocumentVC"
+            break
+        default:
+            print("unknown type \(String(describing: mediaType))")
+        }
+        let newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
+        self.view.addSubview(newVC.view)
+        let x = (self.view.frame.width/2) - 390
+        let y = (self.view.frame.height/2) - 235
+        newVC.view.frame = CGRect(x: x, y: y, width: 780, height: 570)
+        if mediaType == "video"{
+            //to remove the controls
+            let mediaPlayerVC = newVC as! MediaWindowVideoVC
+            mediaPlayerVC.playerView.controlsStyle = .none
+            print("\n \n ++++set to none\n \n")
         }
     }
     

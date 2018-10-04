@@ -941,6 +941,17 @@ IA
                                     <action selector="bookmarkAction:" target="EQx-uk-cdA" id="Piu-lD-VnC"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOY-oy-uIA">
+                                <rect key="frame" x="947" y="58" width="98" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Decouple" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tne-RS-kGR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="decoupleMediaAction:" target="EQx-uk-cdA" id="onw-7l-NY6"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -949,6 +960,7 @@ IA
                         <outlet property="bookmarkPopoverTextField" destination="5jW-nr-UAI" id="pqr-Pa-sIF"/>
                         <outlet property="bookmarkPopoverTimeLabel" destination="ADG-Qi-TKN" id="gB4-dg-Wy3"/>
                         <outlet property="boomarkPopoverTextField" destination="5jW-nr-UAI" id="c65-Pf-SdU"/>
+                        <outlet property="decoupleButton" destination="rOY-oy-uIA" id="O2E-3p-Pvd"/>
                         <outlet property="nextButton" destination="bj7-oC-IKd" id="XGj-5z-AEv"/>
                         <outlet property="play_pauseButton" destination="chO-FU-7D0" id="Jxh-Bo-hJN"/>
                         <outlet property="previousButton" destination="rPZ-8L-bHh" id="PZU-Zo-TUd"/>
@@ -1035,7 +1047,7 @@ IA
                     </subviews>
                 </customView>
             </objects>
-            <point key="canvasLocation" x="958" y="2114"/>
+            <point key="canvasLocation" x="958" y="2181"/>
         </scene>
         <!--FileOpenVC-->
         <scene sceneID="l4L-aF-BF5">
@@ -1201,7 +1213,7 @@ IA
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
                         <segue destination="BRa-QR-MSl" kind="show" identifier="" id="9Mm-0K-YT7"/>
-                        <segue destination="KFg-mZ-9l5" kind="show" identifier="ShowMediaContentSegue" id="AEK-4g-ulj"/>
+                        <segue destination="KFg-mZ-9l5" kind="show" identifier="ShowMediaContentSegue" id="Aey-lJ-0WO"/>
                     </connections>
                 </viewController>
                 <customObject id="HMT-dt-GVS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

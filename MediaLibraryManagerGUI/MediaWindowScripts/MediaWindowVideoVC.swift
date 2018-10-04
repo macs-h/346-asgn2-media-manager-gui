@@ -17,9 +17,10 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
         super.viewDidLoad()
         // Do view setup here.
         
-        NSLog("MediaWindowVideoVC loaded")
+        //NSLog("MediaWindowVideoVC loaded")
         
         loadVideo()
+        print("loaded player")
         
         // Testing jump to time functionality
         //Model.instance.mediaJumpToTime(self, playerView: playerView, jumpTo: "00:00:03")
@@ -55,7 +56,7 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
     @objc fileprivate func playPauseVideo() {
         let player = playerView.player!
         if (player.timeControlStatus == AVPlayerTimeControlStatus.paused) {
-//            player.play()
+            player.play()
         } else {
             player.pause()
         }

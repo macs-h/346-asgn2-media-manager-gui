@@ -23,6 +23,9 @@ class BottomBarViewController: NSViewController {
     @IBOutlet weak var bookmarkButton: NSButton!
     var delegte: bottomBarDelegate?
     var mediaIsPlaying = false
+    @IBOutlet weak var decoupleButton: NSButton!
+    
+    
     //popOver variables
     @IBOutlet var PopOverView: NSView!
     @IBOutlet weak var bookmarkPopoverTimeLabel: NSTextField!
@@ -42,7 +45,6 @@ class BottomBarViewController: NSViewController {
     }
     @IBAction func play_pauseAction(_ sender: NSButton) {
         //tell the model to play the media
-        Model.instance.openFile()  //-- move to disconect window function
         if mediaIsPlaying{
             //file playing
             delegte?.pause()
@@ -56,6 +58,7 @@ class BottomBarViewController: NSViewController {
             //change image
             play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Pause button"))
         }
+        print("model current media open", Model.instance.currentFileOpen?.filename)
         //have a title in the bottom bar to show what file is opens
     }
     
@@ -82,6 +85,12 @@ class BottomBarViewController: NSViewController {
         
         
     }
+    
+    @IBAction func decoupleMediaAction(_ sender: NSButton) {
+        Model.instance.openFileInWindow()
+        
+    }
+    
     
     func updateOutlets(){
         

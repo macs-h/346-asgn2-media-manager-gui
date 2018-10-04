@@ -38,7 +38,8 @@ class MediaWindowWC: NSWindowController, NSWindowDelegate {
     
     func windowWillClose(_ notification: Notification) {
         //tell the model that the window is no longer open
-        Model.instance.currentFileOpen = nil
+        //Model.instance.currentFileOpen = nil
+        Model.instance.returnFileToMainWindow()
         
     }
     
