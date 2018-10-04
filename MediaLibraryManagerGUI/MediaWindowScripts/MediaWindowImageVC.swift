@@ -18,14 +18,22 @@ class MediaWindowImageVC: NSViewController, NSWindowDelegate {
         NSLog("MediaWindowImageVC loaded")
         // get size of frame print it be sure it is the same aaslways
         print("-- self.view.frame:", self.view.frame)
-        // read your imaghe
-        var image = NSImage(contentsOfFile: (Model.instance.currentFile?.fullpath)!)
+        
+        
+        //--------------------
+        // read your image
+//        var image = NSImage(contentsOfFile: (Model.instance.currentFile?.fullpath)!)
+        var image = NSImage(named: NSImage.Name(rawValue:  (Model.instance.currentFile?.filename)!))
+        print(Model.instance.currentFile?.filename)
+        //--------------------
+        
         
         // transfor image scale width and height to view
         mediaImageView.frame = self.view.frame
         print("-- mediaImageView.frame:", self.view.frame)
         
         print("-- image size:", image?.size)
+        
         // scaling imaghe
         image = image?.resizeMaintainingAspectRatio(withSize: NSSize(width: 800, height: 450))
         
