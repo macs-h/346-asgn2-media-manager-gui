@@ -20,6 +20,8 @@ class MediaWindowDocumentVC: NSViewController, bottomBarDelegate {
         
         loadDoc()
         
+//        print(docView.currentPage)
+        
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self
     }
