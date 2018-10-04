@@ -201,6 +201,8 @@
 		605CFA242165A58600AE0320 /* MediaFiles */ = {
 			isa = PBXGroup;
 			children = (
+				D3A2421D2134B62C0061C4F3 /* test.json */,
+				605CFA222165A53500AE0320 /* test2.json */,
 				605CFA252165A58600AE0320 /* img_PC1.png */,
 				605CFA262165A58600AE0320 /* img_PC2.png */,
 				605CFA272165A58600AE0320 /* img_PC3.png */,
@@ -232,9 +234,9 @@
 			children = (
 				D3A241E52133AE390061C4F3 /* MM_File.swift */,
 				D3A241F92133B1630061C4F3 /* MM_Collection.swift */,
+				D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */,
 				D3A242112133C0960061C4F3 /* MM_FileExport.swift */,
 				D3A24227213502A30061C4F3 /* MM_Metadata.swift */,
-				D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -267,7 +269,6 @@
 				602195432160AB0100E32E85 /* MediaWindow.storyboard */,
 				81AD633421535DE80071147D /* Info.plist */,
 				81AD633521535DE80071147D /* MediaLibraryManagerGUI.entitlements */,
-				603F8B2321630AFD005AC87A /* Utility.swift */,
 			);
 			path = MediaLibraryManagerGUI;
 			sourceTree = "<group>";
@@ -309,8 +310,6 @@
 				D3161D2C20D749BD00EC97E8 /* protocols.swift */,
 				D3161D2320D748F800EC97E8 /* main.swift */,
 				D3CB3A9C20DB264200AF519E /* cli.swift */,
-				D3A2421D2134B62C0061C4F3 /* test.json */,
-				605CFA222165A53500AE0320 /* test2.json */,
 			);
 			path = MediaLibraryManager;
 			sourceTree = "<group>";
@@ -319,6 +318,7 @@
 			isa = PBXGroup;
 			children = (
 				ED96322021638D6500E757A8 /* Model.swift */,
+				603F8B2321630AFD005AC87A /* Utility.swift */,
 				EDEAB9132163228800C58016 /* MainWindow */,
 				EDF93133215EDC2E00831EE5 /* OpenFileWindowScripts */,
 				EDEAB914216322D300C58016 /* BottomBarViewController.swift */,

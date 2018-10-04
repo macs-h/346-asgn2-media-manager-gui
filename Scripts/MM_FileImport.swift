@@ -31,7 +31,7 @@ class MM_FileImport : MMFileImport {
         var importedFiles = [MM_File]()
         var filesToAdd = [MM_File]()
         
-        let url = try IO.normalisePath(filename: filename)
+        let url = try Utility.instance.normalisePath(filename: filename)
         let encodedJsonData = try Data(contentsOf: url)
         
         // the struct mirrors the JSON data
@@ -46,15 +46,41 @@ class MM_FileImport : MMFileImport {
         for attribute in jsonData {
             let f = MM_File()
             
-            f.fullpath = attribute.fullpath
+            f.filename = {
+                let path_reversed = String(attribute.fullpath.reversed())
+                
+                let start = path_reversed.startIndex
+                let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+                
+                return String( path_reversed[start..<end].reversed() )
+            }()
+        
+            f.fullpath = {
+                var fullpath = filename
+                
+                let path_reversed = String(fullpath.reversed())
+                let start = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+                let end = path_reversed.endIndex
+                
+                fullpath = String( path_reversed[start..<end].reversed() )
+//                path_reversed = String( attribute.fullpath.reversed() )
+//
+//                start = path_reversed.startIndex
+//                end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+//
+//                let filename = String( path_reversed[start..<end].reversed() )
+                return fullpath + f.filename
+            }()
+            
+            
             f.fileType = attribute.type
             
-            let path_reversed = String(f.fullpath.reversed())
-            
-            let start = path_reversed.startIndex
-            let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
-            
-            f.filename = String( String( path_reversed[start..<end].reversed()) )
+//            let path_reversed = String(f.fullpath.reversed())
+//
+//            let start = path_reversed.startIndex
+//            let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
+//
+//            f.filename = String( String( path_reversed[start..<end].reversed()) )
             
             for metadata in attribute.metadata {
                 let data = MM_Metadata(keyword: metadata.key, value: metadata.value)
@@ -75,29 +101,4 @@ class MM_FileImport : MMFileImport {
         return filesToAdd
     }
     
-}
-
-
-fileprivate class IO {
-    class func normalisePath(filename: String) throws -> URL {
-        let start = filename.index(after: filename.startIndex)
-        let end = filename.endIndex
-        
-        var result: URL
-        switch filename.prefix(1) {
-        case "/":
-            result = URL(fileURLWithPath: filename)
-        case "~":
-            result = FileManager.default.homeDirectoryForCurrentUser
-            result.appendPathComponent(String(filename[start..<end]))
-        case ".":
-            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-            result.appendPathComponent(String(filename[start..<end]))
-        default:
-            // treat it as if it were in the current working directory
-            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-            result.appendPathComponent(filename)
-        }
-        return result
-    }
 }

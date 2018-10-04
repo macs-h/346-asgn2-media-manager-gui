@@ -12,6 +12,34 @@ import AVKit
 class Utility {
     static var instance = Utility()
     
+    
+    func normalisePath(filename: String) throws -> URL {
+        let start = filename.index(after: filename.startIndex)
+        let end = filename.endIndex
+        
+        var result: URL
+        switch filename.prefix(1) {
+        case "/":
+            result = URL(fileURLWithPath: filename)
+        case "~":
+            result = FileManager.default.homeDirectoryForCurrentUser
+            result.appendPathComponent(String(filename[start..<end]))
+        case ".":
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(String(filename[start..<end]))
+        default:
+            // treat it as if it were in the current working directory
+            result = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+            result.appendPathComponent(filename)
+        }
+        print("--- URL:", result)
+        return result
+    }
+    
+    //------------------------------------------------------------------------80
+    // Time conversions. Seconds <-> CMTime
+    //------------------------------------------------------------------------80
+    
     func convertCMTimeToSeconds(_ cmTime: CMTime) -> String {
         let seconds = CMTimeGetSeconds(cmTime)
         return convertSecondsToHuman(Float(seconds))

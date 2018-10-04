@@ -305,9 +305,20 @@ class Model{
     }
     
     
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
     // MediaWindow functionality
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
+    
+    func loadImage(_ sender: NSViewController, imageView: NSImageView) {
+        var image = NSImage(contentsOfFile: (Model.instance.currentFile?.fullpath)!)
+        
+        // transform image scale width and height to view
+        imageView.frame = sender.view.frame
+        // scaling imaghe
+        image = image?.resizeMaintainingAspectRatio(withSize: NSSize(width: 800, height: 450))
+        
+        imageView.image = image
+    }
     
     func loadVideoPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {
         var url: URL
@@ -329,9 +340,9 @@ class Model{
     }
     
     
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
     // Previous media library functionality
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
     
     private func importJsonFile(from filepath: String) {
         print("---- \(filepath)")
@@ -410,9 +421,9 @@ class Model{
     
     
     
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
     // Private functions
-    //----------------------------------------------------------------------------------90
+    //------------------------------------------------------------------------80
     
     private func updateOpenFileVC(){
         openFileDelegate?.updateOutets(currentFile: currentFile!, notes: notes, bookmarks: bookmarks)
