@@ -18,19 +18,23 @@ class MainTopViewController: NSViewController {
                 if Model.instance.currentFile != nil{
                     forwardButton.isEnabled = true
                 }
+                logoImage.isHidden = false
+                fileNameLabel.isHidden = true
             }else{
                 //openfileVC is open
                 backButton.isEnabled = true
                 forwardButton.isEnabled = false
+                fileNameLabel.stringValue = Model.instance.currentFile!.filename
+                logoImage.isHidden = true
+                fileNameLabel.isHidden = false
             }
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-        splitView = self.parent!
-    }
+    @IBOutlet weak var logoImage: NSImageView!
+    
+    @IBOutlet weak var fileNameLabel: NSTextField!
+    
     
     
     @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
@@ -43,6 +47,15 @@ class MainTopViewController: NSViewController {
        Model.instance.addFile(sender: self)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do view setup here.
+        splitView = self.parent!
+        
+        self.view.window?.styleMask = .texturedBackground
+        self.view.window?.backgroundColor = .black
+       
+    }
     
     @IBAction func forward_BackPressed(_ sender: NSButton) {
         
@@ -59,5 +72,6 @@ class MainTopViewController: NSViewController {
     @IBAction func searchAcion(_ sender: NSSearchField) {
         let searchTerms = sender.stringValue.components(separatedBy: " ")
         Model.instance.searchStrings(searchTerms: searchTerms)
+        print("searching---",searchTerms )
     }
 }

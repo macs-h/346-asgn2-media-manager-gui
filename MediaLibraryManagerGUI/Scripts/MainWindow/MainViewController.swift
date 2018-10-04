@@ -18,7 +18,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
     
     var files: [MMFile] = []
     var previewVC: PreviewViewController?
-    let categories = ["Images","Audio","Video", "Documents", "Other"]
+    let categories = ["Images","Audio","Video", "Documents"]
     
     
     
@@ -38,7 +38,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
         Model.instance.mainViewDegate = self
         let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
         categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-        categoryTable.backgroundColor = NSColor.clear
+       
     }
 
     override var representedObject: Any? {
@@ -54,7 +54,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
             if Model.instance.currentCategoryIndex == currentIndex[1]{
                 let indexPath = IndexSet(arrayLiteral: currentIndex[0])
                 fileTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-                print("show selected row")
+                previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
             }
         }
         

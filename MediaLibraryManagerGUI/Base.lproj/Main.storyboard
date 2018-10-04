@@ -694,15 +694,6 @@
                         <rect key="contentRect" x="196" y="240" width="1280" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="480" height="270"/>
-                        <toolbar key="toolbar" implicitIdentifier="7FFE7BB8-886E-447E-A9BF-25D3DDECC98E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="pcE-Oz-gZM">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="20c-Lg-Vou"/>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="20c-Lg-Vou"/>
-                                <toolbarItem reference="20c-Lg-Vou"/>
-                            </defaultToolbarItems>
-                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -1276,18 +1267,23 @@ IA
                                             <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                         <connections>
-                                            <action selector="searchAcion:" target="GPT-n4-WSd" id="16W-f6-Mfu"/>
+                                            <action selector="searchAcion:" target="GPT-n4-WSd" id="KDk-o2-8Jb"/>
                                         </connections>
                                     </searchField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-Mb-NMi">
+                                    <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TpJ-Mb-NMi">
                                         <rect key="frame" x="432" y="-2" width="416" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="App Name" id="Zz4-qo-Imu">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="File Name" id="Zz4-qo-Imu">
                                             <font key="font" metaFont="system" size="39"/>
-                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nke-hG-1qh" userLabel="LogoImage">
+                                        <rect key="frame" x="616" y="1" width="48" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="FBRD_logo" id="cHs-l1-xvf"/>
+                                    </imageView>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ooi-5d-3te">
                                         <rect key="frame" x="223" y="6" width="46" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1328,7 +1324,9 @@ IA
                     <connections>
                         <outlet property="addFileButton" destination="tMG-qw-DEg" id="4vw-iv-5F4"/>
                         <outlet property="backButton" destination="Ooi-5d-3te" id="zHR-SA-VWk"/>
+                        <outlet property="fileNameLabel" destination="TpJ-Mb-NMi" id="fWz-yg-S7j"/>
                         <outlet property="forwardButton" destination="WUa-Gt-atK" id="aiY-dL-4JA"/>
+                        <outlet property="logoImage" destination="Nke-hG-1qh" id="bQO-ml-89O"/>
                     </connections>
                 </viewController>
                 <customObject id="YT6-Og-Yue" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1501,10 +1499,10 @@ IA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="PreviewImage" destination="bR6-fx-qpg" id="gk3-08-izi"/>
                         <outlet property="fileNameLabel" destination="7Wz-zv-KnO" id="d2y-zV-IqX"/>
                         <outlet property="metadataTable" destination="2wI-Vx-lFz" id="TlU-4w-hkz"/>
                         <outlet property="notesLabel" destination="MrL-tm-zhM" id="Q7g-Ky-lJ6"/>
+                        <outlet property="previewImage" destination="bR6-fx-qpg" id="LZR-LA-qBL"/>
                     </connections>
                 </viewController>
             </objects>

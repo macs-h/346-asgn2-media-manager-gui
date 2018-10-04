@@ -56,7 +56,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
      Called by the model to update ui elements
      */
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String:String]) {
-        self.notesLabel.stringValue = currentFile.filename//notes
+        self.notesLabel.stringValue = notes
         self.bookmarkKeys = Array(bookmarks.keys)
         self.bookmarkValues = Array(bookmarks.values)
         bookmarkTable.reloadData()
@@ -158,7 +158,9 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
             //to remove the controls
             let mediaPlayerVC = newVC as! MediaWindowVideoVC
             mediaPlayerVC.playerView.controlsStyle = .none
-            print("\n \n ++++set to none\n \n")
+        }else if mediaType == "audio"{
+            let mediaPlayerVC = newVC as! MediaWindowAudioVC
+            mediaPlayerVC.playerView.controlsStyle = .none
         }
     }
     

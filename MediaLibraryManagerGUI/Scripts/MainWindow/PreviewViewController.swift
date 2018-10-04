@@ -10,8 +10,8 @@ import Cocoa
 
 class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     var file = MM_File() //assigned by mainVC before this is opened
-
-    @IBOutlet weak var PreviewImage: NSImageView!
+    var metadata: [MMMetadata] = []
+    @IBOutlet weak var previewImage: NSImageView!
 
     @IBOutlet weak var fileNameLabel: NSTextField!
 
@@ -31,15 +31,32 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     }
     
     func setup(file: MMFile){
+
         self.file = file as! MM_File
         fileNameLabel.stringValue = file.filename
-        //notesLabel.stringValue = file.notes
-        print("metadata \(file.metadata)")
+        
+        let notesMetadataIndex = file.searchMetadata(keyword: "notes")
+        if notesMetadataIndex != -1 {
+            let notes = file.metadata[notesMetadataIndex].value
+            notesLabel.stringValue = notes
+        }
+        metadata.removeAll()
+        for meta in file.metadata{
+            if meta.keyword != "bookmarks" && meta.keyword != "notes"{
+                metadata.append(meta)
+            }
+        }
         metadataTable.reloadData()
+        
+        let image = NSImage(contentsOfFile: file.fullpath)
+        if image == nil{
+            //show default image by using the type
+        }
+        previewImage.image = image
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return file.metadata.count
+        return metadata.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -47,7 +64,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
             //key column
             //print("making cell \(row)")
             let keyCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MetadataKeyCol"), owner: nil) as! NSTableCellView //FileCell
-            keyCell.textField!.stringValue = file.metadata[row].keyword //might need to show key in another coloumn aswell
+            keyCell.textField!.stringValue = metadata[row].keyword //might need to show key in another coloumn aswell
             keyCell.textField?.textColor = NSColor.gray
             keyCell.textField?.alignment = NSTextAlignment.right
             
@@ -56,7 +73,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
             //value column
             //print("making cell \(row)")
             let valueCell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MetadataValueCol"), owner: nil) as! NSTableCellView //FileCell
-            valueCell.textField!.stringValue = file.metadata[row].value //might need to show key in another coloumn aswell
+            valueCell.textField!.stringValue = metadata[row].value //might need to show key in another coloumn aswell
             return valueCell
         }
     }

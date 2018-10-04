@@ -67,6 +67,8 @@ class Model{
     }
     
     func setup(){
+        bookmarks.removeAll()
+        notes = ""
         if let currentFile = currentFile{
             //currentFile exists
             let bookmarkMetadataIndex = currentFile.searchMetadata(keyword: "bookmarks")
@@ -79,10 +81,15 @@ class Model{
                    bookmarks[bookmarksArray[i]] = bookmarksArray[i+1]
                     i += 2
                 }
+            }else{
+                //before would just keep the same the bookmarks as before if doesnt contain the key
+                bookmarks.removeAll()
             }
             let notesMetadataIndex = currentFile.searchMetadata(keyword: "notes")
             if notesMetadataIndex != -1 {
                 notes = currentFile.metadata[notesMetadataIndex].value
+            }else{
+                notes = ""
             }
         }
         
@@ -323,8 +330,9 @@ class Model{
             bookmarksResult.append("\(keyVal.value),")
         }
         setFile(with: "bookmarks", at: currentFileIndex![0], to: bookmarksResult)
-        
+        setFile(with: "notes", at: currentFileIndex![0], to: self.notes)
         //save notes
+        
     }
     
     
