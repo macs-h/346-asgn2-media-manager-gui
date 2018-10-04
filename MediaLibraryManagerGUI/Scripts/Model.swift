@@ -38,6 +38,7 @@ class Model{
     var bookmarks: [String: String]  = [:]
     var notes: String = ""
     var mediaPlayer: AVPlayer?
+    var playerView: AVPlayerView?
     var queue: [MMFile] = []
     var currentFileOpen: MMFile?{
         didSet{
@@ -356,16 +357,16 @@ class Model{
             
         }
         self.mediaPlayer = AVPlayer(url: url)
-        playerView.player = self.mediaPlayer
+        self.playerView = playerView
+        self.playerView!.player = self.mediaPlayer
     }
     
-    func mediaJumpToTime(_ sender: NSViewController, playerView: AVPlayerView, jumpTo time: String) {
+    func mediaJumpToTime(jumpTo time: String) {
         let seconds = Utility.convertHumanStringToSeconds(time)
         
-        self.mediaPlayer = playerView.player
-        let frameRate: Int32 = (self.mediaPlayer?.currentItem?.currentTime().timescale)!
+        let frameRate: Int32 = (self.playerView?.player!.currentItem?.currentTime().timescale)!
         
-        self.mediaPlayer?.seek(to: CMTimeMakeWithSeconds(seconds, frameRate), toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
+        self.playerView?.player!.seek(to: CMTimeMakeWithSeconds(seconds, frameRate), toleranceBefore: kCMTimeZero, toleranceAfter: kCMTimeZero)
     }
     
     

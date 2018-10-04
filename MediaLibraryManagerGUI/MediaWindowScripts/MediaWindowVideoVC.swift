@@ -22,7 +22,7 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
         loadVideo()
         
         // Testing jump to time functionality
-        Model.instance.mediaJumpToTime(self, playerView: playerView, jumpTo: "00:00:03")
+        //Model.instance.mediaJumpToTime(self, playerView: playerView, jumpTo: "00:00:03")
         
         //makes the below functions work
         Model.instance.bottomBarVC?.delegte = self

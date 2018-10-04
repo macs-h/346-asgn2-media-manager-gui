@@ -94,11 +94,14 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     
     @objc func doubleClickOnRow(){
         print("double click on bookmark table \(bookmarkTable.clickedRow)")
+        var time = bookmarkValues[bookmarkTable.clickedRow]
+        Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
     @objc func clickOnRow(){
         print("single click on bookmark table \(bookmarkTable.clickedRow)")
         //allow users to delete bookmark
+        
     }
     
 }
