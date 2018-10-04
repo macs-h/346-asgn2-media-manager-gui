@@ -42,7 +42,6 @@ class BottomBarViewController: NSViewController {
             //file playing
             delegte?.pause()
             //change image on button
-            print("changing image to play")
             play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Play button"))
             mediaIsPlaying = !mediaIsPlaying
         }else{
@@ -50,7 +49,6 @@ class BottomBarViewController: NSViewController {
             delegte?.play()
             mediaIsPlaying = !mediaIsPlaying
             //change image
-            print("changing image to pause")
             play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Pause button"))
         }
         //have a title in the bottom bar to show what file is opens

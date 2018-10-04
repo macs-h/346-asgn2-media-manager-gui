@@ -8,11 +8,30 @@
 
 import Cocoa
 
-class MediaWindowAudioVC: NSViewController {
-
+class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        //makes the below functions work
+        Model.instance.bottomBarVC?.delegte = self
     }
     
+    func play() {
+        print("Play called")
+    }
+    
+    func pause() {
+        print("Pause called")
+    }
+    
+    func next() {
+        print("Next called")
+    }
+    
+    func previous() {
+        print("Previous called")
+    }
+
 }

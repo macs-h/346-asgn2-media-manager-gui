@@ -8,12 +8,31 @@
 
 import Cocoa
 
-class MediaWindowDocumentVC: NSViewController {
+class MediaWindowDocumentVC: NSViewController, bottomBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
         print("LOADED")
+        
+        //makes the below functions work
+        Model.instance.bottomBarVC?.delegte = self
+    }
+    
+    func play() {
+        //!!!!DONT IMPLEMENT
+    }
+    
+    func pause() {
+        //!!!!DONT IMPLEMENT
+    }
+    
+    func next() {
+        print("Next called")
+    }
+    
+    func previous() {
+        print("Previous called")
     }
     
 }

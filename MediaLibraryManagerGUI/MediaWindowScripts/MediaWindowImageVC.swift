@@ -8,7 +8,9 @@
 
 import Cocoa
 
-class MediaWindowImageVC: NSViewController, NSWindowDelegate {
+class MediaWindowImageVC: NSViewController, NSWindowDelegate, bottomBarDelegate {
+   
+    
     
     @IBOutlet weak var mediaImageView: NSImageView!
     
@@ -41,10 +43,26 @@ class MediaWindowImageVC: NSViewController, NSWindowDelegate {
 //        mediaImageView.image = image
         
         Model.instance.loadImage(self, imageView: mediaImageView)
+        
+        //makes the below functions work
+        Model.instance.bottomBarVC?.delegte = self
 
     }
     
     
+    func play() {
+        //!!!!DONT IMPLEMENT
+    }
     
+    func pause() {
+        //!!!!DONT IMPLEMENT
+    }
     
+    func next() {
+        print("Next called")
+    }
+    
+    func previous() {
+        print("Previous called")
+    }
 }
