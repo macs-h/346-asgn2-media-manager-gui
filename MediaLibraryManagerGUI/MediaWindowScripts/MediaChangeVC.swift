@@ -33,8 +33,9 @@ class MediaChangeVC: NSViewController {
             print("unknown type \(mediaType)")
         }
         
-        var newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "MediaWindow"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
-        self.view.addSubview(newVC.view)
+        let newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "MediaWindow"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
+        //self.view.addSubview(newVC.view)
+        //self.view.window?.rep
         newVC.view.frame = CGRect(x: 0, y: 0, width: 800, height: 450)
 //        if mediaType == "image" {
 //            performSegue(withIdentifier: "SegueToImage", sender: self)

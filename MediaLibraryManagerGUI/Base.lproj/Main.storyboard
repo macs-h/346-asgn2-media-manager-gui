@@ -16,10 +16,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="MediaLibraryManagerGUI" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About MediaLibraryManagerGUI" id="5kV-Vb-QxS">
+                                        <menuItem title="About FBRD Media Player" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                                <segue destination="YYj-nd-JFc" kind="show" id="5fq-Jm-wXb"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
@@ -679,7 +680,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-127" y="-944"/>
+            <point key="canvasLocation" x="838" y="-704"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -1498,6 +1499,92 @@ IA
             </objects>
             <point key="canvasLocation" x="978" y="2343"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="uee-VD-JkJ">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="YYj-nd-JFc" sceneMemberID="viewController">
+                    <window key="window" title="AboutAppWC" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="SZq-X6-mbF">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="530" width="530" height="230"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="YYj-nd-JFc" id="76M-fb-ciZ"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="q6N-3H-43c" kind="relationship" relationship="window.shadowedContentViewController" id="I4Y-NV-ukd"/>
+                    </connections>
+                </windowController>
+                <customObject id="wwv-8x-mmW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="-828"/>
+        </scene>
+        <!--AboutAppVC-->
+        <scene sceneID="kzv-uI-fms">
+            <objects>
+                <viewController title="AboutAppVC" showSeguePresentationStyle="single" id="q6N-3H-43c" sceneMemberID="viewController">
+                    <view key="view" misplaced="YES" id="FdT-pa-Z6U">
+                        <rect key="frame" x="0.0" y="0.0" width="530" height="230"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ltE-Dl-8Ro">
+                                <rect key="frame" x="35" y="40" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="DBz-UG-IEl"/>
+                                    <constraint firstAttribute="width" constant="150" id="hPY-1V-D1l"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="FBRD_logo" id="7G4-85-BeR"/>
+                            </imageView>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h6t-kW-jEB">
+                                <rect key="frame" x="210" y="40" width="302" height="52"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="left" id="ooC-x6-2mD">
+                                    <font key="font" size="10" name="Helvetica-Light"/>
+                                    <string key="title">Designed and created by Fire Breathing Rubber Duckies  Sam Paterson and Max Huang
+Copyright © 2018 Fire Breathing Rubber Duckies</string>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Fr-Nr-M50">
+                                <rect key="frame" x="210" y="130" width="74" height="21"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Version 1.0" id="emy-yM-YHH">
+                                    <font key="font" size="14" name="Helvetica-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FsA-5u-lHT">
+                                <rect key="frame" x="206" y="153" width="306" height="45"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="FBRD Media Player" id="pdD-aq-wN7">
+                                    <font key="font" size="38" name="HelveticaNeue-UltraLight"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="FsA-5u-lHT" firstAttribute="top" secondItem="FdT-pa-Z6U" secondAttribute="top" constant="32" id="6R9-l3-ash"/>
+                            <constraint firstAttribute="trailing" secondItem="h6t-kW-jEB" secondAttribute="trailing" constant="20" id="7ni-Q7-28S"/>
+                            <constraint firstAttribute="trailing" secondItem="4Fr-Nr-M50" secondAttribute="trailing" constant="248" id="8qJ-MF-bRQ"/>
+                            <constraint firstItem="h6t-kW-jEB" firstAttribute="top" secondItem="4Fr-Nr-M50" secondAttribute="bottom" constant="38" id="C4i-kl-pgE"/>
+                            <constraint firstItem="h6t-kW-jEB" firstAttribute="leading" secondItem="ltE-Dl-8Ro" secondAttribute="trailing" constant="27" id="Gmm-mK-COE"/>
+                            <constraint firstAttribute="bottom" secondItem="ltE-Dl-8Ro" secondAttribute="bottom" constant="40" id="Nkr-Cd-fEt"/>
+                            <constraint firstItem="ltE-Dl-8Ro" firstAttribute="top" secondItem="FdT-pa-Z6U" secondAttribute="top" constant="40" id="Syn-Cq-5U6"/>
+                            <constraint firstItem="4Fr-Nr-M50" firstAttribute="top" secondItem="FdT-pa-Z6U" secondAttribute="top" constant="79" id="Wsc-Cv-wQn"/>
+                            <constraint firstAttribute="bottom" secondItem="h6t-kW-jEB" secondAttribute="bottom" constant="40" id="Zd4-jj-Br4"/>
+                            <constraint firstItem="ltE-Dl-8Ro" firstAttribute="leading" secondItem="FdT-pa-Z6U" secondAttribute="leading" constant="35" id="a9e-Ud-bzO"/>
+                            <constraint firstItem="4Fr-Nr-M50" firstAttribute="leading" secondItem="ltE-Dl-8Ro" secondAttribute="trailing" constant="27" id="gIW-ij-kRV"/>
+                            <constraint firstItem="h6t-kW-jEB" firstAttribute="top" secondItem="FsA-5u-lHT" secondAttribute="bottom" constant="61" id="lsA-1S-ia6"/>
+                            <constraint firstItem="FsA-5u-lHT" firstAttribute="leading" secondItem="ltE-Dl-8Ro" secondAttribute="trailing" constant="23" id="ngj-vo-PF8"/>
+                            <constraint firstAttribute="trailing" secondItem="FsA-5u-lHT" secondAttribute="trailing" constant="20" id="rRZ-Mh-vHn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="vJp-EY-0fA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1518" y="-409"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Add button" width="46" height="38"/>
@@ -1505,6 +1592,7 @@ IA
         <image name="Bookmark button" width="27" height="56"/>
         <image name="Bookmark popover" width="220" height="168"/>
         <image name="Bottom bar" width="1280" height="100"/>
+        <image name="FBRD_logo" width="550" height="550"/>
         <image name="Forward button" width="46" height="38"/>
         <image name="Left side background" width="238" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
