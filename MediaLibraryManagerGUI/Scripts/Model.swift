@@ -298,6 +298,12 @@ class Model{
         updateOpenFileVC()
     }
     
+    func deleteBookmark(keyToDelete: String){
+        bookmarks.removeValue(forKey: keyToDelete)
+        saveData()
+        updateOpenFileVC()
+    }
+    
     func addNotes(notes: String){
         self.notes = notes
         saveData()

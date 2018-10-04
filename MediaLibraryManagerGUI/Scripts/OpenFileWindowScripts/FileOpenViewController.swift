@@ -17,6 +17,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     var mainTopVC = MainTopViewController()
     @IBOutlet weak var bookmarksView: NSView!
     
+    @IBOutlet weak var deleteBookmarkButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,10 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         }
     }
 
+    @IBAction func DeleteBookmarkAction(_ sender: NSButton) {
+        let keyToDelete = bookmarkKeys[sender.tag]
+        Model.instance.deleteBookmark(keyToDelete: keyToDelete)
+    }
 }
 
 extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
@@ -83,7 +88,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        print("making cell \(row)")
+        
         if tableColumn?.title == "KeyColumn"{
             let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "KeyID"), owner: nil) as! NSTableCellView
             
@@ -100,19 +105,23 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
     }
     
     @objc func doubleClickOnRow(){
-        print("double click on bookmark table \(bookmarkTable.clickedRow)")
         if Model.instance.currentFileOpen == nil{
             //no file currently playing so open one
             Model.instance.openFile()
         }
-        var time = bookmarkValues[bookmarkTable.clickedRow]
+        let time = bookmarkValues[bookmarkTable.clickedRow]
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
     @objc func clickOnRow(){
-        print("single click on bookmark table \(bookmarkTable.clickedRow)")
         //allow users to delete bookmark
-        
+        if bookmarkTable.clickedRow != -1{
+            deleteBookmarkButton.isHidden = false
+            deleteBookmarkButton.tag = bookmarkTable.clickedRow
+        }else{
+            //cant delete a bookmark when none is selected
+            deleteBookmarkButton.isHidden = true
+        }
     }
     
 }

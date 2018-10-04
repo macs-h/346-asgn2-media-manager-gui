@@ -1155,6 +1155,17 @@ IA
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vz-AS-ENu">
+                                        <rect key="frame" x="172" y="-3" width="80" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Delete" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qeb-a1-Mwb">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="DeleteBookmarkAction:" target="EPY-3s-paR" id="hCQ-8I-brC"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4E4-Jo-6qY">
@@ -1181,8 +1192,10 @@ IA
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="DeleteBookmarkButton" destination="5vz-AS-ENu" id="gCv-4V-7SV"/>
                         <outlet property="bookmarkTable" destination="ROo-lp-5Nr" id="z6T-d9-pbo"/>
                         <outlet property="bookmarksView" destination="GHO-rn-NJZ" id="Uqk-Zb-wsC"/>
+                        <outlet property="deleteBookmarkButton" destination="5vz-AS-ENu" id="pY2-xB-35h"/>
                         <outlet property="notesLabel" destination="tzf-Ds-QEO" id="D46-oC-ODC"/>
                         <segue destination="XfG-lQ-9wD" kind="custom" identifier="MainViewSegue" customClass="CrossfadeStoryboardSegue" customModule="MediaLibraryManagerGUI" customModuleProvider="target" id="uRm-XU-ZIS"/>
                         <segue destination="BRa-QR-MSl" kind="show" identifier="ShowMediaContentSegue" id="9Mm-0K-YT7"/>
