@@ -10,6 +10,9 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+
+    @IBOutlet weak var importMenuItem: NSMenuItem!
+    @IBOutlet weak var clearLibraryMenuItem: NSMenuItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -21,7 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    @IBAction func openDocument(_ sender: NSMenuItem) {
+    @IBAction func importJson(_ sender: NSMenuItem) {
         Model.instance.addFile()
     }
     
@@ -29,6 +32,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Model.instance.savePersistent()
     }
     
+    @IBAction func clearLibrary(_ sender: NSMenuItem) {
+        Model.instance.deleteAllFiles()
+    }
     
     
 }

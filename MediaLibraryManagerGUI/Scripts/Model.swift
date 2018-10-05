@@ -41,6 +41,15 @@ class Model{
     var queue = [MMFile]()
     var jsonFilepath = String()
     var window: NSWindow?
+    let AppDel = NSApplication.shared.delegate as! AppDelegate
+    var importMenuItem: NSMenuItem?
+    var importMenuItemAction: Selector?
+    var importMenuItemTarget: AnyObject?
+    var clearLibraryMenuItem: NSMenuItem?
+    var clearLibraryItemAction: Selector?
+    var clearLibraryItemTarget: AnyObject?
+    var mainTopbar: MainTopViewController?
+
     var currentFileOpen: MMFile?{
         didSet{
             if oldValue != nil && openFileDelegate == nil{
@@ -116,6 +125,10 @@ class Model{
                 self.importJsonFile(from: self.jsonFilepath)
                 self.changeCategory(catIndex: self.currentCategoryIndex)
                 self.updateMainVC()
+                
+                self.importMenuItem = self.AppDel.importMenuItem
+                self.toggleImportButtons(setEnabled: false)
+
             }
         })
     }
@@ -387,6 +400,21 @@ class Model{
     // Previous media library functionality
     //------------------------------------------------------------------------80
     
+    func deleteAllFiles() {
+        do {
+            try DeleteCommand(library, [], subLibrary, all: true).execute()
+            updateMainVC()
+            clearLibraryMenuItem = AppDel.clearLibraryMenuItem
+            clearLibraryItemAction = clearLibraryMenuItem?.action
+            clearLibraryItemTarget = clearLibraryMenuItem?.target
+            clearLibraryMenuItem?.target = nil
+            clearLibraryMenuItem?.action = nil
+            toggleImportButtons(setEnabled: true)
+        } catch {
+            print("Del all error:", error)
+        }
+    }
+    
     private func importJsonFile(from filepath: String) {
         print("---- \(filepath)")
         do {
@@ -467,6 +495,23 @@ class Model{
     //------------------------------------------------------------------------80
     // Private functions
     //------------------------------------------------------------------------80
+    
+    private func toggleImportButtons(setEnabled: Bool) {
+        if setEnabled {
+            importMenuItem!.action = importMenuItemAction
+            importMenuItem!.target = importMenuItemTarget
+            
+            self.mainTopbar?.addFileButton.isEnabled = true
+        } else {
+            importMenuItemAction = importMenuItem!.action
+            importMenuItemTarget = importMenuItem!.target
+            importMenuItem!.action = nil
+            importMenuItem!.target = nil
+            self.mainTopbar?.addFileButton.isEnabled = false
+            clearLibraryMenuItem?.target = clearLibraryItemTarget
+            clearLibraryMenuItem?.action = clearLibraryItemAction
+        }
+    }
     
     private func updateOpenFileVC(){
         openFileDelegate?.updateOutets(currentFile: currentFile!, notes: notes, bookmarks: bookmarks)

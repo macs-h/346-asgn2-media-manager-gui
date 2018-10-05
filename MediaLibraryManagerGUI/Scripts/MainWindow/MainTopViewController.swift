@@ -54,6 +54,7 @@ class MainTopViewController: NSViewController {
         
         self.view.window?.styleMask = .texturedBackground
         self.view.window?.backgroundColor = .black
+        Model.instance.mainTopbar = self
        
     }
     
