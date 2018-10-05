@@ -347,8 +347,7 @@ class Model{
     
     
     func savePersistent() {
-        print(jsonFilepath)
-//        exportLibraryAsJson(to: "persistent.json")
+        exportLibraryAsJson()
     }
     
     
@@ -425,9 +424,9 @@ class Model{
         
     }
     
-    func exportLibraryAsJson(to filepath: String) {
+    func exportLibraryAsJson() {
         do {
-            try SaveCommand(library, [filepath]).execute()
+            try SaveCommand(library, [self.jsonFilepath]).execute()
         } catch {
             print("Save library error:", error)
         }
