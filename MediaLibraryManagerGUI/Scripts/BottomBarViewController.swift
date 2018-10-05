@@ -83,7 +83,7 @@ class BottomBarViewController: NSViewController {
     
     func stopMedia(){
         delegte?.pause()
-        play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Pause button"))
+        play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Play button"))
     }
     
     
