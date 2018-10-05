@@ -65,7 +65,8 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     func DecoupleMedia() {
         
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
-        self.view.subviews[4].removeFromSuperview() //removes embeded player and shows image behind
+        print("decouple subviews \(self.view.subviews)")
+        self.view.subviews[5].removeFromSuperview() //removes embeded player and shows image behind
     }
     
     func changeViewsBasedOnType(type: String){
@@ -150,6 +151,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
             print("unknown type \(String(describing: mediaType))")
         }
         let newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
+        print("before meida subviews \(self.view.subviews)")
         self.view.addSubview(newVC.view)
         let x = (self.view.frame.width/2) - 390
         let y = (self.view.frame.height/2) - 235
