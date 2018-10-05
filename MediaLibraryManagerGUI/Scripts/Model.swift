@@ -319,6 +319,7 @@ class Model{
     // MediaWindow functionality
     //------------------------------------------------------------------------80
     
+    // Loads the iamge into the image view.
     func loadImage(_ sender: NSViewController, imageView: NSImageView) {
         var image = NSImage(contentsOfFile: (Model.instance.currentFile?.fullpath)!)
         
@@ -330,12 +331,16 @@ class Model{
         imageView.image = image
     }
     
+    
+    // Loads the document into the document view.
     func loadDocument(_ sender: NSViewController, docView: PDFView) {
         let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
         let doc = PDFDocument(url: url)
         docView.document = doc
     }
     
+    
+    // Loads the audio or video file into the player view.
     func loadMediaPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {
         var url: URL
         if !queued{
@@ -349,6 +354,8 @@ class Model{
         self.playerView!.player = self.mediaPlayer
     }
     
+    
+    // Jumps to a specific time in the audio or media files.
     func mediaJumpToTime(jumpTo time: String) {
         let seconds = Utility.convertHumanStringToSeconds(time)
         
@@ -363,6 +370,7 @@ class Model{
     // Previous media library functionality
     //------------------------------------------------------------------------80
     
+    // Delete all files in the library.
     func deleteAllFiles() {
         do {
             try DeleteCommand(library, [], subLibrary, all: true).execute()
@@ -378,6 +386,8 @@ class Model{
         }
     }
     
+    
+    // Import files from a JSON.
     private func importJsonFile(from filepath: String) {
         print("---- \(filepath)")
         do {
@@ -385,9 +395,10 @@ class Model{
         } catch {
             print("Load error:", error)
         }
-        
     }
     
+    
+    // Export files to a JSON.
     func exportLibraryAsJson() {
         do {
             try SaveCommand(library, [self.jsonFilepath]).execute()
@@ -396,6 +407,8 @@ class Model{
         }
     }
     
+    
+    // List the files that match the term.
     private func listFiles(with terms: [String] = [], listAll: Bool = false) {
         do {
             let search = SearchCommand(library, terms, listAll)
@@ -407,6 +420,8 @@ class Model{
         }
     }
     
+    
+    // Add terms to a file in the library.
     private func addFile(with terms: [String], at index: Int) {
         let parts: [String] = {
             var tmp = terms
@@ -421,6 +436,8 @@ class Model{
         }
     }
     
+    
+    // Set a key to a different value for a file.
     private func setFile(with key: String, at index: Int, to newValue: String) {
         let parts: [String] = [String(index), key, newValue]
         
@@ -431,20 +448,8 @@ class Model{
         }
     }
     
-    private func deleteFile(with metadata: [String], at index: Int) {
-        let parts: [String] = {
-            var tmp = metadata
-            tmp.insert(String(index), at: index)
-            return tmp
-        }()
-        
-        do {
-            try DeleteCommand(library, parts, subLibrary).execute()
-        } catch {
-            print("Del error:", error)
-        }
-    }
-    
+
+    // Get the details of a file.
     private func fileDetail(at index: Int) {
         do {
             try DetailCommand(library, [String(index)], subLibrary).execute()
@@ -459,7 +464,8 @@ class Model{
     // Private functions
     //------------------------------------------------------------------------80
     
-    
+    // Toggles the state of the import button and import menu item depending on
+    // whether the user has imported a JSON already.
     private func toggleImportButtons(setEnabled: Bool) {
         if setEnabled {
             importMenuItem!.action = importMenuItemAction
@@ -481,10 +487,12 @@ class Model{
     private func updateOpenFileVC(){
         openFileDelegate?.updateOutets(currentFile: currentFile!, notes: notes, bookmarks: bookmarks)
     }
+    
     //Updates Maindelegate of changes
     private func updateMainVC(){
         mainViewDegate?.updateOutets(files: subLibrary.all())
     }
+    
     //Updates BottomBar of changes
     private func updateBottomBarVC(){
         bottomBarVC?.updateOutlets()

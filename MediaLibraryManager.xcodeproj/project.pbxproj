@@ -11,12 +11,10 @@
 		60219541216058F100E32E85 /* MM_FileImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A241FB2133B2070061C4F3 /* MM_FileImport.swift */; };
 		602195452160AB0100E32E85 /* MediaWindow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 602195432160AB0100E32E85 /* MediaWindow.storyboard */; };
 		602195472160AFEA00E32E85 /* MediaWindowImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */; };
-		603F8B222162EB40005AC87A /* MediaWindowControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B212162EB40005AC87A /* MediaWindowControlVC.swift */; };
 		603F8B2421630AFD005AC87A /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B2321630AFD005AC87A /* Utility.swift */; };
 		603F8B26216317DA005AC87A /* MediaWindowVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B25216317DA005AC87A /* MediaWindowVideoVC.swift */; };
 		603F8B28216317E9005AC87A /* MediaWindowDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B27216317E9005AC87A /* MediaWindowDocumentVC.swift */; };
 		603F8B2A216317F7005AC87A /* MediaWindowAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B29216317F7005AC87A /* MediaWindowAudioVC.swift */; };
-		603F8B2C216320D9005AC87A /* MediaChangeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B2B216320D9005AC87A /* MediaChangeVC.swift */; };
 		607DBBD021632E9B00FEA55C /* buttonRewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC621632E9B00FEA55C /* buttonRewind.png */; };
 		607DBBD121632E9B00FEA55C /* buttonStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC721632E9B00FEA55C /* buttonStop.png */; };
 		607DBBD221632E9B00FEA55C /* bottom bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC821632E9B00FEA55C /* bottom bar.png */; };
@@ -97,12 +95,10 @@
 /* Begin PBXFileReference section */
 		602195442160AB0100E32E85 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MediaWindow.storyboard; sourceTree = "<group>"; };
 		602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowImageVC.swift; sourceTree = "<group>"; };
-		603F8B212162EB40005AC87A /* MediaWindowControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowControlVC.swift; sourceTree = "<group>"; };
 		603F8B2321630AFD005AC87A /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		603F8B25216317DA005AC87A /* MediaWindowVideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowVideoVC.swift; sourceTree = "<group>"; };
 		603F8B27216317E9005AC87A /* MediaWindowDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowDocumentVC.swift; sourceTree = "<group>"; };
 		603F8B29216317F7005AC87A /* MediaWindowAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowAudioVC.swift; sourceTree = "<group>"; };
-		603F8B2B216320D9005AC87A /* MediaChangeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaChangeVC.swift; sourceTree = "<group>"; };
 		605CFA222165A53500AE0320 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		607DBBC621632E9B00FEA55C /* buttonRewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonRewind.png; sourceTree = "<group>"; };
 		607DBBC721632E9B00FEA55C /* buttonStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonStop.png; sourceTree = "<group>"; };
@@ -222,13 +218,11 @@
 		816B04602159A5A90057DEA5 /* MediaWindowScripts */ = {
 			isa = PBXGroup;
 			children = (
-				603F8B2B216320D9005AC87A /* MediaChangeVC.swift */,
 				60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */,
 				602195462160AFEA00E32E85 /* MediaWindowImageVC.swift */,
 				603F8B25216317DA005AC87A /* MediaWindowVideoVC.swift */,
 				603F8B27216317E9005AC87A /* MediaWindowDocumentVC.swift */,
 				603F8B29216317F7005AC87A /* MediaWindowAudioVC.swift */,
-				603F8B212162EB40005AC87A /* MediaWindowControlVC.swift */,
 			);
 			path = MediaWindowScripts;
 			sourceTree = "<group>";
@@ -352,7 +346,6 @@
 				81AD632521535DE70071147D /* Sources */,
 				81AD632621535DE70071147D /* Frameworks */,
 				81AD632721535DE70071147D /* Resources */,
-				60DE071B21674D600093B536 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -492,26 +485,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		60DE071B21674D600093B536 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		81AD632521535DE70071147D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -523,7 +496,6 @@
 				602195472160AFEA00E32E85 /* MediaWindowImageVC.swift in Sources */,
 				603F8B26216317DA005AC87A /* MediaWindowVideoVC.swift in Sources */,
 				816B046B2159A8180057DEA5 /* MM_Metadata.swift in Sources */,
-				603F8B222162EB40005AC87A /* MediaWindowControlVC.swift in Sources */,
 				ED96322121638D6500E757A8 /* Model.swift in Sources */,
 				EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */,
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
@@ -535,7 +507,6 @@
 				603F8B2A216317F7005AC87A /* MediaWindowAudioVC.swift in Sources */,
 				60219541216058F100E32E85 /* MM_FileImport.swift in Sources */,
 				EDEAB915216322D300C58016 /* BottomBarViewController.swift in Sources */,
-				603F8B2C216320D9005AC87A /* MediaChangeVC.swift in Sources */,
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
