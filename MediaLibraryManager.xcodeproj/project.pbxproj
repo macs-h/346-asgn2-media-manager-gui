@@ -15,27 +15,9 @@
 		603F8B26216317DA005AC87A /* MediaWindowVideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B25216317DA005AC87A /* MediaWindowVideoVC.swift */; };
 		603F8B28216317E9005AC87A /* MediaWindowDocumentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B27216317E9005AC87A /* MediaWindowDocumentVC.swift */; };
 		603F8B2A216317F7005AC87A /* MediaWindowAudioVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F8B29216317F7005AC87A /* MediaWindowAudioVC.swift */; };
-		607DBBD021632E9B00FEA55C /* buttonRewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC621632E9B00FEA55C /* buttonRewind.png */; };
-		607DBBD121632E9B00FEA55C /* buttonStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC721632E9B00FEA55C /* buttonStop.png */; };
 		607DBBD221632E9B00FEA55C /* bottom bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC821632E9B00FEA55C /* bottom bar.png */; };
-		607DBBD321632E9B00FEA55C /* buttonPrevious.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBC921632E9B00FEA55C /* buttonPrevious.png */; };
-		607DBBD421632E9B00FEA55C /* buttonNext.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCA21632E9B00FEA55C /* buttonNext.png */; };
-		607DBBD521632E9B00FEA55C /* buttonPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCB21632E9B00FEA55C /* buttonPlay.png */; };
 		607DBBD621632E9B00FEA55C /* MainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCC21632E9B00FEA55C /* MainBackground.png */; };
-		607DBBD721632E9B00FEA55C /* buttonForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCD21632E9B00FEA55C /* buttonForward.png */; };
 		607DBBD821632E9B00FEA55C /* left side background.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCE21632E9B00FEA55C /* left side background.png */; };
-		607DBBD921632E9B00FEA55C /* buttonPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBCF21632E9B00FEA55C /* buttonPause.png */; };
-		607DBBE621635B5500FEA55C /* buttonPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBDB21635B5500FEA55C /* buttonPlay.png */; };
-		607DBBE721635B5500FEA55C /* buttonNext.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBDC21635B5500FEA55C /* buttonNext.png */; };
-		607DBBE821635B5500FEA55C /* buttonRewind.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBDD21635B5500FEA55C /* buttonRewind.png */; };
-		607DBBE921635B5500FEA55C /* bottom bar.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBDE21635B5500FEA55C /* bottom bar.png */; };
-		607DBBEA21635B5500FEA55C /* buttonPrevious.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBDF21635B5500FEA55C /* buttonPrevious.png */; };
-		607DBBEB21635B5500FEA55C /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE021635B5500FEA55C /* Placeholder.png */; };
-		607DBBEC21635B5500FEA55C /* buttonPause.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE121635B5500FEA55C /* buttonPause.png */; };
-		607DBBED21635B5500FEA55C /* MainBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE221635B5500FEA55C /* MainBackground.png */; };
-		607DBBEE21635B5500FEA55C /* left side background.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE321635B5500FEA55C /* left side background.png */; };
-		607DBBEF21635B5500FEA55C /* buttonForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE421635B5500FEA55C /* buttonForward.png */; };
-		607DBBF021635B5500FEA55C /* buttonStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE521635B5500FEA55C /* buttonStop.png */; };
 		607DBBF221635B8E00FEA55C /* PlaceholderMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBF121635B8E00FEA55C /* PlaceholderMusic.png */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 		60AC777E21677880009A038C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AC777D21677880009A038C /* Info.plist */; };
@@ -100,27 +82,9 @@
 		603F8B27216317E9005AC87A /* MediaWindowDocumentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowDocumentVC.swift; sourceTree = "<group>"; };
 		603F8B29216317F7005AC87A /* MediaWindowAudioVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowAudioVC.swift; sourceTree = "<group>"; };
 		605CFA222165A53500AE0320 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
-		607DBBC621632E9B00FEA55C /* buttonRewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonRewind.png; sourceTree = "<group>"; };
-		607DBBC721632E9B00FEA55C /* buttonStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonStop.png; sourceTree = "<group>"; };
 		607DBBC821632E9B00FEA55C /* bottom bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom bar.png"; sourceTree = "<group>"; };
-		607DBBC921632E9B00FEA55C /* buttonPrevious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPrevious.png; sourceTree = "<group>"; };
-		607DBBCA21632E9B00FEA55C /* buttonNext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonNext.png; sourceTree = "<group>"; };
-		607DBBCB21632E9B00FEA55C /* buttonPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlay.png; sourceTree = "<group>"; };
 		607DBBCC21632E9B00FEA55C /* MainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBackground.png; sourceTree = "<group>"; };
-		607DBBCD21632E9B00FEA55C /* buttonForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonForward.png; sourceTree = "<group>"; };
 		607DBBCE21632E9B00FEA55C /* left side background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left side background.png"; sourceTree = "<group>"; };
-		607DBBCF21632E9B00FEA55C /* buttonPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPause.png; sourceTree = "<group>"; };
-		607DBBDB21635B5500FEA55C /* buttonPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPlay.png; sourceTree = "<group>"; };
-		607DBBDC21635B5500FEA55C /* buttonNext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonNext.png; sourceTree = "<group>"; };
-		607DBBDD21635B5500FEA55C /* buttonRewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonRewind.png; sourceTree = "<group>"; };
-		607DBBDE21635B5500FEA55C /* bottom bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bottom bar.png"; sourceTree = "<group>"; };
-		607DBBDF21635B5500FEA55C /* buttonPrevious.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPrevious.png; sourceTree = "<group>"; };
-		607DBBE021635B5500FEA55C /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
-		607DBBE121635B5500FEA55C /* buttonPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonPause.png; sourceTree = "<group>"; };
-		607DBBE221635B5500FEA55C /* MainBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainBackground.png; sourceTree = "<group>"; };
-		607DBBE321635B5500FEA55C /* left side background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left side background.png"; sourceTree = "<group>"; };
-		607DBBE421635B5500FEA55C /* buttonForward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonForward.png; sourceTree = "<group>"; };
-		607DBBE521635B5500FEA55C /* buttonStop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonStop.png; sourceTree = "<group>"; };
 		607DBBF121635B8E00FEA55C /* PlaceholderMusic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlaceholderMusic.png; sourceTree = "<group>"; };
 		60AC777D21677880009A038C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaWindowWC.swift; sourceTree = "<group>"; };
@@ -183,24 +147,6 @@
 				605CFA222165A53500AE0320 /* test.json */,
 			);
 			path = MediaFiles;
-			sourceTree = "<group>";
-		};
-		607DBBDA21635B5500FEA55C /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				607DBBDB21635B5500FEA55C /* buttonPlay.png */,
-				607DBBDC21635B5500FEA55C /* buttonNext.png */,
-				607DBBDD21635B5500FEA55C /* buttonRewind.png */,
-				607DBBDE21635B5500FEA55C /* bottom bar.png */,
-				607DBBDF21635B5500FEA55C /* buttonPrevious.png */,
-				607DBBE021635B5500FEA55C /* Placeholder.png */,
-				607DBBE121635B5500FEA55C /* buttonPause.png */,
-				607DBBE221635B5500FEA55C /* MainBackground.png */,
-				607DBBE321635B5500FEA55C /* left side background.png */,
-				607DBBE421635B5500FEA55C /* buttonForward.png */,
-				607DBBE521635B5500FEA55C /* buttonStop.png */,
-			);
-			name = Images;
 			sourceTree = "<group>";
 		};
 		60897EBB2158E765008CB337 /* Scripts */ = {
@@ -320,15 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				607DBBF121635B8E00FEA55C /* PlaceholderMusic.png */,
-				607DBBDA21635B5500FEA55C /* Images */,
 				607DBBC821632E9B00FEA55C /* bottom bar.png */,
-				607DBBCD21632E9B00FEA55C /* buttonForward.png */,
-				607DBBCA21632E9B00FEA55C /* buttonNext.png */,
-				607DBBCF21632E9B00FEA55C /* buttonPause.png */,
-				607DBBCB21632E9B00FEA55C /* buttonPlay.png */,
-				607DBBC921632E9B00FEA55C /* buttonPrevious.png */,
-				607DBBC621632E9B00FEA55C /* buttonRewind.png */,
-				607DBBC721632E9B00FEA55C /* buttonStop.png */,
 				607DBBCE21632E9B00FEA55C /* left side background.png */,
 				607DBBCC21632E9B00FEA55C /* MainBackground.png */,
 				EDFDD4302154F06E008786A5 /* Placeholder.png */,
@@ -446,33 +384,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607DBBEC21635B5500FEA55C /* buttonPause.png in Resources */,
-				607DBBD921632E9B00FEA55C /* buttonPause.png in Resources */,
-				607DBBD021632E9B00FEA55C /* buttonRewind.png in Resources */,
 				607DBBD621632E9B00FEA55C /* MainBackground.png in Resources */,
 				607DBBD821632E9B00FEA55C /* left side background.png in Resources */,
 				81AD633021535DE80071147D /* Assets.xcassets in Resources */,
-				607DBBEB21635B5500FEA55C /* Placeholder.png in Resources */,
 				607DBBD221632E9B00FEA55C /* bottom bar.png in Resources */,
 				602195452160AB0100E32E85 /* MediaWindow.storyboard in Resources */,
 				EDFDD4312154F06E008786A5 /* Placeholder.png in Resources */,
 				81AD633321535DE80071147D /* Main.storyboard in Resources */,
-				607DBBE621635B5500FEA55C /* buttonPlay.png in Resources */,
-				607DBBEE21635B5500FEA55C /* left side background.png in Resources */,
-				607DBBED21635B5500FEA55C /* MainBackground.png in Resources */,
-				607DBBD421632E9B00FEA55C /* buttonNext.png in Resources */,
-				607DBBD321632E9B00FEA55C /* buttonPrevious.png in Resources */,
-				607DBBE721635B5500FEA55C /* buttonNext.png in Resources */,
-				607DBBD721632E9B00FEA55C /* buttonForward.png in Resources */,
-				607DBBD121632E9B00FEA55C /* buttonStop.png in Resources */,
 				607DBBF221635B8E00FEA55C /* PlaceholderMusic.png in Resources */,
 				60AC777E21677880009A038C /* Info.plist in Resources */,
-				607DBBEA21635B5500FEA55C /* buttonPrevious.png in Resources */,
-				607DBBD521632E9B00FEA55C /* buttonPlay.png in Resources */,
-				607DBBF021635B5500FEA55C /* buttonStop.png in Resources */,
-				607DBBEF21635B5500FEA55C /* buttonForward.png in Resources */,
-				607DBBE821635B5500FEA55C /* buttonRewind.png in Resources */,
-				607DBBE921635B5500FEA55C /* bottom bar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
