@@ -124,11 +124,11 @@ class BottomBarViewController: NSViewController {
         decoupleButton.isEnabled = false
     }
     
-    func recoupleMedia(){
+    func recoupleMedia(_ windowOpen:Bool = false){
         windowIsOpen = false
         decoupleButton.isEnabled = true
         Model.instance.currentFileOpen = nil
-        updateOutlets()
+        updateOutlets(windowOpen)
     }
     
     // Called up the Model to update the buttons which are active

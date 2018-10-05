@@ -12,7 +12,7 @@ import Cocoa
     Decides which view controller should be shown when a file is opened.
  */
 class MediaWindowWC: NSWindowController, NSWindowDelegate {
-
+    var windowIsOpen = false
     /**
         Chooses which view controller should be shown in the main window
         depending on the type of media being opened.
@@ -36,11 +36,21 @@ class MediaWindowWC: NSWindowController, NSWindowDelegate {
         
         let newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "MediaWindow"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
         self.contentViewController = newVC
+        
+        
+        if Model.instance.bottomBarVC!.windowIsOpen{
+            windowIsOpen = true
+        }
     }
     
     func windowWillClose(_ notification: Notification) {
         Model.instance.returnFileToMainWindow()
-        Model.instance.bottomBarVC?.recoupleMedia()
+       
+        if windowIsOpen{
+            Model.instance.bottomBarVC?.recoupleMedia(true)
+        }else{
+             Model.instance.bottomBarVC?.recoupleMedia()
+        }
     }
 
 }
