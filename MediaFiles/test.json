@@ -1,122 +1,142 @@
 [
     {
-        "fullpath": "/path/to/foo.txt",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/driving-in-nz.pdf",
         "type": "document",
         "metadata": {
-            "creator" : "Paul"
+            "creator" : "NZTA",
+            "size" : "116 KB",
+            "created" : "5 October 2018",
+            "resolution" : "419x595",
+            "pages" : "6",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/path/to/tmp.txt",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/learning-to-drive.pdf",
         "type": "document",
         "metadata": {
-            "creator" : "Peter"
+            "creator" : "Irish Independent",
+            "size" : "3.8 MB",
+            "created" : "5 October 2018",
+            "resolution" : "425x595",
+            "pages" : "32",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/path/to/hello.txt",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/how-to-ui.pdf",
         "type": "document",
         "metadata": {
-            "creator" : "Paula"
-        }
-    },
-    {
-        "fullpath": "/path/to/helloWorld.txt",
-        "type": "document",
-        "metadata": {
-            "creator" : "Pig"
+            "creator" : "Otago CS Deptartment",
+            "size" : "153 KB",
+            "created" : "5 October 2018",
+            "resolution" : "362x272",
+            "pages" : "26",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     
     
     {
-        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/bad-driver.png",
         "type": "image",
         "metadata": {
-            "creator" : "Sam"
+            "creator" : "FBRD",
+            "size" : "33 KB",
+            "created" : "5 October 2018",
+            "resolution" : "478x350",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder2.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/clickbait-1.png",
         "type": "image",
         "metadata": {
-            "creator" : "Sheryl"
+            "creator" : "Dr. Prof. Bennani",
+            "size" : "13 KB",
+            "created" : "5 October 2018",
+            "resolution" : "320x240",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Placeholder3.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/clickbait-2.png",
         "type": "image",
         "metadata": {
-            "creator" : "Sid"
+            "creator" : "Dr. Crane",
+            "size" : "40 KB",
+            "created" : "5 October 2018",
+            "resolution" : "226x340",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/path/to/godzilla.png",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/cutting-off.png",
         "type": "image",
         "metadata": {
-            "creator" : "Sampson"
+            "creator" : "NZTA",
+            "size" : "23 KB",
+            "created" : "5 October 2018",
+            "resolution" : "600x179",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     
     
     {
-        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/PlaceholderVid.mp4",
+        "fullpath": "MediaFiles/stock-video.mp4",
         "type": "video",
         "metadata": {
-            "creator" : "Max"
+            "creator" : "YouTube",
+            "size" : "3.1 MB",
+            "created" : "5 October 2018",
+            "resolution" : "1280x720",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/path/to/empty.mp4",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/driving101.mov",
         "type": "video",
         "metadata": {
-            "creator" : "Mimi",
-            "bookmarks" : "key1,00:00:00,key2,00:00:01,key3,00:10:10" 
-        }
-    },
-    {
-        "fullpath": "/path/to/vid.mp4",
-        "type": "video",
-        "metadata": {
-            "creator" : "Mark"
-        }
-    },
-    {
-        "fullpath": "/path/to/testing123.mp4",
-        "type": "video",
-        "metadata": {
-            "creator" : "Molly"
+            "creator" : "Dashcam",
+            "size" : "4.3 MB",
+            "created" : "5 October 2018",
+            "resolution" : "400x224",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     
     
     {
-        "fullpath": "/path/to/qux.mp3",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/Girls-Like-You-Maroon5.m4a",
         "type": "audio",
         "metadata": {
-            "creator" : "Shaz"
+            "creator" : "Maroon 5",
+            "size" : "8.4 MB",
+            "duration" : "03m 56s",
+            "bookmarks" : "",
+            "notes" : ""
         }
     },
     {
-        "fullpath": "/path/to/aud.mp3",
+        "fullpath": "/Users/mhuang/346/asgn2/MediaFiles/HUMBLE-Kenny.m4a",
         "type": "audio",
         "metadata": {
-            "creator" : "Paul"
+            "creator" : "Kendrick Lamar",
+            "size" : "5.4 MB",
+            "duration" : "03m 04s",
+            "bookmarks" : "",
+            "notes" : ""
         }
-    },
-    {
-        "fullpath": "/path/to/files.mp3",
-        "type": "audio",
-        "metadata": {
-            "creator" : "Paul"
-        }
-    },
-    {
-        "fullpath": "/path/to/yay.mp3",
-        "type": "audio",
-        "metadata": {
-            "creator" : "Paul"
-        }
-    },
+    }
     
 ]

@@ -120,7 +120,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <avPlayerView controlsStyle="floating" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-gg-Y9J">
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-gg-Y9J">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                             </avPlayerView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-Oh-a61">
