@@ -1,20 +1,20 @@
+////
+////  MediaWindowControlVC.swift
+////  MediaLibraryManagerGUI
+////
+////  Created by Fire Breathing Rubber Duckies on 2/10/18.
+////  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
+////
 //
-//  MediaWindowControlVC.swift
-//  MediaLibraryManagerGUI
+//import Cocoa
 //
-//  Created by Max Huang on 2/10/18.
-//  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
+//class MediaWindowControlVC: NSViewController {
 //
-
-import Cocoa
-
-class MediaWindowControlVC: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-    }
-    
-    
-    
-}
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        // Do view setup here.
+//    }
+//    
+//    
+//    
+//}

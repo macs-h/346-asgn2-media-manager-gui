@@ -63,6 +63,7 @@
 		D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A24227213502A30061C4F3 /* MM_Metadata.swift */; };
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
+		ED04BA66216709E0000404EE /* MainViewParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04BA65216709E0000404EE /* MainViewParentViewController.swift */; };
 		ED76A44221606BA900DD75F9 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76A44121606BA900DD75F9 /* PreviewView.swift */; };
 		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		ED96322121638D6500E757A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96322021638D6500E757A8 /* Model.swift */; };
@@ -149,6 +150,7 @@
 		D3A24227213502A30061C4F3 /* MM_Metadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MM_Metadata.swift; sourceTree = "<group>"; };
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		E1667A39215CD96700B37644 /* MainTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopViewController.swift; sourceTree = "<group>"; };
+		ED04BA65216709E0000404EE /* MainViewParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewParentViewController.swift; sourceTree = "<group>"; };
 		ED76A44121606BA900DD75F9 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		ED96322021638D6500E757A8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
 				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
 				ED76A44121606BA900DD75F9 /* PreviewView.swift */,
+				ED04BA65216709E0000404EE /* MainViewParentViewController.swift */,
 			);
 			path = MainWindow;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				81AD632521535DE70071147D /* Sources */,
 				81AD632621535DE70071147D /* Frameworks */,
 				81AD632721535DE70071147D /* Resources */,
+				60DE071B21674D600093B536 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -495,6 +499,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		60DE071B21674D600093B536 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81AD632521535DE70071147D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -524,6 +548,7 @@
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
+				ED04BA66216709E0000404EE /* MainViewParentViewController.swift in Sources */,
 				EDF9313A215EDCCA00831EE5 /* FileOpenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

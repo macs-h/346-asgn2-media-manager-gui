@@ -6,11 +6,14 @@
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
-// swiftlint:disable force_cast
+// DOUBLE CHECK
 
 import Cocoa
 import AppKit
 
+/**
+    // ---------------- COMMENT THIS ---------------------
+ */
 class MainViewController: NSViewController, MainViewModelDegate {
     
     @IBOutlet weak var fileTable: NSTableView!
@@ -18,10 +21,9 @@ class MainViewController: NSViewController, MainViewModelDegate {
     
     var files: [MMFile] = []
     var previewVC: PreviewViewController?
-    let categories = ["Images","Audio","Video", "Documents"]
+    let categories = ["Images", "Audio", "Video", "Documents"]
     
-    
-    
+    // ---------------- COMMENT THIS ---------------------
     override func viewDidLoad() {
         super.viewDidLoad()
         fileTable.dataSource = self
@@ -34,32 +36,47 @@ class MainViewController: NSViewController, MainViewModelDegate {
         categoryTable.action = #selector(clickOnCategory)
         
         let mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
+        
+        let parent = self.parent as! MainViewParentViewController
         mainTopVC.openVC = self
         Model.instance.mainViewDegate = self
         let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
         categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-       
+        if let currentIndex = Model.instance.currentFileIndex{
+            previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
+        }
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
     
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     func updateOutets(files: [MMFile]) {
         self.files = files
         fileTable.reloadData()
-        if let currentIndex = Model.instance.currentFileIndex{
-            if Model.instance.currentCategoryIndex == currentIndex[1]{
+        if let currentIndex = Model.instance.currentFileIndex {
+            if Model.instance.currentCategoryIndex == currentIndex[1] {
                 let indexPath = IndexSet(arrayLiteral: currentIndex[0])
                 fileTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-                previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
+                //previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
             }
+        }
+        if Model.instance.currentCategoryIndex == -1{
+            categoryTable.deselectAll(self)
         }
         
     }
 
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     @objc func clickOnCategory(_ sender: NSButton) {
        Model.instance.changeCategory(catIndex: categoryTable.clickedRow)
         
@@ -69,6 +86,10 @@ class MainViewController: NSViewController, MainViewModelDegate {
         }
     }
     
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     @objc func doubleClickOnRow() {
         //print("doubleClickOnRow \(fileTable.clickedRow)")
         if fileTable.clickedRow == -1 {
@@ -80,19 +101,23 @@ class MainViewController: NSViewController, MainViewModelDegate {
         }
     }
 
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     @objc func clickOnRow() {
         //print("clickOnRow \(fileTable.clickedRow)")
 
         if fileTable.clickedRow == -1 {
             //not clicked on a file
             //previewVC?.view.removeFromSuperview()
-            if previewVC != nil{
+            if previewVC != nil {
                 Model.instance.removePreview(sender: self, previewVC: previewVC!)
                 previewVC = nil
             }
         } else {
              //send file to preview
-            if previewVC == nil{
+            if previewVC == nil {
                 //not active
                 previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: fileTable.clickedRow)
             }else{
@@ -106,17 +131,24 @@ class MainViewController: NSViewController, MainViewModelDegate {
 }
 
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
-        if tableView == fileTable{
+        if tableView == fileTable {
             return files.count//Model.instance.library.collection.count //subLibrary.all().count
-        }else{
+        } else {
             return categories.count
         }
     }
 
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if tableView == fileTable{
+        if tableView == fileTable {
             //print("making cell \(row)")
             let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
             
@@ -124,7 +156,7 @@ extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
             //file.file = collection[row]
             print("file text \(file.textField!.stringValue)")
             return file
-        }else{
+        } else {
             //CategoryTableView
             let cat = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "CategoryID"), owner: nil) as! NSTableCellView
             cat.textField!.stringValue = categories[row]
