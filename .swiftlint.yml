@@ -7,6 +7,4 @@ disabled_rules:
     - file_length
     - type_name
     - nesting
-    - all
-
-disable all
+    - force_cast

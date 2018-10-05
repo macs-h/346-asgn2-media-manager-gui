@@ -2,14 +2,23 @@
 //  MediaWindowWC.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Max Huang on 29/09/18.
+//  Created by Fire Breathing Rubber Duckies on 29/09/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
+// DOUBLE CHECK
+
 import Cocoa
 
+/**
+    Decides which view controller should be shown when a file is opened.
+ */
 class MediaWindowWC: NSWindowController, NSWindowDelegate {
 
+    /**
+        Chooses which view controller should be shown in the main window
+        depending on the type of media being opened.
+     */
     override func windowDidLoad() {
         super.windowDidLoad()
         let mediaType = Model.instance.currentFile?.fileType
@@ -17,38 +26,25 @@ class MediaWindowWC: NSWindowController, NSWindowDelegate {
         switch mediaType {
         case "image":
             vc = "MediaWindowImageVC"
-            break
         case "video":
             vc = "MediaWindowVideoVC"
-            break
         case "audio":
             vc = "MediaWindowAudioVC"
-            break
         case "document":
             vc = "MediaWindowDocumentVC"
-            break
         default:
-            print("unknown type \(mediaType)")
+            print("unknown type \(String(describing: mediaType))")
         }
         
         let newVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "MediaWindow"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: vc)) as! NSViewController
         self.contentViewController = newVC
-        
     }
     
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     func windowWillClose(_ notification: Notification) {
-        //tell the model that the window is no longer open
-        //Model.instance.currentFileOpen = nil
         Model.instance.returnFileToMainWindow()
-        
     }
-    
-//    func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-//        print("child controllers:",contentViewController!.view.subviews)
-//        let docVC = contentViewController!.view.subviews[0] as! MediaWindowDocumentVC
-//        
-//        docVC.docView.frame.size = frameSize
-//        return frameSize
-//    }
 
 }

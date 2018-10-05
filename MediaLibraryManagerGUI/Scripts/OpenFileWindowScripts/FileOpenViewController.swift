@@ -2,26 +2,31 @@
 //  FileOpenViewController.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Sam Paterson on 29/09/18.
+//  Created by Fire Breathing Rubber Duckies on 29/09/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
+// DOUBLE CHECK
+
 import Cocoa
 
+/**
+    // ---------------- COMMENT THIS ---------------------
+ */
 class FileOpenViewController: NSViewController, OpenFileModelDegate {
     
     var bookmarkKeys: [String] = []
     var bookmarkValues: [String] = []
+    var mainTopVC = MainTopViewController()
+    
     @IBOutlet weak var bookmarkTable: NSTableView!
     @IBOutlet weak var notesLabel: NSTextField!
-    var mainTopVC = MainTopViewController()
     @IBOutlet weak var bookmarksView: NSView!
-    
     @IBOutlet weak var deleteBookmarkButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
         bookmarkTable.delegate = self
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
@@ -34,14 +39,13 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         showMediaContent()
     }
     
+    
     override func viewDidDisappear() {
         Model.instance.openFileDelegate = nil
     }
 
     
-    /**
-        Called when the user presses enter on notes text box
-    */
+    // Called when the user presses enter on notes text box.
     @IBAction func NotesAction(_ sender: NSTextFieldCell) {
         print(sender.stringValue)
         Model.instance.addNotes(notes: sender.stringValue)
@@ -49,11 +53,17 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     }
  
     
+    //------------------------------------------------------------------------80
+    // Delegate functions
+    //------------------------------------------------------------------------80
     
-    
-    //--- degate functions
     /**
-     Called by the model to update ui elements
+        Called by the model to update UI elements.
+     
+        - parameters:
+            - currentFile:
+            - notes:
+            - bookmarks:
      */
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String:String]) {
         self.notesLabel.stringValue = notes
@@ -62,90 +72,109 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         bookmarkTable.reloadData()
     }
     
+    
+    /**
+        Decouples the media from the main window.
+     */
     func DecoupleMedia() {
-        
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
         self.view.subviews[4].removeFromSuperview() //removes embeded player and shows image behind
     }
     
-    func changeViewsBasedOnType(type: String){
+    
+    /**
+        Changes the view of the main window depending on the type of media.
+     
+        - parameter type: The type of document.
+     */
+    func changeViewsBasedOnType(type: String) {
         if type == "image" || type == "document"{
             //remove bookmarks and adjust media vc
             bookmarksView.isHidden = true //hides the view (might need to remove from superView
-            
         }
     }
 
+    
+    // ---------------- COMMENT THIS ---------------------
     @IBAction func DeleteBookmarkAction(_ sender: NSButton) {
         let keyToDelete = bookmarkKeys[sender.tag]
         Model.instance.deleteBookmark(keyToDelete: keyToDelete)
     }
 }
 
-extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
+
+extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource {
     
+    /**
+        Gets the number of items in the bookmarks panel.
+     
+        - parameter in: The table to count rows in.
+        - returns: The number of items stored in bookmarks.
+     */
     func numberOfRows(in tableView: NSTableView) -> Int {
         return bookmarkKeys.count
     }
     
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     
+        - parameters:
+            - tableView:
+            - viewFor:
+            - row:
+        - returns:
+     */
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         
         if tableColumn?.title == "KeyColumn"{
             let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "KeyID"), owner: nil) as! NSTableCellView
             
             file.textField!.stringValue = bookmarkKeys[row]
-            //print("file text \(file.textField!.stringValue)")
             return file
-        }else{
+        } else {
             let file = bookmarkTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ValueID"), owner: nil) as! NSTableCellView
             
             file.textField!.stringValue = bookmarkValues[row]
-            //print("file text \(file.textField!.stringValue)")
             return file
         }
     }
     
    
-    @objc func clickOnRow(){
+    // ---------------- COMMENT THIS ---------------------
+    @objc func clickOnRow() {
         //allow users to delete bookmark
-        if bookmarkTable.clickedRow != -1{
+        if bookmarkTable.clickedRow != -1 {
             deleteBookmarkButton.isHidden = false
             deleteBookmarkButton.tag = bookmarkTable.clickedRow
-        }else{
+        } else {
             //cant delete a bookmark when none is selected
             deleteBookmarkButton.isHidden = true
         }
     }
     
     
-    @objc func doubleClickOnRow(){
-//        if Model.instance.currentFileOpen == nil{
-//            //no file currently playing so open one
-//            Model.instance.openFile()
-//        }
+    // ---------------- COMMENT THIS ---------------------
+    @objc func doubleClickOnRow() {
         let time = bookmarkValues[bookmarkTable.clickedRow]
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
     
-
-    func showMediaContent(){
+    // ---------------- COMMENT THIS ---------------------
+    func showMediaContent() {
         //shows the media content in the current window
         let mediaType = Model.instance.currentFile?.fileType
         var vc = ""
         switch mediaType {
         case "image":
             vc = "MediaWindowImageVC"
-            break
         case "video":
             vc = "MediaWindowVideoVC"
-            break
         case "audio":
             vc = "MediaWindowAudioVC"
-            break
         case "document":
             vc = "MediaWindowDocumentVC"
-            break
         default:
             print("unknown type \(String(describing: mediaType))")
         }
@@ -158,7 +187,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
             //to remove the controls
             let mediaPlayerVC = newVC as! MediaWindowVideoVC
             mediaPlayerVC.playerView.controlsStyle = .none
-        }else if mediaType == "audio"{
+        } else if mediaType == "audio" {
             let mediaPlayerVC = newVC as! MediaWindowAudioVC
             mediaPlayerVC.playerView.controlsStyle = .none
         }
