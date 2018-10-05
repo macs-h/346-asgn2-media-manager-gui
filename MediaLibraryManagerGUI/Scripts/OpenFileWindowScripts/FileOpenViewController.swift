@@ -22,6 +22,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        self.view.frame = NSRect(x: 0, y: 100, width: 1280, height: 570)
         bookmarkTable.delegate = self
         bookmarkTable.dataSource = self
         bookmarkTable.doubleAction = #selector(doubleClickOnRow)
@@ -29,7 +30,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
-        Model.instance.showBottomBar(sender: self)
+        Model.instance.showBottomBar(sender: self.parent!)
         changeViewsBasedOnType(type: Model.instance.currentFile!.fileType)
         showMediaContent()
     }
@@ -66,7 +67,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
         print("decouple subviews \(self.view.subviews)")
-        self.view.subviews[5].removeFromSuperview() //removes embeded player and shows image behind
+        self.view.subviews[4].removeFromSuperview() //removes embeded player and shows image behind
     }
     
     func changeViewsBasedOnType(type: String){
@@ -154,7 +155,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource{
         print("before meida subviews \(self.view.subviews)")
         self.view.addSubview(newVC.view)
         let x = (self.view.frame.width/2) - 390
-        let y = (self.view.frame.height/2) - 235
+        let y = (self.view.frame.height/2) - 285
         newVC.view.frame = CGRect(x: x, y: y, width: 780, height: 570)
         if mediaType == "video"{
             //to remove the controls

@@ -35,7 +35,7 @@ class BottomBarViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-       // Model.instance.bottomBarVC = self
+       Model.instance.bottomBarVC = self
     }
     
     @IBAction func PreviousAction(_ sender: NSButton) {
@@ -93,24 +93,25 @@ class BottomBarViewController: NSViewController {
     
     
     func updateOutlets(){
-        
-        if Model.instance.currentFileIndex![0]+1 >= Model.instance.subLibrary.all().count{
-            //hide forward button
-            nextButton.isEnabled = false
-        }else{
-            nextButton.isEnabled = true
-        }
-        if Model.instance.currentFileIndex![0]-1 < 0{
-            //hide backwards button
-            previousButton.isEnabled = false
-        }else{
-            previousButton.isEnabled = true
+        if let currentIndex = Model.instance.currentFileIndex{
+            if currentIndex[0]+1 >= Model.instance.subLibrary.all().count{
+                //hide forward button
+                nextButton.isEnabled = false
+            }else{
+                nextButton.isEnabled = true
+            }
+            if currentIndex[0]-1 < 0{
+                //hide backwards button
+                previousButton.isEnabled = false
+            }else{
+                previousButton.isEnabled = true
+            }
         }
         //changes the bottom bar depending on type
-        updateButtonsBasedOnType(fileType: Model.instance.currentFile!.fileType)
+        updateButtonsBasedOnType(fileType: Model.instance.currentFile?.fileType)
     }
     
-    func updateButtonsBasedOnType(fileType: String){
+    func updateButtonsBasedOnType(fileType: String?){
         //might need to check open file type
         var type = fileType
         if let openType = Model.instance.currentFileOpen?.fileType{
@@ -119,34 +120,50 @@ class BottomBarViewController: NSViewController {
         }
         switch type {
         case "image":
-//            play_pauseButton.isHidden = true//hide play button
+            play_pauseButton.isHidden = true//hide play button
             //hide volume button
             //hide scroll bar
             bookmarkButton.isHidden = true//hide bookmark button
+            decoupleButton.isEnabled = true
             break
         case "audio":
-            //show play button
-            //show volume button
+            play_pauseButton.isEnabled = true //show play button
+            play_pauseButton.isHidden = false
+            bookmarkButton.isEnabled = true//show bookmarks button
+            
             //show scroll bar
             //show add to queue
+            decoupleButton.isEnabled = true
             break
         case "video":
-            //show play button
+            play_pauseButton.isEnabled = true //show play button
+            play_pauseButton.isHidden = false
+            bookmarkButton.isEnabled = true//show bookmarks button
             //show volume button
             //show scroll bar
             //show add to queue
+            decoupleButton.isEnabled = true
             break
         case "document":
-//            play_pauseButton.isHidden = true//hide play button
+            play_pauseButton.isHidden = true//hide play button
             //hide volume button
             //hide scroll bar
+            decoupleButton.isEnabled = true
             bookmarkButton.isHidden = true//hide bookmark button
             break
         default:
-            //dont hide anything
+            disableEverything()
             print("bottom bar is default")
         }
         
+        
+    }
+    func disableEverything(){
+        nextButton.isEnabled = false
+        previousButton.isEnabled = false
+        bookmarkButton.isEnabled = false
+        play_pauseButton.isEnabled = false
+        decoupleButton.isEnabled = false
     }
     @IBAction func BookmarkPopOverDone(_ sender: Any) {
         //check if time is valid

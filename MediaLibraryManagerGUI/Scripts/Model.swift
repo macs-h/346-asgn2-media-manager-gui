@@ -49,7 +49,7 @@ class Model{
     var clearLibraryItemAction: Selector?
     var clearLibraryItemTarget: AnyObject?
     var mainTopbar: MainTopViewController?
-
+    var mainParentVC: NSViewController?
     var currentFileOpen: MMFile?{
         didSet{
             if oldValue != nil && openFileDelegate == nil{
@@ -165,7 +165,14 @@ class Model{
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
         if currentFileOpen == nil && segueName == "MainViewSegue"{
             //no file is open, remove media bottom bar
-            removeBottomBar()
+            bottomBarVC?.disableEverything()
+            //removeBottomBar()
+        }
+        if segueName == "MainViewSegue"{
+            mainTopbar?.openVC = mainViewDegate as! NSViewController
+//            print("stay baby")
+//            mainParentVC?.addChildViewController(bottomBarVC!)
+//            mainParentVC?.view.addSubview(bottomBarVC!.view)
         }
         selectFile(fileIndex: fileIndex)
         sourceController.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: segueName), sender: self)
@@ -241,9 +248,10 @@ class Model{
             let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
             bottomBarVC.view.layer?.removeAllAnimations()
 
-            sender.parent!.addChildViewController(bottomBarVC)
+            sender.addChildViewController(bottomBarVC)
             sender.view.addSubview(bottomBarVC.view)
             bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+            
 //            bottomBarVC.view.wantsLayer = true
 //            let animation = CABasicAnimation(keyPath: "position")
 //            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
@@ -254,11 +262,13 @@ class Model{
 //            animation.duration = 0.3
 //            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
             self.bottomBarVC = bottomBarVC
+            mainParentVC = sender.parent
         }
         print("bottom: \(bottomBarVC)")
     }
     
     func removeBottomBar(){
+        print("\n\nremove bottome called\n\n")
         if bottomBarVC != nil{
             bottomBarVC!.view.layer?.removeAllAnimations()
             //bottomBarVC!.view.frame = CGRect(x: 0, y: -100, width: 1280, height: 100)

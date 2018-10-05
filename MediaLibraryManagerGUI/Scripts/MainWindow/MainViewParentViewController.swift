@@ -11,9 +11,9 @@ import Cocoa
 class MainViewParentViewController: NSViewController {
 
     var topBarVC = NSViewController()
-    var mainBarVC = NSViewController()
+    var mainVC = NSViewController()
+    var bottomBarVC = NSViewController()
     
-            var bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -24,15 +24,17 @@ class MainViewParentViewController: NSViewController {
         topBarVC.view.frame = NSRect(x: 0, y: 720-50, width: 1280, height: 50)
         
         
-        mainBarVC = storyb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainVC")) as! MainViewController
-        self.addChildViewController(mainBarVC)
-        self.view.addSubview(mainBarVC.view)
-        mainBarVC.view.frame = NSRect(x: 0, y: 0, width: 1280, height: 670)
+        mainVC = storyb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "MainVC")) as! MainViewController
+        self.addChildViewController(mainVC)
+        self.view.addSubview(mainVC.view)
+        mainVC.view.frame = NSRect(x: 0, y: 100, width: 1280, height: 570)
         
-//        self.addChildViewController(bottomBarVC)
-//        self.view.addSubview(bottomBarVC.view)
-//        bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
-//        bottomBarVC.viewWillAppear();
+        
+        bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
+        self.addChildViewController(bottomBarVC)
+        self.view.addSubview(bottomBarVC.view)
+        bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+        bottomBarVC.viewWillAppear();
         
         
 
