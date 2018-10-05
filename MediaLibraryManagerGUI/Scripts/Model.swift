@@ -207,7 +207,7 @@ class Model{
     func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController {
         var previewVCResult = preview_VC
         if previewVCResult == nil {
-            var previewVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreviewVC")) as! PreviewViewController
+            let previewVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreviewVC")) as! PreviewViewController
             previewVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(previewVC.view)
             let x = sender.view.frame.width - 250
