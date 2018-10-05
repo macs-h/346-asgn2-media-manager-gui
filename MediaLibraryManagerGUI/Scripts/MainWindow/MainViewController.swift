@@ -59,6 +59,9 @@ class MainViewController: NSViewController, MainViewModelDegate {
                 //previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
             }
         }
+        if Model.instance.currentCategoryIndex == -1{
+            categoryTable.deselectAll(self)
+        }
         
     }
 

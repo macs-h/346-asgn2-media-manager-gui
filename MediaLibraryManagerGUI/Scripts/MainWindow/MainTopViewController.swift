@@ -73,8 +73,18 @@ class MainTopViewController: NSViewController {
     
     
     @IBAction func searchAcion(_ sender: NSSearchField) {
-        let searchTerms = sender.stringValue.components(separatedBy: " ")
-        Model.instance.searchStrings(searchTerms: searchTerms)
-        print("searching---",searchTerms )
+        if sender.stringValue != ""{
+            let searchTerms = sender.stringValue.components(separatedBy: " ")
+            Model.instance.searchStrings(searchTerms: searchTerms)
+        }else{
+            var catIndex = 0
+            if let index = Model.instance.currentFileIndex{
+                catIndex = index[1]
+            }
+            Model.instance.changeCategory(catIndex: catIndex)
+            let mainVC = Model.instance.mainViewDegate as! MainViewController
+            let indexPath = IndexSet(arrayLiteral: catIndex)
+            mainVC.categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
+        }
     }
 }

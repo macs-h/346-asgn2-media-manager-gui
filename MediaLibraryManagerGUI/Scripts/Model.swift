@@ -149,6 +149,7 @@ class Model{
     
     func searchStrings(searchTerms: [String]){
         listFiles(with: searchTerms, listAll: false)
+        currentCategoryIndex = -1
         updateMainVC()
     }
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
