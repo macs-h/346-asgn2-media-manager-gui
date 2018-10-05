@@ -11,18 +11,20 @@ import Cocoa
 import AVKit
 import Quartz
 
+//protocol for openFileViewController
 protocol OpenFileModelDegate {
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String : String])
     func DecoupleMedia()
     func showMediaContent()
 }
+//protocol for MainViewController
 protocol MainViewModelDegate {
     func updateOutets(files: [MMFile])
 }
 
 
 
-
+//Singletion class Model which interacts between View controller and backend
 class Model{
     static var instance = Model()
     var library = MM_Collection()//holds all the files
@@ -78,6 +80,7 @@ class Model{
         }
     }
     
+    //Called by MainViewController  to set up Model
     func setup(){
         bookmarks.removeAll()
         notes = ""
@@ -107,6 +110,8 @@ class Model{
         
     }
     
+    
+    //Called to import json files
     func addFile() {
         let panel = NSOpenPanel()
         panel.allowedFileTypes = ["json"]
@@ -134,6 +139,8 @@ class Model{
         })
     }
     
+    
+    //Called to change category
     func changeCategory(catIndex: Int){
         var cat = ""
         switch catIndex {
@@ -157,12 +164,14 @@ class Model{
         updateMainVC()
     }
     
-    
+    // Search the library for terms
     func searchStrings(searchTerms: [String]){
         listFiles(with: searchTerms, listAll: false)
         currentCategoryIndex = -1
         updateMainVC()
     }
+    
+    //Calls performSegue to change to different viewControllers in same window
     func switchVC(sourceController: NSViewController, segueName: String, fileIndex: Int) {
         if currentFileOpen == nil && segueName == "MainViewSegue"{
             //no file is open, remove media bottom bar
@@ -179,6 +188,7 @@ class Model{
         sourceController.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: segueName), sender: self)
     }
     
+    //Updates the current file and tells delegates to update
     func selectFile(fileIndex: Int){
         do{
             //try doesnt do anything so need to check numbers manually
@@ -193,7 +203,7 @@ class Model{
         }
     }
     
-    
+    //Shows the preview viewController when a file is selected
     func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController {
         var previewVCResult = preview_VC
         if previewVCResult == nil {
@@ -201,48 +211,22 @@ class Model{
             previewVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(previewVC.view)
             let x = sender.view.frame.width - 250
-    //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
             previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 570)
-//            previewVC.view.wantsLayer = true
-//            let animation = CABasicAnimation(keyPath: "position")
-//            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-//            let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-//            animation.fromValue = startingPoint
-//            animation.toValue = endingPoint
-//            animation.repeatCount = 1
-//            animation.duration = 0.1
-//            previewVC.view.layer?.add(animation, forKey: "linearMovement")
             previewVCResult = previewVC
         }
-        print("seach file index", fileIndex)
         previewVCResult?.setup(file: subLibrary.all()[fileIndex])
         
         return previewVCResult!
     }
    
-    func removePreview(sender: NSViewController ,previewVC: PreviewViewController){
-        previewVC.view.layer?.removeAllAnimations()
-        let x = sender.view.frame.width - 250
-        previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 570)
-//        CATransaction.begin()
-//        let animation = CABasicAnimation(keyPath: "position")
-//        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-//        let endingPoint = CGRect(x: x, y: 0, width: 250, height: 646)
-//        animation.fromValue = endingPoint
-//        animation.toValue = startingPoint
-//        animation.repeatCount = 1
-//        animation.duration = 0.1
-        
-//        CATransaction.setCompletionBlock {
-//            previewVC.view.removeFromSuperview()
-//        }
-//        previewVC.view.layer?.add(animation, forKey: "linearMovement")
-//        CATransaction.commit()
+    
+    //Remove preview ViewController from view
+    func removePreview(sender: NSViewController ,previewVC: PreviewViewController) {
          previewVC.view.removeFromSuperview()
     }
     
     
-    
+    //Shows the bottom bar viewController
     func showBottomBar(sender: NSViewController) {
         if bottomBarVC == nil {
             //doesnt already exist
@@ -252,67 +236,28 @@ class Model{
             sender.addChildViewController(bottomBarVC)
             sender.view.addSubview(bottomBarVC.view)
             bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
-            
-//            bottomBarVC.view.wantsLayer = true
-//            let animation = CABasicAnimation(keyPath: "position")
-//            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
-//            let endingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
-//            animation.fromValue = startingPoint
-//            animation.toValue = endingPoint
-//            animation.repeatCount = 1
-//            animation.duration = 0.3
-//            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
             self.bottomBarVC = bottomBarVC
             mainParentVC = sender.parent
         }
-        print("bottom: \(bottomBarVC)")
     }
     
-    func removeBottomBar() {
-        print("\n\nremove bottome called\n\n")
-        if bottomBarVC != nil {
-            bottomBarVC!.view.layer?.removeAllAnimations()
-            //bottomBarVC!.view.frame = CGRect(x: 0, y: -100, width: 1280, height: 100)
-            CATransaction.begin()
-            let animation = CABasicAnimation(keyPath: "position")
-            let startingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
-            let endingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
-            animation.fromValue = startingPoint
-            animation.toValue = endingPoint
-            animation.repeatCount = 1
-            animation.duration = 0.3
-
-            CATransaction.setCompletionBlock {
-                self.bottomBarVC!.view.removeFromSuperview()
-                self.bottomBarVC = nil
-            }
-            bottomBarVC!.view.layer?.add(animation, forKey: "linearMovement")
-            CATransaction.commit()
-        }
-        
-    }
-    
-    
+    //Opens file in new window
     func openFileInWindow() {
         //check the type of file and open it accordingly
         currentFileOpen = currentFile
         openFileDelegate?.DecoupleMedia()
         if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
             let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
-            print("recouple time", time)
             Model.instance.mediaJumpToTime(jumpTo: time)
         }
-        
-        
-        
     }
     
+    //Returns the decoupled window to main panel
     func returnFileToMainWindow() {
         currentFileOpen = nil
         openFileDelegate?.showMediaContent()
         if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
             let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
-            print("recouple time", time)
             Model.instance.mediaJumpToTime(jumpTo: time)
         }
         
@@ -320,6 +265,7 @@ class Model{
         
     }
     
+    //Add a bookmark at a given time to metadata
     func addBookmark(label: String) {
         //get current time from the player
         var time = ""
@@ -335,24 +281,21 @@ class Model{
         updateOpenFileVC()
     }
     
+    //Delete a bookmark from the metadata
     func deleteBookmark(keyToDelete: String) {
         bookmarks.removeValue(forKey: keyToDelete)
         saveData()
         updateOpenFileVC()
     }
     
+    //Add notes to metadata
     func addNotes(notes: String) {
         self.notes = notes
         saveData()
         updateOpenFileVC()
     }
     
-    func addToQueue() {
-        queue.append(currentFile!) //add the current file open
-    }
-    
-    
-    
+    //Saves the data that was changed
     func saveData() {
         //save bookmarks
         var bookmarksResult = ""
@@ -366,7 +309,7 @@ class Model{
         
     }
     
-    
+    //Saves the files in persistent storage
     func savePersistent() {
         exportLibraryAsJson()
     }
@@ -516,6 +459,7 @@ class Model{
     // Private functions
     //------------------------------------------------------------------------80
     
+    
     private func toggleImportButtons(setEnabled: Bool) {
         if setEnabled {
             importMenuItem!.action = importMenuItemAction
@@ -533,14 +477,15 @@ class Model{
         }
     }
     
+    //Updates OpenFiledelegate of changes
     private func updateOpenFileVC(){
         openFileDelegate?.updateOutets(currentFile: currentFile!, notes: notes, bookmarks: bookmarks)
     }
-    
+    //Updates Maindelegate of changes
     private func updateMainVC(){
         mainViewDegate?.updateOutets(files: subLibrary.all())
     }
-    
+    //Updates BottomBar of changes
     private func updateBottomBarVC(){
         bottomBarVC?.updateOutlets()
     }
