@@ -6,8 +6,6 @@
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
-// DOUBLE CHECK
-
 import Cocoa
 
 // Delegate function so buttons will affect meida when decoupled

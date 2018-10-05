@@ -6,8 +6,6 @@
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
-// DOUBLE CHECK
-
 import Cocoa
 
 /**
@@ -40,9 +38,6 @@ class MediaWindowWC: NSWindowController, NSWindowDelegate {
         self.contentViewController = newVC
     }
     
-    /**
-        // ---------------- COMMENT THIS ---------------------
-     */
     func windowWillClose(_ notification: Notification) {
         Model.instance.returnFileToMainWindow()
         Model.instance.bottomBarVC?.recoupleMedia()

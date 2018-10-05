@@ -123,24 +123,12 @@
                             <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="9F1-gg-Y9J">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                             </avPlayerView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Lts-Oh-a61">
-                                <rect key="frame" x="275" y="170" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="5eP-7S-a4P"/>
-                                    <constraint firstAttribute="height" constant="250" id="HHJ-NY-lMm"/>
-                                    <constraint firstAttribute="width" secondItem="Lts-Oh-a61" secondAttribute="height" multiplier="1:1" id="p3w-Rk-nCq"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderMusic" id="D1p-1i-PL3"/>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="9F1-gg-Y9J" firstAttribute="top" secondItem="lSA-qk-b8s" secondAttribute="top" id="2v8-OB-xa5"/>
-                            <constraint firstItem="Lts-Oh-a61" firstAttribute="leading" secondItem="lSA-qk-b8s" secondAttribute="leading" constant="275" id="43i-5I-Eci"/>
-                            <constraint firstItem="Lts-Oh-a61" firstAttribute="top" secondItem="lSA-qk-b8s" secondAttribute="top" constant="30" id="Kka-ss-8za"/>
                             <constraint firstAttribute="bottom" secondItem="9F1-gg-Y9J" secondAttribute="bottom" id="iA1-FZ-gQh"/>
                             <constraint firstAttribute="trailing" secondItem="9F1-gg-Y9J" secondAttribute="trailing" id="ohx-9X-Zcn"/>
                             <constraint firstItem="9F1-gg-Y9J" firstAttribute="leading" secondItem="lSA-qk-b8s" secondAttribute="leading" id="qoi-E6-DQ7"/>
-                            <constraint firstAttribute="trailing" secondItem="Lts-Oh-a61" secondAttribute="trailing" constant="275" id="tC0-br-8J8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -154,6 +142,5 @@
     </scenes>
     <resources>
         <image name="Placeholder" width="240" height="240"/>
-        <image name="PlaceholderMusic" width="450" height="450"/>
     </resources>
 </document>

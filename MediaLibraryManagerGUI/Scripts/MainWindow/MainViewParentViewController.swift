@@ -8,7 +8,6 @@
 
 import Cocoa
 
-
 //class the holds the subviewControllers and are swaped in and out at run time
 class MainViewParentViewController: NSViewController {
 
