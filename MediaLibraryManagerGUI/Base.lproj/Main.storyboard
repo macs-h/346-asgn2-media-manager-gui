@@ -693,13 +693,14 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="1280" height="720"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="minSize" type="size" width="1280" height="720"/>
+                        <value key="maxSize" type="size" width="1280" height="720"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="4gG-MG-0D1" kind="relationship" relationship="window.shadowedContentViewController" id="N61-4I-UZs"/>
+                        <segue destination="fbb-Dg-JmG" kind="relationship" relationship="window.shadowedContentViewController" id="Eak-Vo-E7z"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -709,7 +710,7 @@
         <!--MainVC-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="MainVC" id="XfG-lQ-9wD" customClass="MainViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MainVC" storyboardIdentifier="MainVC" id="XfG-lQ-9wD" customClass="MainViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="670"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1234,7 +1235,20 @@ IA
                 </splitViewController>
                 <customObject id="pvD-bh-nwi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="488"/>
+            <point key="canvasLocation" x="92" y="298"/>
+        </scene>
+        <!--Main View Parent View Controller-->
+        <scene sceneID="q2g-pr-aj6">
+            <objects>
+                <viewController id="fbb-Dg-JmG" customClass="MainViewParentViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="kok-V2-tES">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="vdC-i2-OTF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="69" y="923"/>
         </scene>
         <!--MainTopVC-->
         <scene sceneID="OsU-xk-6fQ">
@@ -1507,7 +1521,7 @@ IA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="2012" y="359"/>
+            <point key="canvasLocation" x="1980" y="478"/>
         </scene>
         <!--MediaWindow-->
         <scene sceneID="pV6-re-crT">
@@ -1767,6 +1781,6 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="previous button" width="19" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uRm-XU-ZIS"/>
+        <segue reference="wkG-BR-0f7"/>
     </inferredMetricsTieBreakers>
 </document>

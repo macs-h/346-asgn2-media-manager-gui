@@ -29,7 +29,8 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
         mainTopVC.openVC = self
         Model.instance.openFileDelegate = self
-        Model.instance.showBottomBar(sender: self.parent!)
+        print("open parent \(self.parent)")
+        Model.instance.showBottomBar(sender: self.parent as! MainViewParentViewController)
         changeViewsBasedOnType(type: Model.instance.currentFile!.fileType)
         showMediaContent()
     }

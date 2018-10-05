@@ -35,7 +35,7 @@ class BottomBarViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        Model.instance.bottomBarVC = self
+       // Model.instance.bottomBarVC = self
     }
     
     @IBAction func PreviousAction(_ sender: NSButton) {

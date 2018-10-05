@@ -27,8 +27,14 @@ class CrossfadeStoryboardSegue: NSStoryboardSegue {
         let sourceViewController = self.sourceController as! NSViewController
         let destinationViewController = self.destinationController as! NSViewController
         let containerViewController = sourceViewController.parent!
+//        print("source \(sourceViewController.title),---- destination \(destinationViewController),---- container  \(sourceViewController.parent) ")
         containerViewController.removeChildViewController(at: 1)    //removeChild(at: 1)
-        containerViewController.insertChildViewController(destinationViewController, at: 1)   //insertChild(destinationViewController, at: 1)
+        sourceViewController.view.removeFromSuperview()
+        //containerViewController.addChildViewController(destinationViewController)
+        containerViewController.insertChildViewController(destinationViewController, at: 1)
+        containerViewController.view.addSubview(destinationViewController.view)
+        destinationViewController.view.frame = NSRect(x: 0, y: 0, width: 1280, height: 670)
+        //insertChild(destinationViewController, at: 1)
 //
 //        var targetSize = destinationViewController.view.frame.size
 //        var targetWidth = destinationViewController.view.frame.size.width

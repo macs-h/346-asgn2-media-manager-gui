@@ -53,7 +53,7 @@ class MainTopViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        splitView = self.parent!
+        splitView = self.parent as! MainViewParentViewController
         
         self.view.window?.styleMask = .texturedBackground
         self.view.window?.backgroundColor = .black

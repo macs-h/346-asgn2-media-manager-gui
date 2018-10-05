@@ -225,24 +225,25 @@ class Model{
     
     
     
-    func showBottomBar(sender: NSViewController){
+    func showBottomBar(sender: MainViewParentViewController){
         if bottomBarVC == nil{
             //doesnt already exist
-            let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
-            bottomBarVC.view.layer?.removeAllAnimations()
-            sender.view.addSubview(bottomBarVC.view)
-            let x = sender.view.frame.width - 250
-            //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-            bottomBarVC.view.frame = CGRect(x: 0, y: 0, width: 1280, height: 100)
-            bottomBarVC.view.wantsLayer = true
-            let animation = CABasicAnimation(keyPath: "position")
-            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
-            let endingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
-            animation.fromValue = startingPoint
-            animation.toValue = endingPoint
-            animation.repeatCount = 1
-            animation.duration = 0.3
-            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
+            sender.openBottom()
+//            let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
+//            bottomBarVC.view.layer?.removeAllAnimations()
+//
+//            sender.addChildViewController(bottomBarVC)
+//            sender.view.addSubview(bottomBarVC.view)
+//            bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+//            bottomBarVC.view.wantsLayer = true
+//            let animation = CABasicAnimation(keyPath: "position")
+//            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
+//            let endingPoint = CGRect(x: 0, y: 0, width: 1280, height: 100)
+//            animation.fromValue = startingPoint
+//            animation.toValue = endingPoint
+//            animation.repeatCount = 1
+//            animation.duration = 0.3
+//            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
         }
         print("bottom: \(bottomBarVC)")
     }
