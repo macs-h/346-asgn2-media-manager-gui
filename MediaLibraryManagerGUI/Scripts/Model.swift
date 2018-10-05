@@ -195,7 +195,7 @@ class Model{
 //            previewVC.view.layer?.add(animation, forKey: "linearMovement")
             previewVCResult = previewVC
         }
-        
+        print("seach file index", fileIndex)
         previewVCResult?.setup(file: subLibrary.all()[fileIndex])
         
         return previewVCResult!

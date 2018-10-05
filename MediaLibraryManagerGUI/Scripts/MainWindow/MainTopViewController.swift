@@ -9,7 +9,18 @@
 import Cocoa
 
 class MainTopViewController: NSViewController {
+    @IBOutlet weak var logoImage: NSImageView!
+    
+    @IBOutlet weak var fileNameLabel: NSTextField!
+    
+    @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
+    @IBOutlet weak var backButton: NSButton!
+    @IBOutlet weak var forwardButton: NSButton!
+    @IBOutlet weak var searchBar: NSSearchField!
+    
+    
     var splitView: NSViewController = NSViewController()
+    
     var openVC = NSViewController(){ //the open vc (either main or open file) will assign itself to this
         didSet{
             if openVC.title == "MainVC"{
@@ -20,6 +31,7 @@ class MainTopViewController: NSViewController {
                 }
                 logoImage.isHidden = false
                 fileNameLabel.isHidden = true
+                searchBar.isHidden = false
             }else{
                 //openfileVC is open
                 backButton.isEnabled = true
@@ -27,21 +39,12 @@ class MainTopViewController: NSViewController {
                 fileNameLabel.stringValue = Model.instance.currentFile!.filename
                 logoImage.isHidden = true
                 fileNameLabel.isHidden = false
+                searchBar.isHidden = true
             }
         }
     }
     
-    @IBOutlet weak var logoImage: NSImageView!
-    
-    @IBOutlet weak var fileNameLabel: NSTextField!
-    
-    
-    
-    @IBOutlet weak var addFileButton: NSButton! //when file is open disable this button
-    
-    @IBOutlet weak var backButton: NSButton!
-    
-    @IBOutlet weak var forwardButton: NSButton!
+   
     
     @IBAction func addFiles(_ sender: Any) {
        Model.instance.addFile(sender: self)

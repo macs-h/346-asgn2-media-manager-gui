@@ -1261,7 +1261,7 @@ IA
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSM-OS-wyy">
                                         <rect key="frame" x="1056" y="14" width="192" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="O7F-45-M3k">
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" id="O7F-45-M3k">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
@@ -1327,6 +1327,7 @@ IA
                         <outlet property="fileNameLabel" destination="TpJ-Mb-NMi" id="fWz-yg-S7j"/>
                         <outlet property="forwardButton" destination="WUa-Gt-atK" id="aiY-dL-4JA"/>
                         <outlet property="logoImage" destination="Nke-hG-1qh" id="bQO-ml-89O"/>
+                        <outlet property="searchBar" destination="qSM-OS-wyy" id="KVP-GD-3PJ"/>
                     </connections>
                 </viewController>
                 <customObject id="YT6-Og-Yue" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
