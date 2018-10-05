@@ -47,7 +47,7 @@ class MainTopViewController: NSViewController {
    
     
     @IBAction func addFiles(_ sender: Any) {
-       Model.instance.addFile(sender: self)
+        Model.instance.addFile()
     }
     
     override func viewDidLoad() {
@@ -57,6 +57,7 @@ class MainTopViewController: NSViewController {
         
         self.view.window?.styleMask = .texturedBackground
         self.view.window?.backgroundColor = .black
+        Model.instance.mainTopbar = self
        
     }
     

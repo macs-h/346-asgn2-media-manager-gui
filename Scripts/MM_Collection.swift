@@ -29,7 +29,7 @@ class MM_Collection: MMCollection {
             return "Collection []"
         }
     }
-
+    
     /**
      Default initialiser
      
@@ -39,7 +39,7 @@ class MM_Collection: MMCollection {
     init(collection: [MMFile]) {
         self.collection = collection
     }
-
+    
     /**
      Convenience initialiser
      
@@ -48,7 +48,7 @@ class MM_Collection: MMCollection {
     convenience init () {
         self.init(collection: [])
     }
-
+    
     /**
      Adds a file's metadata to the media metadata collection.
      
@@ -60,7 +60,7 @@ class MM_Collection: MMCollection {
         tempFile.collectionPos = (collection.count > 0) ? collection.count : 0
         self.collection.append(tempFile)
     }
-
+    
     /**
      Adds a specific instance of a metadata to the collection.
      
@@ -74,7 +74,7 @@ class MM_Collection: MMCollection {
             collection[files[i].collectionPos].metadata.append(metadata)
         }
     }
-
+    
     /**
      Sets the metadata in file to new key and value
      
@@ -141,35 +141,34 @@ class MM_Collection: MMCollection {
      */
     func removeAll() {
         if(collection.count > 0){
-            if(confirm(item: "all")){
-                collection.removeAll()
-            }
+            collection.removeAll()
+            
         }
     }
     
-//    /**
-//     Finds all the files associated with the keyword.
-//
-//     - parameter term:   The keyword to search for.
-//
-//     - returns:  A list of all the metadata associated with the keyword,
-//     possibly an empty list.
-//     */
-//    func search(term: String) -> [MMFile] {
-//        if collection.count > 0{
-//            var results: [MMFile] = []
-//            for file in collection{
-//                //search each feild
-//                if(file.getAttributes().contains(term)){
-//                    results.append(file)
-//                }
-//            }
-//            return results
-//        }else{
-//            return []
-//        }
-//
-//    }
+    //    /**
+    //     Finds all the files associated with the keyword.
+    //
+    //     - parameter term:   The keyword to search for.
+    //
+    //     - returns:  A list of all the metadata associated with the keyword,
+    //     possibly an empty list.
+    //     */
+    //    func search(term: String) -> [MMFile] {
+    //        if collection.count > 0{
+    //            var results: [MMFile] = []
+    //            for file in collection{
+    //                //search each feild
+    //                if(file.getAttributes().contains(term)){
+    //                    results.append(file)
+    //                }
+    //            }
+    //            return results
+    //        }else{
+    //            return []
+    //        }
+    //
+    //    }
     
     /**
      Finds all the files associated with the keyword.

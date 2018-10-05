@@ -1,0 +1,132 @@
+[
+  {
+    "type" : "document",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/doc_PC1.pdf",
+    "metadata" : {
+      "creator" : "Paul"
+    }
+  },
+  {
+    "type" : "document",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/tmp.txt",
+    "metadata" : {
+      "creator" : "Peter"
+    }
+  },
+  {
+    "type" : "document",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/hello.txt",
+    "metadata" : {
+      "creator" : "Paula"
+    }
+  },
+  {
+    "type" : "document",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/helloWorld.txt",
+    "metadata" : {
+      "creator" : "Pig"
+    }
+  },
+  {
+    "type" : "image",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/img_PC1.png",
+    "metadata" : {
+      "creator" : "Sam"
+    }
+  },
+  {
+    "type" : "image",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/img_PC2.png",
+    "metadata" : {
+      "creator" : "Sheryl",
+      "notes" : ""
+    }
+  },
+  {
+    "type" : "image",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/img_PC3.png",
+    "metadata" : {
+      "creator" : "Sid",
+      "notes" : ""
+    }
+  },
+  {
+    "type" : "image",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/godzilla.png",
+    "metadata" : {
+      "creator" : "Sampson",
+      "notes" : ""
+    }
+  },
+  {
+    "type" : "video",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/vid_PC1.mp4",
+    "metadata" : {
+      "creator" : "Max",
+      "notes" : "",
+      "bookmarks" : "3sec test,00:00:03, 5sec test,00:00:05,blah,00:00:00,"
+    }
+  },
+  {
+    "type" : "video",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/empty.mp4",
+    "metadata" : {
+      "creator" : "Mimi",
+      "notes" : ""
+    }
+  },
+  {
+    "type" : "video",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/vid.mp4",
+    "metadata" : {
+      "creator" : "Mark",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  },
+  {
+    "type" : "video",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/testing123.mp4",
+    "metadata" : {
+      "creator" : "Molly",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  },
+  {
+    "type" : "audio",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/qux.mp3",
+    "metadata" : {
+      "creator" : "Shaz",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  },
+  {
+    "type" : "audio",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/aud.mp3",
+    "metadata" : {
+      "creator" : "Paul",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  },
+  {
+    "type" : "audio",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/files.mp3",
+    "metadata" : {
+      "creator" : "Paul",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  },
+  {
+    "type" : "audio",
+    "fullpath" : "///Users/mhuang/346/asgn2/MediaFiles/yay.mp3",
+    "metadata" : {
+      "creator" : "Paul",
+      "notes" : "",
+      "bookmarks" : ""
+    }
+  }
+]
