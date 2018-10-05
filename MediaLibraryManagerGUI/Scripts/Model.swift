@@ -32,13 +32,15 @@ class Model{
             setup()
         }
     }
-    var currentFileIndex:[Int]?
+    var currentFileIndex: [Int]?
     var currentCategoryIndex = 0
-    var bookmarks: [String: String]  = [:]
-    var notes: String = ""
+    var bookmarks = [String: String]()
+    var notes = String()
     var mediaPlayer: AVPlayer?
     var playerView: AVPlayerView?
-    var queue: [MMFile] = []
+    var queue = [MMFile]()
+    var jsonFilepath = String()
+    var window: NSWindow?
     var currentFileOpen: MMFile?{
         didSet{
             if oldValue != nil && openFileDelegate == nil{
@@ -95,32 +97,27 @@ class Model{
         
     }
     
-    func addFile(sender: NSViewController){
-        //get file path
-        
+    func addFile() {
         let panel = NSOpenPanel()
         panel.allowedFileTypes = ["json"]
-        panel.beginSheetModal(for: sender.view.window!, completionHandler: { (returnCode)-> Void in
+        panel.beginSheetModal(for: self.window!, completionHandler: { (returnCode)-> Void in
             if returnCode == NSApplication.ModalResponse.OK{
                 var stringArray: [String] = []
+                
                 for url in panel.urls{
-//                    stringArray.append(String(url.absoluteString)[4...])
                     let str = String(url.absoluteString)
                     let start = str.index(str.startIndex, offsetBy: str._bridgeToObjectiveC().range(of: ":").location+1)
                     let end = str.endIndex
                     let newStr = String(str[start..<end])
                     stringArray.append(newStr)
                 }
-                
-                
-                self.importJsonFile(from: stringArray.joined(separator: " "))
-                self.importJsonFile(from: (panel.url?.absoluteString)!)
+
+                self.jsonFilepath = stringArray.joined(separator: " ")
+                self.importJsonFile(from: self.jsonFilepath)
                 self.changeCategory(catIndex: self.currentCategoryIndex)
                 self.updateMainVC()
             }
-
         })
-       
     }
     
     func changeCategory(catIndex: Int){
@@ -336,6 +333,12 @@ class Model{
     }
     
     
+    func savePersistent() {
+        print(jsonFilepath)
+//        exportLibraryAsJson(to: "persistent.json")
+    }
+    
+    
     //------------------------------------------------------------------------80
     // MediaWindow functionality
     //------------------------------------------------------------------------80
@@ -352,13 +355,9 @@ class Model{
     }
     
     func loadDocument(_ sender: NSViewController, docView: PDFView) {
-//        docView.document = PDFDocument(url: URL(fileURLWithPath: (self.currentFile?.fullpath)!))
         let url = URL(fileURLWithPath: (self.currentFile?.fullpath)!)
-        print(url)
         let doc = PDFDocument(url: url)
-        print(doc)
         docView.document = doc
-        
     }
     
     func loadMediaPlayer(_ sender: NSViewController, playerView: AVPlayerView, queued: Bool = false) {

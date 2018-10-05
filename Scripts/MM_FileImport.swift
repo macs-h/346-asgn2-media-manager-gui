@@ -63,24 +63,10 @@ class MM_FileImport : MMFileImport {
                 let end = path_reversed.endIndex
                 
                 fullpath = String( path_reversed[start..<end].reversed() )
-//                path_reversed = String( attribute.fullpath.reversed() )
-//
-//                start = path_reversed.startIndex
-//                end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
-//
-//                let filename = String( path_reversed[start..<end].reversed() )
                 return fullpath + f.filename
             }()
             
-            
             f.fileType = attribute.type
-            
-//            let path_reversed = String(f.fullpath.reversed())
-//
-//            let start = path_reversed.startIndex
-//            let end = path_reversed.index(path_reversed.startIndex, offsetBy: path_reversed._bridgeToObjectiveC().range(of: "/").location)
-//
-//            f.filename = String( String( path_reversed[start..<end].reversed()) )
             
             for metadata in attribute.metadata {
                 let data = MM_Metadata(keyword: metadata.key, value: metadata.value)

@@ -44,7 +44,7 @@ class MainTopViewController: NSViewController {
     @IBOutlet weak var forwardButton: NSButton!
     
     @IBAction func addFiles(_ sender: Any) {
-       Model.instance.addFile(sender: self)
+        Model.instance.addFile()
     }
     
     override func viewDidLoad() {

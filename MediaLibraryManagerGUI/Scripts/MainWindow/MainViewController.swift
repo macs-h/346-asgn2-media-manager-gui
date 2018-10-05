@@ -38,7 +38,6 @@ class MainViewController: NSViewController, MainViewModelDegate {
         Model.instance.mainViewDegate = self
         let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
         categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-       
     }
 
     override var representedObject: Any? {
