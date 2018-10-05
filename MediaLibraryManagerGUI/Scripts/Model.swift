@@ -225,16 +225,15 @@ class Model{
     
     
     
-    func showBottomBar(sender: MainViewParentViewController){
+    func showBottomBar(sender: NSViewController){
         if bottomBarVC == nil{
             //doesnt already exist
-            sender.openBottom()
-//            let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
-//            bottomBarVC.view.layer?.removeAllAnimations()
-//
-//            sender.addChildViewController(bottomBarVC)
-//            sender.view.addSubview(bottomBarVC.view)
-//            bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+            let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
+            bottomBarVC.view.layer?.removeAllAnimations()
+
+            sender.parent!.addChildViewController(bottomBarVC)
+            sender.view.addSubview(bottomBarVC.view)
+            bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
 //            bottomBarVC.view.wantsLayer = true
 //            let animation = CABasicAnimation(keyPath: "position")
 //            let startingPoint = CGRect(x: 0, y: -100, width: 1280, height: 100)
@@ -244,6 +243,7 @@ class Model{
 //            animation.repeatCount = 1
 //            animation.duration = 0.3
 //            bottomBarVC.view.layer?.add(animation, forKey: "linearMovement")
+            self.bottomBarVC = bottomBarVC
         }
         print("bottom: \(bottomBarVC)")
     }

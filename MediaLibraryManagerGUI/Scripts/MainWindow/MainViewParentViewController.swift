@@ -12,6 +12,8 @@ class MainViewParentViewController: NSViewController {
 
     var topBarVC = NSViewController()
     var mainBarVC = NSViewController()
+    
+            var bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -27,26 +29,34 @@ class MainViewParentViewController: NSViewController {
         self.view.addSubview(mainBarVC.view)
         mainBarVC.view.frame = NSRect(x: 0, y: 0, width: 1280, height: 670)
         
-        
-//
-//        let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
-//
 //        self.addChildViewController(bottomBarVC)
 //        self.view.addSubview(bottomBarVC.view)
 //        bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+//        bottomBarVC.viewWillAppear();
+        
+        
+
+//
+
         
     }
     
     func openBottom(){
+//        self.bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
+////
+////        let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
+//
+//        self.addChildViewController(bottomBarVC)
+//        self.view.addSubview(bottomBarVC.view)
+//        bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
+//        bottomBarVC.viewWillAppear();
         
-
-        let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
-
-        self.addChildViewController(bottomBarVC)
-        self.view.addSubview(bottomBarVC.view)
-        bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
         
         
+//
+//                self.addChildViewController(bottomBarVC)
+//                self.view.addSubview(bottomBarVC.view)
+//                bottomBarVC.view.frame = CGRect(x: 0, y:  0, width: 1280, height: 100)
 //        let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
 //        bottomBarVC.view.layer?.removeAllAnimations()
 //        self.addChildViewController(bottomBarVC)
