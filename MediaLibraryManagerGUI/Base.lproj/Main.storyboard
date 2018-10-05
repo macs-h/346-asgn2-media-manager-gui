@@ -219,24 +219,24 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suH-vG-T8l">
-                                <rect key="frame" x="217" y="0.0" width="1063" height="570"/>
+                                <rect key="frame" x="0.0" y="0.0" width="1280" height="570"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="MainBackground" id="5XK-4n-ydu"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="Main Background" id="5XK-4n-ydu"/>
                             </imageView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTe-EI-ncy">
-                                <rect key="frame" x="217" y="80" width="813" height="490"/>
+                                <rect key="frame" x="239" y="80" width="791" height="490"/>
                                 <clipView key="contentView" drawsBackground="NO" id="nSC-Oo-s2F">
-                                    <rect key="frame" x="0.0" y="0.0" width="813" height="490"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="791" height="490"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="JIz-OS-IBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="813" height="490"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="791" height="490"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="5" height="27"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="gridColor" name="shadowColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="808" minWidth="40" maxWidth="1000" id="59I-Qe-1BR">
+                                                <tableColumn width="786" minWidth="40" maxWidth="1000" id="59I-Qe-1BR">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Files">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -250,11 +250,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="fileID" id="YT0-Hx-GlG">
-                                                            <rect key="frame" x="2" y="13" width="808" height="17"/>
+                                                            <rect key="frame" x="2" y="13" width="786" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u86-Gb-Egk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="808" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="786" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="file..." id="K17-F6-d4s">
                                                                         <font key="font" metaFont="system"/>
@@ -283,25 +283,20 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Lk-lu-6F4" userLabel="Left side background">
-                                <rect key="frame" x="0.0" y="0.0" width="218" height="570"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="Left side background" id="ogR-oM-qIx"/>
-                            </imageView>
                             <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvS-Ma-JBX">
-                                <rect key="frame" x="0.0" y="100" width="218" height="470"/>
+                                <rect key="frame" x="0.0" y="100" width="237" height="470"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="3XD-KM-lIM">
-                                    <rect key="frame" x="0.0" y="0.0" width="218" height="470"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="237" height="470"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView identifier="CategoryTableView" verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="KMg-nr-M9o">
-                                            <rect key="frame" x="0.0" y="0.0" width="218" height="470"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="237" height="470"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="28" height="15"/>
                                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="gridColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <tableColumns>
-                                                <tableColumn width="190" minWidth="40" maxWidth="1000" id="bUY-vx-2qd">
+                                                <tableColumn width="209" minWidth="40" maxWidth="1000" id="bUY-vx-2qd">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -315,11 +310,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="CategoryID" id="TEt-NU-zqL">
-                                                            <rect key="frame" x="14" y="7" width="190" height="17"/>
+                                                            <rect key="frame" x="14" y="7" width="209" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6NU-fQ-sAs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="190" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="209" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="vc6-zP-mG2">
                                                                         <font key="font" metaFont="system"/>
@@ -348,20 +343,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MwY-Ob-LCN" userLabel="Preview background">
-                                <rect key="frame" x="1030" y="0.0" width="250" height="570"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageAlignment="topLeft" imageScaling="axesIndependently" image="preview background" id="SyE-w9-bjG"/>
-                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="fvS-Ma-JBX" secondAttribute="bottom" constant="100" id="3dW-jM-CU3"/>
                             <constraint firstItem="fvS-Ma-JBX" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AgI-cg-t8j"/>
                             <constraint firstAttribute="trailing" secondItem="mTe-EI-ncy" secondAttribute="trailing" constant="250" id="MPc-Bd-2nK"/>
                             <constraint firstItem="fvS-Ma-JBX" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="PwS-67-RjJ"/>
-                            <constraint firstAttribute="trailing" secondItem="fvS-Ma-JBX" secondAttribute="trailing" constant="1062" id="XZc-IO-1zb"/>
+                            <constraint firstAttribute="trailing" secondItem="fvS-Ma-JBX" secondAttribute="trailing" constant="1043" id="XZc-IO-1zb"/>
                             <constraint firstItem="mTe-EI-ncy" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="ZQ8-ce-rer"/>
-                            <constraint firstItem="mTe-EI-ncy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="217" id="iQu-s0-QPy"/>
+                            <constraint firstItem="mTe-EI-ncy" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="239" id="iQu-s0-QPy"/>
                             <constraint firstAttribute="bottom" secondItem="mTe-EI-ncy" secondAttribute="bottom" constant="80" id="lv8-yb-pih"/>
                         </constraints>
                     </view>
@@ -437,9 +427,9 @@ IA
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rOY-oy-uIA">
-                                <rect key="frame" x="947" y="58" width="98" height="32"/>
+                                <rect key="frame" x="998" y="54" width="35" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Decouple" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tne-RS-kGR">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Decouple button" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="tne-RS-kGR">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -532,9 +522,9 @@ IA
                             </textFieldCell>
                         </textField>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ct-q6-KAI">
-                            <rect key="frame" x="0.0" y="147" width="36" height="25"/>
+                            <rect key="frame" x="-8" y="141" width="46" height="31"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="XDJ-OV-NpY">
+                            <buttonCell key="cell" type="square" title="X" bezelStyle="shadowlessSquare" image="Close Popover window" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="XDJ-OV-NpY">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                 <font key="font" metaFont="system"/>
                             </buttonCell>
@@ -1248,9 +1238,11 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="Bookmark button" width="27" height="56"/>
         <image name="Bookmark popover" width="220" height="168"/>
         <image name="Bottom bar" width="1280" height="100"/>
+        <image name="Close Popover window" width="26" height="26"/>
+        <image name="Decouple button" width="35" height="36"/>
         <image name="FBRD_logo" width="550" height="550"/>
         <image name="Forward button" width="46" height="38"/>
-        <image name="Left side background" width="238" height="646"/>
+        <image name="Main Background" width="1280" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
         <image name="PlaceholderMusic" width="450" height="450"/>
@@ -1258,10 +1250,9 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="Search barckground" width="206" height="41"/>
         <image name="TopBar background" width="1279" height="50"/>
         <image name="next button" width="19" height="20"/>
-        <image name="preview background" width="250" height="597"/>
         <image name="previous button" width="19" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uRm-XU-ZIS"/>
+        <segue reference="RWx-oS-FBb"/>
     </inferredMetricsTieBreakers>
 </document>

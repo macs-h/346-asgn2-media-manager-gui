@@ -296,20 +296,28 @@ class Model{
     func openFileInWindow() {
         //check the type of file and open it accordingly
         currentFileOpen = currentFile
-        let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
         openFileDelegate?.DecoupleMedia()
+        if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
+            let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+            print("recouple time", time)
+            Model.instance.mediaJumpToTime(jumpTo: time)
+        }
         
-        print("recouple time", time)
-        Model.instance.mediaJumpToTime(jumpTo: time)
+        
+        
     }
     
     func returnFileToMainWindow() {
         currentFileOpen = nil
-        let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
         openFileDelegate?.showMediaContent()
+        if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
+            let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+            print("recouple time", time)
+            Model.instance.mediaJumpToTime(jumpTo: time)
+        }
         
-        print("recouple time", time)
-        Model.instance.mediaJumpToTime(jumpTo: time)
+        
+        
     }
     
     func addBookmark(label: String) {

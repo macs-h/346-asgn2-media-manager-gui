@@ -79,7 +79,6 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
      */
     func DecoupleMedia() {
         performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: "ShowMediaContentSegue"), sender: self)
-        print("decouple subviews \(self.view.subviews)")
         self.view.subviews[4].removeFromSuperview() //removes embeded player and shows image behind
     }
     
