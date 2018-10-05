@@ -11,7 +11,7 @@
 import Cocoa
 
 /**
-    // ---------------- COMMENT THIS ---------------------
+    PreviewViewController deals with everything to do with file preview
  */
 class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     var file = MM_File() //assigned by mainVC before this is opened
@@ -25,16 +25,14 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //asign pic if it has one
-        //assign notes if it has any
-        
         metadataTable.dataSource = self
         metadataTable.delegate = self
     }
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called to set up this viewController (out of viewDidLoad because of race
+        conditions and needs to be called after certain variables are set)
      */
     func setup(file: MMFile) {
         self.file = file as! MM_File
@@ -62,7 +60,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     
     /**
-        Gets the number of items in the current category   ?? ------------------
+        Gets the number of items in the current category
      
         - parameter in: The table in which to count.
         - returns: The number of rows in the table.
@@ -73,7 +71,7 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        tableView deletgate function used to populate rows with approprate data
      */
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if tableColumn?.title == "Key" {

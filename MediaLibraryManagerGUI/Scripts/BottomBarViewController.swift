@@ -10,8 +10,7 @@
 
 import Cocoa
 
-// ---------------- COMMENT THIS ---------------------
-// swiftlint:disable class_delegate_protocol
+// Delegate function so buttons will affect meida when decoupled
 protocol bottomBarDelegate {
     func play()
     func pause()
@@ -21,7 +20,7 @@ protocol bottomBarDelegate {
 
 
 /**
-    // ---------------- COMMENT THIS ---------------------
+    BottomBarViewControllers controls the functions of the bottom bar
  */
 class BottomBarViewController: NSViewController {
 
@@ -34,12 +33,12 @@ class BottomBarViewController: NSViewController {
     
     @IBOutlet weak var decoupleButton: NSButton!
     
-    //popOver variables
+    //popover variables
     @IBOutlet var PopOverView: NSView!
     @IBOutlet weak var bookmarkPopoverTimeLabel: NSTextField!
     @IBOutlet weak var bookmarkPopoverTextField: NSTextField!
     
-    
+    //Tells the model that this is the bottome bar and called at first load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -47,7 +46,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Previous button pressed and will go to the previous file in sublibrary
     @IBAction func PreviousAction(_ sender: NSButton) {
         //tell model to change the file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]-1)
@@ -55,7 +54,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Plays or pauses the media depending on the current state
     @IBAction func play_pauseAction(_ sender: NSButton) {
         //tell the model to play the media
         if mediaIsPlaying {
@@ -75,7 +74,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Next button pressed and will go to the next file in the sublibrary
     @IBAction func nextAction(_ sender: NSButton) {
         //tell the model to change to file to the new file
         print("next action")
@@ -84,7 +83,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Bookmark button pressed so show the bookmark dialog
     @IBAction func bookmarkAction(_ sender: NSButton) {
         //show popover
         let openVC = Model.instance.openFileDelegate as! FileOpenViewController
@@ -98,12 +97,12 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Decoupled media button, tells Model to decouple media
     @IBAction func decoupleMediaAction(_ sender: NSButton) {
         Model.instance.openFileInWindow()
     }
     
-    
+    // Called up the Model to update the buttons which are active
     func updateOutlets() {
         if let currentIndex = Model.instance.currentFileIndex {
             if currentIndex[0]+1 >= Model.instance.subLibrary.all().count {
@@ -125,9 +124,9 @@ class BottomBarViewController: NSViewController {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        updates the buttons based on the type of the current file
      
-        - parameter fileType: The type of file.
+        - parameter fileType: currentFile type
      */
     func updateButtonsBasedOnType(fileType: String?) {
         //might need to check open file type
@@ -173,6 +172,7 @@ class BottomBarViewController: NSViewController {
         
         
     }
+    //disables every button in the bar (used when first loaded)
     func disableEverything() {
         nextButton.isEnabled = false
         previousButton.isEnabled = false
@@ -182,7 +182,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Done button on popover pressed, used to add a bookmark
     @IBAction func BookmarkPopOverDone(_ sender: Any) {
         //check if time is valid
         //add bookmark with title as key and value as time
@@ -192,7 +192,7 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Close bookmark button was pressed to remove bookmark dialog
     @IBAction func closeBookmarkPopover(_ sender: Any) {
         PopOverView.removeFromSuperview()
         bookmarkPopoverTextField.stringValue = ""

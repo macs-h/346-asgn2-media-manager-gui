@@ -11,7 +11,7 @@
 import Cocoa
 
 /**
-    // ---------------- COMMENT THIS ---------------------
+    MainTopViewController class used for controlling the top bar controls
  */
 class MainTopViewController: NSViewController {
     @IBOutlet weak var logoImage: NSImageView!
@@ -26,6 +26,7 @@ class MainTopViewController: NSViewController {
     
     var splitView: NSViewController = NSViewController()
     
+    //changes what is enabled or disabled because of what screen your on
     var openVC = NSViewController(){ //the open vc (either main or open file) will assign itself to this
         didSet{
             if openVC.title == "MainVC"{
@@ -50,11 +51,12 @@ class MainTopViewController: NSViewController {
     }
     
    
-    
+    //import a new json file by clicking + button
     @IBAction func addFiles(_ sender: Any) {
         Model.instance.addFile()
     }
     
+    //Called when the view was loaded to set up the controller
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -67,7 +69,7 @@ class MainTopViewController: NSViewController {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called by both buttons and moves to the other view depending on what was pressed
      */
     @IBAction func forward_BackPressed(_ sender: NSButton) {
         if sender.tag == 0{
@@ -81,7 +83,7 @@ class MainTopViewController: NSViewController {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Controlled by search bar, updated after every string change making it able to "live" search
      */
     @IBAction func searchAcion(_ sender: NSSearchField) {
         if sender.stringValue != ""{

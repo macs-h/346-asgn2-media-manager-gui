@@ -12,7 +12,8 @@ import Cocoa
 import AppKit
 
 /**
-    // ---------------- COMMENT THIS ---------------------
+    MainViewController is the first large view that is displayed so deals with
+    some init activities
  */
 class MainViewController: NSViewController, MainViewModelDegate {
     
@@ -23,7 +24,7 @@ class MainViewController: NSViewController, MainViewModelDegate {
     var previewVC: PreviewViewController?
     let categories = ["Images", "Audio", "Video", "Documents"]
     
-    // ---------------- COMMENT THIS ---------------------
+    // Called When view first loads and sets up viewController to work as intended
     override func viewDidLoad() {
         super.viewDidLoad()
         fileTable.dataSource = self
@@ -36,8 +37,6 @@ class MainViewController: NSViewController, MainViewModelDegate {
         categoryTable.action = #selector(clickOnCategory)
         
         let mainTopVC = (self.parent?.childViewControllers[0]) as! MainTopViewController
-        
-        let parent = self.parent as! MainViewParentViewController
         mainTopVC.openVC = self
         Model.instance.mainViewDegate = self
         let indexPath = IndexSet(arrayLiteral: Model.instance.currentCategoryIndex)
@@ -55,7 +54,8 @@ class MainViewController: NSViewController, MainViewModelDegate {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called by the Model to tell this controller that somethings have changed
+        it should check to see if it is affected (and do something if it is)
      */
     func updateOutets(files: [MMFile]) {
         self.files = files
@@ -64,7 +64,6 @@ class MainViewController: NSViewController, MainViewModelDegate {
             if Model.instance.currentCategoryIndex == currentIndex[1] {
                 let indexPath = IndexSet(arrayLiteral: currentIndex[0])
                 fileTable.selectRowIndexes(indexPath, byExtendingSelection: false)
-                //previewVC = Model.instance.showPreview(sender: self, preview_VC: previewVC, fileIndex: currentIndex[0])
             }
         }
         if Model.instance.currentCategoryIndex == -1{
@@ -75,7 +74,8 @@ class MainViewController: NSViewController, MainViewModelDegate {
 
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called when a single click is performed on the category table which changes
+        Category
      */
     @objc func clickOnCategory(_ sender: NSButton) {
        Model.instance.changeCategory(catIndex: categoryTable.clickedRow)
@@ -88,10 +88,10 @@ class MainViewController: NSViewController, MainViewModelDegate {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called when user double clicks on file in table,
+        opens that file in new view by notifying model
      */
     @objc func doubleClickOnRow() {
-        //print("doubleClickOnRow \(fileTable.clickedRow)")
         if fileTable.clickedRow == -1 {
             //not clicked on a file
         } else {
@@ -103,14 +103,12 @@ class MainViewController: NSViewController, MainViewModelDegate {
 
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        Called when user single clicks on a row and shows the preview of that file
      */
     @objc func clickOnRow() {
-        //print("clickOnRow \(fileTable.clickedRow)")
 
         if fileTable.clickedRow == -1 {
             //not clicked on a file
-            //previewVC?.view.removeFromSuperview()
             if previewVC != nil {
                 Model.instance.removePreview(sender: self, previewVC: previewVC!)
                 previewVC = nil
@@ -126,18 +124,16 @@ class MainViewController: NSViewController, MainViewModelDegate {
             }
         }
     }
-    //listen for clicks and remove preview if no files were clicked
 
 }
 
 extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
     /**
-        // ---------------- COMMENT THIS ---------------------
+        TableView delegate function used to tell tableView how many rows to make
      */
-    //dataSource function
     func numberOfRows(in tableView: NSTableView) -> Int {
         if tableView == fileTable {
-            return files.count//Model.instance.library.collection.count //subLibrary.all().count
+            return files.count
         } else {
             return categories.count
         }
@@ -145,15 +141,14 @@ extension MainViewController: NSTableViewDataSource, NSTableViewDelegate {
 
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        TableView delegate function used to populate the rows with approprate data
      */
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if tableView == fileTable {
-            //print("making cell \(row)")
-            let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView //FileCell
+            //file table
+            let file = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileID"), owner: nil) as! NSTableCellView
             
-            file.textField!.stringValue = files[row].filename//Model.instance.library.collection[row].filename//subLibrary.all()[row].filename
-            //file.file = collection[row]
+            file.textField!.stringValue = files[row].filename
             print("file text \(file.textField!.stringValue)")
             return file
         } else {
