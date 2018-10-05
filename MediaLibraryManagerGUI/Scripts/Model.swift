@@ -180,7 +180,7 @@ class Model{
         }
         if segueName == "MainViewSegue"{
             mainTopbar?.openVC = mainViewDegate as! NSViewController
-            if bottomBarVC!.mediaIsPlaying{
+            if bottomBarVC!.mediaIsPlaying && !bottomBarVC!.windowIsOpen{
                 bottomBarVC?.stopMedia()
             }
         }else if segueName == "FileOpenSegue"{

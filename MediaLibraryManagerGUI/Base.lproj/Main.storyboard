@@ -761,11 +761,6 @@ IA
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nke-hG-1qh" userLabel="LogoImage">
-                                        <rect key="frame" x="616" y="1" width="48" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="FBRD_logo" id="cHs-l1-xvf"/>
-                                    </imageView>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ooi-5d-3te">
                                         <rect key="frame" x="223" y="6" width="46" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -808,7 +803,6 @@ IA
                         <outlet property="backButton" destination="Ooi-5d-3te" id="zHR-SA-VWk"/>
                         <outlet property="fileNameLabel" destination="TpJ-Mb-NMi" id="fWz-yg-S7j"/>
                         <outlet property="forwardButton" destination="WUa-Gt-atK" id="aiY-dL-4JA"/>
-                        <outlet property="logoImage" destination="Nke-hG-1qh" id="bQO-ml-89O"/>
                         <outlet property="searchBar" destination="qSM-OS-wyy" id="KVP-GD-3PJ"/>
                     </connections>
                 </viewController>
