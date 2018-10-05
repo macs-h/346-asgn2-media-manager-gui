@@ -49,9 +49,9 @@ class PreviewViewController: NSViewController, NSTableViewDataSource, NSTableVie
         }
         metadataTable.reloadData()
         
-        let image = NSImage(contentsOfFile: file.fullpath)
+        var image = NSImage(contentsOfFile: file.fullpath)
         if image == nil {
-            //show default image by using the type
+            image = NSImage(named: NSImage.Name(rawValue: file.fileType))//show default image by using the type
         }
         previewImage.image = image
     }
