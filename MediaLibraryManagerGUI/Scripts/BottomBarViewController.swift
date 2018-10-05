@@ -30,6 +30,7 @@ class BottomBarViewController: NSViewController {
     @IBOutlet weak var bookmarkButton: NSButton!
     var delegte: bottomBarDelegate?
     var mediaIsPlaying = false
+    var windowIsOpen = false
     
     @IBOutlet weak var decoupleButton: NSButton!
     
@@ -37,12 +38,16 @@ class BottomBarViewController: NSViewController {
     @IBOutlet var PopOverView: NSView!
     @IBOutlet weak var bookmarkPopoverTimeLabel: NSTextField!
     @IBOutlet weak var bookmarkPopoverTextField: NSTextField!
-    
+    @IBOutlet weak var FileNameLabel: NSTextField!
     //Tells the model that this is the bottome bar and called at first load
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
        Model.instance.bottomBarVC = self
+    }
+    
+    override func viewWillDisappear() {
+        play_pauseAction(self)
     }
     
     
@@ -51,11 +56,16 @@ class BottomBarViewController: NSViewController {
         //tell model to change the file to the new file
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]-1)
         delegte?.previous()
+        if mediaIsPlaying{
+            delegte?.play()
+        }else{
+            play_pauseAction(self)
+        }
     }
     
     
     // Plays or pauses the media depending on the current state
-    @IBAction func play_pauseAction(_ sender: NSButton) {
+    @IBAction func play_pauseAction(_ sender: Any) {
         //tell the model to play the media
         if mediaIsPlaying {
             //file playing
@@ -70,16 +80,25 @@ class BottomBarViewController: NSViewController {
             //change image
             play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Pause button"))
         }
-        //have a title in the bottom bar to show what file is opens
+        updateOutlets()//have a title in the bottom bar to show what file is opens
+    }
+    
+    func stopMedia(){
+        delegte?.pause()
+        play_pauseButton.image = NSImage(named: NSImage.Name(rawValue: "Pause button"))
     }
     
     
     // Next button pressed and will go to the next file in the sublibrary
     @IBAction func nextAction(_ sender: NSButton) {
         //tell the model to change to file to the new file
-        print("next action")
         Model.instance.selectFile(fileIndex: Model.instance.currentFileIndex![0]+1)
         delegte?.next()
+        if mediaIsPlaying{
+            delegte?.play()
+        }else{
+            play_pauseAction(self)
+        }
     }
     
     
@@ -100,10 +119,30 @@ class BottomBarViewController: NSViewController {
     // Decoupled media button, tells Model to decouple media
     @IBAction func decoupleMediaAction(_ sender: NSButton) {
         Model.instance.openFileInWindow()
+        if mediaIsPlaying{
+            delegte?.play()
+        }
+        windowIsOpen = true
+        decoupleButton.isEnabled = false
+    }
+    
+    func recoupleMedia(){
+        windowIsOpen = false
+        decoupleButton.isEnabled = true
+        Model.instance.currentFileOpen = nil
+        updateOutlets()
     }
     
     // Called up the Model to update the buttons which are active
-    func updateOutlets() {
+    func updateOutlets(_ windowOpen: Bool = false) {
+        
+        if let fileName = Model.instance.currentFileOpen{
+            FileNameLabel.stringValue = fileName.filename
+        }else if let fileName = Model.instance.currentFile{
+            FileNameLabel.stringValue = fileName.filename
+        }else{
+            FileNameLabel.stringValue = ""
+        }
         if let currentIndex = Model.instance.currentFileIndex {
             if currentIndex[0]+1 >= Model.instance.subLibrary.all().count {
                 //hide forward button
@@ -117,6 +156,9 @@ class BottomBarViewController: NSViewController {
             } else {
                 previousButton.isEnabled = true
             }
+        }
+        if windowOpen{
+            Model.instance.openFileDelegate?.showMediaContent()
         }
         //changes the bottom bar depending on type
         updateButtonsBasedOnType(fileType: Model.instance.currentFile?.fileType)
@@ -174,6 +216,7 @@ class BottomBarViewController: NSViewController {
     }
     //disables every button in the bar (used when first loaded)
     func disableEverything() {
+        FileNameLabel.stringValue = ""
         nextButton.isEnabled = false
         previousButton.isEnabled = false
         bookmarkButton.isEnabled = false

@@ -28,13 +28,13 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
     
     // Plays the video.
     func play() {
-        playPauseVideo()
+        playerView.player?.play()
     }
 
     
     // Pauses the video.
     func pause() {
-        playPauseVideo()
+        playerView.player?.pause()
     }
     
     

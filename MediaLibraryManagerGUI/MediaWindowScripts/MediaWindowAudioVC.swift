@@ -23,19 +23,23 @@ class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
         loadAudio()
         
         // Provides functionality for the following functions.
-        Model.instance.bottomBarVC?.delegte = self
+        if !Model.instance.bottomBarVC!.windowIsOpen{
+            Model.instance.bottomBarVC?.delegte = self
+        }
+            
     }
+    
     
     
     // Plays the audio.
     func play() {
-        playPauseAudio()
+        playerView.player?.play()
     }
 
     
     // Pauses the audio.
     func pause() {
-        playPauseAudio()
+        playerView.player?.pause()
     }
     
     
@@ -53,7 +57,9 @@ class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
     
     // Loads the audio into the AV Player view.
     @objc private func loadAudio() {
+        
         Model.instance.loadMediaPlayer(self, playerView: playerView)
+        
     }
     
     

@@ -437,14 +437,23 @@ IA
                                     <action selector="decoupleMediaAction:" target="EQx-uk-cdA" id="onw-7l-NY6"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tpr-qA-D39" userLabel="playing file name">
+                                <rect key="frame" x="35" y="41" width="343" height="48"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" id="iWx-XT-tVo">
+                                    <font key="font" metaFont="system" size="27"/>
+                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="FileNameLabel" destination="Tpr-qA-D39" id="rjB-G8-Nsa"/>
                         <outlet property="PopOverView" destination="jJV-Ka-7Zo" id="uGx-hb-KNc"/>
                         <outlet property="bookmarkButton" destination="lqq-Rp-9Yq" id="aGY-qB-Dpa"/>
-                        <outlet property="bookmarkPopoverTextField" destination="5jW-nr-UAI" id="pqr-Pa-sIF"/>
+                        <outlet property="bookmarkPopoverTextField" destination="5jW-nr-UAI" id="jsW-tu-7Fy"/>
                         <outlet property="bookmarkPopoverTimeLabel" destination="ADG-Qi-TKN" id="gB4-dg-Wy3"/>
-                        <outlet property="boomarkPopoverTextField" destination="5jW-nr-UAI" id="c65-Pf-SdU"/>
                         <outlet property="decoupleButton" destination="rOY-oy-uIA" id="O2E-3p-Pvd"/>
                         <outlet property="nextButton" destination="bj7-oC-IKd" id="XGj-5z-AEv"/>
                         <outlet property="play_pauseButton" destination="chO-FU-7D0" id="Jxh-Bo-hJN"/>
@@ -488,21 +497,9 @@ IA
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
                             <connections>
-                                <action selector="performClick:" target="vfL-5Z-4m6" id="B7k-gC-Ug7"/>
+                                <action selector="BookmarkPopOverDone:" target="EQx-uk-cdA" id="HVM-On-s9d"/>
                             </connections>
                         </textField>
-                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfL-5Z-4m6">
-                            <rect key="frame" x="76" y="29" width="72" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="At9-gz-qyH">
-                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                <font key="font" metaFont="system"/>
-                            </buttonCell>
-                            <color key="contentTintColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
-                            <connections>
-                                <action selector="BookmarkPopOverDone:" target="EQx-uk-cdA" id="eSQ-gD-sto"/>
-                            </connections>
-                        </button>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-rQ-nyQ">
                             <rect key="frame" x="25" y="111" width="49" height="22"/>
                             <autoresizingMask key="autoresizingMask"/>

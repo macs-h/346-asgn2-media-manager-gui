@@ -45,6 +45,7 @@ class MediaWindowWC: NSWindowController, NSWindowDelegate {
      */
     func windowWillClose(_ notification: Notification) {
         Model.instance.returnFileToMainWindow()
+        Model.instance.bottomBarVC?.recoupleMedia()
     }
 
 }

@@ -180,9 +180,11 @@ class Model{
         }
         if segueName == "MainViewSegue"{
             mainTopbar?.openVC = mainViewDegate as! NSViewController
-//            print("stay baby")
-//            mainParentVC?.addChildViewController(bottomBarVC!)
-//            mainParentVC?.view.addSubview(bottomBarVC!.view)
+            if bottomBarVC!.mediaIsPlaying{
+                bottomBarVC?.stopMedia()
+            }
+        }else if segueName == "FileOpenSegue"{
+            bottomBarVC?.updateOutlets()
         }
         selectFile(fileIndex: fileIndex)
         sourceController.performSegue(withIdentifier: NSStoryboardSegue.Identifier(rawValue: segueName), sender: self)
@@ -197,6 +199,7 @@ class Model{
                 currentFileIndex = [fileIndex, currentCategoryIndex]
                 updateOpenFileVC()
                 updateBottomBarVC()
+                mainTopbar?.updateTopBar()
             }
         }catch{
             print("file out of range")
@@ -245,22 +248,33 @@ class Model{
     func openFileInWindow() {
         //check the type of file and open it accordingly
         currentFileOpen = currentFile
-        openFileDelegate?.DecoupleMedia()
+        var time = ""
         if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
-            let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+            time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
+        }
+        openFileDelegate?.DecoupleMedia()
+        if time != ""{
             Model.instance.mediaJumpToTime(jumpTo: time)
         }
+        
+        
     }
     
     //Returns the decoupled window to main panel
     func returnFileToMainWindow() {
         currentFileOpen = nil
-        openFileDelegate?.showMediaContent()
+        var time = ""
         if currentFile?.fileType == "video" || currentFile?.fileType == "audio"{
-            let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
-            Model.instance.mediaJumpToTime(jumpTo: time)
+            time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
         }
+        openFileDelegate?.showMediaContent()
         
+        if time != ""{
+            Model.instance.mediaJumpToTime(jumpTo: time)
+            if bottomBarVC!.mediaIsPlaying{
+                bottomBarVC?.delegte?.play()
+            }
+        }
         
         
     }

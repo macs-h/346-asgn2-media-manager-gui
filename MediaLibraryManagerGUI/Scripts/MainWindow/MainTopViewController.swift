@@ -14,7 +14,6 @@ import Cocoa
     MainTopViewController class used for controlling the top bar controls
  */
 class MainTopViewController: NSViewController {
-    @IBOutlet weak var logoImage: NSImageView!
     
     @IBOutlet weak var fileNameLabel: NSTextField!
     
@@ -35,7 +34,6 @@ class MainTopViewController: NSViewController {
                 if Model.instance.currentFile != nil {
                     forwardButton.isEnabled = true
                 }
-                logoImage.isHidden = false
                 fileNameLabel.isHidden = true
                 searchBar.isHidden = false
             }else{
@@ -43,7 +41,6 @@ class MainTopViewController: NSViewController {
                 backButton.isEnabled = true
                 forwardButton.isEnabled = false
                 fileNameLabel.stringValue = Model.instance.currentFile!.filename
-                logoImage.isHidden = true
                 fileNameLabel.isHidden = false
                 searchBar.isHidden = true
             }
@@ -99,5 +96,9 @@ class MainTopViewController: NSViewController {
             let indexPath = IndexSet(arrayLiteral: catIndex)
             mainVC.categoryTable.selectRowIndexes(indexPath, byExtendingSelection: false)
         }
+    }
+    
+    func updateTopBar(){
+        fileNameLabel.stringValue = (Model.instance.currentFile?.filename)!
     }
 }
