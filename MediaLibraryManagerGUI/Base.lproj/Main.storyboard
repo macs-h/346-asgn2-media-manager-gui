@@ -497,6 +497,9 @@ IA
                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </textFieldCell>
+                            <connections>
+                                <action selector="performClick:" target="vfL-5Z-4m6" id="B7k-gC-Ug7"/>
+                            </connections>
                         </textField>
                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfL-5Z-4m6">
                             <rect key="frame" x="76" y="29" width="72" height="32"/>

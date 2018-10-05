@@ -55,7 +55,8 @@ class Model{
             if oldValue != nil && openFileDelegate == nil{
                 //open window closed
                 print("removing bar")
-                removeBottomBar()
+                //removeBottomBar()
+                bottomBarVC?.disableEverything()
                 
             }
         }

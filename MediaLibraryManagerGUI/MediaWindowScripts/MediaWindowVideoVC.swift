@@ -19,7 +19,6 @@ class MediaWindowVideoVC: NSViewController, bottomBarDelegate {
     // Loads the selected video file.
     override func viewDidLoad() {
         super.viewDidLoad()
-
         loadVideo()
         
         // Provides functionality for the following functions.
