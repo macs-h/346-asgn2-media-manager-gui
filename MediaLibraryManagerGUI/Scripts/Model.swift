@@ -2,7 +2,7 @@
 //  Model.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Sam Paterson on 29/09/18.
+//  Created by Fire Breathing Rubber Duckies on 29/09/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 

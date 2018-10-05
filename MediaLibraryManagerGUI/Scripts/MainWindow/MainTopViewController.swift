@@ -2,12 +2,17 @@
 //  MainTopViewController.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Samuel Paterson on 9/27/18.
+//  Created by Fire Breathing Rubber Duckies on 9/27/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
+// DOUBLE CHECK
+
 import Cocoa
 
+/**
+    // ---------------- COMMENT THIS ---------------------
+ */
 class MainTopViewController: NSViewController {
     @IBOutlet weak var logoImage: NSImageView!
     
@@ -26,7 +31,7 @@ class MainTopViewController: NSViewController {
             if openVC.title == "MainVC"{
                 //main VC is open
                 backButton.isEnabled = false
-                if Model.instance.currentFile != nil{
+                if Model.instance.currentFile != nil {
                     forwardButton.isEnabled = true
                 }
                 logoImage.isHidden = false
@@ -58,21 +63,26 @@ class MainTopViewController: NSViewController {
         self.view.window?.styleMask = .texturedBackground
         self.view.window?.backgroundColor = .black
         Model.instance.mainTopbar = self
-       
     }
     
+    
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     @IBAction func forward_BackPressed(_ sender: NSButton) {
-        
         if sender.tag == 0{
-            //back button pressed
+            // back button pressed
              Model.instance.switchVC(sourceController: openVC, segueName: "MainViewSegue", fileIndex: -1)
-        }else{
-            //forwardButton pressed
+        } else {
+            // forward button pressed
             Model.instance.switchVC(sourceController: openVC, segueName: "FileOpenSegue", fileIndex: -1)
         }
     }
     
     
+    /**
+        // ---------------- COMMENT THIS ---------------------
+     */
     @IBAction func searchAcion(_ sender: NSSearchField) {
         if sender.stringValue != ""{
             let searchTerms = sender.stringValue.components(separatedBy: " ")

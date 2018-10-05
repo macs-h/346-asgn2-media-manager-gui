@@ -2,50 +2,65 @@
 //  MediaWindowAudioVC.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Max Huang on 2/10/18.
+//  Created by Fire Breathing Rubber Duckies on 2/10/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
 import Cocoa
 import AVKit
 
+/**
+    View controller for displaying the audio media files.
+ */
 class MediaWindowAudioVC: NSViewController, bottomBarDelegate {
     
     @IBOutlet weak var playerView: AVPlayerView!
     
+    // Loads the selected audio file.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
         
         loadAudio()
         
-        //makes the below functions work
+        // Provides functionality for the following functions.
         Model.instance.bottomBarVC?.delegte = self
     }
     
+    
+    // Plays the audio.
     func play() {
-        print("Play called")
+        playPauseAudio()
     }
+
     
+    // Pauses the audio.
     func pause() {
-        print("Pause called")
+        playPauseAudio()
     }
     
+    
+    // Advances to the next audio, if one exists.
     func next() {
-        print("Next called")
+        loadAudio()
     }
     
+    
+    // Backs up to the previous audio, if one exists.
     func previous() {
-        print("Previous called")
+        loadAudio()
     }
     
-    @objc fileprivate func loadAudio() {
+    
+    // Loads the audio into the AV Player view.
+    @objc private func loadAudio() {
         Model.instance.loadMediaPlayer(self, playerView: playerView)
     }
     
-    @objc fileprivate func playPauseVideo() {
+    
+    // Toggles the playing state of the audio.
+    @objc private func playPauseAudio() {
         let player = playerView.player!
-        if (player.timeControlStatus == AVPlayerTimeControlStatus.paused) {
+        if player.timeControlStatus == AVPlayerTimeControlStatus.paused {
             player.play()
         } else {
             player.pause()

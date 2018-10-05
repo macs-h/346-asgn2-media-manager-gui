@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var clearLibraryMenuItem: NSMenuItem!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
         let window = NSApplication.shared.windows[0]
         Model.instance.window = window
     }

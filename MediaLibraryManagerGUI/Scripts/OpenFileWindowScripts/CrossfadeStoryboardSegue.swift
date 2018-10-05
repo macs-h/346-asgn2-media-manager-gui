@@ -2,26 +2,18 @@
 //  CrossfadeStoryboardSegue.swift
 //  MediaLibraryManagerGUI
 //
-//  Created by Sam Paterson on 29/09/18.
+//  Created by Fire Breathing Rubber Duckies on 29/09/18.
 //  Copyright © 2018 Fire Breathing Rubber Duckies. All rights reserved.
 //
 
+// DOUBLE CHECK
+
 import Cocoa
 
+/**
+    // ---------------- COMMENT THIS ---------------------
+ */
 class CrossfadeStoryboardSegue: NSStoryboardSegue {
-    
-    
-//    override init(identifier: String?,
-//                  source sourceController: AnyObject,
-//                  destination destinationController: AnyObject) {
-//        var myIdentifier : String
-//        if identifier == nil {
-//            myIdentifier = ""
-//        } else {
-//            myIdentifier = identifier!
-//        }
-//        super.init(identifier: myIdentifier, source: sourceController, destination: destinationController)
-//    }
     
     override func perform() {
         let sourceViewController = self.sourceController as! NSViewController
