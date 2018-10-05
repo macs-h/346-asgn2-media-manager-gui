@@ -89,7 +89,7 @@ class BottomBarViewController: NSViewController {
         //show popover
         let openVC = Model.instance.openFileDelegate as! FileOpenViewController
         openVC.view.addSubview(PopOverView)
-        PopOverView.frame = NSRect(x: sender.frame.minX-100, y: sender.frame.maxY+20, width: 220, height: 170)
+        PopOverView.frame = NSRect(x: sender.frame.minX-100, y: sender.frame.minY-30, width: 220, height: 170)
         if let time = Model.instance.mediaPlayer?.currentTime() {
             bookmarkPopoverTimeLabel.stringValue = Utility.convertCMTimeToSeconds(time)
         } else {
@@ -104,18 +104,18 @@ class BottomBarViewController: NSViewController {
     }
     
     
-    func updateOutlets(){
-        if let currentIndex = Model.instance.currentFileIndex{
-            if currentIndex[0]+1 >= Model.instance.subLibrary.all().count{
+    func updateOutlets() {
+        if let currentIndex = Model.instance.currentFileIndex {
+            if currentIndex[0]+1 >= Model.instance.subLibrary.all().count {
                 //hide forward button
                 nextButton.isEnabled = false
-            }else{
+            } else {
                 nextButton.isEnabled = true
             }
-            if currentIndex[0]-1 < 0{
+            if currentIndex[0]-1 < 0 {
                 //hide backwards button
                 previousButton.isEnabled = false
-            }else{
+            } else {
                 previousButton.isEnabled = true
             }
         }
@@ -129,7 +129,7 @@ class BottomBarViewController: NSViewController {
      
         - parameter fileType: The type of file.
      */
-    func updateButtonsBasedOnType(fileType: String) {
+    func updateButtonsBasedOnType(fileType: String?) {
         //might need to check open file type
         var type = fileType
         if let openType = Model.instance.currentFileOpen?.fileType {
@@ -143,32 +143,29 @@ class BottomBarViewController: NSViewController {
             //hide scroll bar
             bookmarkButton.isHidden = true//hide bookmark button
             decoupleButton.isEnabled = true
-            break
         case "audio":
             play_pauseButton.isEnabled = true //show play button
             play_pauseButton.isHidden = false
             bookmarkButton.isEnabled = true//show bookmarks button
-            
+            bookmarkButton.isHidden = false
             //show scroll bar
             //show add to queue
             decoupleButton.isEnabled = true
-            break
         case "video":
             play_pauseButton.isEnabled = true //show play button
             play_pauseButton.isHidden = false
             bookmarkButton.isEnabled = true//show bookmarks button
+            bookmarkButton.isHidden = false
             //show volume button
             //show scroll bar
             //show add to queue
             decoupleButton.isEnabled = true
-            break
         case "document":
             play_pauseButton.isHidden = true//hide play button
             //hide volume button
             //hide scroll bar
             decoupleButton.isEnabled = true
             bookmarkButton.isHidden = true//hide bookmark button
-            break
         default:
             disableEverything()
             print("bottom bar is default")
@@ -176,7 +173,7 @@ class BottomBarViewController: NSViewController {
         
         
     }
-    func disableEverything(){
+    func disableEverything() {
         nextButton.isEnabled = false
         previousButton.isEnabled = false
         bookmarkButton.isEnabled = false

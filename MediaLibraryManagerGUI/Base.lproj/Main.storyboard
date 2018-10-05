@@ -833,11 +833,11 @@ IA
                 <customObject id="19x-6S-rS8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="PreviewVC" id="Vqa-bd-vc9" customClass="PreviewViewController" customModule="MediaLibraryManagerGUI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mTq-eH-hG0">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="646"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="570"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bR6-fx-qpg">
-                                <rect key="frame" x="25" y="426" width="200" height="200"/>
+                                <rect key="frame" x="25" y="350" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="heT-FU-Ozh"/>
                                     <constraint firstAttribute="height" constant="200" id="wjF-3t-fzb"/>
@@ -845,7 +845,7 @@ IA
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Placeholder" id="X57-Wu-vvl"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Wz-zv-KnO">
-                                <rect key="frame" x="-2" y="355" width="254" height="34"/>
+                                <rect key="frame" x="-2" y="279" width="254" height="34"/>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="File name" id="1gA-0X-ZhR">
                                     <font key="font" metaFont="systemBold" size="28"/>
                                     <color key="textColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -853,13 +853,13 @@ IA
                                 </textFieldCell>
                             </textField>
                             <scrollView borderType="line" autohidesScrollers="YES" horizontalLineScroll="37" horizontalPageScroll="10" verticalLineScroll="37" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klt-iE-gKw">
-                                <rect key="frame" x="0.0" y="177" width="250" height="150"/>
+                                <rect key="frame" x="0.0" y="177" width="250" height="74"/>
                                 <clipView key="contentView" drawsBackground="NO" id="h0i-Ub-mJS">
-                                    <rect key="frame" x="1" y="1" width="248" height="148"/>
+                                    <rect key="frame" x="1" y="1" width="248" height="72"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="2wI-Vx-lFz">
-                                            <rect key="frame" x="0.0" y="0.0" width="248" height="148"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="9" height="20"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25267551369863012" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -999,7 +999,7 @@ IA
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1980" y="478"/>
+            <point key="canvasLocation" x="1920" y="449"/>
         </scene>
         <!--MediaWindow-->
         <scene sceneID="pV6-re-crT">
@@ -1259,6 +1259,6 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="previous button" width="19" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RWx-oS-FBb"/>
+        <segue reference="uRm-XU-ZIS"/>
     </inferredMetricsTieBreakers>
 </document>

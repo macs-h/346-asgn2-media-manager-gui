@@ -193,15 +193,15 @@ class Model{
     }
     
     
-    func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController{
+    func showPreview(sender: NSViewController, preview_VC: PreviewViewController?, fileIndex: Int)-> PreviewViewController {
         var previewVCResult = preview_VC
-        if previewVCResult == nil{
+        if previewVCResult == nil {
             var previewVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "PreviewVC")) as! PreviewViewController
             previewVC.view.layer?.removeAllAnimations()
             sender.view.addSubview(previewVC.view)
             let x = sender.view.frame.width - 250
     //        previewVC.view.frame = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
-            previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
+            previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 570)
 //            previewVC.view.wantsLayer = true
 //            let animation = CABasicAnimation(keyPath: "position")
 //            let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
@@ -222,7 +222,7 @@ class Model{
     func removePreview(sender: NSViewController ,previewVC: PreviewViewController){
         previewVC.view.layer?.removeAllAnimations()
         let x = sender.view.frame.width - 250
-        previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 646)
+        previewVC.view.frame = CGRect(x: x, y: 0, width: 250, height: 570)
 //        CATransaction.begin()
 //        let animation = CABasicAnimation(keyPath: "position")
 //        let startingPoint = CGRect(x: sender.view.frame.width, y: 0, width: 250, height: 646)
@@ -242,8 +242,8 @@ class Model{
     
     
     
-    func showBottomBar(sender: NSViewController){
-        if bottomBarVC == nil{
+    func showBottomBar(sender: NSViewController) {
+        if bottomBarVC == nil {
             //doesnt already exist
             let bottomBarVC = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "BottomBarVC")) as! BottomBarViewController
             bottomBarVC.view.layer?.removeAllAnimations()
@@ -267,9 +267,9 @@ class Model{
         print("bottom: \(bottomBarVC)")
     }
     
-    func removeBottomBar(){
+    func removeBottomBar() {
         print("\n\nremove bottome called\n\n")
-        if bottomBarVC != nil{
+        if bottomBarVC != nil {
             bottomBarVC!.view.layer?.removeAllAnimations()
             //bottomBarVC!.view.frame = CGRect(x: 0, y: -100, width: 1280, height: 100)
             CATransaction.begin()
@@ -292,7 +292,7 @@ class Model{
     }
     
     
-    func openFileInWindow(){
+    func openFileInWindow() {
         //check the type of file and open it accordingly
         currentFileOpen = currentFile
         let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
@@ -302,7 +302,7 @@ class Model{
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
-    func returnFileToMainWindow(){
+    func returnFileToMainWindow() {
         currentFileOpen = nil
         let time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
         openFileDelegate?.showMediaContent()
@@ -311,12 +311,12 @@ class Model{
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
-    func addBookmark(label: String){
+    func addBookmark(label: String) {
         //get current time from the player
         var time = ""
-        if mediaPlayer != nil{
+        if mediaPlayer != nil {
             time = Utility.convertCMTimeToSeconds((self.mediaPlayer?.currentTime())!)
-        }else{
+        } else {
             time = "00:00:00"
         }
         //add the metadata to the file
@@ -326,28 +326,28 @@ class Model{
         updateOpenFileVC()
     }
     
-    func deleteBookmark(keyToDelete: String){
+    func deleteBookmark(keyToDelete: String) {
         bookmarks.removeValue(forKey: keyToDelete)
         saveData()
         updateOpenFileVC()
     }
     
-    func addNotes(notes: String){
+    func addNotes(notes: String) {
         self.notes = notes
         saveData()
         updateOpenFileVC()
     }
     
-    func addToQueue(){
+    func addToQueue() {
         queue.append(currentFile!) //add the current file open
     }
     
     
     
-    func saveData(){
+    func saveData() {
         //save bookmarks
         var bookmarksResult = ""
-        for keyVal in bookmarks{
+        for keyVal in bookmarks {
             bookmarksResult.append("\(keyVal.key),")
             bookmarksResult.append("\(keyVal.value),")
         }
