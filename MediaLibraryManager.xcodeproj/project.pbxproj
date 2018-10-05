@@ -39,7 +39,6 @@
 		607DBBEF21635B5500FEA55C /* buttonForward.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE421635B5500FEA55C /* buttonForward.png */; };
 		607DBBF021635B5500FEA55C /* buttonStop.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBE521635B5500FEA55C /* buttonStop.png */; };
 		607DBBF221635B8E00FEA55C /* PlaceholderMusic.png in Resources */ = {isa = PBXBuildFile; fileRef = 607DBBF121635B8E00FEA55C /* PlaceholderMusic.png */; };
-		60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */; };
 		60AC777E21677880009A038C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 60AC777D21677880009A038C /* Info.plist */; };
 		60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60AD28D4215F8BAC006166C3 /* MediaWindowWC.swift */; };
@@ -64,8 +63,6 @@
 		D3CB3A9D20DB264200AF519E /* cli.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3CB3A9C20DB264200AF519E /* cli.swift */; };
 		E1667A3A215CD96700B37644 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
 		ED04BA66216709E0000404EE /* MainViewParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED04BA65216709E0000404EE /* MainViewParentViewController.swift */; };
-		ED76A44221606BA900DD75F9 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED76A44121606BA900DD75F9 /* PreviewView.swift */; };
-		ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED81BCF5215443E30059E1D8 /* FileCell.swift */; };
 		ED96322121638D6500E757A8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED96322021638D6500E757A8 /* Model.swift */; };
 		EDC5CBD8215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */; };
 		EDC5CBDA215F048F00F3C0D4 /* MainTopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1667A39215CD96700B37644 /* MainTopViewController.swift */; };
@@ -151,8 +148,6 @@
 		D3CB3A9C20DB264200AF519E /* cli.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cli.swift; sourceTree = "<group>"; };
 		E1667A39215CD96700B37644 /* MainTopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopViewController.swift; sourceTree = "<group>"; };
 		ED04BA65216709E0000404EE /* MainViewParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewParentViewController.swift; sourceTree = "<group>"; };
-		ED76A44121606BA900DD75F9 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
-		ED81BCF5215443E30059E1D8 /* FileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCell.swift; sourceTree = "<group>"; };
 		ED96322021638D6500E757A8 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		EDC5CBD7215EEF3700F3C0D4 /* CrossfadeStoryboardSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossfadeStoryboardSegue.swift; sourceTree = "<group>"; };
 		EDEAB914216322D300C58016 /* BottomBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarViewController.swift; sourceTree = "<group>"; };
@@ -311,10 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				81AD632D21535DE80071147D /* MainViewController.swift */,
-				ED81BCF5215443E30059E1D8 /* FileCell.swift */,
 				EDFDD4342154FA5F008786A5 /* PreviewViewController.swift */,
 				E1667A39215CD96700B37644 /* MainTopViewController.swift */,
-				ED76A44121606BA900DD75F9 /* PreviewView.swift */,
 				ED04BA65216709E0000404EE /* MainViewParentViewController.swift */,
 			);
 			path = MainWindow;
@@ -536,7 +529,6 @@
 				816B046C2159A8180057DEA5 /* protocols.swift in Sources */,
 				816B046E2159A8180057DEA5 /* cli.swift in Sources */,
 				603F8B2421630AFD005AC87A /* Utility.swift in Sources */,
-				ED76A44221606BA900DD75F9 /* PreviewView.swift in Sources */,
 				816B04672159A7EE0057DEA5 /* MM_File.swift in Sources */,
 				603F8B28216317E9005AC87A /* MediaWindowDocumentVC.swift in Sources */,
 				60AD28D5215F8BAC006166C3 /* MediaWindowWC.swift in Sources */,
@@ -544,7 +536,6 @@
 				60219541216058F100E32E85 /* MM_FileImport.swift in Sources */,
 				EDEAB915216322D300C58016 /* BottomBarViewController.swift in Sources */,
 				603F8B2C216320D9005AC87A /* MediaChangeVC.swift in Sources */,
-				ED81BCF6215443E30059E1D8 /* FileCell.swift in Sources */,
 				81AD632E21535DE80071147D /* MainViewController.swift in Sources */,
 				81AD632C21535DE80071147D /* AppDelegate.swift in Sources */,
 				EDFDD4352154FA5F008786A5 /* PreviewViewController.swift in Sources */,
@@ -568,7 +559,6 @@
 				60219540216058DA00E32E85 /* MM_FileImport.swift in Sources */,
 				D3A242122133C0960061C4F3 /* MM_FileExport.swift in Sources */,
 				D3CB3A9D20DB264200AF519E /* cli.swift in Sources */,
-				60897EBD2158E8B4008CB337 /* FileCell.swift in Sources */,
 				60897EBE2158E8B4008CB337 /* PreviewViewController.swift in Sources */,
 				818DA0D4215867EE000C22C0 /* MainViewController.swift in Sources */,
 				D3A24228213502A30061C4F3 /* MM_Metadata.swift in Sources */,

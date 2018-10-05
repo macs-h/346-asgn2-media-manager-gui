@@ -11,7 +11,7 @@
 import Cocoa
 
 /**
-    // ---------------- COMMENT THIS ---------------------
+    FileOpenViewController controls most things when it comes to a open file
  */
 class FileOpenViewController: NSViewController, OpenFileModelDegate {
     
@@ -24,6 +24,8 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     @IBOutlet weak var bookmarksView: NSView!
     @IBOutlet weak var deleteBookmarkButton: NSButton!
     
+    
+    //called when view is loaded and sets up controller
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
@@ -40,7 +42,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         showMediaContent()
     }
     
-    
+    //Tells the Model that it is no longer active
     override func viewDidDisappear() {
         Model.instance.openFileDelegate = nil
     }
@@ -62,9 +64,9 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
         Called by the model to update UI elements.
      
         - parameters:
-            - currentFile:
-            - notes:
-            - bookmarks:
+            - currentFile: currentFile open
+            - notes: notes that are loaded and displayed in textfield
+            - bookmarks: bookmarks that are added to bookmark table
      */
     func updateOutets(currentFile: MMFile, notes: String, bookmarks: [String:String]) {
         self.notesLabel.stringValue = notes
@@ -96,7 +98,7 @@ class FileOpenViewController: NSViewController, OpenFileModelDegate {
     }
 
     
-    // ---------------- COMMENT THIS ---------------------
+    // Deletes the selected boomarks
     @IBAction func DeleteBookmarkAction(_ sender: NSButton) {
         let keyToDelete = bookmarkKeys[sender.tag]
         Model.instance.deleteBookmark(keyToDelete: keyToDelete)
@@ -118,12 +120,12 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource {
     
     
     /**
-        // ---------------- COMMENT THIS ---------------------
+        // TableView delegate function used to populate bookmark table with bookmarks
      
         - parameters:
-            - tableView:
-            - viewFor:
-            - row:
+            - tableView: what table view
+            - tableColumn: what column
+            - row: what row is currently being populated
         - returns:
      */
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
@@ -142,7 +144,7 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource {
     }
     
    
-    // ---------------- COMMENT THIS ---------------------
+    // Called when user single clicks on a bookmark row (gives option to delete)
     @objc func clickOnRow() {
         //allow users to delete bookmark
         if bookmarkTable.clickedRow != -1 {
@@ -155,14 +157,14 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource {
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Called when user double clicks and takes the media to that time
     @objc func doubleClickOnRow() {
         let time = bookmarkValues[bookmarkTable.clickedRow]
         Model.instance.mediaJumpToTime(jumpTo: time)
     }
     
     
-    // ---------------- COMMENT THIS ---------------------
+    // Used to decouple the window and show the media content from the same time stamp
     func showMediaContent() {
         //shows the media content in the current window
         let mediaType = Model.instance.currentFile?.fileType
