@@ -274,11 +274,11 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="u7o-yX-dPz">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u7o-yX-dPz">
                                     <rect key="frame" x="1" y="119" width="223" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="7dq-8J-6wa">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="7dq-8J-6wa">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -334,11 +334,11 @@
                                     </subviews>
                                     <nil key="backgroundColor"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Waz-Me-KuC">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Waz-Me-KuC">
                                     <rect key="frame" x="1" y="630" width="148" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="dkQ-10-Dqh">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="dkQ-10-Dqh">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -645,11 +645,11 @@ IA
                                             </subviews>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25267551370000002" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         </clipView>
-                                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="P8Q-8c-4Eo">
+                                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="P8Q-8c-4Eo">
                                             <rect key="frame" x="1" y="119" width="223" height="15"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
-                                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="awa-7C-phe">
+                                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="awa-7C-phe">
                                             <rect key="frame" x="224" y="17" width="15" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
@@ -920,11 +920,11 @@ IA
                                     </subviews>
                                     <color key="backgroundColor" name="systemYellowColor" catalog="System" colorSpace="catalog"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="KiY-DQ-m2T">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="KiY-DQ-m2T">
                                     <rect key="frame" x="1" y="153" width="248" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="qnq-bJ-ERB">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="qnq-bJ-ERB">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1191,26 +1191,14 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
                         <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <avPlayerView controlsStyle="floating" translatesAutoresizingMaskIntoConstraints="NO" id="tkC-J9-B6B">
+                            <avPlayerView controlsStyle="inline" translatesAutoresizingMaskIntoConstraints="NO" id="tkC-J9-B6B">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="450"/>
                             </avPlayerView>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o47-Lg-Wip">
-                                <rect key="frame" x="275" y="170" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="o47-Lg-Wip" secondAttribute="height" multiplier="1:1" id="PSo-ys-xoX"/>
-                                    <constraint firstAttribute="width" constant="250" id="WRu-Yx-Jme"/>
-                                    <constraint firstAttribute="height" constant="250" id="mZX-2R-Aty"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="PlaceholderMusic" id="yeh-FI-Heg"/>
-                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="o47-Lg-Wip" secondAttribute="trailing" constant="275" id="1tu-9g-ZFW"/>
                             <constraint firstAttribute="trailing" secondItem="tkC-J9-B6B" secondAttribute="trailing" id="Dwt-6f-7pt"/>
-                            <constraint firstItem="o47-Lg-Wip" firstAttribute="leading" secondItem="FSc-Ow-9bN" secondAttribute="leading" constant="275" id="Lx6-ys-dpv"/>
                             <constraint firstAttribute="bottom" secondItem="tkC-J9-B6B" secondAttribute="bottom" id="clo-yC-Fw9"/>
                             <constraint firstItem="tkC-J9-B6B" firstAttribute="top" secondItem="FSc-Ow-9bN" secondAttribute="top" id="lqB-Yi-QFj"/>
-                            <constraint firstItem="o47-Lg-Wip" firstAttribute="top" secondItem="FSc-Ow-9bN" secondAttribute="top" constant="30" id="pfa-Uh-UwV"/>
                             <constraint firstItem="tkC-J9-B6B" firstAttribute="leading" secondItem="FSc-Ow-9bN" secondAttribute="leading" id="ulB-Z3-QPg"/>
                         </constraints>
                     </view>
@@ -1236,7 +1224,6 @@ Copyright © 2018 Fire Breathing Rubber Duckies</string>
         <image name="Main Background" width="1280" height="646"/>
         <image name="MainBackground" width="1042" height="597"/>
         <image name="Placeholder" width="240" height="240"/>
-        <image name="PlaceholderMusic" width="450" height="450"/>
         <image name="Play button" width="52" height="52"/>
         <image name="Search barckground" width="206" height="41"/>
         <image name="TopBar background" width="1279" height="50"/>

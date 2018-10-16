@@ -187,14 +187,14 @@ extension FileOpenViewController : NSTableViewDelegate, NSTableViewDataSource {
         let x = (self.view.frame.width/2) - 390
         let y = (self.view.frame.height/2) - 285
         newVC.view.frame = CGRect(x: x, y: y, width: 780, height: 570)
-        if mediaType == "video"{
-            //to remove the controls
-            let mediaPlayerVC = newVC as! MediaWindowVideoVC
-            mediaPlayerVC.playerView.controlsStyle = .none
-        } else if mediaType == "audio" {
-            let mediaPlayerVC = newVC as! MediaWindowAudioVC
-            mediaPlayerVC.playerView.controlsStyle = .none
-        }
+//        if mediaType == "video"{
+//            //to remove the controls
+//            let mediaPlayerVC = newVC as! MediaWindowVideoVC
+//           // mediaPlayerVC.playerView.controlsStyle = .none
+//        } else if mediaType == "audio" {
+//            let mediaPlayerVC = newVC as! MediaWindowAudioVC
+//           // mediaPlayerVC.playerView.controlsStyle = .none
+//        }
     }
     
 }
